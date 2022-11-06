@@ -1,0 +1,52 @@
+# NOTE: must use SPACES not TABS
+# help: https://github.com/anishathalye/dotbot#configuration
+- defaults:
+     link:
+       relink: true # update symlinks
+       force: true # update symlinks
+         # create: true # create any necessary directories
+
+- clean: ['~'] # clean dead symlinks
+
+# automate new system mkdirs
+- create: 
+    - ~/archv
+    - ~/img
+    - ~/fun
+    - ~/img
+    - ~/vid
+    - ~/py/play
+    - ~/r/play
+    - ~/tmp/bak
+    - ~/.trash
+    - ~/Downloads/book
+    - ~/Downloads/covid
+    - ~/Downloads/delete_soon
+    - ~/Downloads/invoice
+    - ~/Downloads/official
+    - ~/Downloads/paper
+    - ~/Downloads/tax
+    - ~/.config/Code/User
+
+- link:
+    ~/.config/leftwm: leftwm
+    ~/.local/share/fonts: fonts
+    ~/.zsh.d:
+    ~/.zshrc: ~/.zsh.d/.zshrc # makes ssh less config-annoying
+    ~/.gitconfig:
+    ~/.config/helix: helix
+    ~/.config/cointop: 
+    ~/.vimrc:
+    ~/.cargo/cargo-generate.toml: cargo-generate.toml
+    ~/note/.obsidian: obsidian
+    ~/.config/Code/User/keybindings.json: vscode/keybindings.json
+    ~/.config/Code/User/settings.json: vscode/settings.json
+    ~/.config/Code/User/snippets: vscode/snippets
+    ~/.config/alacritty: alacritty
+    ~/.profile:
+    ~/.xprofile:
+    ~/.config/zellij: zellij
+    ~/.fehbg: 
+
+# - shell: 
+    

@@ -1,0 +1,12 @@
+## Thor's favorite cargo-generate templates. 
+# set default values: https://cargo-generate.github.io/cargo-generate/templates/custom_placeholders.html
+
+## Ex: usage: cg demo
+# [favorites.demo]
+# description = "<optional description, visible with --list-favorites>"
+# git = "https://github.com/ashleygwilliams/wasm-pack-template"
+# branch = "<optional-branch>"
+# subfolder = "<optional-subfolder>"
+
+
+

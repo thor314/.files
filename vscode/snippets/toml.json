@@ -1,0 +1,437 @@
+{
+	"v2":{ // half ass snippet, because I can't figure out how to move the cursor
+		"prefix": ["v2"],
+		"body": "{ version=${CURRENT_WORD} }"
+	},
+	"version": {
+		"prefix": [ "vsn", "version" ],
+		"body": [
+			"[package]",
+			"name = \"${1:my_package}\"",
+			"version = \"${2:0.1.0}\"",
+			"authors = [\"${3:my_name}\"]",
+			"edition = \"${4:2021}\"",
+			"$0"
+		],
+		"description": "[Cargo] package basic information"
+	},
+	"[Cargo] package": {
+		"prefix": [
+			"package",
+			"[package]"
+		],
+		"body": [
+			"[package]",
+			"name = \"${1:my_package}\"",
+			"version = \"${2:0.1.0}\"",
+			"authors = [\"${3:my_name}\"]",
+			"edition = \"${4:2021}\"",
+			"$0"
+		],
+		"description": "[Cargo] package basic information"
+	},
+	"[Cargo] package full manifest": {
+		"prefix": "package-full",
+		"body": [
+			"[package]",
+			"name = \"${1:my_package}\"",
+			"version = \"${2:0.1.0}\"",
+			"authors = [\"${3:my_name}\"]",
+			"edition = \"${4:2021}\"",
+			"build = \"${5:build.rs}\"",
+			"links = \"${6:foo}\"",
+			"exclude = [${7:\"build/**/*.o\"}]",
+			"include = [${8:\"src/**/*\"}]",
+			"publish = [${9:\"some-registry-name\"}]",
+			"license = \"${10:MIT}\"",
+			"license-file = \"${11:LICENSE}\"",
+			"",
+			"description = \"${12:my package description}\"",
+			"documentation = \"${13:docs.rs}\"",
+			"homepage = \"${14:https://my-project.org}\"",
+			"repository = \"${15:https://github.com/org/repo}\"",
+			"readme = \"${16:README.md}\"",
+			"keywords = [$17]",
+			"categories = [$18]",
+			"$0"
+		],
+		"description": "[Cargo] package full manifest"
+	},
+	"[Cargo] package metadata": {
+		"prefix": "PKG_metadata",
+		"body": [
+			"[package.metadata.${1:android}]",
+			"${2:package-name} = \"${3:my-awesome-android-app}\"",
+			"$0"
+		],
+		"description": "[Cargo] package metadata"
+	},
+	"[Cargo] package default run": {
+		"prefix": "PKG_default_run",
+		"body": [
+			"default-run = \"${1:pkg_a}\"",
+			"$0"
+		],
+		"description": "[Cargo] package default run"
+	},
+
+	"[Cargo] badges": {
+		"prefix": [
+			"badges",
+			"[badges]"
+		],
+		"body": [
+			"[badges]",
+			"${1:travis-ci} = { repository = \"${2:https://github.com/org/repo}\", branch = \"${3:master}\" }",
+			"$0"
+		],
+		"description": "[Cargo] badges"
+	},
+
+	"[Cargo] dependencies": {
+		"prefix": [
+			"dependencies",
+			"[dependencies]"
+		],
+		"body": [
+			"[dependencies]",
+			"${1:my_dep} = \"${2:0.1.0}\"",
+			"$0"
+		],
+		"description": "[Cargo] dependencies"
+	},
+	"[Cargo] dependency from custom registry": {
+		"prefix": "DEP_registry",
+		"body": [
+			"${1:my_dep} = { registry = \"${2:my_registry}\", version = \"${3:0.1.0}\" }",
+			"$0"
+		],
+		"description": "[Cargo] dependency from custom registry"
+	},
+	"[Cargo] dependency from git repo": {
+		"prefix": "DEP_git",
+		"body": [
+			"${1:my_dep} = { git = \"${2:https://github.com/rust-lang-nursery/rand}\", branch = \"${3:next}\" }",
+			"$0"
+		],
+		"description": "[Cargo] dependency from git repo"
+	},
+	"[Cargo] dependency from github repo": {
+		"prefix": "DEP_github",
+		"body": [
+			"${1:my_dep} = { git = \"https://github.com/${2:rust-lang-nursery}/${3:rand}\", branch = \"${4:next}\" }",
+			"$0"
+		],
+		"description": "[Cargo] dependency from github repo"
+	},
+	"[Cargo] dependency from path": {
+		"prefix": "DEP_path",
+		"body": [
+			"${1:my_dep} = { path = \"${2:/path/to/my/dep}\", version = \"${3:0.1.0}\" }",
+			"$0"
+		],
+		"description": "[Cargo] dependency from path"
+	},
+	"[Cargo] dependency is optional": {
+		"prefix": "DEP_optional",
+		"body": [
+			"${1:my_dep} = { version = \"${2:0.1.0}\", optional = true }",
+			"$0"
+		],
+		"description": "[Cargo] dependency is optional"
+	},
+	"[Cargo] dependency features": {
+		"prefix": "DEP_features",
+		"body": [
+			"${1:my_dep} = { version = \"${2:0.1.0}\", features = [\"${3:default}\"] }",
+			"$0"
+		],
+		"description": "[Cargo] dependency features"
+	},
+	"[Cargo] single dependency settings": {
+		"prefix": "DEP_settings",
+		"body": [
+			"[dependencies.${1:my-package}]",
+			"${1:version} = \"${2:0.1.0}\"",
+			"${3:features} = [\"${4:default}\"]",
+			"$0"
+		],
+		"description": "[Cargo] single dependency settings"
+	},
+
+	"[Cargo] dev dependencies": {
+		"prefix": [
+			"dev-dependencies",
+			"[dev-dependencies]"
+		],
+		"body": [
+			"[dev-dependencies]",
+			"${1:my_dep} = \"${2:0.1.0}\"",
+			"$0"
+		],
+		"description": "[Cargo] dev dependencies"
+	},
+
+	"[Cargo] build dependencies": {
+		"prefix": [
+			"build-dependencies",
+			"[build-dependencies]"
+		],
+		"body": [
+			"[build-dependencies]",
+			"${1:my_dep} = \"${2:0.1.0}\"",
+			"$0"
+		],
+		"description": "[Cargo] build dependencies"
+	},
+
+	"[Cargo] profile": {
+		"prefix": [
+			"profile",
+			"[profile]"
+		],
+		"body": [
+			"[profile.${1:dev}]",
+			"opt-level = ${2:0}",
+			"$0"
+		],
+		"description": "[Cargo] profile basic information"
+	},
+	"[Cargo] profile full manifest": {
+		"prefix": "profile-full",
+		"body": [
+			"[profile.${1:dev}]",
+			"opt-level = ${2:0}",
+			"debug = ${3:true}",
+			"rpath = ${4:false}",
+			"lto = ${5:false}",
+			"debug-assertions = ${6:true}",
+			"codegen-units = ${7:16}",
+			"panic = '${8:unwind}'",
+			"incremental = ${9:true}",
+			"overflow-checks = ${10:true}",
+			"$0"
+		],
+		"description": "[Cargo] profile full manifest"
+	},
+	"[Cargo] profile dev preset": {
+		"prefix": "profile.dev",
+		"body": [
+			"[profile.dev]",
+			"opt-level = 0",
+			"debug = true",
+			"rpath = false",
+			"lto = false",
+			"debug-assertions = true",
+			"codegen-units = 16",
+			"panic = 'unwind'",
+			"incremental = true",
+			"overflow-checks = true",
+			"$0"
+		],
+		"description": "[Cargo] profile dev preset"
+	},
+	"[Cargo] profile release preset": {
+		"prefix": "profile.release",
+		"body": [
+			"[profile.release]",
+			"opt-level = 3",
+			"debug = false",
+			"rpath = false",
+			"lto = false",
+			"debug-assertions = false",
+			"codegen-units = 16",
+			"panic = 'unwind'",
+			"incremental = false",
+			"overflow-checks = false",
+			"$0"
+		],
+		"description": "[Cargo] profile release preset"
+	},
+	"[Cargo] profile test preset": {
+		"prefix": "profile.test",
+		"body": [
+			"[profile.test]",
+			"opt-level = 0",
+			"debug = 2",
+			"rpath = false",
+			"lto = false",
+			"debug-assertions = true",
+			"codegen-units = 16",
+			"panic = 'unwind'",
+			"incremental = true",
+			"overflow-checks = true",
+			"$0"
+		],
+		"description": "[Cargo] profile test preset"
+	},
+	"[Cargo] profile benchmark preset": {
+		"prefix": "profile.bench",
+		"body": [
+			"[profile.bench]",
+			"opt-level = 3",
+			"debug = false",
+			"rpath = false",
+			"lto = false",
+			"debug-assertions = false",
+			"codegen-units = 16",
+			"panic = 'unwind'",
+			"incremental = false",
+			"overflow-checks = false",
+			"$0"
+		],
+		"description": "[Cargo] profile benchmark preset"
+	},
+
+	"[Cargo] features": {
+		"prefix": [
+			"features",
+			"[features]"
+		],
+		"body": [
+			"[features]",
+			"${1:default} = ${2:[]}",
+			"$0"
+		],
+		"description": "[Cargo] features"
+	},
+
+	"[Cargo] patch": {
+		"prefix": [
+			"patch",
+			"[patch]"
+		],
+		"body": [
+			"[patch.${1:source}]",
+			"${2:my_dep} = { $3 }",
+			"$0"
+		],
+		"description": "[Cargo] patch source"
+	},
+	"[Cargo] patch crates.io": {
+		"prefix": "PATCH_crates_io",
+		"body": [
+			"[patch.crates-io]",
+			"${1:my_dep} = { $2 }",
+			"$0"
+		],
+		"description": "[Cargo] patch crates.io source"
+	},
+
+	"[Cargo] target platform specific dependencies": {
+		"prefix": "TARGET_dep",
+		"body": [
+			"[target.${1:platform}.dependencies]",
+			"$0"
+		],
+		"description": "[Cargo] target platform specific dependencies"
+	},
+	"[Cargo] target platform specific dependencies with config": {
+		"prefix": "TARGET_dep_cfg",
+		"body": [
+			"[target.'cfg(${1:platform})'.dependencies]",
+			"$0"
+		],
+		"description": "[Cargo] target platform specific dependencies with config"
+	},
+	"[Cargo] target windows dependencies": {
+		"prefix": "TARGET_dep_windows",
+		"body": [
+			"[target.'cfg(windows)'.dependencies]",
+			"$0"
+		],
+		"description": "[Cargo] target windows dependencies"
+	},
+	"[Cargo] target unix dependencies": {
+		"prefix": "TARGET_dep_unix",
+		"body": [
+			"[target.'cfg(unix)'.dependencies]",
+			"$0"
+		],
+		"description": "[Cargo] target unix dependencies"
+	},
+	"[Cargo] target architecture specific dependencies": {
+		"prefix": "TARGET_dep_arch",
+		"body": [
+			"[target.'cfg(target_arch = \"${1:arch}\")'.dependencies]",
+			"$0"
+		],
+		"description": "[Cargo] target architecture specific dependencies"
+	},
+
+	"[Cargo] workspace": {
+		"prefix": [
+			"workspace",
+			"[workspace]"
+		],
+		"body": [
+			"[workspace]",
+			"members = [$1]",
+			"$0"
+		],
+		"description": "[Cargo] workspace basic information"
+	},
+	"[Cargo] workspace full manifest": {
+		"prefix": "workspace-full",
+		"body": [
+			"[workspace]",
+			"members = [$1]",
+			"default-members = [$2]",
+			"exclude = [$3]",
+			"$0"
+		],
+		"description": "[Cargo] workspace full manifest"
+	},
+
+	"[Cargo] replace": {
+		"prefix": [
+			"replace",
+			"[replace]"
+		],
+		"body": [
+			"[replace]",
+			"${1:\"foo:0.1.0\"} = { ${2:path = 'path/to/foo'} }",
+			"$0"
+		]
+	},
+
+	"[Cargo] example": {
+		"prefix": [
+			"example",
+			"[[example]]"
+		],
+		"body": [
+			"[[example]]",
+			"name = \"${1:my_example}\"",
+			"path = \"${2:/path/to/example}\"",
+			"$0"
+		],
+		"description": "[Cargo] example"
+	},
+	"[Cargo] bin": {
+		"prefix": [
+			"bin",
+			"[[bin]]"
+		],
+		"body": [
+			"[[bin]]",
+			"name = \"${1:my_bin}\"",
+			"path = \"${2:main.rs}\"",
+			"required-features = [${3:\"default\"}]",
+			"$0"
+		],
+		"description": "[Cargo] bin"
+	},
+	"[Cargo] lib": {
+		"prefix": [
+			"lib",
+			"[lib]"
+		],
+		"body": [
+			"[lib]",
+			"path = \"${1:lib.rs}\"",
+			"$0"
+		],
+		"description": "[Cargo] lib"
+	}
+}

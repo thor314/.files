@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '/home/thor/.files/leftwm/themes/Ascent/wallpaper.png' 

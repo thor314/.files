@@ -1,0 +1,41 @@
+{
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	"python print": {
+		"prefix": "print ",
+		"body": "print(\"$1\", $2)",
+	},
+	"main": {
+		"prefix": ["main", "namemain", "__name__"],
+		"body": [
+		"if __name__ == \"__main__\":",
+		"\tmain()"
+		]
+	},
+	"logging": {
+		"prefix": "logging",
+		"body": [
+			"import logging",
+			"logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')"
+		]
+	},
+	"file logging": {
+		"prefix": ["flogging", "file_log", "log_file"],
+		"body": [
+			"import logging",
+			"logging.basicConfig(filename='$1.txt', level=logging.DEBUG, format=' %(asctime)s -  %(levelname)s -  %(message)s')"
+		]
+	},
+	"debug log": {
+		"prefix": ["dbg", "dlog", "logd", "debug", "log_debug"],
+		"body": "logging.debug(\"$1\")"
+	},
+	"info log": {
+		"prefix": ["info", "log_info"],
+		"body": "logging.info(\"$1\")"
+	},
+	"warn log": {
+			"prefix": [ "warn", "log_warn" ],
+			"body": "logging.warn(\"$1\")"
+	},
+}

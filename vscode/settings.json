@@ -1,0 +1,175 @@
+{
+    // JSON formatting is whitespace heavy, and annoying to read. 
+    // TODO: replace next line with disable unwanted json formatter features.
+    "json.format.enable": false,
+    // WELL THAT'S DUMB (make it less dumb)
+    "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
+    "editor.minimap.enabled": false, // no clutter pls
+    "window.customMenuBarAltFocus": false, // clutter, disable menubar
+    "window.menuBarVisibility": "hidden",
+    "editor.cursorBlinking": "solid", // blink default? ew
+    "workbench.colorTheme": "Moonlight II",
+    "glassit.alpha": 245, // out of 255
+    "workbench.editor.showTabs": false, // tabs are annoying to close
+    "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
+    "zenMode.hideLineNumbers": false,
+    "zenMode.centerLayout": false,
+    "zenMode.hideActivityBar": false,
+    "window.titleBarStyle": "custom", // sexy window bar
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.startupEditor": "none", // statusbar at bottom
+    "explorer.confirmDragAndDrop": false, // no confirm on drag/drop file
+    "editor.inlineSuggest.enabled": true, // preview suggestions inline in greyed out text
+    // "editor.rename.enablePreview": false, // don't ask me to confirm, before renaming
+    // TEXT FORMATTING DEFAULTS
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code", // ligature supporting font
+    "editor.fontWeight": "500",
+    "editor.tabSize": 2, // prefer 2-space width. Fine, they can be spaces > tabs.
+    // "editor.insertSpaces": false,
+    // SAVE AND FORMAT OFTEN
+    "editor.formatOnSaveMode": "file",
+    "files.autoSave": "afterDelay", // other options are suprisingly bad
+    "files.autoSaveDelay": 500, // ms
+    // "editor.formatOnSave": true, // does nothing if save after delay
+    "editor.formatOnType": false, // BUGGGYYYYY, turn off. Eg, inserts $0 after typing '<' in rust
+    "editor.formatOnPaste": true,
+    // GENERAL CODING SETTINGS
+    "editor.foldingImportsByDefault": true,
+    "search.smartCase": true, // figure out whether I care about case-sensitivity
+    "editor.tabCompletion": "on", // complete snippets w tab 
+    "editor.wordWrap": "wordWrapColumn", // if I wrote it, I want it
+    "editor.wordWrapColumn": 120,
+    "rewrap.autoWrap.enabled": true, // simple ext to automatically word-wrap my comments
+    // GIT OPS and LENS
+    "git.autofetch": true,
+    "diffEditor.codeLens": true, // show clicky buttons in merge rebases
+    // ERROR SETTINGS
+    "errorLens.delay": 1000, // doesn't appear to do what I'd think it would
+    "errorLens.enableOnDiffView": true, // view errors on diff
+    "errorLens.statusBarIconsEnabled": true,
+    "errorLens.enabled": true,
+    "errorLens.enabledDiagnosticLevels": [
+        "info",
+        "error"
+    ],
+    // VIM 
+    // docs: https://github.com/VSCodeVim/Vim; good to revisit modules especially
+    // Note: try gc, gC to toggle comments. Eg: gCi} to comment this scope
+    // to grab a block at some indentation level, use <operater>{ii,ai} for inside block, or block and above.
+    // I read up to Input Method, the rest might be info overload.
+    // see bottom for key remappings
+    "vim.leader": "-",
+    "vim.sneak": true, // module: jump to char after "s<char><char>". Uses 'z' in operator mode. 
+    "vim.sneakReplacesF": true, // better than f
+    "vim.sneakUseIgnorecaseAndSmartcase": true, // smart case good
+    "vim.easymotion": true, // module: leader + key to find stuff (sneak seems better)
+    // with noun a=args: cia - change the arg under the cursor preserving comma separators
+    "vim.argumentObjectOpeningDelimiters": [ "<", "(", "[", "{" ],
+    "vim.argumentObjectClosingDelimiters": [ ">", ")", "]", "}" ],
+    // usage: ldr ldr {sftwblhjk}
+    "vim.foldfix": true, // don't unfold code when I move over it
+    "vim.easymotionKeys": "aouidhtns-',.pyfgcrl;qjkxbwvz",
+    "vim.camelCaseMotion.enable": true, // module: ldr {web}
+    "vim.surround": true, // module: use surrounding pairs as nouns
+    // usage: wrap a word with quotes: ysiw"; delete/change surrounding quotes: {dc}s"
+    // in visual mode, use cap S" to surround a selection with quotes
+    "vim.useSystemClipboard": true,
+    "vim.joinspaces": false, // 2 spaces on joining is nonsense
+    "vim.highlightedyank.enable": true, // briefly flash yanks
+    "vim.debug.loggingLevelForAlert": "warn", // double space is cursed
+    "vim.hlsearch": true, // highlight all matches
+    /// Misc coding
+    // Make suggestions suck less.
+    // see: https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions
+    "editor.suggest.showDeprecated": false, // def: true; don't show deprecations in suggests
+    "editor.suggest.showWords": false, // see ghost outline of what suggest will fill
+    // "editor.snippetSuggestions": "top", // I like my snippets
+    "editor.suggest.snippetsPreventQuickSuggestions": false, // I like my snippets to have suggestions
+    // RUST
+    // cargo: https://doc.rust-lang.org/cargo/reference/features.html
+    // RA: https://rust-analyzer.github.io/manual.html#configuration
+    // See bottom for snippets. - on hold, this feature seems buggy
+    "rust-analyzer.files.excludeDirs": ["entropy/core", "tmpl/cgen", "core/crypto/", "crypto/signing-client"],
+    "cargo.automaticCheck": false, // def: true; unclear function when checkonsave true, sometimes lags
+    "rust-analyzer.checkOnSave.enable": true, // disabling this also disables inline error lens
+    "rust-analyzer.checkOnSave.command": "clippy", 
+    // "rust-analyzer.checkOnSave.command": "test", 
+    // "rust-analyzer.checkOnSave.command": "check", // use this to enable inline errors in test modules
+    //
+    // Other features:
+    "rust-analyzer.checkOnSave.allTargets": true, // disabling will disable checks for #[cfg(test)], or WASM, etc
+    "rust-analyzer.checkOnSave.features": "all", // check all features, disabling eliminates editor checks on features
+    "rust-analyzer.diagnostics.experimental.enable": false, // def: false, match <>
+    "rust-analyzer.imports.granularity.enforce": true, // group imports
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true, // get rid of this line when rangeformatting goes stable
+    "rust-analyzer.typing.autoClosingAngleBrackets.enable": false, // Can't get VS code to intelligently skip '>'
+    "[rust]": {
+        // language keywords tend to get in way of snippets, but are useful in less familiar languages
+        "editor.suggest.showKeywords": false,
+        "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    },
+    // I'm finding this feature buggy. Prefer VS code-default snippets.
+    // "rust-analyzer.completion.snippets.custom": { },
+    "editor.inlayHints.enabled": "on", // ignore error; RA toggles this
+    // PYTHON
+    // https://stackoverflow.com/questions/50177173/how-do-i-get-flake8-to-reliably-ignore-rules-in-vs-code
+    "[python]": { "editor.tabSize": 2 },
+    "python.linting.flake8Args": [ "--max-line-length=120", "--ignoreE=402,F841,F401,E302,E305", ],
+    "python.formatting.autopep8Args": [ "--ignore", "E302,E305,F401,F841"],
+        // ,F84k1,F401,E302,E305" // "--ignore 402,F84k1,F401,E302,E305"
+    "python.linting.flake8Enabled": true,
+    "python.analysis.typeCheckingMode": "basic",
+    //
+    // VIM REMAPPINGS 
+    // note: use non-recursive binding to avoid recursive chains of bindings
+    "vim.insertModeKeyBindings": [
+        // go to normal if accidentally start using normal-mode movements
+        { "before": [ "k", "k" ], "after": [ "<Esc>" ] },
+        { "before": [ "j", "j" ], "after": [ "<Esc>" ] },
+        { "before": [ "k", "j" ], "after": [ "<Esc>" ] },
+        { "before": [ "j", "k" ], "after": [ "<Esc>" ] }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [ 
+        // movement nouns; respect camel/snakecase
+        { "before": [ "b" ], "after": [ "<leader>", "b", ] },
+        { "before": [ "e" ], "after": [ "<leader>", "e", ] },
+        { "before": [ "w" ], "after": [ "<leader>", "w", ] },
+        { "before": [ "L" ], "after": [ "$", ] },
+        { "before": [ "H" ], "after": [ "^", ] },
+        // { "before": [ ";" ], "commands": [ "cursorPageDown", ] },
+        // { "before": [ ":" ], "commands": [ "cursorPageUp", ] },
+        { "before": [ "H" ], "after": [ "^", ] },
+        // verb updates, eg toggling case/position, macros, etc
+        { "before": [ "T" ], "after": [ "~" ] },
+        { "before": [ "t" ], "commands": [ "editor.action.transpose" ] },
+        { "before": [ "m" ], "after": [ "@" ] },
+        // quickly find and fix problems
+        { "before": [ "+" ], "commands": [ "editor.action.marker.next", ] },
+        { "before": [ "=" ], "commands": [ "editor.action.quickFix" ] }, 
+        { "before": [ "\\" ], "commands": [ "cursorPageDown" ] }, 
+    ], // mirror movement nouns to operator and visual modes, and verbs to visual mode
+    "vim.normalModeKeyBindings": [ { "before": [ "\\" ], "after": [ "i" , "<space>", "<esc>", "l"] } ],
+    "vim.operatorPendingModeKeyBindingsNonRecursive": [ 
+        { "before": [ "b" ], "after": [ "<leader>", "b", ] },
+        { "before": [ "e" ], "after": [ "<leader>", "e", ] },
+        { "before": [ "w" ], "after": [ "<leader>", "w", ] },
+        { "before": [ "L" ], "after": [ "$", ] },
+        { "before": [ "H" ], "after": [ "^", ] },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [ 
+        { "before": [ "b" ], "after": [ "<leader>", "b", ] },
+        { "before": [ "e" ], "after": [ "<leader>", "e", ] },
+        { "before": [ "w" ], "after": [ "<leader>", "w", ] },
+        { "before": [ "L" ], "after": [ "$", ] },
+        { "before": [ "H" ], "after": [ "^", ] },
+        { "before": [ "T" ], "after": [ "~" ] },
+    ],
+    "window.zoomLevel": -1,
+    "settingsSync.keybindingsPerPlatform": false,
+    //
+    // experiments
+    // 
+    // test: does this disable prompt to save workspace on exit?
+    // "files.hotExit": "off", // ^no.
+}

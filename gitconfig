@@ -1,0 +1,65 @@
+# https://git-scm.com/docs/git-config
+[gpg]
+	program = gpg
+
+[github]
+	user = thor314
+
+[init]
+	defaultBranch = main
+
+[user]
+	email = thorck@protonmail.com
+  name = thor
+	signingkey = F5CF49043A9E588D
+  
+[credential]
+  # manage 2FA interface to github for me
+	credentialStore = secretservice
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
+
+[merge]
+  # don't fast-forward, never fast forward https://twitter.com/cryptograthor/status/1512213325332959236?s=20&t=Mkf_rrPkswhe8PWbhvcEgw
+  ff = false # no-ff. default is ff.
+  commit = false # don't create merge commit, let me check it first
+
+# not sure what this is or how it got here
+#[credential "https://dev.azure.com"]
+#	useHttpPath = true
+
+[core]
+  # use vim or helix
+  editor = vim
+  #editor = code --wait
+
+[pull]
+  # rebase on merge, don't create merge commits on my local
+  rebase = true
+
+[fetch]
+  # if remote branch is deleted, delete it locally too
+  prune = true
+
+# difftastic is diff with increased granularity
+# https://difftastic.wilfred.me.uk/git.html
+[diff]
+  tool = difftastic
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+# Use a pager for large output, just like other git commands.
+[pager]
+  difftool = true
+# `git dft` is less to type than `git difftool`.
+[alias]
+  dft = difftool
+	root = rev-parse --show-toplevel
+[commit]
+	gpgsign = false
+[safe]
+	directory = /home/thor/.files/setup/clone/bat-extras
+	directory = /home/thor/.files/setup/clone/bat-extras
+[credential "https://dev.azure.com"]
+	useHttpPath = true

@@ -1,0 +1,8 @@
+zsh.d/zsh_history
+setup/debs/*
+setup/clones/*
+*zcompdump*
+*.swp
+leftwm/themes/*
+*cronlog*
+archive/*

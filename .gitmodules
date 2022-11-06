@@ -1,0 +1,9 @@
+[submodule "zsh.d/oh-my-zsh"]
+	path = zsh.d/oh-my-zsh
+	url = git@github.com:ohmyzsh/ohmyzsh.git
+[submodule "obsidian"]
+	path = obsidian
+	url = git@github.com:thor314/obsidian.git
+[submodule "helix"]
+	path = helix
+	url = git@github.com:thor314/helix.git
