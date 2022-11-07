@@ -33,4 +33,4 @@ fi
 # configure shell with cargo commands 
 source "$HOME/.cargo/env" 
 # Please ser, may I have my keyboard
-setxkbmap dvorak -option ctrl:swapcaps
+setxkbmap dvorak -option ctrl:nocaps

@@ -1,5 +1,5 @@
 # Commands to execute at the beginning of X user session before window manager 
-setxkbmap dvorak -option ctrl:swapcaps
+setxkbmap dvorak -option ctrl:nocaps
 export XPROFILE_TEST=1
 # These crash.
 # snap run espanso service register

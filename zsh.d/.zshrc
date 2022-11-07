@@ -43,7 +43,7 @@ source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.zsh.d/alias"
 
 ## Other stuff
-setxkbmap dvorak -option ctrl:swapcaps
+setxkbmap dvorak -option ctrl:nocaps
 export EDITOR='vim'
 if [[ $(hostname) == "starchy" ]]; then
   # default is TERM=alacritty; this fixes weird input bugs with alacritty
