@@ -37,7 +37,7 @@ HYPHEN_INSENSITIVE="true" # make -,_ interchangeable. case-sensitive must be off
 DISABLE_UPDATE_PROMPT="true" # auto-update, don't prompt, every 2 weeks
 UPDATE_ZSH_DAYS=14
 HIST_STAMPS="yyyy-mm-dd" # history cmd format
-. <(gpg -qd "$HOME/.secrets.gpg") # load secret environment variables
+. <(gpg -qd "$HOME/.private/.secrets.gpg") # load secret environment variables
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.zsh.d/alias"
@@ -70,5 +70,4 @@ bindkey '^K' tk-kill-line
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet # don't complain at me
 
 ## misc
-fpath+=${ZDOTDIR:-~}/.zsh_functions
 fpath+=${ZDOTDIR:-~}/.zsh_functions
