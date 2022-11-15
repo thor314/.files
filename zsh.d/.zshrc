@@ -1,1 +1,1 @@
-zshrc
+/home/thor/.files/zsh.d/zshrc
