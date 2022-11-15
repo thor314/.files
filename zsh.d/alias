@@ -25,7 +25,7 @@ alias ags="apt-cache search"
 
 alias bat="bat --theme=zenburn --style=plain" # plain: no line numbers
 backup() {
-  echo "$@" >> ~/.setup/unsorted.zsh
+  echo "$@" >> ~/.setup/unsorted.sh
 }
 alias bu=backup
 
@@ -247,10 +247,9 @@ alias tf="taplo fmt"
 alias v='vi'
 alias vpn=protonvpn-cli
 alias va='vi ~/.config/alacritty/alacritty.yml'
-alias vb='vi ~/.setup/unsorted.zsh'
-alias vbi='vi ~/.setup/install.zsh'
-alias vbu='vi ~/.setup/install.zsh'
-alias vbup='vi ~/.setup/package_managers.zsh'
+alias vb='vi ~/.setup/unsorted.sh'
+alias vbi='vi ~/.setup/install.sh'
+alias vbu='vi ~/.setup/install.sh'
 alias vcg='vi ~/.cargo/cargo-generate.toml'
 alias vd='vi ~/.files/install.conf.yaml'
 alias vdp='vi ~/.files/private/install.conf.yaml'
