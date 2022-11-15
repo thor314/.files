@@ -38,7 +38,9 @@
     ~/.config/cointop: 
     ~/.vimrc:
     ~/.cargo/cargo-generate.toml: cargo-generate.toml
-    ~/note/.obsidian: obsidian
+      #~/note/.obsidian: obsidian
+    ~/note2/.obsidian.vimrc: obsidian.vimrc
+    ~/note2/.obsidian.vimrc: obsidian.vimrc
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.config/Code/User/settings.json: vscode/settings.json
     ~/.config/Code/User/snippets: vscode/snippets
