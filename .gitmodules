@@ -7,3 +7,6 @@
 [submodule "helix"]
 	path = helix
 	url = git@github.com:thor314/helix.git
+[submodule "zotero"]
+	path = zotero
+	url = https://github.com/thor314/zotero
