@@ -31,8 +31,8 @@
 - link:
     ~/.config/leftwm: leftwm
     ~/.local/share/fonts: fonts
+    ~/.files/zsh.d/.zshrc: zsh.d/zshrc
     ~/.zsh.d:
-    ~/.zshrc: zsh.d/zshrc # makes ssh less config-annoying
     ~/snap/zotero-snap/common/.zotero: zotero # makes ssh less config-annoying
     ~/.gitconfig:
     ~/.config/helix: helix

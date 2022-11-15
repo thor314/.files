@@ -270,6 +270,7 @@ alias vz='vi ~/.zsh.d/.zshrc'
 alias vza='vi ~/.zsh.d/alias'
 
 alias zj=zellij
+alias zotero="flatpak run org.zotero.Zotero"
 
 alias :q=exit
 
