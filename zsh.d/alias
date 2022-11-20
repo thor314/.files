@@ -22,6 +22,7 @@ checkall(){
 
 # PERMANENT(ish)
 alias ags="apt-cache search"
+alias agi="sudo apt install -y"
 
 alias bat="bat --theme=zenburn --style=plain" # plain: no line numbers
 backup() {

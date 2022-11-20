@@ -16,6 +16,7 @@ export GOPATH="$HOME/go"
 export GOROOT=/usr/local/go
 fpath+="$HOME/.zsh.d/zsh_functions" # alacritty completions
 PATH+=":$GOPATH/bin:$GOROOT/bin"
+PATH+=":$HOME/.share/bin"
 # export PATH
 
 # if [[ $(hostname) == "starchy" ]]; then
@@ -34,3 +35,4 @@ fi
 source "$HOME/.cargo/env" 
 # Please ser, may I have my keyboard
 setxkbmap dvorak -option ctrl:nocaps
+. "$HOME/.cargo/env"
