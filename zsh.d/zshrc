@@ -69,8 +69,6 @@ bindkey '^K' tk-kill-line
 [[ ! -f ~/.zsh.d/.p10k.zsh ]] || source ~/.zsh.d/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet # don't complain at me
 
-# Experiment: use hx editor more
-alias vi=hx
 
 ## misc
 fpath+=${ZDOTDIR:-~}/.zsh_functions
