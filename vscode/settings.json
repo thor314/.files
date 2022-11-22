@@ -52,8 +52,8 @@
     "errorLens.enabledDiagnosticLevels": [
         "info",
         "error",
-        "hint",
-        "warning"
+        "warning",
+        "hint"
     ],
     // VIM 
     // docs: https://github.com/VSCodeVim/Vim; good to revisit modules especially
