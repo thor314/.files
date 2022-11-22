@@ -51,7 +51,8 @@
     "errorLens.enabled": true,
     "errorLens.enabledDiagnosticLevels": [
         "info",
-        "error"
+        "error",
+        "hint"
     ],
     // VIM 
     // docs: https://github.com/VSCodeVim/Vim; good to revisit modules especially
@@ -165,7 +166,7 @@
         { "before": [ "H" ], "after": [ "^", ] },
         { "before": [ "T" ], "after": [ "~" ] },
     ],
-    "window.zoomLevel": -1,
+    "window.zoomLevel": -2,
     "settingsSync.keybindingsPerPlatform": false,
     //
     // experiments
