@@ -113,7 +113,7 @@
     },
     // I'm finding this feature buggy. Prefer VS code-default snippets.
     // "rust-analyzer.completion.snippets.custom": { },
-    "editor.inlayHints.enabled": "on", // ignore error; RA toggles this
+    "editor.inlayHints.enabled": "offUnlessPressed", // holt ctrl+alt to show hints
     // PYTHON
     // https://stackoverflow.com/questions/50177173/how-do-i-get-flake8-to-reliably-ignore-rules-in-vs-code
     "[python]": { "editor.tabSize": 2 },
@@ -169,6 +169,7 @@
     ],
     "window.zoomLevel": -2,
     "settingsSync.keybindingsPerPlatform": false,
+    "editor.inlayHints.padding": true,
     //
     // experiments
     // 
