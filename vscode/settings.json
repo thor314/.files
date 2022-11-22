@@ -166,7 +166,7 @@
         { "before": [ "H" ], "after": [ "^", ] },
         { "before": [ "T" ], "after": [ "~" ] },
     ],
-    "window.zoomLevel": -2,
+    "window.zoomLevel": -3,
     "settingsSync.keybindingsPerPlatform": false,
     //
     // experiments
