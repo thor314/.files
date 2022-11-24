@@ -21,8 +21,8 @@
 
 [merge]
   # don't fast-forward, never fast forward https://twitter.com/cryptograthor/status/1512213325332959236?s=20&t=Mkf_rrPkswhe8PWbhvcEgw
-  ff = false # no-ff. default is ff.
-  commit = false # don't create merge commit, let me check it first
+  # ff = false # no-ff. default is ff.
+  # commit = false # don't create merge commit, let me check it first
 
 # not sure what this is or how it got here
 #[credential "https://dev.azure.com"]
