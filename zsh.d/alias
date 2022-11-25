@@ -190,6 +190,8 @@ alias logout="pkill -u $(whoami)"
 alias man="batman" # du du du du du du du du
 
 alias obsidian="flatpak run md.obsidian.Obsidian"
+alias obs"flatpak run com.obsproject.Studio"
+alias obs-studio"flatpak run com.obsproject.Studio"
 
 alias pipi="pip install"
 alias python=python3
