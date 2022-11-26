@@ -24,6 +24,7 @@
     // TEXT FORMATTING DEFAULTS
     "editor.fontLigatures": true,
     "editor.fontFamily": "Fira Code", // ligature supporting font
+    "terminal.integrated.fontFamily": "'Fira Code', monospace", // bugfix, maybe ligature issue?
     "editor.fontWeight": "500",
     "editor.tabSize": 2, // prefer 2-space width. Fine, they can be spaces > tabs.
     // "editor.insertSpaces": false,
