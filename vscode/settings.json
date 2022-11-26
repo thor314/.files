@@ -171,6 +171,8 @@
     "window.zoomLevel": -2,
     "settingsSync.keybindingsPerPlatform": false,
     "editor.inlayHints.padding": true,
+    "terminal.external.linuxExec": "alacritty",
+    "terminal.explorerKind": "external",
     //
     // experiments
     // 
