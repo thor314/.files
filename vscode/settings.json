@@ -62,26 +62,26 @@
     // to grab a block at some indentation level, use <operater>{ii,ai} for inside block, or block and above.
     // I read up to Input Method, the rest might be info overload.
     // see bottom for key remappings
-    "vim.leader": "-",
-    "vim.sneak": true, // module: jump to char after "s<char><char>". Uses 'z' in operator mode. 
-    "vim.sneakReplacesF": true, // better than f
-    "vim.sneakUseIgnorecaseAndSmartcase": true, // smart case good
-    "vim.easymotion": true, // module: leader + key to find stuff (sneak seems better)
+    // "vim.leader": "-",
+    // "vim.sneak": true, // module: jump to char after "s<char><char>". Uses 'z' in operator mode. 
+    // "vim.sneakReplacesF": true, // better than f
+    // "vim.sneakUseIgnorecaseAndSmartcase": true, // smart case good
+    // "vim.easymotion": true, // module: leader + key to find stuff (sneak seems better)
     // with noun a=args: cia - change the arg under the cursor preserving comma separators
-    "vim.argumentObjectOpeningDelimiters": [ "<", "(", "[", "{" ],
-    "vim.argumentObjectClosingDelimiters": [ ">", ")", "]", "}" ],
+    // "vim.argumentObjectOpeningDelimiters": [ "<", "(", "[", "{" ],
+    // "vim.argumentObjectClosingDelimiters": [ ">", ")", "]", "}" ],
     // usage: ldr ldr {sftwblhjk}
-    "vim.foldfix": true, // don't unfold code when I move over it
-    "vim.easymotionKeys": "aouidhtns-',.pyfgcrl;qjkxbwvz",
-    "vim.camelCaseMotion.enable": true, // module: ldr {web}
-    "vim.surround": true, // module: use surrounding pairs as nouns
+    // "vim.foldfix": true, // don't unfold code when I move over it
+    // "vim.easymotionKeys": "aouidhtns-',.pyfgcrl;qjkxbwvz",
+    // "vim.camelCaseMotion.enable": true, // module: ldr {web}
+    // "vim.surround": true, // module: use surrounding pairs as nouns
     // usage: wrap a word with quotes: ysiw"; delete/change surrounding quotes: {dc}s"
     // in visual mode, use cap S" to surround a selection with quotes
-    "vim.useSystemClipboard": true,
-    "vim.joinspaces": false, // 2 spaces on joining is nonsense
-    "vim.highlightedyank.enable": true, // briefly flash yanks
-    "vim.debug.loggingLevelForAlert": "warn", // double space is cursed
-    "vim.hlsearch": true, // highlight all matches
+    // "vim.useSystemClipboard": true,
+    // "vim.joinspaces": false, // 2 spaces on joining is nonsense
+    // "vim.highlightedyank.enable": true, // briefly flash yanks
+    // "vim.debug.loggingLevelForAlert": "warn", // double space is cursed
+    // "vim.hlsearch": true, // highlight all matches
     /// Misc coding
     // Make suggestions suck less.
     // see: https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions
