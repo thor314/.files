@@ -4,8 +4,7 @@
     "json.format.enable": false,
     // WELL THAT'S DUMB (make it less dumb)
     "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
-    "editor.minimap.enabled": false, // no clutter pls
-    "window.customMenuBarAltFocus": false, // clutter, disable menubar
+    "editor.minimap.enabled": false, // clutter, disable menubar
     "window.menuBarVisibility": "hidden",
     "editor.cursorBlinking": "solid", // blink default? ew
     "workbench.colorTheme": "Moonlight II",
@@ -173,6 +172,7 @@
     "editor.inlayHints.padding": true,
     "terminal.external.linuxExec": "alacritty",
     "terminal.explorerKind": "external",
+    "window.customMenuBarAltFocus": false,
     //
     // experiments
     // 
