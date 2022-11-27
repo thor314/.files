@@ -131,7 +131,7 @@ alias gu="gitui" # ui interface to git
 alias gin='git init'
 alias girust='gi rust >> .gitignore'
 alias gir='gi rust >> .gitignore'
-alias gm="git merge --ff --squash"  
+# alias gm="git merge --ff --squash"  
 # OMZ gitignore gi {list,<template>}
 # OMZ: git; esp. gam,gc!
 # OMZ: rga go+
