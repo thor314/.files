@@ -17,6 +17,7 @@ export GOROOT=/usr/local/go
 fpath+="$HOME/.zsh.d/zsh_functions" # alacritty completions
 PATH+=":$GOPATH/bin:$GOROOT/bin"
 PATH+=":$HOME/.share/bin"
+PATH+=":$HOME/.cargo/bin/bat-extras/bin"
 # export PATH
 
 # if [[ $(hostname) == "starchy" ]]; then
