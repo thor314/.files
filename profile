@@ -18,6 +18,7 @@ fpath+="$HOME/.zsh.d/zsh_functions" # alacritty completions
 PATH+=":$GOPATH/bin:$GOROOT/bin"
 PATH+=":$HOME/.share/bin"
 PATH+=":$HOME/.cargo/bin/bat-extras/bin"
+PATh+=":$HOME/.share/bin/lean-bin"
 # export PATH
 
 # if [[ $(hostname) == "starchy" ]]; then
