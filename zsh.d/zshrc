@@ -43,7 +43,7 @@ HIST_STAMPS="yyyy-mm-dd" # history cmd format
 . <(gpg -qd "$HOME/.private/secrets.gpg") # load secret environment variables
 
 source "$ZSH/oh-my-zsh.sh"
-source "$HOME/.zsh.d/alias"
+source "$HOME/.zsh.d/alias.sh"
 
 ## Other stuff
 setxkbmap dvorak -option ctrl:nocaps

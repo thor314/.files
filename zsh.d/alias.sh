@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 # Thor's aliases and convenience functions, mostly alphebetized.
 # aliases a poor man's tldr: grep through my aliases for examples.
 # define functions and bind aliases to them to include them in rg results.
@@ -22,7 +22,6 @@ checkall(){
 
 # PERMANENT(ish)
 alias ags="apt-cache search"
-alias agi="sudo apt install -y"
 
 alias bat="bat --theme=zenburn --style=plain" # plain: no line numbers
 backup() {
@@ -57,6 +56,7 @@ alias cl='cargo clippy'
 alias cy='cargo clippy'
 alias clf='cargo clippy --fix' # try to fix lints
 alias cn='cargo new'
+alias cpr='cp -r'
 alias cq='cargo clean'
 alias cr='cargo run'
 alias ct='cargo test'
@@ -103,6 +103,7 @@ alias dtr="sudo dotbot -c ~/.files/root/install.conf.yaml"
 alias dts="sudo dotbot -c ~/.files/root/install.conf.yaml"
 alias du="dust" # gimme stats
 
+alias fd=fdfind
 alias files="cd $HOME/.files"
 alias fk=fuck
 alias fa="forge install" # think add
@@ -131,7 +132,7 @@ alias gu="gitui" # ui interface to git
 alias gin='git init'
 alias girust='gi rust >> .gitignore'
 alias gir='gi rust >> .gitignore'
-# alias gm="git merge --ff --squash"  
+alias gm="git merge --ff --squash"  
 # OMZ gitignore gi {list,<template>}
 # OMZ: git; esp. gam,gc!
 # OMZ: rga go+
@@ -189,11 +190,6 @@ alias logout="pkill -u $(whoami)"
 
 alias man="batman" # du du du du du du du du
 
-alias obsidian="flatpak run md.obsidian.Obsidian"
-alias obs="flatpak run com.obsproject.Studio"
-alias obs-studio="flatpak run com.obsproject.Studio"
-alias code="flatpak run com.visualstudio.code"
-
 alias pipi="pip install"
 alias python=python3
 alias pp=pythonplay
@@ -228,6 +224,8 @@ alias rrm="rusty-rain -c moon"
 alias rrn="rusty-rain -c numbers"
 alias rrs="rusty-rain -c shapes"
 
+alias sr='fd --type file -x sd' # search replace in directory
+alias srp='fd --type file -x sd -p' # search replace in directory practice
 alias sc="maim -u -s | xclip -selection clipboard -target image/png"
 alias sni='snap install'
 alias snr='snap remove'
@@ -240,7 +238,7 @@ alias sshzl="ssh -t thor@$IP_LILBIRB ZDOTDIR=.zsh.d zsh"
 alias sshzs="ssh -t thor@$IP_STARCHY ZDOTDIR=.zsh.d zsh"
 alias sshzh="ssh -t thor@$IP_HOME ZDOTDIR=.zsh.d "
 alias sz='source ~/.zsh.d/.zshrc'
-alias sza='source ~/.zsh.d/alias'
+alias sza='source ~/.zsh.d/alias.sh'
 alias spot=spt # spotify-tui
 
 alias top='btm' # kinky
@@ -251,7 +249,6 @@ alias tor="flatpak run com.github.micahflee.torbrowser-launcher"
 alias tf="taplo fmt"
 
 alias v='vi'
-alias vpn=protonvpn-cli
 alias va='vi ~/.config/alacritty/alacritty.yml'
 alias vb='vi ~/.setup/unsorted.sh'
 alias vbi='vi ~/.setup/install.sh'
@@ -273,7 +270,7 @@ alias vo='vi ~/note/.obsidian.vimrc'
 alias vtmpl='vi ~/r/tmpl/base/Cargo.toml'
 alias vv='vi ~/.vimrc'
 alias vz='vi ~/.zsh.d/.zshrc'
-alias vza='vi ~/.zsh.d/alias'
+alias vza='vi ~/.zsh.d/alias.sh'
 
 alias zj=zellij
 alias zotero="flatpak run org.zotero.Zotero"
