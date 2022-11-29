@@ -4,7 +4,8 @@
     "json.format.enable": false,
     // WELL THAT'S DUMB (make it less dumb)
     "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
-    "editor.minimap.enabled": false, // clutter, disable menubar
+    "editor.minimap.enabled": false, // no clutter pls
+    "window.customMenuBarAltFocus": false, // clutter, disable menubar
     "window.menuBarVisibility": "hidden",
     "editor.cursorBlinking": "solid", // blink default? ew
     "workbench.colorTheme": "Moonlight II",
@@ -23,7 +24,6 @@
     // TEXT FORMATTING DEFAULTS
     "editor.fontLigatures": true,
     "editor.fontFamily": "Fira Code", // ligature supporting font
-    "terminal.integrated.fontFamily": "'Fira Code', monospace", // bugfix, maybe ligature issue?
     "editor.fontWeight": "500",
     "editor.tabSize": 2, // prefer 2-space width. Fine, they can be spaces > tabs.
     // "editor.insertSpaces": false,
@@ -51,9 +51,7 @@
     "errorLens.enabled": true,
     "errorLens.enabledDiagnosticLevels": [
         "info",
-        "error",
-        "warning",
-        "hint"
+        "error"
     ],
     // VIM 
     // docs: https://github.com/VSCodeVim/Vim; good to revisit modules especially
@@ -113,7 +111,7 @@
     },
     // I'm finding this feature buggy. Prefer VS code-default snippets.
     // "rust-analyzer.completion.snippets.custom": { },
-    "editor.inlayHints.enabled": "offUnlessPressed", // holt ctrl+alt to show hints
+    "editor.inlayHints.enabled": "on", // ignore error; RA toggles this
     // PYTHON
     // https://stackoverflow.com/questions/50177173/how-do-i-get-flake8-to-reliably-ignore-rules-in-vs-code
     "[python]": { "editor.tabSize": 2 },
@@ -169,10 +167,6 @@
     ],
     "window.zoomLevel": -2,
     "settingsSync.keybindingsPerPlatform": false,
-    "editor.inlayHints.padding": true,
-    "terminal.external.linuxExec": "alacritty",
-    "terminal.explorerKind": "external",
-    "window.customMenuBarAltFocus": false,
     //
     // experiments
     // 
