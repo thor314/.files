@@ -4,14 +4,10 @@
 # define functions and bind aliases to them to include them in rg results.
 
 # OMZ: note aliases: -,.,..,...,1,2,3,......
-
 # OMZ ubuntu apt: rga ^a+ ; notable: agi,agr,aguu,
 unalias git 2> /dev/null # the `hub` zshell plugin undesirably sets this
 
 # TEMP
-alias cdc="cd ~/job/core/crypto/c-manager"
-alias cds="cd ~/job/core/crypto/server"
-alias cdc="cd ~/job/core/crypto"
 alias cdb="cd ~/r/tmpl/base/"
 alias hxk="hx ~/.setup/clones/helix/book/src/keymap.md"
 alias hxc="hx ~/.setup/clones/helix/book/src/commands.md"
