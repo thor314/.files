@@ -208,6 +208,9 @@ end
 
 function rga
   alias | rg -e "$argv"
+end
+function rgg 
+  rg $argv $HOME/.files/fish/
   functions | rg -e "$argv"
 end
 alias ru=rustup
