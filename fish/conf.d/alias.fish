@@ -210,7 +210,7 @@ function rga
   alias | rg -e "$argv"
 end
 function rgg 
-  rg $argv $HOME/.files/fish/
+  rg $argv $HOME/.files/fish/conf.d/git.md
   functions | rg -e "$argv"
 end
 alias ru=rustup
