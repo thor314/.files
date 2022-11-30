@@ -207,6 +207,7 @@ function pythonplay
 end
 
 function rga
+  alias | rg -e "$argv"
   functions | rg -e "$argv"
 end
 alias ru=rustup
