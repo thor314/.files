@@ -11,11 +11,12 @@ SETUVAR _fisher_ilancosman_2F_tide_files:\x7e/\x2econfig/fish/functions/_tide_1_
 SETUVAR _fisher_jethrokuan_2F_z_files:\x7e/\x2econfig/fish/functions/__z\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_add\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_clean\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_complete\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
+SETUVAR _fisher_meaningful_2D_ooo_2F_sponge_files:\x7e/\x2econfig/fish/functions/_sponge_clear_state\x2efish\x1e\x7e/\x2econfig/fish/functions/_sponge_on_exit\x2efish\x1e\x7e/\x2econfig/fish/functions/_sponge_on_postexec\x2efish\x1e\x7e/\x2econfig/fish/functions/_sponge_on_preexec\x2efish\x1e\x7e/\x2econfig/fish/functions/_sponge_on_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/_sponge_remove_from_history\x2efish\x1e\x7e/\x2econfig/fish/functions/sponge_filter_failed\x2efish\x1e\x7e/\x2econfig/fish/functions/sponge_filter_matched\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/sponge\x2efish
 SETUVAR _fisher_patrickf1_2F_fzf_2E_fish_files:\x7e/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_changed_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_diff_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_processes\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e\x7e/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eilancosman/tide\x1epatrickf1/fzf\x2efish\x1ejethrokuan/z\x1ejorgebucaran/nvm\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eilancosman/tide\x1epatrickf1/fzf\x2efish\x1ejethrokuan/z\x1ejorgebucaran/nvm\x2efish\x1emeaningful\x2dooo/sponge
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR _tide_left_items:pwd\x1egit\x1echaracter
-SETUVAR _tide_prompt_2615114:\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x40PWD\x40\x1b\x5b92m\x20\u276f\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b90m12\x3a48\x3a50\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm
+SETUVAR _tide_prompt_2615114:\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x40PWD\x40\x1b\x5b92m\x20\u276f\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b90m12\x3a55\x3a33\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm
 SETUVAR _tide_prompt_2630520:\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x40PWD\x40\x1b\x5b92m\x20\u276f\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b90m12\x3a47\x3a45\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm
 SETUVAR _tide_right_items:status\x1ecmd_duration\x1econtext\x1ejobs\x1evirtual_env\x1erustc\x1ego\x1etime
 SETUVAR editor:hx
@@ -49,6 +50,12 @@ SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR nvm_data:/home/thor/\x2elocal/share/nvm
 SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist
+SETUVAR sponge_allow_previously_successful:true
+SETUVAR sponge_delay:5
+SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched
+SETUVAR sponge_purge_only_on_exit:false
+SETUVAR sponge_regex_patterns:\x1d
+SETUVAR sponge_successful_exit_codes:0
 SETUVAR tide_aws_bg_color:normal
 SETUVAR tide_aws_color:yellow
 SETUVAR tide_aws_icon:\uf270
