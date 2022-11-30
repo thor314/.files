@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-. <(gpg -qd "$HOME/.private/secrets.gpg") # load secret environment variables
+gpg -qd "$HOME/.private/secrets.gpg" | source
 
 setxkbmap dvorak -option ctrl:nocaps
 if test (hostname) = "starchy" 
