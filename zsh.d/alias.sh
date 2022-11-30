@@ -13,6 +13,9 @@ alias cdc="cd ~/job/core/crypto/c-manager"
 alias cds="cd ~/job/core/crypto/server"
 alias cdc="cd ~/job/core/crypto"
 alias cdb="cd ~/r/tmpl/base/"
+alias hxk="hx ~/.setup/clones/helix/book/src/keymap.md"
+alias hxc="hx ~/.setup/clones/helix/book/src/commands.md"
+alias hxo="hx ~/.setup/clones/helix/book/src/configuration.md"
 
 alias ck="echo \"checking $(pwd)\" && cargo check -q && cargo clippy -- -D warnings && cargo fmt --check && taplo fmt --check"
 checkall(){

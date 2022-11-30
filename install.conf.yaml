@@ -39,6 +39,7 @@
     ~/.vimrc:
     ~/.share/bin: share-bin
     ~/.local/bin: local-bin
+    ~/.cargo/bin: cargo-bin
     ~/.cargo/cargo-generate.toml: cargo-generate.toml
       #~/note/.obsidian: obsidian # may move this to private
       # ~/note2/.obsidian.vimrc: obsidian.vimrc
