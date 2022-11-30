@@ -33,6 +33,7 @@
     ~/.local/share/fonts: fonts
     ~/.files/zsh.d/.zshrc: zsh.d/zshrc # maybe redundant
     ~/.zsh.d:
+    ~/.config/fish: fish
     ~/.gitconfig:
     ~/.config/helix: helix
     ~/.config/cointop: 
