@@ -46,7 +46,8 @@ selection:
   save_to_clipboard: true
 
 shell:
-  program: /bin/zsh
+  program: /usr/bin/fish # 2022-11-30 experiment
+  # program: /usr/zsh  
 
 # where to start new shells
 working_directory: None 
