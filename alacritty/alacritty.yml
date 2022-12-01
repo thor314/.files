@@ -56,16 +56,16 @@ mouse:
 
 key_bindings:
   # don't map many; they will fight helix keybinds. Prefer Ctrl+Alt as mods.
-  # - { key: W, mods: Control|Shift, action: Hide}
-  # - { key: Z,         mods: Alt,           command: { program: "zellij" }       } # broken
-  # - { key: K,         mods: Control|Shift, mode: ~Vi|~Search, chars: "\x0c"     } # clear screen, also see ctrlshiftL
-  - { key: Return,    mods: Control|Alt, action: SpawnNewInstance             } # spawn in same dir
+  - { key: Return,    mods: Control|Alt,           action: SpawnNewInstance             } # spawn in same dir
   - { key: U,         mods: Control|Alt,           action: ScrollPageUp             }
   - { key: D,         mods: Control|Alt,           action: ScrollPageDown           }
+  - { key: L,         mods: Control|Alt,           action: ClearLogNotice } # clear screen
+  # want: ctrl-alt-s to resume fg
   # - { key: S,         mods: Control, command: { program: "fg (__fish_expand_pid_args $argv)[-1]" }           }
+  # want: ctrl-alt-s to launch zellij
+  # - { key: Z,         mods: Alt,           command: { program: "zellij" }       } # broken
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
-  - { key: L,         mods: Control|Alt,                    action: ClearLogNotice } # clear screen
   #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
   #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
   #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
