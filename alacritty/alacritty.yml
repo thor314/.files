@@ -26,27 +26,24 @@ scrolling:
 font:
   size: 9.0
   normal:
-    family: "MesloLGS NF" # recommended by powerline10k
-# font:
-#   normal:
-#     # choices: monospace, Fira Code, Iosevka Extended, 
-#     family: Fira Code
-#     style: Regular # Bold, Regular, etc.
-#   size: 10.0
-#   draw_bold_text_with_bright_colors: true # If `true`, bold text is drawn using the bright color variants.
+    #  find mono fonts: fc-list -b | rg -i "family:.*mono | sort | uniq"
+    # family: "MesloLGS NF" # recommended by powerline10k
+    # family: "DejaVu Sans Mono"
+    # family: "Liberation Mono"
+    family: "Fira Mono" 
 
 bell:
   # https://github.com/alacritty/alacritty/blob/master/alacritty.yml#L344
   animation: EaseOutExpo
   duration: 10 # in ms. 0=disabled
-  #color: '#ffffff'
+  # color: '#ffffff'
   
 selection:
-  # When set to `true`, selected text will be copied to the primary clipboard.
+  # selected text will be copied to the primary clipboard.
   save_to_clipboard: true
 
 shell:
-  program: /usr/bin/fish # 2022-11-30 experiment
+  program: /usr/bin/fish 
   # program: /usr/zsh  
 
 # where to start new shells
