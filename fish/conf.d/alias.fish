@@ -168,8 +168,8 @@ alias gg=gityeet
 alias ggu=gityeeet
 alias gghub=gityeeeet
 
-alias h="hx ."
-alias hxa="hx ~/.files/fish/conf.d/alias.fish"
+alias h="hx ."  
+alias hxa="hx ~/.files/fish/conf.d/alias.fish"  
 alias sa="source ~/.files/fish/conf.d/alias.fish"
 alias hxb="hx ~/.files/fish/conf.d/bind.fish"
 alias hxc="hx ~/.files/helix/config.toml"
