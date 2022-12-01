@@ -19,6 +19,7 @@ PATH+=":$GOPATH/bin:$GOROOT/bin"
 PATH+=":$HOME/.share/bin"
 PATH+=":$HOME/.cargo/bin/bat-extras/bin"
 PATH+=":$HOME/.share/bin/lean-bin"
+PATH+=":$HOME/.files/local-bin/npm-bin"
 # export PATH
 
 # if [[ $(hostname) == "starchy" ]]; then
@@ -38,3 +39,5 @@ source "$HOME/.cargo/env"
 # Please ser, may I have my keyboard
 setxkbmap dvorak -option ctrl:nocaps
 . "$HOME/.cargo/env"
+
+export PATH="$HOME/.elan/bin:$PATH"
