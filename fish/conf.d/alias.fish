@@ -227,10 +227,6 @@ function rgg
   functions | rg -e "$argv"
 end
 alias ru=rustup
-function r
-  mv -f $argv[1] "$HOME/.trash"
-end
-alias rm="r"
 alias rmf="rm -rf" 
 alias rmr="rm -rf" 
 alias rra="rusty-rain -c arrow"
