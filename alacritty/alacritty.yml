@@ -57,11 +57,11 @@ mouse:
 key_bindings:
   # - { key: W, mods: Control|Shift, action: Hide}
   - { key: Return,    mods: Control|Shift, action: SpawnNewInstance             } # spawn in same dir
-  - { key: Z,         mods: Alt,           command: { program: "zellij" }       } # broken
+  # - { key: Z,         mods: Alt,           command: { program: "zellij" }       } # broken
   - { key: K,         mods: Control|Shift, mode: ~Vi|~Search, chars: "\x0c"     } # clear screen, also see ctrlshiftL
-  - { key: K,         mods: Alt,           action: ScrollPageUp                 }
-  - { key: J,         mods: Alt,           action: ScrollPageDown               }
-  - { key: Z,         mods: Control|Shift, command: { program: "fg" }           }
+  - { key: U,         mods: Control,           action: ScrollPageUp                 }
+  - { key: D,         mods: Control,           action: ScrollPageDown               }
+  - { key: S,         mods: Control, command: { program: "fg (__fish_expand_pid_args $argv)[-1]" }           }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
