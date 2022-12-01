@@ -15,7 +15,7 @@ window:
     lines: 64
   dynamic_padding: true # Spread additional padding evenly around the terminal content.
   decorations: none # none > full: don't clutter with borders and title bar
-  opacity: 0.95 # 0<n<1.0
+  opacity: 0.90 # 0<n<1.0
 
 scrolling:
   history: 10000 # max scrollback
