@@ -1,26 +1,32 @@
 #!/bin/sh
-# Thor's aliases and convenience functions, mostly alphebetized.
+# Thor's aliases and convenience functions, mostly alphabetized.
 # aliases a poor man's tldr: grep through my aliases for examples.
 # define functions and bind aliases to them to include them in rg results.
 
-# OMZ: note aliases: -,.,..,...,1,2,3,......
-# OMZ ubuntu apt: rga ^a+ ; notable: agi,agr,aguu,
-
 # TEMP
 alias cdb="cd ~/r/tmpl/base/"
+alias hxa="hx ~/.files/fish/conf.d/alias.fish"
 alias hxk="hx ~/.setup/clones/helix/book/src/keymap.md"
 alias hxc="hx ~/.setup/clones/helix/book/src/commands.md"
 alias hxo="hx ~/.setup/clones/helix/book/src/configuration.md"
 
-alias ck="echo \"checking $(pwd)\" && cargo check -q && cargo clippy -- -D warnings && cargo fmt --check && taplo fmt --check"
+function ck
+    echo checking (pwd)
+    cargo check -q 
+    cargo clippy -- -D warnings 
+    cargo fmt --check 
+    taplo fmt --check
+end
+
 function checkall
-  for D in */
-    pushd $D && ck && popd 
-  end
+    for D in */
+        pushd $D && ck && popd 
+    end
 end
 
 
 # PERMANENT(ish)
+alias agi="a"
 alias ags="apt-cache search"
 alias acs="apt-cache search"
 
@@ -188,7 +194,9 @@ alias kbdu='setxkbmap us -option ctrl:nocaps'
 alias l='lsd --icon never'
 alias less='bat'
 alias ls='lsd --icon never'
-alias logout="pkill -u $(whoami)"
+function logout
+    pkill -u (whoami)
+end
 
 alias man="batman" # du du du du du du du du
 
@@ -203,7 +211,7 @@ function pythonplay
   mkdir $argv[1]
   cd $argv[1]
   touch main.py
-  code main.py .
+  hx main.py .
 end
 
 function rga
@@ -232,7 +240,7 @@ alias rrs="rusty-rain -c shapes"
 
 alias sr='fd --type file -x sd' # search replace in directory
 alias srp='fd --type file -x sd -p' # search replace in directory practice
-alias sc="maim -u -s | xclip -selection clipboard -target image/png"
+alias sc="maim -s | xclip -selection clipboard -target image/png"
 alias sni='snap install'
 alias snr='snap remove'
 alias sshb="ssh -t thor@$IP_LILBIRB"
