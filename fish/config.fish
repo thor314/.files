@@ -13,5 +13,4 @@ end
 set ZELLIJ_AUTO_ATTACH true # attach to the any pre-existing sessions
 #eval "$(zellij setup --generate-auto-start zsh)" # uncomment to run zj at start
 
-
-
+nvm use latest # puts npm in path

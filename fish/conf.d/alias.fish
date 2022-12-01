@@ -175,6 +175,8 @@ alias hxb="hx ~/.files/fish/conf.d/bind.fish"
 alias hxc="hx ~/.files/helix/config.toml"
 alias hxf="hx ~/.files/fish/config.fish"
 alias hxl="hx ~/.files/helix/languages.toml"
+alias hxs="hx ~/.setup/install.sh"
+alias hxsu="hx ~/.setup/unsorted.sh"
 # open hx in docs
 alias hxdk="hx ~/.setup/clones/helix/book/src/keymap.md"
 alias hxdo="hx ~/.setup/clones/helix/book/src/configuration.md"
