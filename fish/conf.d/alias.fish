@@ -28,13 +28,13 @@ alias acs="apt-cache search"
 
 alias bat="bat --theme=zenburn --style=plain" # plain: no line numbers
 function backup
-  echo "$argv" >> ~/.setup/unsorted.sh
+    echo "$argv" >> ~/.setup/unsorted.sh
 end
 alias bu=backup
 
 alias cat="bat --theme=zenburn --style=plain" # i like fancy cats
 function clip
-  echo $argv | xclip -selection clipboard
+    echo $argv | xclip -selection clipboard
 end
 alias c=clip
 alias cb='cargo build -q'
@@ -168,15 +168,16 @@ alias gg=gityeet
 alias ggu=gityeeet
 alias gghub=gityeeeet
 
-alias h="hx"
+alias h="hx ."
 alias hxa="hx ~/.files/fish/conf.d/alias.fish"
+alias sa="source ~/.files/fish/conf.d/alias.fish"
 alias hxb="hx ~/.files/fish/conf.d/bind.fish"
 alias hxc="hx ~/.files/helix/config.toml"
+alias hxf="hx ~/.files/fish/config.fish"
 alias hxl="hx ~/.files/helix/languages.toml"
-alias sa="source ~/.files/fish/conf.d/alias.fish"
-alias hxk="hx ~/.setup/clones/helix/book/src/keymap.md"
-alias hxc="hx ~/.setup/clones/helix/book/src/commands.md"
-alias hxo="hx ~/.setup/clones/helix/book/src/configuration.md"
+# open hx in docs
+alias hxdk="hx ~/.setup/clones/helix/book/src/keymap.md"
+alias hxdo="hx ~/.setup/clones/helix/book/src/configuration.md"
 
 alias hbr="hub browse"
 alias hcl="hub clone"
