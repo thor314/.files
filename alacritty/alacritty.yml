@@ -55,13 +55,13 @@ mouse:
   hide_when_typing: true # hide mouse
 
 key_bindings:
-  - { key: W, mods: Control|Shift, action: Hide}
-    # spawns in same directory as current:
-  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
-  - { key: S, mods: Shift|Control, command: { program: "zellij" } } # broken
-  - { key: K,         mods: Control|Shift, mode: ~Vi|~Search, chars: "\x0c"          } # clear screen, also see ctrlshiftL
-  - { key: K,    mods: Alt,        action: ScrollPageUp   }
-  - { key: J,  mods: Alt,          action: ScrollPageDown }
+  # - { key: W, mods: Control|Shift, action: Hide}
+  - { key: Return,    mods: Control|Shift, action: SpawnNewInstance             } # spawn in same dir
+  - { key: Z,         mods: Alt,           command: { program: "zellij" }       } # broken
+  - { key: K,         mods: Control|Shift, mode: ~Vi|~Search, chars: "\x0c"     } # clear screen, also see ctrlshiftL
+  - { key: K,         mods: Alt,           action: ScrollPageUp                 }
+  - { key: J,         mods: Alt,           action: ScrollPageDown               }
+  - { key: Z,         mods: Control|Shift, command: { program: "fg" }           }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
