@@ -54,9 +54,6 @@ mouse:
   #triple_click: { threshold: 300 }
   hide_when_typing: true # hide mouse
 
-hints: # regex hints
-  alphabet: "aoeuidhtns',.pyfgcrl" # Keys used for the hint labels.
-
 key_bindings:
   - { key: W, mods: Control|Shift, action: Hide}
     # spawns in same directory as current:
