@@ -2,7 +2,7 @@
 # also stored locally in same dir
 # themes: https://github.com/eendroroy/alacritty-theme
 import: # other configuration (if want to break up) format: ~/.files/filename
-  -   ~/.config/alacritty/themes/challenger_deep.yaml
+  - ~/.config/alacritty/themes/challenger_deep.yaml
   # - ~/.config/alacritty/themes/moonlight_ii_vscode.yaml
 live_config_reload: true # Live config reload (changes require restart)
 env:
