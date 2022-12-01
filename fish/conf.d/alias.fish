@@ -6,6 +6,7 @@
 # TEMP
 alias cdb="cd ~/r/tmpl/base/"
 alias hxa="hx ~/.files/fish/conf.d/alias.fish"
+alias sa="source ~/.files/fish/conf.d/alias.fish"
 alias hxk="hx ~/.setup/clones/helix/book/src/keymap.md"
 alias hxc="hx ~/.setup/clones/helix/book/src/commands.md"
 alias hxo="hx ~/.setup/clones/helix/book/src/configuration.md"
@@ -26,7 +27,7 @@ end
 
 
 # PERMANENT(ish)
-alias agi="a"
+alias agi="sudo apt -y install"
 alias ags="apt-cache search"
 alias acs="apt-cache search"
 
