@@ -5,11 +5,6 @@
 
 # TEMP
 alias cdb="cd ~/r/tmpl/base/"
-alias hxa="hx ~/.files/fish/conf.d/alias.fish"
-alias sa="source ~/.files/fish/conf.d/alias.fish"
-alias hxk="hx ~/.setup/clones/helix/book/src/keymap.md"
-alias hxc="hx ~/.setup/clones/helix/book/src/commands.md"
-alias hxo="hx ~/.setup/clones/helix/book/src/configuration.md"
 
 function ck
     echo checking (pwd)
@@ -174,8 +169,14 @@ alias ggu=gityeeet
 alias gghub=gityeeeet
 
 alias h="hx"
-alias hxc="hx ~/.config/helix/config.toml"
-alias hxl="hx ~/.config/helix/languages.toml"
+alias hxa="hx ~/.files/fish/conf.d/alias.fish"
+alias hxb="hx ~/.files/fish/conf.d/bind.fish"
+alias hxc="hx ~/.files/helix/config.toml"
+alias hxl="hx ~/.files/helix/languages.toml"
+alias sa="source ~/.files/fish/conf.d/alias.fish"
+alias hxk="hx ~/.setup/clones/helix/book/src/keymap.md"
+alias hxc="hx ~/.setup/clones/helix/book/src/commands.md"
+alias hxo="hx ~/.setup/clones/helix/book/src/configuration.md"
 
 alias hbr="hub browse"
 alias hcl="hub clone"
