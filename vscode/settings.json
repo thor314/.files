@@ -166,7 +166,7 @@
         { "before": [ "H" ], "after": [ "^", ] },
         { "before": [ "T" ], "after": [ "~" ] },
     ],
-    "window.zoomLevel": -2,
+    "window.zoomLevel": -1,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
