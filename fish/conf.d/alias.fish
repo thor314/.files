@@ -37,6 +37,7 @@ function clip
     echo $argv | xclip -selection clipboard
 end
 alias c=clip
+alias ca="cargo add"
 alias cb='cargo build -q'
 alias cbr='cargo build --release'
 alias cbe='cargo bench'
