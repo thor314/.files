@@ -17,13 +17,13 @@ export GOROOT=/usr/local/go
 # fpath+="$HOME/.zsh.d/zsh_functions" # alacritty completions
 PATH+=":$GOPATH/bin:$GOROOT/bin"
 PATH+=":$HOME/.cargo/bin/bat-extras/bin"
-PATH+=":$HOME/.files/local-bin/npm-bin"
-PATH+=":$HOME/.local/bin"
-PATH+=":$HOME/.share/bin"
+# PATH+=":$HOME/.files/local-bin/npm-bin"
+# PATH+=":$HOME/.local/bin"
+# PATH+=":$HOME/.share/bin"
 # todo: remove one of the following
-PATH+=":$HOME/.share/bin/lean-bin"
-PATH+=":$HOME/.lean/bin"
-export $PATH
+# PATH+=":$HOME/.share/bin/lean-bin"
+# PATH+=":$HOME/.lean/bin"
+#export $PATH 
 
 # if [[ $(hostname) == "starchy" ]]; then
 #   # default isTERM=alacritty; this fixes weird input bugs with alacritty
