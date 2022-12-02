@@ -23,7 +23,8 @@
     // "editor.rename.enablePreview": false, // don't ask me to confirm, before renaming
     // TEXT FORMATTING DEFAULTS
     "editor.fontLigatures": true,
-    "editor.fontFamily": "Fira Code Mono", // ligature supporting font
+    // "editor.fontFamily": "Fira Code Mono", // ligature supporting font
+    "editor.fontFamily": "MesloLGS NF", 
     "editor.fontWeight": "500",
     "editor.tabSize": 2, // prefer 2-space width. Fine, they can be spaces > tabs.
     // "editor.insertSpaces": false,
@@ -166,7 +167,7 @@
         { "before": [ "T" ], "after": [ "~" ] },
     ],
     "window.zoomLevel": -2,
-    "settingsSync.keybindingsPerPlatform": false,
+    // "settingsSync.keybindingsPerPlatform": false,
     //
     // experiments
     // 
