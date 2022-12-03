@@ -3,3 +3,7 @@
 bind \cZ 'fg'
 bind \cW 'exit'
 bind \cS 'zellij'
+
+# forward/back
+bind \eo 'prevd; commandline -f repaint'
+bind \ei 'nextd; commandline -f repaint'
