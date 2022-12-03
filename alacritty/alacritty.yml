@@ -57,8 +57,8 @@ mouse:
 key_bindings:
   # don't map many; they will fight helix/fish keybinds. Prefer to map in fish when mapping commands
   - { key: Return,    mods: Control|Alt,           action: SpawnNewInstance             } # spawn in same dir
-  # - { key: U,         mods: Control|Alt,           action: ScrollPageUp             }
-  # - { key: D,         mods: Control|Alt,           action: ScrollPageDown           }
+  - { key: U,         mods: Control|Alt,           action: ScrollPageUp             }
+  - { key: D,         mods: Control|Alt,           action: ScrollPageDown           }
   # - { key: L,         mods: Control|Alt,           action: ClearLogNotice } # clear screen
   # - { key: K,         mods: Control|Alt,           action: ClearSelection } # clear screen
   # - { key: H,         mods: Control|Alt,           action: ClearHistory } # clear screen
