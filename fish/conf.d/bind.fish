@@ -6,4 +6,6 @@ bind \cS 'zellij'
 
 # forward/back
 bind \eo 'prevd; commandline -f repaint'
+bind \el 'lsd --icon=never; commandline -f repaint'
+bind \eL 'lsd -a --icon=never; commandline -f repaint'
 bind \ei 'nextd; commandline -f repaint'
