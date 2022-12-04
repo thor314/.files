@@ -158,7 +158,7 @@ end
 function gityeeet # new branch
   git add --all . --verbose
   git commit -m $argv[1]
-  git push --set-upstream origin $(git_current_branch)
+  git push --set-upstream origin (git branch --show-current)
 end
 function gityeeeet # new repo
   hub create
