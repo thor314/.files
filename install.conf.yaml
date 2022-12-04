@@ -10,7 +10,7 @@
 
 # automate new system mkdirs
 - create: 
-    - ~/archv
+    - ~/archive
     - ~/img
     - ~/fun
     - ~/img
@@ -36,7 +36,7 @@
     ~/.config/fish: fish
     ~/.gitconfig:
     ~/.config/helix: helix
-    ~/.config/cointop: 
+    # ~/.config/cointop: 
     ~/.vimrc:
     ~/.share/bin: share-bin
     ~/.local/bin: local-bin
@@ -51,7 +51,7 @@
     ~/.profile:
     ~/.xprofile:
     ~/.config/zellij: zellij
-    ~/.fehbg: 
+    # ~/.fehbg: 
 
 # - shell: 
     
