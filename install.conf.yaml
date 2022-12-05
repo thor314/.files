@@ -36,21 +36,21 @@
     ~/.config/fish: fish
     ~/.gitconfig:
     ~/.config/helix: helix
-    # ~/.config/cointop: 
     ~/.vimrc:
-    ~/.share/bin: share-bin
-    ~/.local/bin: local-bin
-    ~/.cargo/bin: cargo-bin
+    ~/.share/bin: ~/bin/share
+    ~/.local/bin: ~/bin/local
+    ~/.cargo/bin: ~/bin/cargo
     ~/.cargo/cargo-generate.toml: cargo-generate.toml
-      #~/note/.obsidian: obsidian # may move this to private
-      # ~/note2/.obsidian.vimrc: obsidian.vimrc
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.config/Code/User/settings.json: vscode/settings.json
     ~/.config/Code/User/snippets: vscode/snippets
     ~/.config/alacritty: alacritty
-    ~/.profile:
+    ~/.profile:  
     ~/.xprofile:
     ~/.config/zellij: zellij
+      #~/note/.obsidian: obsidian # may move this to private
+      # ~/note2/.obsidian.vimrc: obsidian.vimrc
+    # ~/.config/cointop: 
     # ~/.fehbg: 
 
 # - shell: 
