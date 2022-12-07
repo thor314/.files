@@ -183,7 +183,9 @@
     // experiments
     // 
     // test: does this disable prompt to save workspace on exit?
-    "editor.inlayHints.padding": true, // enable padding around inlay hints
+    // "editor.inlayHints.padding": true, // enable padding around inlay hints
     "terminal.external.linuxExec": "alacritty", // to remove
-    "terminal.explorerKind": "external", // to remove
+    "terminal.explorerKind": "external",
+    // "terminal.integrated.shellIntegration.enabled": false,
+    "terminal.integrated.defaultProfile.linux": "fish", // to remove
 }
