@@ -53,9 +53,7 @@
     "errorLens.statusBarIconsEnabled": true,
     "errorLens.enabled": true,
     "errorLens.enabledDiagnosticLevels": [
-        "info",
-        "error",
-        "warning"
+        "info"
     ],
     // VIM 
     // docs: https://github.com/VSCodeVim/Vim; good to revisit modules especially
