@@ -2,6 +2,12 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# Overwrite default greeting
+function fish_greeting 
+    # Option to replace this with some quote or joke generator
+    echo "hello Thor" 
+end
+
 gpg -qd "$HOME/.private/secrets.gpg" | source
 
 setxkbmap dvorak -option ctrl:nocaps
