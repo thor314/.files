@@ -4,6 +4,10 @@
 # define functions and bind aliases to them to include them in rg results.
 
 # TEMP
+function unset-right 
+    function fish_right_prompt 
+    end
+end
 alias cdb="cd ~/r/tmpl/base/"
 
 function ck
