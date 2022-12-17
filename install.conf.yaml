@@ -35,6 +35,7 @@
     ~/.zsh.d:
     ~/.config/fish: fish
     ~/.gitconfig:
+    ~/.config/gh: gh
     ~/.config/helix: helix
     ~/.vimrc:
     ~/.share/bin: ~/bin/share
