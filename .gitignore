@@ -1,3 +1,6 @@
+# get's auto-poked a lot
+fish/fish_variables
+
 zsh.d/zsh_history
 setup/debs/*
 setup/clones/*
