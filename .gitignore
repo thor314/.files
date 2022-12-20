@@ -1,5 +1,6 @@
 # get's auto-poked a lot
 fish_variables
+fishd.tmp
 
 zsh.d/zsh_history
 setup/debs/*
