@@ -8,7 +8,6 @@ function unset-right
     function fish_right_prompt 
     end
 end
-alias cdb="cd ~/r/tmpl/base/"
 
 function ck
     echo checking (pwd)
@@ -50,6 +49,7 @@ alias ccq='cargo check -q'
 alias cct='cargo check --tests'
 # alias cc='RUSTFLAGS=-Awarnings cargo check -q'
 
+alias cdb="cd ~/r/tmpl/base/"
 alias cde='cd $HOME/.config/espanso/match'
 alias cdf='cd $HOME/.files/fish'
 alias cdt='cd $HOME/r/tmpl'
