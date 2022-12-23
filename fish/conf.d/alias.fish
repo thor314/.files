@@ -48,8 +48,12 @@ alias cbe='cargo bench'
 alias cc='cargo check'
 alias ccq='cargo check -q'
 alias cct='cargo check --tests'
-# alias cc='RUSTFLAGS=-Awarnings cargo check'
 # alias cc='RUSTFLAGS=-Awarnings cargo check -q'
+
+alias cde='cd $HOME/.config/espanso/match'
+alias cdf='cd $HOME/.files/fish'
+alias cdt='cd $HOME/r/tmpl'
+
 alias cf='cargo fmt'
 alias cfc="cargo fmt --all -- --check"
 alias cg='cargo generate'
