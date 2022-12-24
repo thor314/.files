@@ -78,12 +78,6 @@ alias ctp='cargo tarpaulin -v -o Html'
 alias cwa="cargo watch -c" 
 alias crypto="cointop"
 alias ctop="cointop"
-function cpzk # copy my notes, replace a formatting issue
-  cp ~/note/n-pazk* ~/zk
-  set s "^%%.*noteTextColor.*"
-  set f $(rg -l $s ~/zk)
-  rg --passthru $s -r "" $f >> tmp.txt && mv tmp.txt $f
-end
 function cgp # create a new experiment module with cg, and track it in my module-explorer
   cd ~/r/play
   cg --path ~/r/tmpl/base --name $argv[1] 
