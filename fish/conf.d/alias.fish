@@ -56,9 +56,6 @@ alias cdt='cd $HOME/r/tmpl'
 
 alias cf='cargo fmt'
 alias cfc="cargo fmt --all -- --check"
-alias cg='cargo generate'
-alias cgtb='cargo generate --path ~/r/tmpl/bin --bin -n cgtbin -d description="test cargo-generate binary"'
-alias cgtl='cargo generate --path ~/r/tmpl/lib --lib -n cgtlib -d description="test cargo-generate library"'
 alias cplay="pushd $HOME/r/play/playground && code . && popd"
 alias caplay="pushd $HOME/r/play/async-playground && code . && popd"
 alias ci='cargo install'
@@ -75,6 +72,10 @@ alias ctc='cargo tarpaulin -v -o Html'
 alias ctp='cargo tarpaulin -v -o Html'
 alias cwa="cargo watch -c" 
 
+alias cg='cargo generate'
+alias cgtb='cargo generate --path ~/r/tmpl/bin --bin -n cgtbin -d description="test cargo-generate binary"'
+alias cgtl='cargo generate --path ~/r/tmpl/lib --lib -n cgtlib -d description="test cargo-generate library"'
+alias cgtw='cargo generate --path ~/r/tmpl/workspace -n cgtw -d description="test cargo-generate workspace"'
 function cgp # create a new experiment module with cg, and track it in my module-explorer
   cd ~/r/play
   cg --path ~/r/tmpl/base --name $argv[1] 
