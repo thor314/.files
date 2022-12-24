@@ -57,10 +57,10 @@ alias cdt='cd $HOME/r/tmpl'
 alias cf='cargo fmt'
 alias cfc="cargo fmt --all -- --check"
 alias cg='cargo generate'
-alias cgtb='cargo generate --path ~/r/tmpl/base --bin -n cgtbin -d async=false'
-alias cgtl='cargo generate --path ~/r/tmpl/base --lib -n cgtlib -d async=false'
-alias cgtab='cargo generate --path ~/r/tmpl/base --bin -n cgtabin -d async=true'
-alias cgtal='cargo generate --path ~/r/tmpl/base --lib -n cgtalib -d async=true'
+alias cgtb='cargo generate --path ~/r/tmpl/base --bin -n cgtbin -d async=false -d description="test cargo-generate binary"'
+alias cgtl='cargo generate --path ~/r/tmpl/base --lib -n cgtlib -d async=false -d description="test cargo-generate library"'
+alias cgtab='cargo generate --path ~/r/tmpl/base --bin -n cgtabin -d async=true -d description="test cargo-generate async bin"'
+alias cgtal='cargo generate --path ~/r/tmpl/base --lib -n cgtalib -d async=true -d description="test cargo-generate async lib"'
 alias cplay="pushd $HOME/r/play/playground && code . && popd"
 alias caplay="pushd $HOME/r/play/async-playground && code . && popd"
 alias ci='cargo install'
