@@ -76,8 +76,7 @@ alias ctt="RUST_LOG=DEBUG RUST_BACKTRACE=1 ct -- --nocapture"
 alias ctc='cargo tarpaulin -v -o Html'
 alias ctp='cargo tarpaulin -v -o Html'
 alias cwa="cargo watch -c" 
-alias crypto="cointop"
-alias ctop="cointop"
+
 function cgp # create a new experiment module with cg, and track it in my module-explorer
   cd ~/r/play
   cg --path ~/r/tmpl/base --name $argv[1] 
