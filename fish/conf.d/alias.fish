@@ -49,7 +49,7 @@ alias ccq='cargo check -q'
 alias cct='cargo check --tests'
 # alias cc='RUSTFLAGS=-Awarnings cargo check -q'
 
-alias cdb="cd ~/r/tmpl/base/"
+alias cdb="cd ~/r/tmpl/"
 alias cde='cd $HOME/.config/espanso/match'
 alias cdf='cd $HOME/.files/fish'
 alias cdt='cd $HOME/r/tmpl'
