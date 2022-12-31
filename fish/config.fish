@@ -21,7 +21,7 @@ set ZELLIJ_AUTO_ATTACH true # attach to the any pre-existing sessions
 
 # bug: doesn't appear to change the output of `jupyter --config-dir`
 # https://docs.jupyter.org/en/latest/use/jupyter-directories.html
-set JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
+set -g JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
 
 nvm use latest >> /dev/null # puts npm in path, and b quiet
 
