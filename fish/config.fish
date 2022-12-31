@@ -18,6 +18,7 @@ end
 
 set ZELLIJ_AUTO_ATTACH true # attach to the any pre-existing sessions
 #eval "$(zellij setup --generate-auto-start zsh)" # uncomment to run zj at start
+set JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
 
 nvm use latest >> /dev/null # puts npm in path, and b quiet
 
