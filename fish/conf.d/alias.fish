@@ -205,6 +205,8 @@ alias hci="hub ci-status"
 # alias hu=rhai-run
 alias htop='zenith'
 
+alias jn='jupyter notebook'
+
 alias kbd='setxkbmap dvorak -option ctrl:nocaps'
 alias kbds='setxkbmap dvorak -option ctrl:swapcaps'
 alias kbdu='setxkbmap us -option ctrl:nocaps'
