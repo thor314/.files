@@ -235,7 +235,7 @@ function pythonplay
 end
 
 function rga
-  abbr -a -g | rg -e "$argv"
+  abbr -a -g | rg -e "$argv" | cut -d" " -f5-
 end
 function rgg 
   rg $argv $HOME/.files/fish/conf.d/git.md
