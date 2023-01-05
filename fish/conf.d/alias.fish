@@ -214,6 +214,9 @@ abbr -a -g kbdu 'setxkbmap us -option ctrl:nocaps'
 abbr -a -g l 'lsd --icon never'
 abbr -a -g less 'bat'
 abbr -a -g ls 'lsd --icon never'
+abbr -a -g la 'lsd --icon never -al'
+abbr -a -g ll 'lsd --icon never -al'
+
 function logout
     pkill -u (whoami)
 end
