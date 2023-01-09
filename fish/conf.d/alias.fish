@@ -138,7 +138,7 @@ abbr -a -g gu "gitui" # ui interface to git
 abbr -a -g gin 'git init'
 abbr -a -g girust 'gi rust >> .gitignore'
 abbr -a -g gir 'gi rust >> .gitignore'
-abbr -a -g gm "git merge --ff --squash"  
+abbr -a -g gm "git merge"  
 # OMZ gitignore gi {list,<template>end
 # OMZ: git; esp. gam,gc!
 # OMZ: rga go+
