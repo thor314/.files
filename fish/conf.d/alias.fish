@@ -286,7 +286,7 @@ abbr -a -g trashout "rm -rf $HOME/.trash/*"
 abbr -a -g tor "flatpak run com.github.micahflee.torbrowser-launcher"
 abbr -a -g tf "taplo fmt"
 
-abbr -a -g v 'vi'
+abbr -a -g v 'nvim'
 abbr -a -g va 'vi ~/.config/alacritty/alacritty.yml'
 abbr -a -g vb 'vi ~/.setup/unsorted.sh'
 abbr -a -g vbi 'vi ~/.setup/install.sh'

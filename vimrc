@@ -31,10 +31,11 @@ nmap T dawbP
 
 nmap <Space> <leader>
 nmap <leader><Space> :w<CR>
-nmap <leader>j 4j
+nmap <leader>j 10j
+nmap <leader>k 10k
 nmap <leader>q :wq<CR>
 
-""" Settings --- {{{
+""" Settings 
 " Search following list of options, or type `:help <option>`: https://vimhelp.org/options.txt.html
 " Ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
 " Also: https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/
@@ -108,5 +109,4 @@ call plug#end()
 """ Graveyard
 " use default mappings;; 2023-01-10 what the fuck is this
 " let g:camelcasemotion_key = '<leader>'
-" }}}
 
