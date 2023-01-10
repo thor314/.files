@@ -32,53 +32,42 @@ nmap <leader><Space> :w<CR>
 nmap <leader>j 4j
 nmap <leader>q :wq<CR>
 
-" Settings
+""" Settings
 """ ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
 """ Also see https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/
-"
-" set default yank register to system clipboard
-set clipboard=unnamedplus
-" Disable compatibility with old vi which can cause unexpected issues. May be redundant.
-set nocompatible
-" Allow hidden buffers, don't limit to 1 file per window/split
-set hidden
-" Enable type file detection. Vim will be able to try to detect the type of file in use.
-filetype on
-" Enable plugins and load plugin for the detected file type.
-filetype plugin on
-" Load an indent file for the detected file type.
-filetype indent on
-" Turn syntax highlighting on.
-syntax on
-" Uncomment to highlight respectively, current row, current column.
-set cursorline
-" set cursorcolumn
-" Set shift width (<,> keys) and tab-width to 2 spaces.
+"" Misc
+set clipboard=unnamedplus " set default yank register to system clipboard
+set nocompatible      " Disable compatibility with old vi, avoid issues 
+set hidden            " Allow hidden buffers, don't limit to 1 file per window/split
+syntax on             " Turn syntax highlighting on.
+filetype on           " Enable type file detection. Vim will try to detect the type of file in use.
+filetype plugin on    " Enable plugins and load plugin for the detected file type.
+filetype indent on    " Load an indent file for the detected file type.
+set cursorline        " Uncomment to highlight respectively, current row, current column.
+" set cursorcolumn "- warning: annoying
+" Set shift width (<,> keys) and tab-width to 2 spaces; use spaces > tab indents.
 set shiftwidth=2
 set tabstop=2
-" Use space characters instead of tabs.
 set expandtab
 " Do not save backup files.
 set nobackup
-" Comment for Line numbers
-set nonumber
-" Break lines at word
+" Comment out to remove line-numbers
+set number
+" Break lines at word, at the space character, at 120-width. Hardwrap, don't allow scroll-off line. 
 set linebreak
-" Wrap-broken line prefix
 set showbreak=" "
-" Line wrap width - tk: set very high, I don't like line wraps
-" set textwidth=10000
-set textwidth=80
-" use visual bell instead of beeps
-set visualbell
+set textwidth=120
+" set nowrap - allow line to extend as far as it goes, don't wrap-around
 " Do not let cursor scroll below or above N number of lines when scrolling.
 set scrolloff=1
-" wrap lines, don't let scroll off page
-set wrap
-" While searching though a file incrementally highlight matching characters as you type.
-set incsearch
-" Ignore capital letters during search.
-set ignorecase
+" use visual bell instead of beeps
+set visualbell
+
+""" Search
+set incsearch " While searching though a file incrementally highlight matching characters as you type.
+" Search: use smart matching
+set smartcase
+"set ignorecase - Ignore capital letters during search.
 " Show partial command you type in the last line of the screen.
 set showcmd
 " Show the mode you are on the last line.
