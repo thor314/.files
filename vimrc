@@ -20,14 +20,17 @@ imap kk <Esc>
 imap jk <Esc>
 imap kj <Esc>
 
+" Center when searching
+nmap n nzz
+nmap N Nzz
+
 " ergonomic macro button
-nmap ` @
-nmap H ^
-omap H ^
-nmap L $
-omap L $
+" nnoremap Q q@ " bug
+" nnoremap q @@ " bug
+map H ^
+map L $
 nmap t xhhpll
-nmap T dawbP
+nmap T ~
 
 nmap <Space> <leader>
 nmap <leader><Space> :w<CR>

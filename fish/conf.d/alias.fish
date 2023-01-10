@@ -287,28 +287,29 @@ abbr -a -g tor "flatpak run com.github.micahflee.torbrowser-launcher"
 abbr -a -g tf "taplo fmt"
 
 abbr -a -g v 'nvim'
-abbr -a -g va 'vi ~/.config/alacritty/alacritty.yml'
-abbr -a -g vb 'vi ~/.setup/unsorted.sh'
-abbr -a -g vbi 'vi ~/.setup/install.sh'
-abbr -a -g vbu 'vi ~/.setup/install.sh'
-abbr -a -g vcg 'vi ~/.cargo/cargo-generate.toml'
-abbr -a -g vd 'vi ~/.files/install.conf.yaml'
-abbr -a -g vdp 'vi ~/.files/private/install.conf.yaml'
-abbr -a -g vds 'vi ~/.files/root/install.conf.yaml'
-abbr -a -g vdr 'vi ~/.files/root/install.conf.yaml'
-abbr -a -g veb "vi ~/.config/espanso/match/base.yml"
-abbr -a -g vec "vi ~/.config/espanso/match/code.yml"
-abbr -a -g vel "vi ~/.config/espanso/match/latex.yml"
-abbr -a -g vem "vi ~/.config/espanso/match/mermaid.yml"
-abbr -a -g veo "vi ~/.config/espanso/match/obsidian.yml"
-abbr -a -g vet "vi ~/.config/espanso/match/thor.yml"
-abbr -a -g vj 'vi ~/.config/zellij/config.yaml'
-abbr -a -g vo 'vi ~/note/.obsidian.vimrc'
+abbr -a -g vi 'nvim'
+abbr -a -g va 'nvim ~/.config/alacritty/alacritty.yml'
+abbr -a -g vb 'nvim ~/.setup/unsorted.sh'
+abbr -a -g vbi 'nvim ~/.setup/install.sh'
+abbr -a -g vbu 'nvim ~/.setup/install.sh'
+abbr -a -g vcg 'nvim ~/.cargo/cargo-generate.toml'
+abbr -a -g vd 'nvim ~/.files/install.conf.yaml'
+abbr -a -g vdp 'nvim ~/.files/private/install.conf.yaml'
+abbr -a -g vds 'nvim ~/.files/root/install.conf.yaml'
+abbr -a -g vdr 'nvim ~/.files/root/install.conf.yaml'
+abbr -a -g veb "nvim ~/.config/espanso/match/base.yml"
+abbr -a -g vec "nvim ~/.config/espanso/match/code.yml"
+abbr -a -g vel "nvim ~/.config/espanso/match/latex.yml"
+abbr -a -g vem "nvim ~/.config/espanso/match/mermaid.yml"
+abbr -a -g veo "nvim ~/.config/espanso/match/obsidian.yml"
+abbr -a -g vet "nvim ~/.config/espanso/match/thor.yml"
+abbr -a -g vj 'nvim ~/.config/zellij/config.yaml'
+abbr -a -g vo 'nvim ~/note/.obsidian.vimrc'
 # OMZ: vsc+ vscode
-abbr -a -g vtmpl 'vi ~/r/tmpl/base/Cargo.toml'
-abbr -a -g vv 'vi ~/.vimrc'
-abbr -a -g vz 'vi ~/.zsh.d/.zshrc'
-abbr -a -g vza 'vi ~/.zsh.d/alias.sh'
+abbr -a -g vtmpl 'nvim ~/r/tmpl/base/Cargo.toml'
+abbr -a -g vv 'nvim ~/.vimrc'
+abbr -a -g vz 'nvim ~/.zsh.d/.zshrc'
+abbr -a -g vza 'nvim ~/.zsh.d/alias.sh'
 
 abbr -a -g zj zellij
 abbr -a -g zotero "flatpak run org.zotero.Zotero"
