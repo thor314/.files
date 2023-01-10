@@ -1,51 +1,21 @@
-" Thor's vimrc
+""" Thor's vimrc
 " 
 " Mainly does 2 things: install vim-plug, an extension manager, a couple
 " extensions, and set some **sane defaults**, as copied from numerous places
 " around the interwebs. DOCUMENT THOROUGHLY! I won't remember what these do.
 
-" ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
-" Install vim-plug plugin manager if not found on system
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
-call plug#begin()
-" nerdtree file manager, sparsely used
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 
-" vim-surround - manipulate surrounding symbolics ergonomically
-Plug 'tpope/vim-surround'
-" gc gC operators for commenting lines
-Plug 'tpope/vim-commentary'
-" provide ae and ie, to select entire buffer contents: bug, doesn't install?
-" Plug 'kana/vim-textobj-entire'
-" motion inside camel/snakecase words with leader
-Plug 'bkad/CamelCaseMotion'
-" location jumping with s (z in operator mode)
-Plug 'justinmk/vim-sneak'
-" use indentation level as a noun
-Plug 'michaeljsmith/vim-indent-object'
-" plugin for editing gpg encrypted files
-Plug 'jamessan/vim-gnupg'
-
-call plug#end()
-
-" use default mappings
-let g:camelcasemotion_key = '<leader>'
-
+""" Keybindings
+" escapes if I forget to escape
 imap jj <Esc> 
 imap kk <Esc>
 imap jk <Esc>
 imap kj <Esc>
 
-" imap // <Esc>A //
-nmap K lbi[<Esc>wea]()<Esc>P
+" Undo, Redo, and Navigate inside page:
+" Don't overwrite <C-u> or <C-d> for file movement, or <C-o>,<C-i> for back/forward movement within document. 
+" <C-r> is for search-replace. u/U for undo/redo. 
+nmap U :redo
+vmap <C-r> :s/
 
 " ergonomic macro button
 nmap ` @
@@ -55,13 +25,14 @@ nmap L $
 omap L $
 nmap t xhhpll
 nmap T dawbP
-" nmap <Space> i<Space><Esc>l
 
-" Experiment with leader mapping, to be expanded
 nmap <Space> <leader>
 nmap <leader>j 4j
 
-" ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
+" Settings
+""" ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
+""" Also see https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/
+"
 " set default yank register to system clipboard
 set clipboard=unnamedplus
 " Disable compatibility with vi which can cause unexpected issues.
@@ -123,4 +94,41 @@ set wildmode=list:longest
 " There are certain files that we would never want to edit with Vim.
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+""" Plugin Management
+" ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+" Install vim-plug plugin manager if not found on system
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+" List the plugins to install
+call plug#begin()
+" nerdtree file manager, sparsely used
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 
+" vim-surround - manipulate surrounding symbolics ergonomically
+Plug 'tpope/vim-surround'
+" gc gC operators for commenting lines
+Plug 'tpope/vim-commentary'
+" provide ae and ie, to select entire buffer contents: bug, doesn't install?
+" Plug 'kana/vim-textobj-entire'
+" motion inside camel/snakecase words with leader
+Plug 'bkad/CamelCaseMotion'
+" location jumping with s (z in operator mode)
+Plug 'justinmk/vim-sneak'
+" use indentation level as a noun
+Plug 'michaeljsmith/vim-indent-object'
+" plugin for editing gpg encrypted files
+Plug 'jamessan/vim-gnupg'
+call plug#end()
+
+""" Graveyard
+" use default mappings;; 2023-01-10 what the fuck is this
+" let g:camelcasemotion_key = '<leader>'
 
