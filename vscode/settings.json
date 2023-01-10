@@ -54,7 +54,6 @@
     "errorLens.enabled": true,
     "errorLens.enabledDiagnosticLevels": [
         "hint",
-        "error",
         "warning"
     ],
     // VIM 
