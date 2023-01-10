@@ -12,7 +12,7 @@
 " <C-r> is for search-replace. u/U for undo/redo. 
 nmap U :redo
 vmap <C-r> :s/
-nmap "<A-<BS>>" vbd
+" nmap <A-<BS>> vbd " no, bug
 
 "" additional escapes
 imap jj <Esc> 
@@ -34,14 +34,16 @@ nmap <leader><Space> :w<CR>
 nmap <leader>j 4j
 nmap <leader>q :wq<CR>
 
-""" Settings
-" List of options: https://vimhelp.org/options.txt.html
+""" Settings --- {{{
+" Search following list of options, or type `:help <option>`: https://vimhelp.org/options.txt.html
 " Ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
 " Also: https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/
+" 
 "" Misc
 set clipboard=unnamedplus " set default yank register to system clipboard
 set nocompatible      " Disable compatibility with old vi, avoid issues 
 set hidden            " Allow hidden buffers, don't limit to 1 file per window/split
+set nobackup          " Do not save backup files.
 
 "" Appearance and Syntax Highlighting
 syntax on             " Turn syntax highlighting on.
@@ -53,7 +55,8 @@ set cursorline        " Uncomment to highlight respectively, current row, curren
 set shiftwidth=2      " <,> shift keys
 set tabstop=2         " tab width
 set expandtab         " spaces > tabs
-set nobackup          " Do not save backup files.
+set smartindent     	" Enable smart-indent
+set smarttab	        " Enable smart-tabs
 set number            " Comment out to remove line-numbers
 set linebreak         " Break at `text-width`, at prior `showbreak` char
 set showbreak=" "
@@ -61,18 +64,16 @@ set textwidth=120
 " set nowrap            " allow line to extend as far as it goes, don't wrap-around
 set visualbell        " use visual bell instead of beeps
 set scrolloff=1       " Do not let cursor scroll below or above N number of lines when scrolling.
+set showcmd           " Show partial command you type in the last line of the screen.
+set showmode          " Show the mode you are on the last line.
 
 "" Search
 set incsearch         " While searching though a file incrementally highlight matching characters as you type.
 set smartcase         " Search: use smart-case matching
 " set ignorecase      " Ignore capital letters during search.
-set showcmd           " Show partial command you type in the last line of the screen.
-set showmode          " Show the mode you are on the last line.
 set showmatch         " Show matching words/braces during a search.
-set nohlsearch        " highlighting when doing a search.
+set hlsearch          " highlighting when doing a search.
 set history=1000      " Set the commands to save in history default=20.
-set smartindent     	" Enable smart-indent
-set smarttab	        " Enable smart-tabs
 set backspace=indent,eol,start	" Backspace behaviour
 set wildmenu          " Enable auto completion menu after pressing TAB.
 set wildmode=list:longest " Make wildmenu behave like similar to Bash completion.
@@ -107,4 +108,5 @@ call plug#end()
 """ Graveyard
 " use default mappings;; 2023-01-10 what the fuck is this
 " let g:camelcasemotion_key = '<leader>'
+" }}}
 
