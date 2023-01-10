@@ -77,6 +77,8 @@ abbr -a -g cgtb 'cargo generate --path ~/r/tmpl/bin --bin -n cgtbin -d descripti
 abbr -a -g cgtl 'cargo generate --path ~/r/tmpl/lib --lib -n cgtlib -d description="test cargo-generate library"'
 abbr -a -g cgtw 'cargo generate --path ~/r/tmpl/workspace -n cgtw -d description="test cargo-generate workspace"'
 abbr -a -g cgl 'cargo generate --path ~/r/tmpl/lib -n'
+abbr -a -g cgb 'cargo generate --path ~/r/tmpl/bin -n'
+abbr -a -g cgw 'cargo generate --path ~/r/tmpl/workspace -n'
 function cgp # create a new experiment module with cg, and track it in my module-explorer
   alias cg='cargo generate'
   cd ~/r/play
