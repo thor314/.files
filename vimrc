@@ -33,12 +33,14 @@ nmap <leader>j 4j
 nmap <leader>q :wq<CR>
 
 """ Settings
-""" ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
-""" Also see https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/
+" List of options: https://vimhelp.org/options.txt.html
+" Ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
+" Also: https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/
 "" Misc
 set clipboard=unnamedplus " set default yank register to system clipboard
 set nocompatible      " Disable compatibility with old vi, avoid issues 
 set hidden            " Allow hidden buffers, don't limit to 1 file per window/split
+
 "" Appearance and Syntax Highlighting
 syntax on             " Turn syntax highlighting on.
 filetype on           " Enable type file detection. Vim will try to detect the type of file in use.
@@ -46,48 +48,34 @@ filetype plugin on    " Enable plugins and load plugin for the detected file typ
 filetype indent on    " Load an indent file for the detected file type.
 set cursorline        " Uncomment to highlight respectively, current row, current column.
 " set cursorcolumn      " highlight column. warning, annoying.
-" Set shift width (<,> keys) and tab-width to 2 spaces; use spaces > tab indents.
-set shiftwidth=4 " <,> shift keys
-set tabstop=2
-set expandtab
-" Do not save backup files.
-set nobackup
-" Comment out to remove line-numbers
-set number
-" Break lines at word, at the space character, at 120-width. Hardwrap, don't allow scroll-off line. 
-set linebreak
+set shiftwidth=2      " <,> shift keys
+set tabstop=2         " tab width
+set expandtab         " spaces > tabs
+set nobackup          " Do not save backup files.
+set number            " Comment out to remove line-numbers
+set linebreak         " Break at `text-width`, at prior `showbreak` char
 set showbreak=" "
 set textwidth=120
-" set nowrap - allow line to extend as far as it goes, don't wrap-around
-" Do not let cursor scroll below or above N number of lines when scrolling.
-set scrolloff=1
-" use visual bell instead of beeps
-set visualbell
+" set nowrap            " allow line to extend as far as it goes, don't wrap-around
+set visualbell        " use visual bell instead of beeps
+set scrolloff=1       " Do not let cursor scroll below or above N number of lines when scrolling.
 
-""" Search
-set incsearch " While searching though a file incrementally highlight matching characters as you type.
-" Search: use smart matching
-set smartcase
-"set ignorecase - Ignore capital letters during search.
-" Show partial command you type in the last line of the screen.
-set showcmd
-" Show the mode you are on the last line.
-set showmode
-" Show matching words/braces during a search.
-set showmatch
-" highlighting when doing a search.
-set nohlsearch
-" Set the commands to save in history default number is 20.
-set history=1000
-set smartindent	" Enable smart-indent
-set smarttab	" Enable smart-tabs
+"" Search
+set incsearch         " While searching though a file incrementally highlight matching characters as you type.
+set smartcase         " Search: use smart-case matching
+" set ignorecase      " Ignore capital letters during search.
+set showcmd           " Show partial command you type in the last line of the screen.
+set showmode          " Show the mode you are on the last line.
+set showmatch         " Show matching words/braces during a search.
+set nohlsearch        " highlighting when doing a search.
+set history=1000      " Set the commands to save in history default number is 20.
+set smartindent     	" Enable smart-indent
+set smarttab	        " Enable smart-tabs
 set backspace=indent,eol,start	" Backspace behaviour
-" Enable auto completion menu after pressing TAB.
-set wildmenu
-" Make wildmenu behave like similar to Bash completion.
-set wildmode=list:longest
-" There are certain files that we would never want to edit with Vim.
-" Wildmenu will ignore files with these extensions.
+set wildmenu          " Enable auto completion menu after pressing TAB.
+set wildmode=list:longest " Make wildmenu behave like similar to Bash completion.
+
+" There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 """ Plugin Management
