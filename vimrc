@@ -55,10 +55,10 @@ nmap L $
 omap L $
 nmap t xhhpll
 nmap T dawbP
-nmap <Space> i<Space><Esc>l
+" nmap <Space> i<Space><Esc>l
 
 " Experiment with leader mapping, to be expanded
-nmap - <leader>
+nmap <Space> <leader>
 nmap <leader>j 4j
 
 " ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
