@@ -6,17 +6,19 @@
 
 
 """ Keybindings
-" escapes if I forget to escape
-imap jj <Esc> 
-imap kk <Esc>
-imap jk <Esc>
-imap kj <Esc>
-
+"" Movement
 " Undo, Redo, and Navigate inside page:
 " Don't overwrite <C-u> or <C-d> for file movement, or <C-o>,<C-i> for back/forward movement within document. 
 " <C-r> is for search-replace. u/U for undo/redo. 
 nmap U :redo
 vmap <C-r> :s/
+nmap "<A-<BS>>" vbd
+
+"" additional escapes
+imap jj <Esc> 
+imap kk <Esc>
+imap jk <Esc>
+imap kj <Esc>
 
 " ergonomic macro button
 nmap ` @
@@ -68,7 +70,7 @@ set showcmd           " Show partial command you type in the last line of the sc
 set showmode          " Show the mode you are on the last line.
 set showmatch         " Show matching words/braces during a search.
 set nohlsearch        " highlighting when doing a search.
-set history=1000      " Set the commands to save in history default number is 20.
+set history=1000      " Set the commands to save in history default=20.
 set smartindent     	" Enable smart-indent
 set smarttab	        " Enable smart-tabs
 set backspace=indent,eol,start	" Backspace behaviour
@@ -91,24 +93,15 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-" List the plugins to install
-call plug#begin()
-" nerdtree file manager, sparsely used
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 
-" vim-surround - manipulate surrounding symbolics ergonomically
-Plug 'tpope/vim-surround'
-" gc gC operators for commenting lines
-Plug 'tpope/vim-commentary'
-" provide ae and ie, to select entire buffer contents: bug, doesn't install?
-" Plug 'kana/vim-textobj-entire'
-" motion inside camel/snakecase words with leader
-Plug 'bkad/CamelCaseMotion'
-" location jumping with s (z in operator mode)
-Plug 'justinmk/vim-sneak'
-" use indentation level as a noun
-Plug 'michaeljsmith/vim-indent-object'
-" plugin for editing gpg encrypted files
-Plug 'jamessan/vim-gnupg'
+call plug#begin()             " List the plugins to install
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " nerdtree file manager, sparsely used
+Plug 'tpope/vim-surround'     " vim-surround - manipulate surrounding symbolics ergonomically
+Plug 'tpope/vim-commentary'   " gc gC operators for commenting lines
+" Plug 'kana/vim-textobj-entire' "provide ae and ie, to select entire buffer contents: bug, doesn't install?
+Plug 'bkad/CamelCaseMotion'   " motion inside camel/snakecase words with leader
+Plug 'justinmk/vim-sneak'     " location jumping with s (z in operator mode)
+Plug 'michaeljsmith/vim-indent-object' " use indentation level as a noun
+Plug 'jamessan/vim-gnupg'     " plugin for editing gpg encrypted files
 call plug#end()
 
 """ Graveyard
