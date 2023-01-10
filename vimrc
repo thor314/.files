@@ -4,6 +4,7 @@
 " extensions, and set some **sane defaults**, as copied from numerous places
 " around the interwebs. DOCUMENT THOROUGHLY! I won't remember what these do.
 
+
 """ Keybindings
 " escapes if I forget to escape
 imap jj <Esc> 
@@ -27,7 +28,9 @@ nmap t xhhpll
 nmap T dawbP
 
 nmap <Space> <leader>
+nmap <leader><Space> :w<CR>
 nmap <leader>j 4j
+nmap <leader>q :wq<CR>
 
 " Settings
 """ ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
@@ -35,8 +38,7 @@ nmap <leader>j 4j
 "
 " set default yank register to system clipboard
 set clipboard=unnamedplus
-" Disable compatibility with vi which can cause unexpected issues.
-" Intentionally redundant.
+" Disable compatibility with old vi which can cause unexpected issues. May be redundant.
 set nocompatible
 " Allow hidden buffers, don't limit to 1 file per window/split
 set hidden
@@ -48,22 +50,25 @@ filetype plugin on
 filetype indent on
 " Turn syntax highlighting on.
 syntax on
-" Set shift width to 2 spaces.
+" Uncomment to highlight respectively, current row, current column.
+set cursorline
+" set cursorcolumn
+" Set shift width (<,> keys) and tab-width to 2 spaces.
 set shiftwidth=2
-" Set tab width to 2 columns.
 set tabstop=2
 " Use space characters instead of tabs.
 set expandtab
 " Do not save backup files.
 set nobackup
-" Line numbers
+" Comment for Line numbers
 set nonumber
 " Break lines at word
 set linebreak
 " Wrap-broken line prefix
 set showbreak=" "
 " Line wrap width - tk: set very high, I don't like line wraps
-set textwidth=10000
+" set textwidth=10000
+set textwidth=80
 " use visual bell instead of beeps
 set visualbell
 " Do not let cursor scroll below or above N number of lines when scrolling.
