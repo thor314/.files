@@ -39,14 +39,15 @@ nmap <leader>q :wq<CR>
 set clipboard=unnamedplus " set default yank register to system clipboard
 set nocompatible      " Disable compatibility with old vi, avoid issues 
 set hidden            " Allow hidden buffers, don't limit to 1 file per window/split
+"" Appearance and Syntax Highlighting
 syntax on             " Turn syntax highlighting on.
 filetype on           " Enable type file detection. Vim will try to detect the type of file in use.
 filetype plugin on    " Enable plugins and load plugin for the detected file type.
 filetype indent on    " Load an indent file for the detected file type.
 set cursorline        " Uncomment to highlight respectively, current row, current column.
-" set cursorcolumn "- warning: annoying
+" set cursorcolumn      " highlight column. warning, annoying.
 " Set shift width (<,> keys) and tab-width to 2 spaces; use spaces > tab indents.
-set shiftwidth=2
+set shiftwidth=4 " <,> shift keys
 set tabstop=2
 set expandtab
 " Do not save backup files.
