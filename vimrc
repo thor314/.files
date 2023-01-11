@@ -1,7 +1,10 @@
 " Thor's vimrc
 " Sets Keybindings, Settings, Plugins, and Language defaults, in that order. Attempt to be well-documented.
+" Docs: https://vimhelp.org/quickref.txt.html
 "
 """ Keybindings
+" Docs 1: https://vimhelp.org/map.txt.html#mapping
+" Docs 2: https://vim.fandom.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
 " Note that operators like d,g,c, etc. sometimes cannot be remapped.
 map <C-a> ggVG
 "map <A-a> 
