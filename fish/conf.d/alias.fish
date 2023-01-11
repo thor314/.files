@@ -52,6 +52,8 @@ abbr -a -g cct 'cargo check --tests'
 abbr -a -g cdb "cd ~/r/tmpl/"
 abbr -a -g cde 'cd $HOME/.config/espanso/match'
 abbr -a -g cdf 'cd $HOME/.files/fish'
+abbr -a -g cdn 'cd $HOME/.files/nvim'
+abbr -a -g cds 'cd $HOME/.setup'
 abbr -a -g cdt 'cd $HOME/r/tmpl'
 
 abbr -a -g cf 'cargo fmt'
@@ -288,6 +290,7 @@ abbr -a -g tf "taplo fmt"
 
 abbr -a -g v 'nvim'
 abbr -a -g vi 'nvim'
+abbr -a -g nv 'nvim'
 abbr -a -g va 'nvim ~/.config/alacritty/alacritty.yml'
 abbr -a -g vb 'nvim ~/.setup/unsorted.sh'
 abbr -a -g vbi 'nvim ~/.setup/install.sh'
