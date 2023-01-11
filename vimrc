@@ -1,10 +1,13 @@
 """ Thor's vimrc
 " Sets Keybindings, Settings, Plugins, and Language defaults, in that order. Attempt to be well-documented.
 " docs: https://vimhelp.org/quickref.txt.html
+" neovim docs: https://neovim.io/doc/user/index.html
+" neovim FAQ: https://github.com/neovim/neovim/wiki/FAQ
 " todo: try https://vim-bootstrap.com/
 
 """ Keybindings
 " docs: https://vimhelp.org/map.txt.html#mapping
+" neovim keys: https://neovim.io/doc/user/quickref.html
 " verbose docs: https://vim.fandom.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
 " Note that operators like d,g,c, etc. sometimes cannot be remapped.
 map <C-a> ggVG
@@ -112,6 +115,7 @@ nnoremap <F3> :NERDTreeToggle<CR>
 """ Settings 
 " Search following list of options, or type `:help <option>`: https://vimhelp.org/options.txt.html
 " Ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
+" neovim defaults: https://neovim.io/doc/user/vim_diff.html#nvim-defaults
 " 
 "" Misc
 set clipboard=unnamedplus " set default yank register to system clipboard
