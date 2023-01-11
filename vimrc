@@ -102,7 +102,6 @@ nmap <leader>k 10k
 "map <C-]> " Ask nvim for help on a word, seems to depend on the buggy/non-existant vim tags file
 "map <A-]>
 " space
-nmap <Space> <leader> " lua: vim.g.mapleader = ' '
 nmap <leader><Space> :w<CR>
 "" F-keys
 nnoremap <F3> :NERDTreeToggle<CR>
