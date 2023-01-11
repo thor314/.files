@@ -1,7 +1,8 @@
-" Ref: https://neovim.io/doc/user/starting.html#init.vim
+""" Thor's neovim configuration file
+" neovim docs: https://neovim.io/doc/user/index.html
+" prefer to keep nvim-specific config here, and vim general config in .vimrc
 
 """ Settings
-
 "" Load default vim configuration:
 " https://neovim.io/doc/user/nvim.html#nvim-from-vim
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
