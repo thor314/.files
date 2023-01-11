@@ -2,35 +2,46 @@
 " Sets Keybindings, Settings, Plugins, and Language defaults, in that order. Attempt to be well-documented.
 "
 """ Keybindings
-" 
+" Note that operators like d,g,c, etc. sometimes cannot be remapped.
 map <C-a> ggVG
 "map <A-a> 
 "map <C-o>
 "map <A-o>
 "map <C-e>
 "map <A-e>
+nmap U :redo<CR>
 "map <C-u> " up
 "map <A-u> 
 "map <C-i> " back
 "map <A-i> " todo: increment?
-map d x
 "map <C-d> "down
-"map <A-d> 
-"
-
-nmap U :redo<CR>
-vmap <C-r> :s/
-" nmap <A-<BS>> vbd " no, bug
+nmap <A-d> yyp
+"map <C-h> " backspace; replace
+"map <A-h>
+nmap <leader>h :set hlsearch<CR>
+nmap <leader>H :set nohlsearch<CR>
+"map <A-t>
+"map <C-t>
+noremap n nzz " Center when searching
+noremap N Nzz
+"map <A-n>
+"map <C-n>
+"map <A-s>
+"map <C-s>
 
 "" additional escapes
+nmap <leader>q :wq<CR>
 imap jj <Esc> 
 imap kk <Esc>
 imap jk <Esc>
 imap kj <Esc>
+nmap <leader>j 10j
+nmap <leader>k 10k
 
-" Center when searching
-noremap n nzz
-noremap N Nzz
+vmap <C-r> :s/
+" nmap <A-<BS>> vbd " no, bug
+
+
 
 " ergonomic macro button
 " nnoremap Q q@ " bug
@@ -42,10 +53,6 @@ nmap T ~
 
 nmap <Space> <leader>
 nmap <leader><Space> :w<CR>
-nmap <leader>j 10j
-nmap <leader>k 10k
-nmap <leader>q :wq<CR>
-nmap <leader>H :set nohlsearch<CR>
 
 nnoremap <F3> :NERDTreeToggle<CR>
 
