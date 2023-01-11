@@ -154,7 +154,6 @@ set showmatch         " Show matching words/braces during a search.
 set hlsearch          " highlighting when doing a search.
 set history=1000      " Set the commands to save in history default=20.
 set backspace=indent,eol,start	" Backspace behaviour
-set wildmenu          " Enable auto completion menu after pressing TAB.
 set wildmode=list:longest " Make wildmenu behave like similar to Bash completion.
 
 " There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
@@ -182,13 +181,23 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-surround'     
 " gc gC operators for commenting lines https://github.com/tpope/vim-surround
 Plug 'tpope/vim-commentary'   
-" Plug 'kana/vim-textobj-entire' "provide ae and ie, to select entire buffer contents: bug, doesn't install?
-Plug 'kana/vim-textobj-entire' "provide ae and ie, to select entire buffer contents: bug, doesn't install?
-Plug 'bkad/CamelCaseMotion'   " motion inside camel/snakecase words with leader
-Plug 'justinmk/vim-sneak'     " location jumping with s (z in operator mode)
-Plug 'michaeljsmith/vim-indent-object' " use indentation level as a noun
-Plug 'jamessan/vim-gnupg'     " plugin for editing gpg encrypted files
+" Create textobjects. https://github.com/kana/vim-textobj-user
+Plug 'kana/vim-textobj-user' 
+" use indentation level, e.g. ai, ii, aI,iI, as a noun https://github.com/michaeljsmith/vim-indent-object
+Plug 'michaeljsmith/vim-indent-object' 
+" motion inside camel/snake-case words w leader https://github.com/bkad/CamelCaseMotion
+Plug 'bkad/CamelCaseMotion'   
+" location jumping with s<char><char> (z in operator mode) https://github.com/justinmk/vim-sneak
+Plug 'justinmk/vim-sneak'     
+" Show git diff in gutter https://github.com/airblade/vim-gitgutter
+Plug 'airblade/vim-gitgutter'     
+" edit gpg encrypted files as normal https://github.com/jamessan/vim-gnupg
+Plug 'jamessan/vim-gnupg'     
 call plug#end()
+
+" required by bkad/CamelCaseMotion; sets leader<move> to camel-equiv. Example of without leader:
+" map <silent> w <Plug>CamelCaseMotion_w
+let g:camelcasemotion_key = '<leader>'
 
 "nmap <C-/> gcc " nope
 "vmap <C-/> gcc " nope
@@ -204,6 +213,6 @@ autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
 
 """ Graveyard
-" use default mappings;; 2023-01-10 what the fuck is this
-" let g:camelcasemotion_key = '<leader>'
-
+" Bug: seems to not select buffer.
+" provide ae and ie, to select entire buffer contents. depends on above. https://github.com/kana/vim-textobj-entire
+"Plug 'kana/vim-textobj-entire' 
