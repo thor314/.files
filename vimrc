@@ -1,10 +1,11 @@
-" Thor's vimrc
+""" Thor's vimrc
 " Sets Keybindings, Settings, Plugins, and Language defaults, in that order. Attempt to be well-documented.
-" Docs: https://vimhelp.org/quickref.txt.html
-"
+" docs: https://vimhelp.org/quickref.txt.html
+" todo: try https://vim-bootstrap.com/
+
 """ Keybindings
-" Docs 1: https://vimhelp.org/map.txt.html#mapping
-" Docs 2: https://vim.fandom.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
+" docs: https://vimhelp.org/map.txt.html#mapping
+" verbose docs: https://vim.fandom.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
 " Note that operators like d,g,c, etc. sometimes cannot be remapped.
 map <C-a> ggVG
 "map <A-a> 
@@ -101,7 +102,6 @@ nmap <Space> <leader>
 nmap <leader><Space> :w<CR>
 "" F-keys
 nnoremap <F3> :NERDTreeToggle<CR>
-
 "" Experiments:
 " nmap <A-<BS>> vbd " no, bug
 " ergonomic macro button
