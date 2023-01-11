@@ -16,45 +16,95 @@ nmap U :redo<CR>
 "map <A-i> " todo: increment?
 "map <C-d> "down
 nmap <A-d> yyp
+noremap H ^
 "map <C-h> " backspace; replace
 "map <A-h>
-nmap <leader>h :set hlsearch<CR>
-nmap <leader>H :set nohlsearch<CR>
-"map <A-t>
+"nmap <leader>h " todo: goto left split
+nmap <leader><A-h> :set hlsearch<CR>
+nmap <leader><A-H> :set nohlsearch<CR>
+nmap t xhhpll
+nmap T ~
 "map <C-t>
+"map <A-t>
 noremap n nzz " Center when searching
 noremap N Nzz
-"map <A-n>
 "map <C-n>
-"map <A-s>
+"map <A-n>
 "map <C-s>
-
-"" additional escapes
+"map <A-s> " unsure, some weird ex-command
+"map -/_  " (prev) line start
+"map <C--> " Alacritty: smaller
+"map <A--> " unsure, some weird ex-command
+"map <C-'>
+"map <A-'>
+"map <C-,> " todo: open config
+map <A-,> <C-o>
+"map <C-.>
+map <A-.> <C-i>
+"map <C-p>
+"map <A-p>
+"map <C-y>
+"map <A-y>
+"map <C-f> " forward
+"map <A-f>
+"map <C-g>
+"map <A-g>
+"map <C-c> " exit
+"map <A-c>
+vmap <C-r> :s/
+"map <C-r> " todo: search/replace
+"map <A-r>
+noremap L $
+"map <C-l>
+"map <A-l>
+"map <C-/> " todo: toggle comments
+"map <A-/>
+"map <C-=>
+"map <A-=>
+"map <C-\>
+"map <A-\>
+"map <C-;>
+"map <A-;>
+" todo: fix macros (see experiments)
 nmap <leader>q :wq<CR>
+"map <C-q>
+"map <A-q>
 imap jj <Esc> 
 imap kk <Esc>
 imap jk <Esc>
 imap kj <Esc>
 nmap <leader>j 10j
 nmap <leader>k 10k
+"map <C-j>
+"map <A-j>
+"map <C-k>
+"map <A-k>
+"map <C-x>
+"map <A-x>
+"map <C-b>
+"map <A-b>
+"map <C-w>
+"map <A-w>
+"map <C-v>
+"map <A-v>
+"map <C-z>
+"map <A-z>
+"map <C-[>
+"map <A-[>
+"map <C-]>
+"map <A-]>
+" space
+nmap <Space> <leader>
+nmap <leader><Space> :w<CR>
+"" F-keys
+nnoremap <F3> :NERDTreeToggle<CR>
 
-vmap <C-r> :s/
+"" Experiments:
 " nmap <A-<BS>> vbd " no, bug
-
-
-
 " ergonomic macro button
 " nnoremap Q q@ " bug
 " nnoremap q @@ " bug
-noremap H ^
-noremap L $
-nmap t xhhpll
-nmap T ~
 
-nmap <Space> <leader>
-nmap <leader><Space> :w<CR>
-
-nnoremap <F3> :NERDTreeToggle<CR>
 
 """ Settings 
 " Search following list of options, or type `:help <option>`: https://vimhelp.org/options.txt.html
