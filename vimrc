@@ -1,16 +1,24 @@
-""" Thor's vimrc
-" 
-" Mainly does 2 things: install vim-plug, an extension manager, a couple
-" extensions, and set some **sane defaults**, as copied from numerous places
-" around the interwebs. DOCUMENT THOROUGHLY! I won't remember what these do.
-
-
+" Thor's vimrc
+" Sets Keybindings, Settings, Plugins, and Language defaults, in that order. Attempt to be well-documented.
+"
 """ Keybindings
-"" Movement
-" Undo, Redo, and Navigate inside page:
-" Don't overwrite <C-u> or <C-d> for file movement, or <C-o>,<C-i> for back/forward movement within document. 
-" <C-r> is for search-replace. u/U for undo/redo. 
-nmap U :redo
+" 
+map <C-a> ggVG
+"map <A-a> 
+"map <C-o>
+"map <A-o>
+"map <C-e>
+"map <A-e>
+"map <C-u> " up
+"map <A-u> 
+"map <C-i> " back
+"map <A-i> " todo: increment?
+map d x
+"map <C-d> "down
+"map <A-d> 
+"
+
+nmap U :redo<CR>
 vmap <C-r> :s/
 " nmap <A-<BS>> vbd " no, bug
 
