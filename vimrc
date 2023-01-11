@@ -1,7 +1,8 @@
 """ Thor's vimrc
 " Sets Keybindings, Settings, Plugins, and Language defaults, in that order. Attempt to be well-documented.
 " docs: https://vimhelp.org/quickref.txt.html
-" neovim docs: https://neovim.io/doc/user/index.html
+" vim docs: https://neovim.io/doc/user/usr_toc.html#user-manual
+" vim docs index: https://neovim.io/doc/user/index.html
 " neovim FAQ: https://github.com/neovim/neovim/wiki/FAQ
 " todo: try https://vim-bootstrap.com/
 
@@ -98,10 +99,10 @@ nmap <leader>k 10k
 "map <A-z>
 "map <C-[>
 "map <A-[>
-"map <C-]>
+"map <C-]> " Ask nvim for help on a word, seems to depend on the buggy/non-existant vim tags file
 "map <A-]>
 " space
-nmap <Space> <leader>
+nmap <Space> <leader> " lua: vim.g.mapleader = ' '
 nmap <leader><Space> :w<CR>
 "" F-keys
 nnoremap <F3> :NERDTreeToggle<CR>
