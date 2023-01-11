@@ -34,4 +34,4 @@ pcall(require, "custom")
 require("core.utils").load_mappings()
 
 -- chadrc
--- M.mappings = require "custom.mappings"
+require "custom.mappings"
