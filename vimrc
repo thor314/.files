@@ -21,14 +21,14 @@ imap jk <Esc>
 imap kj <Esc>
 
 " Center when searching
-nmap n nzz
-nmap N Nzz
+noremap n nzz
+noremap N Nzz
 
 " ergonomic macro button
 " nnoremap Q q@ " bug
 " nnoremap q @@ " bug
-map H ^
-map L $
+noremap H ^
+noremap L $
 nmap t xhhpll
 nmap T ~
 
@@ -37,11 +37,13 @@ nmap <leader><Space> :w<CR>
 nmap <leader>j 10j
 nmap <leader>k 10k
 nmap <leader>q :wq<CR>
+nmap <leader>H :set nohlsearch<CR>
+
+nnoremap <F3> :NERDTreeToggle<CR>
 
 """ Settings 
 " Search following list of options, or type `:help <option>`: https://vimhelp.org/options.txt.html
 " Ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
-" Also: https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/
 " 
 "" Misc
 set clipboard=unnamedplus " set default yank register to system clipboard
@@ -70,6 +72,11 @@ set visualbell        " use visual bell instead of beeps
 set scrolloff=1       " Do not let cursor scroll below or above N number of lines when scrolling.
 set showcmd           " Show partial command you type in the last line of the screen.
 set showmode          " Show the mode you are on the last line.
+" Supercharged statusline:
+set statusline+=\ %F\ %M\ %Y\ %R " Left
+set statusline+=%= " Use a divider to separate the left side from the right side.
+set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%  " Status line right side.
+set laststatus=2 " Show the status on the second to last line.
 
 "" Search
 set incsearch         " While searching though a file incrementally highlight matching characters as you type.
@@ -84,6 +91,8 @@ set wildmode=list:longest " Make wildmenu behave like similar to Bash completion
 
 " There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+" Have nerdtree ignore certain files and directories.
+let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
 """ Plugin Management
 " ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
@@ -99,7 +108,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin()             " List the plugins to install
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " nerdtree file manager, sparsely used
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " nerdtree file manager
 Plug 'tpope/vim-surround'     " vim-surround - manipulate surrounding symbolics ergonomically
 Plug 'tpope/vim-commentary'   " gc gC operators for commenting lines
 " Plug 'kana/vim-textobj-entire' "provide ae and ie, to select entire buffer contents: bug, doesn't install?
@@ -108,6 +117,16 @@ Plug 'justinmk/vim-sneak'     " location jumping with s (z in operator mode)
 Plug 'michaeljsmith/vim-indent-object' " use indentation level as a noun
 Plug 'jamessan/vim-gnupg'     " plugin for editing gpg encrypted files
 call plug#end()
+
+""" Filetype-specific
+"" HTML
+autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
+
+"" Rust
+autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
+
+"" Python
+autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
 
 """ Graveyard
 " use default mappings;; 2023-01-10 what the fuck is this
