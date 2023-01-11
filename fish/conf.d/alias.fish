@@ -23,6 +23,8 @@ function checkall
     end
 end
 
+alias nv="flatpak run io.neovim.nvim"
+alias nvim="flatpak run io.neovim.nvim"
 
 # PERMANENT(ish)
 abbr -a -g agi "sudo apt -y install"
