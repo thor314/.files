@@ -176,15 +176,22 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin()             " List the plugins to install
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " nerdtree file manager
-Plug 'tpope/vim-surround'     " vim-surround - manipulate surrounding symbolics ergonomically
-Plug 'tpope/vim-commentary'   " gc gC operators for commenting lines
+" Left sidebar file tree. https://github.com/preservim/nerdtree
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 
+" vim-surround - manipulate surrounding symbolics ergonomically https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'     
+" gc gC operators for commenting lines https://github.com/tpope/vim-surround
+Plug 'tpope/vim-commentary'   
 " Plug 'kana/vim-textobj-entire' "provide ae and ie, to select entire buffer contents: bug, doesn't install?
+Plug 'kana/vim-textobj-entire' "provide ae and ie, to select entire buffer contents: bug, doesn't install?
 Plug 'bkad/CamelCaseMotion'   " motion inside camel/snakecase words with leader
 Plug 'justinmk/vim-sneak'     " location jumping with s (z in operator mode)
 Plug 'michaeljsmith/vim-indent-object' " use indentation level as a noun
 Plug 'jamessan/vim-gnupg'     " plugin for editing gpg encrypted files
 call plug#end()
+
+"nmap <C-/> gcc " nope
+"vmap <C-/> gcc " nope
 
 """ Filetype-specific
 "" HTML
