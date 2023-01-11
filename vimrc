@@ -189,12 +189,43 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'   
 " location jumping with s<char><char> (z in operator mode) https://github.com/justinmk/vim-sneak
 Plug 'justinmk/vim-sneak'     
-" Show git diff in gutter https://github.com/airblade/vim-gitgutter
+" Show git diff in gutter. jump between changes with ]c, [c https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'     
 " edit gpg encrypted files as normal https://github.com/jamessan/vim-gnupg
 Plug 'jamessan/vim-gnupg'     
+"" Unused:
+" supercharged tab for completions https://github.com/ervandew/supertab
+" Plug 'ervandew/supertab'
+" syntax highlighting, completion, and errors in many languages https://github.com/dense-analysis/ale
+" Plug 'dense-analysis/ale'
+" Popular git interface. https://github.com/tpope/vim-fugitive
+" plug 'tpope/vim-fugitive'
+" Use fzf for search. https://github.com/junegunn/fzf.vim
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+" Change the status-line. Not that much of a power-user yet, but could be useful for tabs. 
+" https://github.com/vim-airline/vim-airline
+" Plug 'vim-airline/vim-airline'
 call plug#end()
 
+" source: https://breuer.dev/blog/top-neovim-plugins
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
+
+nnoremap <silent> <C-h> :call WinMove('h')<CR>
+nnoremap <silent> <C-j> :call WinMove('j')<CR>
+nnoremap <silent> <C-k> :call WinMove('k')<CR>
+nnoremap <silent> <C-l> :call WinMove('l')<CR>
 " required by bkad/CamelCaseMotion; sets leader<move> to camel-equiv. Example of without leader:
 " map <silent> w <Plug>CamelCaseMotion_w
 let g:camelcasemotion_key = '<leader>'
