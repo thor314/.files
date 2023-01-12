@@ -33,4 +33,3 @@ pcall(require, "custom")
 
 require("core.utils").load_mappings()
 
-require "custom.mappings"

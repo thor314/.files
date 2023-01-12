@@ -28,9 +28,9 @@ font:
   normal:
     #  find mono fonts: fc-list -b | rg -i "family:.*mono | sort | uniq"
     # family: "MesloLGS NF" # recommended by powerline10k
-    # family: "DejaVu Sans Mono"
-    # family: "Liberation Mono"
-    # family: "Fira Mono" 
+    # family: "DejaVu Sans Mono" #
+    # family: "Liberation Mono" # Doesn't support all icons
+    # family: "Fira Mono" # doesn't support all icons
     family: "MesloLGS NF" 
 
 bell:
