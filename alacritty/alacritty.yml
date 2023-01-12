@@ -30,7 +30,8 @@ font:
     # family: "MesloLGS NF" # recommended by powerline10k
     # family: "DejaVu Sans Mono"
     # family: "Liberation Mono"
-    family: "Fira Mono" 
+    # family: "Fira Mono" 
+    family: "MesloLGS NF" 
 
 bell:
   # https://github.com/alacritty/alacritty/blob/master/alacritty.yml#L344
