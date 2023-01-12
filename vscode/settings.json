@@ -23,10 +23,10 @@
     // "editor.rename.enablePreview": false, // don't ask me to confirm, before renaming
     // TEXT FORMATTING DEFAULTS
     "editor.fontLigatures": true,
-    "editor.fontFamily": "Fira Code", // ligature supporting font
+    "editor.fontFamily": "Fira Code ", // ligature supporting font
     // "editor.fontFamily": "Fira Code Mono",
     // "editor.fontFamily": "MesloLGS NF", 
-    "terminal.integrated.fontFamily": "'Fira Code', monospace", // terminal font bug pls no
+    "terminal.integrated.fontFamily": "MesloLGS NF", // terminal font bug pls no
     "editor.fontWeight": "500",
     "editor.tabSize": 2, // prefer 2-space width. Fine, they can be spaces > tabs.
     // "editor.insertSpaces": false,
