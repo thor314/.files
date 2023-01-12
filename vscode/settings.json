@@ -23,7 +23,7 @@
     // "editor.rename.enablePreview": false, // don't ask me to confirm, before renaming
     // TEXT FORMATTING DEFAULTS
     "editor.fontLigatures": true,
-    "editor.fontFamily": "Fira Code ", // ligature supporting font
+    "editor.fontFamily": "Fira Code", // ligature supporting font
     // "editor.fontFamily": "Fira Code Mono",
     // "editor.fontFamily": "MesloLGS NF", 
     "terminal.integrated.fontFamily": "MesloLGS NF", // terminal font bug pls no
