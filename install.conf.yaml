@@ -20,7 +20,6 @@
     - ~/tmp/bak
     - ~/.trash
     - ~/Downloads/book
-    - ~/Downloads/covid
     - ~/Downloads/delete_soon
     - ~/Downloads/invoice
     - ~/Downloads/official
@@ -37,7 +36,7 @@
     ~/.config/fish: fish
     ~/.gitconfig:
     ~/.config/helix: helix
-    ~/.vimrc:
+    # ~/.vimrc:
     ~/.share/bin: ~/bin/share
     ~/.local/bin: ~/bin/local
     ~/.cargo/bin: ~/bin/cargo
