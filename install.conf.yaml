@@ -29,7 +29,7 @@
 
 - link:
     ~/.config/leftwm: leftwm
-    ~/.config/nvim: nvim
+      # ~/.config/nvim: nvim
     ~/.local/share/fonts: fonts
     ~/.files/zsh.d/.zshrc: zsh.d/zshrc # maybe redundant
     ~/.zsh.d:
