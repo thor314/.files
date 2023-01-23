@@ -244,9 +244,6 @@ autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 "" Rust
 autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
 
-"" Python
-autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
-
 """ Graveyard
 " Bug: seems to not select buffer.
 " provide ae and ie, to select entire buffer contents. depends on above. https://github.com/kana/vim-textobj-entire
