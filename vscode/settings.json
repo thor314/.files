@@ -10,7 +10,8 @@
     "editor.cursorBlinking": "solid", // blink default? ew
     "workbench.colorTheme": "Moonlight II",
     "glassit.alpha": 245, // out of 255
-    "workbench.editor.showTabs": false, // tabs are annoying to close
+    "workbench.editor.showTabs": false, // tabs are annoying to close, can I just...disable them? No. This hides them.
+    // "workbench.editor.tabCloseButton": "off", // hide the x at least
     "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": false,
