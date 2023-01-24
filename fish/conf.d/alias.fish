@@ -52,7 +52,6 @@ abbr -a -g cct 'cargo check --tests'
 abbr -a -g cdb "cd ~/r/tmpl/"
 abbr -a -g cde 'cd $HOME/.config/espanso/match'
 abbr -a -g cdf 'cd $HOME/.files/fish'
-abbr -a -g cdn 'cd $HOME/.files/nvim'
 abbr -a -g cds 'cd $HOME/.setup'
 abbr -a -g cdt 'cd $HOME/r/tmpl'
 
@@ -191,7 +190,6 @@ abbr -a -g hxml "hx ~/.config/espanso/match/markdown/_latex.yml"
 abbr -a -g hxmo "hx ~/.config/espanso/match/markdown/_obsidian.yml"
 abbr -a -g hxmm "hx ~/.config/espanso/match/markdown/_mermaid.yml"
 abbr -a -g hxmg "hx ~/.config/espanso/match/markdown/_greek.yml"
-abbr -a -g hxn "hx ~/.files/nvim/init.vim"
 abbr -a -g hxf "hx ~/.files/fish/config.fish"
 abbr -a -g hxl "hx ~/.files/helix/languages.toml"
 abbr -a -g hxs "hx ~/.setup/install.sh"
@@ -287,32 +285,6 @@ abbr -a -g thes 'moby' # thesaurus
 abbr -a -g trashout "rm -rf $HOME/.trash/*"
 abbr -a -g tor "flatpak run com.github.micahflee.torbrowser-launcher"
 abbr -a -g tf "taplo fmt"
-
-abbr -a -g v 'nvim'
-abbr -a -g vi 'nvim'
-abbr -a -g nv 'nvim'
-abbr -a -g va 'nvim ~/.config/alacritty/alacritty.yml'
-abbr -a -g vb 'nvim ~/.setup/unsorted.sh'
-abbr -a -g vbi 'nvim ~/.setup/install.sh'
-abbr -a -g vbu 'nvim ~/.setup/install.sh'
-abbr -a -g vcg 'nvim ~/.cargo/cargo-generate.toml'
-abbr -a -g vd 'nvim ~/.files/install.conf.yaml'
-abbr -a -g vdp 'nvim ~/.files/private/install.conf.yaml'
-abbr -a -g vds 'nvim ~/.files/root/install.conf.yaml'
-abbr -a -g vdr 'nvim ~/.files/root/install.conf.yaml'
-abbr -a -g veb "nvim ~/.config/espanso/match/base.yml"
-abbr -a -g vec "nvim ~/.config/espanso/match/code.yml"
-abbr -a -g vel "nvim ~/.config/espanso/match/latex.yml"
-abbr -a -g vem "nvim ~/.config/espanso/match/mermaid.yml"
-abbr -a -g veo "nvim ~/.config/espanso/match/obsidian.yml"
-abbr -a -g vet "nvim ~/.config/espanso/match/thor.yml"
-abbr -a -g vj 'nvim ~/.config/zellij/config.yaml'
-abbr -a -g vo 'nvim ~/note/.obsidian.vimrc'
-# OMZ: vsc+ vscode
-abbr -a -g vtmpl 'nvim ~/r/tmpl/base/Cargo.toml'
-abbr -a -g vv 'nvim ~/.vimrc'
-abbr -a -g vz 'nvim ~/.zsh.d/.zshrc'
-abbr -a -g vza 'nvim ~/.zsh.d/alias.sh'
 
 abbr -a -g zj zellij
 abbr -a -g zotero "flatpak run org.zotero.Zotero"
