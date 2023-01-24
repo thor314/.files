@@ -151,7 +151,7 @@
         // quickly find and fix problems
         { "before": [ "+" ], "commands": [ "editor.action.marker.next", ] },
         { "before": [ "=" ], "commands": [ "editor.action.quickFix" ] }, 
-        { "before": [ "\\" ], "commands": [ "cursorPageDown" ] }, 
+        // { "before": [ "\\" ], "commands": [ "cursorPageDown" ] }, 
         // https://vspacecode.github.io/docs/whichkey/
         { "before": ["<leader>"], "commands": ["whichkey.show"]}
     ], 
@@ -174,29 +174,15 @@
     ],
 
     // WHICH KEY BINDINGS 
-    // ref: 
-    //     "whichkey.bindingOverrides": [
-    //     {
-    //       "keys": "g",
-    //       "name": "Go...",
-    //       "type": "bindings",
-    //       "bindings": [
-    //         {
-    //           "key": "s",
-    //           "name": "Go to",
-    //           "type": "command",
-    //           "command": "workbench.action.gotoLine",
-    //         }
-    //       ]
-    //     }
-    //   ]
+    // ref: https://vspacecode.github.io/docs/whichkey/
     "whichkey.bindingOverrides": [
-        { "keys": "g.s", "name": "Go to line", "type": "command", "command":"workbench.action.gotoLine", },
-        { "keys": ",", "name": "Settings...", "type": "bindings",
+        { "keys": "\\", "name": "Split", "type": "command", "command":"workbench.action.splitEditor", },
+        { "keys": ",", "name": "Settings...", "type": "bindings", 
           "bindings": [
             { "key": "s", "name": "Settings", "type": "command", "command": "workbench.action.openSettings", },
             { "key": "k", "name": "Bindings", "type": "command", "command": "workbench.action.openGlobalKeybindings", },
-            { "key": "j", "name": "Bindings", "type": "command", "command": "workbench.action.openSettingsJson", },
+            { "key": "j", "name": "Json Settings", "type": "command", "command": "workbench.action.openSettingsJson", },
+            { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
           ]},
     ],
 
