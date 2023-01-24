@@ -52,16 +52,17 @@
     "errorLens.delay": 1000, // doesn't appear to do what I'd think it would
     "errorLens.enableOnDiffView": true, // view errors on diff
     "errorLens.statusBarIconsEnabled": true,
-    "errorLens.enabled": true,
+    "errorLens.enabled": true, // toggle this often
     "errorLens.enabledDiagnosticLevels": [
         "warning",
         "error"
     ],
 
+    //\//\//\//\//\
     ///// VIM \\\\\
-    // docs: https://github.com/VSCodeVim/Vim; good to revisit modules especially
-    // Note: try gc, gC to toggle comments. Eg: gCi} to comment this scope
-    // to grab a block at some indentation level, use <operater>{ii,ai} for inside block, or block and above.
+    //\//\//\//\//\
+    // docs: https://github.com/VSCodeVim/Vim
+    // To grab a block at some indentation level, use <operater>{ii,ai} for inside block, or block and above.
     // I read up to Input Method, the rest might be info overload.
     // see bottom for key remappings
     "vim.leader": "<space>",
@@ -92,10 +93,12 @@
     // "editor.snippetSuggestions": "top", // I like my snippets
     "editor.suggest.snippetsPreventQuickSuggestions": false, // I like my snippets to have suggestions
 
+
+    //\//\//\//\//\/
     ///// RUST \\\\\
+    //\//\//\//\//\/
     // cargo: https://doc.rust-lang.org/cargo/reference/features.html
     // RA: https://rust-analyzer.github.io/manual.html#configuration
-    // See bottom for snippets. - on hold, this feature seems buggy
     "rust-analyzer.files.excludeDirs": ["entropy/core", "tmpl/cgen", "core/crypto/", "crypto/signing-client"],
     "cargo.automaticCheck": false, // def: true; unclear function when checkonsave true, sometimes lags
     "rust-analyzer.checkOnSave.enable": true, // disabling this also disables inline error lens
@@ -119,7 +122,9 @@
     // "rust-analyzer.completion.snippets.custom": { },
     "editor.inlayHints.enabled": "offUnlessPressed", // toggle with ctrl-alt
 
-    ///// PYTHON \\\\
+    //\//\//\//\//\///
+    ///// PYTHON \\\\\
+    //\//\//\//\//\///
     // https://stackoverflow.com/questions/50177173/how-do-i-get-flake8-to-reliably-ignore-rules-in-vs-code
     "[python]": { "editor.tabSize": 2 },
     "python.linting.flake8Args": [ "--max-line-length=120", "--ignoreE=402,F841,F401,E302,E305", ],
@@ -182,7 +187,10 @@
         { "before": ["<leader>"], "commands": ["whichkey.show"]}
     ],
 
-    // WHICH KEY BINDINGS 
+
+    //\/\/\//\\//\\//\\\///\
+    // WHICH KEY BINDINGS //
+    //\/\/\//\\//\\//\\\///\
     // ref: https://vspacecode.github.io/docs/whichkey/
     "whichkey.delay": 200,  // millis, default 0
     "whichkey.sortOrder": "custom", // put custom bindings near top
@@ -206,10 +214,11 @@
         "**/Thumbs.db": true,
         "**/*.olean": true
     },
+    
+    /////?///?///?///?///?///?///?///?///?//
+    ///?//?/?/?/?/ EXPERIMENTS /?/?/?/?/?/?/
+    //?////?///?///?///?///?///?///?///?///?
     // "settingsSync.keybindingsPerPlatform": false,
-    //
-    // experiments
-    // 
     // test: does this disable prompt to save workspace on exit?
     // "editor.inlayHints.padding": true, // enable padding around inlay hints
     // "terminal.external.linuxExec": "alacritty", // to remove
