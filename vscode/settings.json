@@ -196,8 +196,13 @@
     "whichkey.sortOrder": "custom", // put custom bindings near top
     "whichkey.bindingOverrides": [
         { "keys": "\\", "name": "Split", "type": "command", "command":"workbench.action.splitEditor", },
-        { "keys": ",", "name": "Settings...", "type": "bindings", 
-          "bindings": [
+        { "keys": "<space>", "name": "EasyMotion...", "type": "bindings", "bindings": [
+            { "key": "s", "name": "Search char", "type": "command", "after": ["<leader>","<leader>","s"] },
+        ]},
+        { "keys": "<leader>", "name": "EasyMotion...", "type": "bindings", "bindings": [
+            { "key": "s", "name": "Search char", "type": "command", "after": ["<leader>","<leader>","s"] },
+        ]},
+        { "keys": ",", "name": "Settings...", "type": "bindings", "bindings": [
             { "key": "s", "name": "Settings", "type": "command", "command": "workbench.action.openSettings", },
             { "key": "k", "name": "Bindings", "type": "command", "command": "workbench.action.openGlobalKeybindings", },
             { "key": "j", "name": "Json Settings", "type": "command", "command": "workbench.action.openSettingsJson", },
