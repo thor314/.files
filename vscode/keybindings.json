@@ -1306,10 +1306,6 @@
         "when": "inKeybindings"
     },
     {
-        "key": "ctrl+u",
-        "command": "cursorUndo"
-    },
-    {
         "key": "ctrl+l",
         "command": "-emacs.C-l",
         "when": "editorTextFocus"
@@ -1706,11 +1702,6 @@
         "key": "ctrl+b",
         "command": "-extension.vim_ctrl+b",
         "when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+d",
-        "command": "-extension.vim_ctrl+d",
-        "when": "editorTextFocus && vim.active && vim.use<C-d> && !inDebugRepl"
     },
     {
         "key": "ctrl+e",
@@ -2319,11 +2310,6 @@
         "when": "editorLangId == 'rust'"
     },
     {
-        "key": "ctrl+m ctrl+d",
-        "command": "rust-analyzer.viewItemTree",
-        "when": "editorLangId == 'rust'"
-    },
-    {
         "key": "ctrl+m ctrl+.",
         "command": "rust-analyzer.openDocs",
         "when": "editorLangId == 'rust'"
@@ -2456,59 +2442,9 @@
         "when": "!jupyter.webExtension"
     },
     {
-        "key": "ctrl+d i",
-        "command": "rust-analyzer.viewItemTree",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+d o",
-        "command": "debug.openView",
-        "when": "!debuggersAvailable"
-    },
-    {
-        "key": "ctrl+d k",
-        "command": "workbench.debug.panel.action.clearReplAction"
-    },
-    {
-        "key": "ctrl+d l",
-        "command": "editor.debug.action.addLogPoint"
-    },
-    {
-        "key": "ctrl+d d",
-        "command": "workbench.panel.repl.view.focus"
-    },
-    {
-        "key": "ctrl+d c",
-        "command": "editor.debug.action.conditionalBreakpoint"
-    },
-    {
-        "key": "ctrl+d w",
-        "command": "editor.debug.action.selectionToWatch"
-    },
-    {
-        "key": "ctrl+d i",
-        "command": "editor.debug.action.toggleInlineBreakpoint"
-    },
-    {
-        "key": "ctrl+d r",
-        "command": "workbench.action.debug.restart"
-    },
-    {
         "key": "ctrl+enter",
         "command": "workbench.action.debug.start",
         "when": "!inDebugMode && activeViewlet == 'workbench.view.debug' && debugConfigurationType == 'node' || !inDebugMode && activeViewlet == 'workbench.view.debug' && debugConfigurationType == 'pwa-extensionHost' || !inDebugMode && activeViewlet == 'workbench.view.debug' "
-    },
-    {
-        "key": "ctrl+d j",
-        "command": "debug.jumpToCursor"
-    },
-    {
-        "key": "ctrl+d ctrl+shift+b",
-        "command": "workbench.debug.viewlet.action.disableAllBreakpoints"
-    },
-    {
-        "key": "ctrl+d ctrl+b",
-        "command": "workbench.debug.viewlet.action.enableAllBreakpoints"
     },
     {
         "key": "ctrl+c",
@@ -2918,14 +2854,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+d b",
-        "command": "editor.debug.action.toggleBreakpoint"
-    },
-    {
-        "key": "ctrl+d ctrl+c",
-        "command": "editor.debug.action.runToCursor"
-    },
-    {
         "key": "alt+t alt+d",
         "command": "workbench.debug.action.toggleRepl"
     },
@@ -2953,29 +2881,9 @@
         "when": "debugState == 'stopped'"
     },
     {
-        "key": "ctrl+d shift+b",
-        "command": "workbench.debug.viewlet.action.toggleBreakpointsActivatedAction"
-    },
-    {
         "key": "f11",
         "command": "-extension.node-debug.startWithStopOnEntry",
         "when": "!inDebugMode && activeViewlet == 'workbench.view.debug' && debugConfigurationType == 'node' || !inDebugMode && activeViewlet == 'workbench.view.debug' && debugConfigurationType == 'pwa-extensionHost' || !inDebugMode && activeViewlet == 'workbench.view.debug' && debugConfigurationType == 'pwa-node'"
-    },
-    {
-        "key": "ctrl+d t",
-        "command": "testing.debugAtCursor"
-    },
-    {
-        "key": "ctrl+d ctrl+t",
-        "command": "testing.debugFailTests"
-    },
-    {
-        "key": "ctrl+d ctrl+w",
-        "command": "debug.addToWatchExpressions"
-    },
-    {
-        "key": "ctrl+d shift+w",
-        "command": "workbench.debug.viewlet.action.addWatchExpression"
     },
     {
         "key": "alt+pagedown",
@@ -3086,5 +2994,18 @@
         "key": "ctrl+l",
         "command": "keybindings.editor.searchKeybindings",
         "when": "inKeybindings"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-list.focusPageDown",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "extension.vim_ctrl+u"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "extension.vim_ctrl+b"
     }
 ]
