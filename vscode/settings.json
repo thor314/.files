@@ -175,6 +175,8 @@
 
     // WHICH KEY BINDINGS 
     // ref: https://vspacecode.github.io/docs/whichkey/
+    "whichkey.delay": 200,  // millis, default 0
+    "whichkey.sortOrder": "custom", // put custom bindings near top
     "whichkey.bindingOverrides": [
         { "keys": "\\", "name": "Split", "type": "command", "command":"workbench.action.splitEditor", },
         { "keys": ",", "name": "Settings...", "type": "bindings", 
@@ -206,5 +208,5 @@
     // "terminal.integrated.shellIntegration.enabled": false,
     "terminal.integrated.defaultProfile.linux": "fish",
     "breadcrumbs.enabled": false,
-    "window.zoomLevel": -2, // to remove
+    "window.zoomLevel": -2,
 }
