@@ -52,7 +52,7 @@
     "errorLens.delay": 1000, // doesn't appear to do what I'd think it would
     "errorLens.enableOnDiffView": true, // view errors on diff
     "errorLens.statusBarIconsEnabled": true,
-    "errorLens.enabled": true, // toggle this often
+    "errorLens.enabled": false, // toggle this often
     "errorLens.enabledDiagnosticLevels": [
         "warning",
         "error"
