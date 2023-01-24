@@ -1916,11 +1916,6 @@
         "command": "-undo"
     },
     {
-        "key": "shift+space",
-        "command": "cursorPageUp",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal'"
-    },
-    {
         "key": "ctrl+pagedown",
         "command": "-workbench.action.nextEditor"
     },
@@ -2994,11 +2989,6 @@
         "key": "alt+pagedown",
         "command": "-scrollPageDown",
         "when": "textInputFocus"
-    },
-    {
-        "key": "space",
-        "command": "cursorPageDown",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal'"
     },
     {
         "key": "alt+t alt+t",
