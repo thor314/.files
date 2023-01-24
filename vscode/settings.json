@@ -1,7 +1,4 @@
 {
-    // JSON formatting is whitespace heavy, and annoying to read. 
-    // TODO: replace next line with disable unwanted json formatter features.
-    "json.format.enable": false,
     // WELL THAT'S DUMB (make it less dumb)
     "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
     "editor.minimap.enabled": false, // no clutter pls
@@ -11,26 +8,23 @@
     "workbench.colorTheme": "Moonlight II",
     "glassit.alpha": 245, // out of 255
     "workbench.editor.showTabs": false, // tabs are annoying to close, can I just...disable them? No. This hides them.
-    // "workbench.editor.tabCloseButton": "off", // hide the x at least
     "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": false,
     "zenMode.hideActivityBar": false,
-    "window.titleBarStyle": "custom", // sexy window bar
+    "window.titleBarStyle": "custom", // hide gross top bar
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.startupEditor": "none", // statusbar at bottom
     "explorer.confirmDragAndDrop": false, // no confirm on drag/drop file
     "editor.inlineSuggest.enabled": true, // preview suggestions inline in greyed out text
-    // "editor.rename.enablePreview": false, // don't ask me to confirm, before renaming
-    // TEXT FORMATTING DEFAULTS
     "editor.fontLigatures": true,
     "editor.fontFamily": "Fira Code", // ligature supporting font
-    // "editor.fontFamily": "Fira Code Mono",
-    // "editor.fontFamily": "MesloLGS NF", 
-    "terminal.integrated.fontFamily": "MesloLGS NF", // terminal font bug pls no
     "editor.fontWeight": "500",
-    "editor.tabSize": 2, // prefer 2-space width. Fine, they can be spaces > tabs.
+    "terminal.integrated.fontFamily": "MesloLGS NF", // terminal font bug pls no
+    "terminal.integrated.fontWeight": "bold",
+    // "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
     // "editor.insertSpaces": false,
+
     // SAVE AND FORMAT OFTEN
     "editor.formatOnSaveMode": "file",
     "files.autoSave": "afterDelay", // other options are suprisingly bad
@@ -38,24 +32,27 @@
     // "editor.formatOnSave": true, // does nothing if save after delay
     "editor.formatOnType": false, // BUGGGYYYYY, turn off. Eg, inserts $0 after typing '<' in rust
     "editor.formatOnPaste": true,
+
     // GENERAL CODING SETTINGS
     "editor.foldingImportsByDefault": true,
     "search.smartCase": true, // figure out whether I care about case-sensitivity
     "editor.tabCompletion": "on", // complete snippets w tab 
-    "editor.wordWrap": "wordWrapColumn", // if I wrote it, I want it
+    "editor.wordWrap": "wordWrapColumn", // if I wrote it, I want it on screen crohecurhoecruhoceru 
     "editor.wordWrapColumn": 120,
     "rewrap.autoWrap.enabled": true, // simple ext to automatically word-wrap my comments
+
     // GIT OPS and LENS
     "git.autofetch": true,
     "diffEditor.codeLens": true, // show clicky buttons in merge rebases
+
     // ERROR SETTINGS
     "errorLens.delay": 1000, // doesn't appear to do what I'd think it would
     "errorLens.enableOnDiffView": true, // view errors on diff
     "errorLens.statusBarIconsEnabled": true,
     "errorLens.enabled": true,
     "errorLens.enabledDiagnosticLevels": [
-        "hint",
-        "warning"
+        "warning",
+        "error"
     ],
     // VIM 
     // docs: https://github.com/VSCodeVim/Vim; good to revisit modules especially
@@ -126,6 +123,8 @@
     "python.analysis.typeCheckingMode": "basic",
     //
     // VIM REMAPPINGS 
+    // JSON formatting makes the following annoying, disable it
+    "json.format.enable": false,
     // note: use non-recursive binding to avoid recursive chains of bindings
     "vim.insertModeKeyBindings": [
         // go to normal if accidentally start using normal-mode movements
