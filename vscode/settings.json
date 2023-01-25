@@ -108,12 +108,12 @@
         "editor.suggest.showKeywords": false,
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
     },
+    // "rust-analyzer.check.features": "all", // uncomment to check all features, slows down RA
     // IF RUST-ANALYZER IS TOO SLOW, UNCOMMENT:
     // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
     // "cargo.automaticCheck": false, 
     // graveyard:
-    // "rust-analyzer.checkOnSave.allTargets": true, // disabling will disable checks for #[cfg(test)], or WASM, etc
-    // "rust-analyzer.checkOnSave": "", // check all features, disabling eliminates editor checks on features
+    // "rust-analyzer.checkOnSave.allTargets": true, // (deprecated) disabling will disable checks for #[cfg(test)], or WASM, etc
 
     //\//\//\//\//\///
     ///// PYTHON \\\\\
