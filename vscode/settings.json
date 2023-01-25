@@ -52,7 +52,7 @@
     "errorLens.delay": 1000, // doesn't appear to do what I'd think it would
     "errorLens.enableOnDiffView": true, // view errors on diff
     "errorLens.statusBarIconsEnabled": true,
-    "errorLens.enabled": false, // toggle this often
+    "errorLens.enabled": true, // toggle this often
     "errorLens.enabledDiagnosticLevels": [
         "warning",
         "error"
@@ -98,16 +98,13 @@
     //\//\//\//\//\/
     // cargo: https://doc.rust-lang.org/cargo/reference/features.html
     // RA: https://rust-analyzer.github.io/manual.html#configuration
-    "rust-analyzer.files.excludeDirs": ["entropy/core", "tmpl/cgen", "core/crypto/", "crypto/signing-client"],
-    "cargo.automaticCheck": false, // def: true; unclear function when checkonsave true, sometimes lags
-    "rust-analyzer.checkOnSave.enable": true, // disabling this also disables inline error lens
-    "rust-analyzer.checkOnSave.command": "clippy", 
-    // "rust-analyzer.checkOnSave.command": "test", 
-    // "rust-analyzer.checkOnSave.command": "check", // use this to enable inline errors in test modules
-    //
-    // Other features:
+    // "cargo.automaticCheck": false, // def: true; unclear function when checkonsave true, sometimes lags
+    // "rust-analyzer.checkOnSave.enable": true, // disabling this also disables inline error lens
+    // "rust-analyzer.checkOnSave.command": "clippy", 
+    // // "rust-analyzer.checkOnSave.command": "check", // use this to enable inline errors in test modules
+    // // Other features:
     "rust-analyzer.checkOnSave.allTargets": true, // disabling will disable checks for #[cfg(test)], or WASM, etc
-    "rust-analyzer.checkOnSave.features": "all", // check all features, disabling eliminates editor checks on features
+    "rust-analyzer.checkOnSave.features": "", // check all features, disabling eliminates editor checks on features
     "rust-analyzer.diagnostics.experimental.enable": false, // def: false, match <>
     "rust-analyzer.imports.granularity.enforce": true, // group imports
     "rust-analyzer.rustfmt.rangeFormatting.enable": true, // get rid of this line when rangeformatting goes stable
