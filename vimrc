@@ -4,7 +4,7 @@
 " vim docs: https://neovim.io/doc/user/usr_toc.html#user-manual
 " vim docs index: https://neovim.io/doc/user/index.html
 " neovim FAQ: https://github.com/neovim/neovim/wiki/FAQ
-" todo: try https://vim-bootstrap.com/
+" todo: try https://vim-bootstrap.com
 
 """ Keybindings
 " docs: https://vimhelp.org/map.txt.html#mapping
@@ -30,7 +30,7 @@ noremap H ^
 "nmap <leader>h " todo: goto left split
 nmap <leader><A-h> :set hlsearch<CR>
 nmap <leader><A-H> :set nohlsearch<CR>
-nmap t xhhpll
+nmap t xhPl
 nmap T ~
 "map <C-t>
 "map <A-t>
