@@ -113,8 +113,6 @@
     // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
     "cargo.automaticCheck": false,
     "rust-analyzer.cargo.autoreload": false,
-    // graveyard:
-    // "rust-analyzer.checkOnSave.allTargets": true, // (deprecated) disabling will disable checks for #[cfg(test)], or WASM, etc
 
     //\//\//\//\//\///
     ///// PYTHON \\\\\
@@ -212,15 +210,5 @@
         "**/Thumbs.db": true,
         "**/*.olean": true
     },
-    
-    /////?///?///?///?///?///?///?///?///?//
-    ///?//?/?/?/?/ EXPERIMENTS /?/?/?/?/?/?/
-    //?////?///?///?///?///?///?///?///?///?
-    // "settingsSync.keybindingsPerPlatform": false,
-    // test: does this disable prompt to save workspace on exit?
-    // "editor.inlayHints.padding": true, // enable padding around inlay hints
-    // "terminal.external.linuxExec": "alacritty", // to remove
-    // "terminal.explorerKind": "external",
-    // "terminal.integrated.shellIntegration.enabled": false,
     "window.zoomLevel": -2,
 }
