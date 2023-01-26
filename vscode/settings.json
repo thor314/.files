@@ -149,6 +149,8 @@
         { "before": [ "w" ], "after": [ "<leader>", "w", ] },
         { "before": [ "L" ], "after": [ "$", ] },
         { "before": [ "H" ], "after": [ "^", ] },
+        // { "before": [ ">" ], "after": [ ">>", ] }, // nope
+        // { "before": [ "<" ], "after": [ "<<", ] }, // nope
         // { "before": [ ";" ], "commands": [ "cursorPageDown", ] },
         // { "before": [ ":" ], "commands": [ "cursorPageUp", ] },
         { "before": [ "H" ], "after": [ "^", ] },
