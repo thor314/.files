@@ -289,6 +289,9 @@ abbr -a -g tf "taplo fmt"
 abbr -a -g zj zellij
 abbr -a -g zotero "flatpak run org.zotero.Zotero"
 
+abbr -a -g vi vim
+abbr -a -g v vim
+
 abbr -a -g :q exit
 
 ## Graveyard 

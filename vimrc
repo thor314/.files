@@ -47,6 +47,8 @@ noremap N Nzz
 "map <A-'>
 "map <C-,> " todo: open config
 map <A-,> <C-o>
+nmap < <<
+nmap > >>
 "map <C-.>
 map <A-.> <C-i>
 "map <C-p>
@@ -146,7 +148,6 @@ set showcmd           " Show partial command you type in the last line of the sc
 set showmode          " Show the mode you are on the last line.
 " Supercharged statusline:
 set statusline+=\ %F\ %M\ %Y\ %R " Left
-set statusline+=%= " Use a divider to separate the left side from the right side.
 set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%  " Status line right side.
 set laststatus=2 " Show the status on the second to last line.
 
