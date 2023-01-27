@@ -3034,8 +3034,13 @@
         "when": "inputFocus && notebookEditorFocused && notebookCellType == 'markup'"
     },
     {
-        "key": "ctrl+c",
+        "key": "ctrl+shift+c",
         "command": "notebook.cell.quitEdit",
         "when": "inputFocus && notebookEditorFocused && vim.active && !editorHasSelection && !editorHoverVisible && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-gitlens.views.worktrees.copy",
+        "when": "gitlens:enabled && focusedView =~ /^gitlens\\.views\\.worktrees/"
     }
 ]
