@@ -218,4 +218,5 @@
         "unpkg.com"
     ],
     "workbench.colorTheme": "Moonlight II",
+    "window.zoomLevel": -3,
 }
