@@ -755,16 +755,6 @@
         "when": "notebookCellEditable && notebookEditable && notebookEditorFocused"
     },
     {
-        "key": "escape",
-        "command": "-notebook.cell.quitEdit",
-        "when": "inputFocus && notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible"
-    },
-    {
-        "key": "meta+enter",
-        "command": "-notebook.cell.quitEdit",
-        "when": "inputFocus && notebookEditorFocused && notebookCellType == 'markup'"
-    },
-    {
         "key": "right",
         "command": "-notebook.unfold",
         "when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'"
@@ -3032,5 +3022,20 @@
         "key": "alt+enter",
         "command": "-notebook.cell.executeAndInsertBelow",
         "when": "notebookCellListFocused && notebookCellType == 'markup' || notebookCellListFocused && notebookMissingKernelExtension && !notebookCellExecuting && notebookCellType == 'code' || notebookCellListFocused && !notebookCellExecuting && notebookCellType == 'code' && notebookKernelCount > 0 || notebookCellListFocused && !notebookCellExecuting && notebookCellType == 'code' && notebookKernelSourceCount > 0"
+    },
+    {
+        "key": "shift+i",
+        "command": "notebook.cell.focusOutOutput",
+        "when": "notebookEditorFocused"
+    },
+    {
+        "key": "meta+enter",
+        "command": "-notebook.cell.quitEdit",
+        "when": "inputFocus && notebookEditorFocused && notebookCellType == 'markup'"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "notebook.cell.quitEdit",
+        "when": "inputFocus && notebookEditorFocused && vim.active && !editorHasSelection && !editorHoverVisible && vim.mode == 'Normal'"
     }
 ]

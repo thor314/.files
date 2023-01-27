@@ -1,6 +1,7 @@
 {
     // WELL THAT'S DUMB (make it less dumb)
-    // "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
+    // 2023-01-26 the following no longer works:
+    "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
     "editor.minimap.enabled": false, // no clutter pls
     "window.customMenuBarAltFocus": false, // clutter, disable menubar
     "window.menuBarVisibility": "hidden",
@@ -213,7 +214,7 @@
         "**/Thumbs.db": true,
         "**/*.olean": true
     },
-    "window.zoomLevel": -2,
+    "window.zoomLevel": -1,
     "jupyter.widgetScriptSources": [
         "jsdelivr.com",
         "unpkg.com"
