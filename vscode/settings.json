@@ -214,4 +214,8 @@
         "**/*.olean": true
     },
     "window.zoomLevel": -2,
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
 }
