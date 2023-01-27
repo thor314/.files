@@ -199,6 +199,9 @@
             { "key": "j", "name": "Json Settings", "type": "command", "command": "workbench.action.openSettingsJson", },
             { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
           ]},
+        { "keys": "f", "name": "Settings...", "type": "bindings", "bindings": [
+            { "key": "n", "name": "new file", "type": "command", "command": "fileutils.newFile", },
+        ]},
     ],
 
     "files.exclude": {
