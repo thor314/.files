@@ -1,6 +1,6 @@
 {
     // WELL THAT'S DUMB (make it less dumb)
-    "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
+    // "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
     "editor.minimap.enabled": false, // no clutter pls
     "window.customMenuBarAltFocus": false, // clutter, disable menubar
     "window.menuBarVisibility": "hidden",
