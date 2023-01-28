@@ -2118,11 +2118,6 @@
         "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
     },
     {
-        "key": "ctrl+h m",
-        "command": "fileutils.moveFile",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
         "key": "ctrl+h n",
         "command": "fileutils.newFile",
         "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
@@ -3042,5 +3037,10 @@
         "key": "ctrl+c",
         "command": "-gitlens.views.worktrees.copy",
         "when": "gitlens:enabled && focusedView =~ /^gitlens\\.views\\.worktrees/"
+    },
+    {
+        "key": "ctrl+h ctrl+m",
+        "command": "fileutils.moveFile",
+        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
     }
 ]

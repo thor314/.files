@@ -24,8 +24,9 @@
     "terminal.integrated.fontFamily": "MesloLGS NF", // terminal font bug pls no
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.defaultProfile.linux": "fish",
-    // "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
-    // "editor.insertSpaces": false,
+    "workbench.colorTheme": "Moonlight II",
+    "window.zoomLevel": -3,
+    "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
 
     // SAVE AND FORMAT OFTEN
     "editor.formatOnSaveMode": "file",
@@ -200,9 +201,19 @@
             { "key": "j", "name": "Json Settings", "type": "command", "command": "workbench.action.openSettingsJson", },
             { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
           ]},
-        { "keys": "f", "name": "Settings...", "type": "bindings", "bindings": [
-            { "key": "n", "name": "new file", "type": "command", "command": "fileutils.newFile", },
-        ]},
+        // { "keys": "f", "name": "Settings...", "type": "bindings", "bindings": [
+          // show active file
+          // open recent file
+          // open file in workspace
+          // open active file in file explorer File: Reveal Active File in Explorer View
+            { "key": "n", "name": "new file", "type": "command", "command": "workbench.files.action.showActiveFileInExplorer", },
+        //     { "key": "n", "name": "new file", "type": "command", "command": "fileutils.newFile", },
+        //     { "key": "k", "name": "remove file", "type": "command", "command": "fileutils.removeFile", },
+        //     { "key": "r", "name": "rename file", "type": "command", "command": "fileutils.renameFile", },
+        //     { "key": "d", "name": "new directory", "type": "command", "command": "fileutils.newFolder", },
+        //     { "key": "m", "name": "move file", "type": "command", "command": "fileutils.moveFile", },
+        //     { "key": "c", "name": "copy filename", "type": "command", "command": "fileutils.copyFileName", },
+        // ]},
     ],
 
     "files.exclude": {
@@ -218,6 +229,4 @@
         "jsdelivr.com",
         "unpkg.com"
     ],
-    "workbench.colorTheme": "Moonlight II",
-    "window.zoomLevel": -3,
 }
