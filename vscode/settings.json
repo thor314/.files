@@ -3,8 +3,7 @@
     // 2023-01-26 the following no longer works:
     "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
     "editor.minimap.enabled": false, // no clutter pls
-    "window.customMenuBarAltFocus": false, // clutter, disable menubar
-    "window.menuBarVisibility": "hidden",
+    "window.customMenuBarAltFocus": false,
     "editor.cursorBlinking": "solid",
     "glassit.alpha": 245, // out of 255
     "workbench.editor.showTabs": false, // tabs are annoying to close, can I just...disable them? No. This hides them.
@@ -196,13 +195,27 @@
         // { "keys": "<space>", "name": "EasyMotion...", "type": "bindings", "bindings": [
         //     { "key": "s", "name": "Search char", "type": "command", "after": ["<leader>","<leader>","s"] },
         // ]},
+        // replaces errors:
+        { "keys": "e", "name": "Explorer...", "type": "bindings", "bindings": [
+            { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
+            { "key": "f", "name": "Search", "type": "command", "command": "", },
+            
+            { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
+          ]},
+
+        { "keys": "h", "name": "Left Bar...", "type": "bindings", "bindings": [
+            { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
+            { "key": "f", "name": "Search", "type": "command", "command": "", },
+            
+            { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
+          ]},
         { "keys": ",", "name": "Settings...", "type": "bindings", "bindings": [
             { "key": "j", "name": "Json Settings", "type": "command", "command": "workbench.action.openSettingsJson", },
             { "key": "k", "name": "Bindings", "type": "command", "command": "workbench.action.openGlobalKeybindings", },
             { "key": "s", "name": "Settings", "type": "command", "command": "workbench.action.openSettings", },
             { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
           ]},
-        { "keys": "f", "name": "Settings...", "type": "bindings", "bindings": [
+        { "keys": "f", "name": "Files...", "type": "bindings", "bindings": [
             { "key": "c", "name": "copy filename", "type": "command", "command": "fileutils.copyFileName", },
             { "key": "d", "name": "new directory", "type": "command", "command": "fileutils.newFolder", },
             { "key": "e", "name": "reaveal in file explorer", "type": "command", "command": "workbench.files.action.showActiveFileInExplorer", },
@@ -228,4 +241,5 @@
         "jsdelivr.com",
         "unpkg.com"
     ],
+    "window.menuBarVisibility": "compact",
 }
