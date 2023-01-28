@@ -183,6 +183,7 @@
         { "before": ["<leader>"], "commands": ["whichkey.show"]}
     ],
 
+    
 
     //\/\/\//\\//\\//\\\///\
     // WHICH KEY BINDINGS //
@@ -201,19 +202,17 @@
             { "key": "j", "name": "Json Settings", "type": "command", "command": "workbench.action.openSettingsJson", },
             { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
           ]},
-        // { "keys": "f", "name": "Settings...", "type": "bindings", "bindings": [
-          // show active file
-          // open recent file
-          // open file in workspace
-          // open active file in file explorer File: Reveal Active File in Explorer View
-            { "key": "n", "name": "new file", "type": "command", "command": "workbench.files.action.showActiveFileInExplorer", },
-        //     { "key": "n", "name": "new file", "type": "command", "command": "fileutils.newFile", },
-        //     { "key": "k", "name": "remove file", "type": "command", "command": "fileutils.removeFile", },
-        //     { "key": "r", "name": "rename file", "type": "command", "command": "fileutils.renameFile", },
-        //     { "key": "d", "name": "new directory", "type": "command", "command": "fileutils.newFolder", },
-        //     { "key": "m", "name": "move file", "type": "command", "command": "fileutils.moveFile", },
-        //     { "key": "c", "name": "copy filename", "type": "command", "command": "fileutils.copyFileName", },
-        // ]},
+        { "keys": "f", "name": "Settings...", "type": "bindings", "bindings": [
+            { "key": "o", "name": "open file in workspace", "type": "command", "command": "file-browser.open", },
+            { "key": "f", "name": "open recent file", "type": "command", "command": "workbench.action.openRecent", },
+            { "key": "n", "name": "new file", "type": "command", "command": "fileutils.newFile", },
+            { "key": "d", "name": "new directory", "type": "command", "command": "fileutils.newFolder", },
+            { "key": "k", "name": "remove file", "type": "command", "command": "fileutils.removeFile", },
+            { "key": "e", "name": "reaveal in file explorer", "type": "command", "command": "workbench.files.action.showActiveFileInExplorer", },
+            { "key": "r", "name": "rename file", "type": "command", "command": "fileutils.renameFile", },
+            { "key": "m", "name": "move file", "type": "command", "command": "fileutils.moveFile", },
+            { "key": "c", "name": "copy filename", "type": "command", "command": "fileutils.copyFileName", },
+        ]},
     ],
 
     "files.exclude": {

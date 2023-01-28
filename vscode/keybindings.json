@@ -3042,5 +3042,14 @@
         "key": "ctrl+h ctrl+m",
         "command": "fileutils.moveFile",
         "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "shift+alt+c",
+        "command": "keybindings.editor.copyCommandKeybindingEntry"
+    },
+    {
+        "key": "backspace",
+        "command": "file-browser.stepOut",
+        "when": "inFileBrowser"
     }
 ]
