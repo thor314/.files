@@ -57,14 +57,15 @@
         "warning",
         "error"
     ],
-    /// Misc coding
-    // Make suggestions suck less.
-    // see: https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions
+
+    // MISC CODING SETTINGS
+    // Make suggestions suck less. see: https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions
     "editor.suggest.showDeprecated": false, // def: true; don't show deprecations in suggests
-    "editor.suggest.showWords": false, // see ghost outline of what suggest will fill
-    // "editor.snippetSuggestions": "top", // I like my snippets
+    "editor.suggest.showWords": false, // show me ghost outline of what suggest will fill
     "editor.suggest.snippetsPreventQuickSuggestions": false, // I like my snippets to have suggestions
     "editor.inlayHints.enabled": "offUnlessPressed", // toggle with ctrl-alt
+    // OPTION: migrate snippets out of VSCode to espanso OS snippets system.
+    // "editor.snippetSuggestions": "top", // I like my snippets 
 
     //\//\//\//\//\
     ///// VIM \\\\\
