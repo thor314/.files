@@ -188,35 +188,18 @@
     // WHICH KEY BINDINGS //
     //\/\/\//\\//\\//\\\///\
     // ref: https://vspacecode.github.io/docs/whichkey/
-    "whichkey.delay": 200,  // millis, default 0
+    "whichkey.delay": 100,  // millis, default 0
     "whichkey.sortOrder": "custom", // put custom bindings near top
     "whichkey.bindingOverrides": [
-        { "keys": "\\", "name": "Split", "type": "command", "command":"workbench.action.splitEditor", },
+        // { "keys": "\\", "name": "Split", "type": "command", "command":"workbench.action.splitEditor", },
         // { "keys": "<space>", "name": "EasyMotion...", "type": "bindings", "bindings": [
         //     { "key": "s", "name": "Search char", "type": "command", "after": ["<leader>","<leader>","s"] },
         // ]},
         // replaces errors:
-        { "keys": "e", "name": "Explorer...", "type": "bindings", "bindings": [
-            { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
-            { "key": "f", "name": "Search", "type": "command", "command": "", },
-            
-            { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
-          ]},
-
-        { "keys": "h", "name": "Left Bar...", "type": "bindings", "bindings": [
-            { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
-            { "key": "f", "name": "Search", "type": "command", "command": "", },
-            
-            { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
-          ]},
-        { "keys": ",", "name": "Settings...", "type": "bindings", "bindings": [
-            { "key": "j", "name": "Json Settings", "type": "command", "command": "workbench.action.openSettingsJson", },
-            { "key": "k", "name": "Bindings", "type": "command", "command": "workbench.action.openGlobalKeybindings", },
-            { "key": "s", "name": "Settings", "type": "command", "command": "workbench.action.openSettings", },
-            { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
-          ]},
-        { "keys": "f", "name": "Files...", "type": "bindings", "bindings": [
-            { "key": "c", "name": "copy filename", "type": "command", "command": "fileutils.copyFileName", },
+        // { "keys": "e", "name": "Explorer...", "type": "bindings", "bindings": [
+        //     { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
+        // ]},
+        { "keys": "f", "name": "+Files", "type": "bindings", "bindings": [
             { "key": "d", "name": "new directory", "type": "command", "command": "fileutils.newFolder", },
             { "key": "e", "name": "reaveal in file explorer", "type": "command", "command": "workbench.files.action.showActiveFileInExplorer", },
             { "key": "f", "name": "open file in workspace", "type": "command", "command": "file-browser.open", },
@@ -226,6 +209,27 @@
             { "key": "r", "name": "rename file", "type": "command", "command": "fileutils.renameFile", },
             { "key": "w", "name": "open recent workspace", "type": "command", "command": "workbench.action.openRecent", },
         ]},
+        // { "keys": "j", "name": "Jupyter...", "type": "bindings", "bindings": [
+        //     // todo
+        //   ]},
+          // replaces actions
+        { "keys": "x", "name": "+Extensions", "type": "bindings", "bindings": [
+            { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
+            { "key": "f", "name": "Search", "type": "command", "command": "", },
+            
+            { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
+          ]},
+        { "keys": "/", "name": "+Search", "type": "bindings", "bindings": [
+            { "key": "r", "name": "Replace", "type": "command", "command": "workbench.action.replaceInFiles", },
+            { "key": "/", "name": "Search", "type": "command", "command": "workbench.view.search.focus", },
+            // todo
+          ]},
+        { "keys": ",", "name": "+Settings", "type": "bindings", "bindings": [
+            { "key": "j", "name": "Json Settings", "type": "command", "command": "workbench.action.openSettingsJson", },
+            { "key": "k", "name": "Bindings", "type": "command", "command": "workbench.action.openGlobalKeybindings", },
+            { "key": "s", "name": "Settings", "type": "command", "command": "workbench.action.openSettings", },
+            { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
+          ]},
     ],
 
     "files.exclude": {
