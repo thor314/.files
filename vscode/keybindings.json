@@ -794,11 +794,6 @@
         "when": "editorTextFocus && editorLangId == 'rust'"
     },
     {
-        "key": "ctrl+shift+u",
-        "command": "-rust-analyzer.parentModule",
-        "when": "editorTextFocus && editorLangId == 'rust'"
-    },
-    {
         "key": "alt+-",
         "command": "-decreaseSearchEditorContextLines",
         "when": "inSearchEditor"
@@ -1440,48 +1435,18 @@
         "command": "workbench.action.openRecent"
     },
     {
-        "key": "ctrl+m ctrl+r",
-        "command": "rust-analyzer.reload",
-        "when": "editorLangId == rust"
-    },
-    {
-        "key": "ctrl+m r",
-        "command": "rust-analyzer.run",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m h",
+        "key": "ctrl+down",
         "command": "rust-analyzer.moveItemDown",
         "when": "editorLangId == 'rust'"
     },
     {
-        "key": "ctrl+m t",
+        "key": "ctrl+up",
         "command": "rust-analyzer.moveItemUp",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m ctrl+c",
-        "command": "rust-analyzer.openCargoToml",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m s",
-        "command": "rust-analyzer.syntaxTree",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m ctrl+i",
-        "command": "rust-analyzer.toggleInlayHints",
         "when": "editorLangId == 'rust'"
     },
     {
         "key": "ctrl+m i",
         "command": "rust-analyzer.resolveCodeAction",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m ctrl+h",
-        "command": "rust-analyzer.viewHir",
         "when": "editorLangId == 'rust'"
     },
     {
@@ -2275,21 +2240,6 @@
         "when": "editorTextFocus && !suggestWidgetVisible && editorLangId == 'rust' && vim.mode != 'Insert'"
     },
     {
-        "key": "ctrl+m d",
-        "command": "rust-analyzer.debug",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m ctrl+.",
-        "command": "rust-analyzer.openDocs",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m ctrl+e",
-        "command": "rust-analyzer.expandMacro",
-        "when": "editorLangId == 'rust'"
-    },
-    {
         "key": "f5",
         "command": "-debug.openView",
         "when": "!debuggersAvailable"
@@ -2318,11 +2268,6 @@
         "key": "alt+l",
         "command": "-toggleFindInSelection",
         "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+m f",
-        "command": "rust-analyzer.ssr",
-        "when": "editorLangId == 'rust'"
     },
     {
         "key": "alt+, k",
@@ -2475,11 +2420,6 @@
         "when": "!openFolderWorkspaceSupport && workbenchState == 'workspace'"
     },
     {
-        "key": "ctrl+m c",
-        "command": "rust-analyzer.openCargoToml",
-        "when": "editorLangId == 'rust'"
-    },
-    {
         "key": "ctrl+m ctrl+b",
         "command": "breadcrumbs.toggle"
     },
@@ -2523,11 +2463,6 @@
     {
         "key": "alt+t o",
         "command": "workbench.action.output.toggleOutput"
-    },
-    {
-        "key": "alt+t alt+i",
-        "command": "rust-analyzer.toggleInlayHints",
-        "when": "editorLangId == 'rust'"
     },
     {
         "key": "alt+t r",
@@ -2729,11 +2664,6 @@
         "key": "ctrl+f",
         "command": "-settings.action.search",
         "when": "inSettingsEditor"
-    },
-    {
-        "key": "ctrl+f shift+r",
-        "command": "rust-analyzer.ssr",
-        "when": "editorLangId == 'rust'"
     },
     {
         "key": "ctrl+k e",
@@ -3060,5 +2990,10 @@
         "key": "ctrl+shift+i",
         "command": "-notebook.formatCell",
         "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "ctrl+shift+u",
+        "command": "-rust-analyzer.parentModule",
+        "when": "editorTextFocus && editorLangId == 'rust'"
     }
 ]
