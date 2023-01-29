@@ -199,6 +199,12 @@
         // { "keys": "e", "name": "Explorer...", "type": "bindings", "bindings": [
         //     { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
         // ]},
+        { "keys": "e", "name": "Error Lens...", "type": "bindings", "bindings": [
+            { "key": "e", "name": "toggle all", "type": "command", "command": "errorLens.toggle", },
+            { "key": "h", "name": "toggle hint", "type": "command", "command": "errorLens.toggleHint", },
+            { "key": "w", "name": "toggle warning", "type": "command", "command": "errorLens.toggleWarning", },
+            // todo
+          ]},
         { "keys": "f", "name": "+Files", "type": "bindings", "bindings": [
             { "key": "d", "name": "new directory", "type": "command", "command": "fileutils.newFolder", },
             { "key": "e", "name": "reaveal in file explorer", "type": "command", "command": "workbench.files.action.showActiveFileInExplorer", },
@@ -211,10 +217,6 @@
         ]},
         // { "keys": "j", "name": "Jupyter...", "type": "bindings", "bindings": [
         //     // todo
-        //   ]},
-          // replaces actions
-        // { "keys": "x", "name": "+Extensions", "type": "bindings", "bindings": [
-            { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
         //   ]},
         { "keys": "/", "name": "+Search", "type": "bindings", "bindings": [
             { "key": "r", "name": "Replace", "type": "command", "command": "workbench.action.replaceInFiles", },
@@ -240,6 +242,9 @@
           { "keys": " ", "position": "-1"},
           { "keys": "!", "position": "-1"},
           { "keys": "v", "position": "-1"},
+          { "keys": "x", "position": "-1"},
+          { "keys": "r", "position": "-1"},
+          { "keys": "i", "position": "-1"},
     ],
 
     "files.exclude": {
