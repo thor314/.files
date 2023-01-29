@@ -240,10 +240,10 @@
           { "keys": ".", "position": "-1"},
           { "keys": " ", "position": "-1"},
           { "keys": "!", "position": "-1"},
+          { "keys": "i", "position": "-1"},
+          { "keys": "r", "position": "-1"},
           { "keys": "v", "position": "-1"},
           { "keys": "x", "position": "-1"},
-          { "keys": "r", "position": "-1"},
-          { "keys": "i", "position": "-1"},
     ],
 
     "files.exclude": {
