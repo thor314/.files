@@ -1481,74 +1481,6 @@
         "command": "-workbench.action.quit"
     },
     {
-        "key": "ctrl+g ctrl+c",
-        "command": "git.clone"
-    },
-    {
-        "key": "ctrl+g r",
-        "command": "git.addRemote"
-    },
-    {
-        "key": "ctrl+g i",
-        "command": "git.ignore"
-    },
-    {
-        "key": "ctrl+g ctrl+z",
-        "command": "git.stashApply"
-    },
-    {
-        "key": "ctrl+g ctrl+o",
-        "command": "git.checkout"
-    },
-    {
-        "key": "ctrl+g c",
-        "command": "git.commit"
-    },
-    {
-        "key": "ctrl+g shift+c",
-        "command": "git.commitAll"
-    },
-    {
-        "key": "ctrl+g shift+a",
-        "command": "git.commitAllAmend"
-    },
-    {
-        "key": "ctrl+g b",
-        "command": "git.branch"
-    },
-    {
-        "key": "ctrl+g f",
-        "command": "git.fetch"
-    },
-    {
-        "key": "ctrl+g m",
-        "command": "git.merge"
-    },
-    {
-        "key": "ctrl+g ctrl+i",
-        "command": "git.init"
-    },
-    {
-        "key": "ctrl+g l",
-        "command": "git.pull"
-    },
-    {
-        "key": "ctrl+g p",
-        "command": "git.push"
-    },
-    {
-        "key": "ctrl+g o",
-        "command": "git.openChange"
-    },
-    {
-        "key": "ctrl+g z",
-        "command": "git.stash"
-    },
-    {
-        "key": "ctrl+g u",
-        "command": "git.undoCommit"
-    },
-    {
         "key": "ctrl+l",
         "command": "expandLineSelection"
     },
@@ -1563,10 +1495,6 @@
     {
         "key": "ctrl+alt+w",
         "command": "workbench.action.joinAllGroups"
-    },
-    {
-        "key": "ctrl+g d",
-        "command": "git.timeline.openDiff"
     },
     {
         "key": "ctrl+m a",
@@ -2058,46 +1986,6 @@
         "command": "workbench.action.closeEditorsInGroup"
     },
     {
-        "key": "ctrl+h c",
-        "command": "fileutils.copyFileName",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+h shift+=",
-        "command": "fileutils.duplicateFile",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+h n",
-        "command": "fileutils.newFile",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+h ctrl+n",
-        "command": "fileutils.newFileAtRoot",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+h d",
-        "command": "fileutils.newFolder",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+h shift+d",
-        "command": "fileutils.newFolderAtRoot",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+h r",
-        "command": "fileutils.renameFile",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+h k",
-        "command": "fileutils.removeFile",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
         "key": "z",
         "command": "-undo",
         "when": "notebookEditorFocused && !inputFocus"
@@ -2169,20 +2057,6 @@
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "alt+t t",
-        "command": "workbench.action.terminal.toggleTerminal"
-    },
-    {
-        "key": "ctrl+h shift+n",
-        "command": "fileutils.newFileAtRoot",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+h ctrl+d",
-        "command": "fileutils.newFolderAtRoot",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
         "key": "alt+f t",
         "command": "workbench.action.terminal.focus"
     },
@@ -2219,10 +2093,6 @@
     {
         "key": "alt+f p",
         "command": "workbench.action.problems.focus"
-    },
-    {
-        "key": "ctrl+g ctrl+s",
-        "command": "git.api.getRepositoryState"
     },
     {
         "key": "shift+j",
@@ -2414,10 +2284,6 @@
         "command": "breadcrumbs.toggle"
     },
     {
-        "key": "alt+t z",
-        "command": "workbench.action.toggleZenMode"
-    },
-    {
         "key": "f4",
         "command": "workbench.action.toggleAuxiliaryBar"
     },
@@ -2500,30 +2366,6 @@
     {
         "key": "alt+f p",
         "command": "workbench.panel.markers.view.focus"
-    },
-    {
-        "key": "alt+e c",
-        "command": "errorLens.copyProblemMessage"
-    },
-    {
-        "key": "alt+e w",
-        "command": "errorLens.toggleWarning"
-    },
-    {
-        "key": "alt+e alt+e",
-        "command": "errorLens.toggle"
-    },
-    {
-        "key": "alt+e e",
-        "command": "errorLens.toggleError"
-    },
-    {
-        "key": "alt+e h",
-        "command": "errorLens.toggleHint"
-    },
-    {
-        "key": "alt+e i",
-        "command": "errorLens.toggleInfo"
     },
     {
         "key": "alt+e r",
@@ -2865,10 +2707,6 @@
         "command": "merge-conflict.accept.incoming"
     },
     {
-        "key": "ctrl+e",
-        "command": "workbench.action.quickOpen"
-    },
-    {
         "key": "cmd+p",
         "command": "-workbench.action.quickOpen"
     },
@@ -2954,11 +2792,6 @@
         "when": "gitlens:enabled && focusedView =~ /^gitlens\\.views\\.worktrees/"
     },
     {
-        "key": "ctrl+h ctrl+m",
-        "command": "fileutils.moveFile",
-        "when": "editorFocus && !findInputFocussed && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
         "key": "shift+alt+c",
         "command": "keybindings.editor.copyCommandKeybindingEntry"
     },
@@ -2990,5 +2823,15 @@
         "key": "g [",
         "command": "rust-analyzer.matchingBrace",
         "when": "editorTextFocus && editorLangId == 'rust'"
+    },
+    {
+        "key": "ctrl+k ctrl+alt+c",
+        "command": "-copyFilePath",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+shift+alt+c",
+        "command": "-copyRelativeFilePath",
+        "when": "editorFocus"
     }
 ]

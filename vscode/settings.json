@@ -190,7 +190,7 @@
     "whichkey.delay": 100,  // millis, default 0
     "whichkey.sortOrder": "custom", // put custom bindings near top
     "whichkey.bindingOverrides": [
-        { "keys": "e", "name": "Error Lens...", "type": "bindings", "bindings": [
+        { "keys": "e", "name": "+Error Lens", "type": "bindings", "bindings": [
             { "key": " ", "name": "toggle all", "type": "command", "command": "errorLens.toggle", },
             { "key": "c", "name": "toggle copy", "type": "command", "command": "errorLens.copyProblemMessage", },
             { "key": "e", "name": "toggle errors", "type": "command", "command": "errorLens.toggleError", },
