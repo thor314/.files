@@ -213,9 +213,9 @@
         //     // todo
         //   ]},
           // replaces actions
-        { "keys": "x", "name": "+Extensions", "type": "bindings", "bindings": [
+        // { "keys": "x", "name": "+Extensions", "type": "bindings", "bindings": [
             { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
-          ]},
+        //   ]},
         { "keys": "/", "name": "+Search", "type": "bindings", "bindings": [
             { "key": "r", "name": "Replace", "type": "command", "command": "workbench.action.replaceInFiles", },
             { "key": "/", "name": "Search", "type": "command", "command": "workbench.view.search.focus", },
@@ -227,6 +227,19 @@
             { "key": "s", "name": "Settings", "type": "command", "command": "workbench.action.openSettings", },
             { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
           ]},
+          { "keys": "1", "position": "-1"},
+          { "keys": "2", "position": "-1"},
+          { "keys": "3", "position": "-1"},
+          { "keys": "4", "position": "-1"},
+          { "keys": "5", "position": "-1"},
+          { "keys": "6", "position": "-1"},
+          { "keys": "7", "position": "-1"},
+          { "keys": "8", "position": "-1"},
+          { "keys": "*", "position": "-1"},
+          { "keys": ".", "position": "-1"},
+          { "keys": " ", "position": "-1"},
+          { "keys": "!", "position": "-1"},
+          { "keys": "v", "position": "-1"},
     ],
 
     "files.exclude": {
