@@ -5,8 +5,7 @@
     "editor.minimap.enabled": false, // no clutter pls
     "window.customMenuBarAltFocus": false,
     "editor.cursorBlinking": "solid",
-    "glassit.alpha": 245, // out of 255
-    "workbench.editor.showTabs": false, // tabs are annoying to close, can I just...disable them? No. This hides them.
+    "glassit.alpha": 245, // tabs are annoying to close, can I just...disable them? No. This hides them.
     "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": false,
@@ -236,17 +235,16 @@
         { "keys": "t", "name": "+Toggles", "type": "bindings", "bindings": [
             { "key": "a", "name": "Toggle Activity Bar", "type": "command", "command": "workbench.action.toggleActivityBarVisibility", },
             { "key": "b", "name": "Toggle Sidebar", "type": "command", "command": "workbench.action.toggleSidebarVisibility", },
-            { "key": "c", "name": "Toggle Centered Layout", "type": "command", "command": "workbench.action.toggleCenteredLayout", },
-            { "key": "d", "name": "Toggle Distraction Free Mode", "type": "command", "command": "workbench.action.toggleDistractionFree", },
-            { "key": "e", "name": "Toggle Editor Layout", "type": "command", "command": "workbench.action.toggleEditorGroupLayout", },
-            { "key": "f", "name": "Toggle Full Screen", "type": "command", "command": "workbench.action.toggleFullScreen", },
-            { "key": "g", "name": "Toggle Zen Mode", "type": "command", "command": "workbench.action.toggleZenMode", },
-            { "key": "l", "name": "Toggle Line Numbers", "type": "command", "command": "editor.action.toggleLineNumbers", },
-            { "key": "m", "name": "Toggle Menu Bar", "type": "command", "command": "workbench.action.toggleMenuBar", },
+            { "key": "d", "name": "Toggle Debug Repl", "type": "command", "command": "workbench.debug.action.toggleRepl", },
+            { "key": "e", "name": "Toggle Editor Visibility", "type": "command", "command": "workbench.action.toggleEditorVisibility", },
             { "key": "p", "name": "Toggle Panel", "type": "command", "command": "workbench.action.togglePanel", },
-            { "key": "s", "name": "Toggle Status Bar", "type": "command", "command": "workbench.action.toggleStatusbarVisibility", },
-            { "key": "t", "name": "Toggle Tab Bar", "type": "command", "command": "workbench.action.toggleTabsVisibility", },
-            { "key": "w", "name": "Toggle Word Wrap", "type": "command", "command": "editor.action.toggleWordWrap", },
+            { "key": "t", "name": "Toggle Terminal", "type": "command", "command": "workbench.action.terminal.toggleTerminal", },
+            { "key": "z", "name": "Toggle Zen Mode", "type": "command", "command": "workbench.action.toggleZenMode", },
+            { "key": "/", "name": "Toggle Horizontal/Vertical", "type": "command", "command": "workbench.action.toggleEditorGroupLayout", },
+
+            { "key": "O", "name": "Toggle Maximized panel", "type": "command", "command": "workbench.action.output.toggleOutput", },
+            { "key": "P", "name": "Toggle Maximized panel", "type": "command", "command": "workbench.action.toggleMaximizedPanel", },
+            { "key": "T", "name": "Toggle Tab Bar", "type": "command", "command": "workbench.action.toggleTabsVisibility", },
         ]},
         { "keys": "r", "name": "+Rust", "type": "bindings", "bindings": [
             { "key": "a", "name": "Add", "type": "command", "command": "cargo.add", },
@@ -319,5 +317,6 @@
         "jsdelivr.com",
         "unpkg.com"
     ],
+    "workbench.editor.showTabs": false,
     "window.menuBarVisibility": "compact",
 }
