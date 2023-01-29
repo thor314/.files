@@ -214,9 +214,6 @@
         //   ]},
           // replaces actions
         { "keys": "x", "name": "+Extensions", "type": "bindings", "bindings": [
-            { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
-            { "key": "f", "name": "Search", "type": "command", "command": "", },
-            
             { "key": "x", "name": "Extensions", "type": "command", "command": "workbench.view.extensions", },
           ]},
         { "keys": "/", "name": "+Search", "type": "bindings", "bindings": [
