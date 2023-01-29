@@ -213,9 +213,9 @@
         // { "keys": "j", "name": "Jupyter...", "type": "bindings", "bindings": [
         //     // todo
         //   ]},
-        { "keys": "r", "name": "+Rust", "type": "bindings", "bindings": [
+        { "keys": "r", "name": "+Language", "type": "bindings", "when": "editorLangId == 'rust'", "bindings": [
             { "key": "a", "name": "Add", "type": "command", "command": "cargo.add", },
-            { "key": "b", "name": "Add", "type": "command", "command": "cargo.build", },
+            { "key": "b", "name": "Build", "type": "command", "command": "cargo.build", },
             { "key": "c", "name": "Check", "type": "command", "command": "cargo.check", },
             { "key": "d", "name": "Debug", "type": "command", "command": "rust-analyzer.debug", },
             { "key": "p", "name": "Parent Module", "type": "command", "command": "rust-analyzer.parentModule", },
@@ -225,7 +225,9 @@
 
             { "key": "D", "name": "Open Docs", "type": "command", "command": "rust-analyzer.openDocs", },
             { "key": "E", "name": "Expand Macro", "type": "command", "command": "rust-analyzer.expandMacro", },
+            { "key": "I", "name": "Init Server", "type": "command", "command": "rust-analyzer.startServer", },
             { "key": "H", "name": "View HIR", "type": "command", "command": "rust-analyzer.viewHir", },
+            { "key": "K", "name": "Kill Server", "type": "command", "command": "rust-analyzer.stopServer", },
             { "key": "P", "name": "Peek Tests", "type": "command", "command": "rust-analyzer.peekTests", },
             { "key": "R", "name": "Reload", "type": "command", "command": "rust-analyzer.reload", },
             { "key": "S", "name": "Syntax tree", "type": "command", "command": "rust-analyzer.syntaxTree", },

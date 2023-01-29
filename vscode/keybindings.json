@@ -1445,16 +1445,6 @@
         "when": "editorLangId == 'rust'"
     },
     {
-        "key": "ctrl+m i",
-        "command": "rust-analyzer.resolveCodeAction",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m .",
-        "command": "rust-analyzer.showReferences",
-        "when": "editorLangId == 'rust'"
-    },
-    {
         "key": "ctrl+p b",
         "command": "workbench.action.tasks.build"
     },
@@ -2250,7 +2240,7 @@
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+f ]",
+        "key": "g ]",
         "command": "rust-analyzer.matchingBrace",
         "when": "editorTextFocus && editorLangId == 'rust'"
     },
@@ -2994,6 +2984,11 @@
     {
         "key": "ctrl+shift+u",
         "command": "-rust-analyzer.parentModule",
+        "when": "editorTextFocus && editorLangId == 'rust'"
+    },
+    {
+        "key": "g [",
+        "command": "rust-analyzer.matchingBrace",
         "when": "editorTextFocus && editorLangId == 'rust'"
     }
 ]
