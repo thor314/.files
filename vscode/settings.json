@@ -221,10 +221,23 @@
             { "key": "r", "name": "Run", "type": "command", "command": "rust-analyzer.run", },
             { "key": "R", "name": "Reload", "type": "command", "command": "rust-analyzer.reload", },
             { "key": "t", "name": "Open Cargo.toml", "type": "command", "command": "rust-analyzer.openCargoToml", },
-            { "key": "x", "name": "+Extra", "type": "command", "command": "rust-analyzer.run", },
-            { "keys": "r", "name": "+Extra", "type": "bindings", "bindings": [
-                { "key": "x", "name": "run", "type": "command", "command": "rust-analyzer.run", },
-            ]},
+            // { "key": "x", "name": "+Extra", "type": "command", "command": "rust-analyzer.run", },
+            { "key": "x.x", "name": "Extra", "type": "command", "command": "rust-analyzer.run", },
+            { "key": "i", "name": "Indentation...", "type": "bindings", "bindings": [ { 
+                "key": "i", "name": "Change indentation", "type": "command", "command": "changeEditorIndentation"
+            },
+            {
+              "key": "d",
+              "name": "Detect indentation",
+              "type": "command",
+              "command": "editor.action.detectIndentation"
+            }
+          ]
+        }
+
+            // { "keys": "r", "name": "+Extra", "type": "bindings", "bindings": [
+            //     { "key": "x", "name": "run", "type": "command", "command": "rust-analyzer.run", },
+            // ]},
             // todo
           ]},
         // replaces errors:
