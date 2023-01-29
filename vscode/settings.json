@@ -200,8 +200,11 @@
         //     { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
         // ]},
         { "keys": "e", "name": "Error Lens...", "type": "bindings", "bindings": [
-            { "key": "e", "name": "toggle all", "type": "command", "command": "errorLens.toggle", },
+            { "key": "c", "name": "toggle copy", "type": "command", "command": "errorLens.copyProblemMessage", },
+            { "key": " ", "name": "toggle all", "type": "command", "command": "errorLens.toggle", },
+            { "key": "e", "name": "toggle errors", "type": "command", "command": "errorLens.toggleError", },
             { "key": "h", "name": "toggle hint", "type": "command", "command": "errorLens.toggleHint", },
+            { "key": "i", "name": "toggle info", "type": "command", "command": "errorLens.toggleInfo", },
             { "key": "w", "name": "toggle warning", "type": "command", "command": "errorLens.toggleWarning", },
             // todo
           ]},
