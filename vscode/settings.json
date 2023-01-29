@@ -213,11 +213,26 @@
         // { "keys": "j", "name": "Jupyter...", "type": "bindings", "bindings": [
         //     // todo
         //   ]},
-        { "keys": "r", "name": "+Language", "type": "bindings", "when": "editorLangId == 'rust'", "bindings": [
+        { "keys": "p", "name": "+Python", "type": "bindings", "bindings": [
+            { "key": "d", "name": "Debug in Terminal", "type": "command", "command": "python.debugInTerminal", },
+            { "key": "f", "name": "Format", "type": "command", "command": "editor.action.formatDocument", },
+            { "key": "l", "name": "Toggle Linting", "type": "command", "command": "python.enableLinting", },
+            { "key": "l", "name": "Toggle Linting", "type": "command", "command": "python.enableLinting", },
+            { "key": "n", "name": "Create new Python File", "type": "command", "command": "python.createNewFile", },
+            { "key": "t", "name": "Create Terminal", "type": "command", "command": "python.createTerminal", },
+
+            { "key": "T", "name": "Configure Tests", "type": "command", "command": "python.configureTests", },
+            { "key": "O", "name": "Open in Terminal", "type": "command", "command": "python.envManager.openInTerminal", },
+            { "key": "R", "name": "Run in python terminal", "type": "command", "command": "python.execSelectionInTerminal", },
+
+
+        ]},
+        { "keys": "r", "name": "+Rust", "type": "bindings", "bindings": [
             { "key": "a", "name": "Add", "type": "command", "command": "cargo.add", },
             { "key": "b", "name": "Build", "type": "command", "command": "cargo.build", },
             { "key": "c", "name": "Check", "type": "command", "command": "cargo.check", },
             { "key": "d", "name": "Debug", "type": "command", "command": "rust-analyzer.debug", },
+            { "key": "f", "name": "Format", "type": "command", "command": "editor.action.formatDocument", },
             { "key": "p", "name": "Parent Module", "type": "command", "command": "rust-analyzer.parentModule", },
             { "key": "r", "name": "Run", "type": "command", "command": "rust-analyzer.run", },
             { "key": "t", "name": "Open Cargo.toml", "type": "command", "command": "rust-analyzer.openCargoToml", },
