@@ -238,6 +238,7 @@
             { "key": "d", "name": "Toggle Debug Repl", "type": "command", "command": "workbench.debug.action.toggleRepl", },
             { "key": "e", "name": "Toggle Editor Visibility", "type": "command", "command": "workbench.action.toggleEditorVisibility", },
             { "key": "p", "name": "Toggle Panel", "type": "command", "command": "workbench.action.togglePanel", },
+            { "key": "r", "name": "Toggle Problems", "type": "command", "command": "workbench.action.tasks.toggleProblems", },
             { "key": "t", "name": "Toggle Terminal", "type": "command", "command": "workbench.action.terminal.toggleTerminal", },
             { "key": "z", "name": "Toggle Zen Mode", "type": "command", "command": "workbench.action.toggleZenMode", },
             { "key": "/", "name": "Toggle Horizontal/Vertical", "type": "command", "command": "workbench.action.toggleEditorGroupLayout", },

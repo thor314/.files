@@ -595,11 +595,6 @@
         "when": "editorTextFocus && inputFocus && notebookEditorFocused"
     },
     {
-        "key": "ctrl+l",
-        "command": "-notebook.centerActiveCell",
-        "when": "notebookEditorFocused"
-    },
-    {
         "key": "y",
         "command": "-notebook.cell.changeToCode",
         "when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'markup'"
@@ -1497,26 +1492,6 @@
         "command": "workbench.action.joinAllGroups"
     },
     {
-        "key": "ctrl+m a",
-        "command": "cargo.add",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m shift+a",
-        "command": "cargo.rm",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m b",
-        "command": "cargo.build",
-        "when": "editorLangId == 'rust'"
-    },
-    {
-        "key": "ctrl+m c",
-        "command": "cargo.check",
-        "when": "editorLangId == 'rust'"
-    },
-    {
         "key": "ctrl+alt+c",
         "command": "githublinker.copyLink"
     },
@@ -2288,10 +2263,6 @@
         "command": "workbench.action.toggleAuxiliaryBar"
     },
     {
-        "key": "alt+t p",
-        "command": "workbench.actions.view.problems"
-    },
-    {
         "key": "alt+t f",
         "command": "workbench.action.toggleFullScreen",
         "when": "!isIOS"
@@ -2521,11 +2492,6 @@
         "key": "alt+f alt+g",
         "command": "workbench.view.scm",
         "when": "workbench.scm.active"
-    },
-    {
-        "key": "ctrl+m ctrl+a",
-        "command": "cargo.add",
-        "when": "editorLangId == 'rust'"
     },
     {
         "key": "alt+, z",
@@ -2833,5 +2799,15 @@
         "key": "ctrl+k ctrl+shift+alt+c",
         "command": "-copyRelativeFilePath",
         "when": "editorFocus"
+    },
+    {
+        "key": "z z",
+        "command": "notebook.centerActiveCell",
+        "when": "notebookEditorFocused"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "-notebook.centerActiveCell",
+        "when": "notebookEditorFocused"
     }
 ]
