@@ -210,22 +210,43 @@
             { "key": "r", "name": "rename file", "type": "command", "command": "fileutils.renameFile", },
             { "key": "w", "name": "open recent workspace", "type": "command", "command": "workbench.action.openRecent", },
         ]},
-        // { "keys": "j", "name": "Jupyter...", "type": "bindings", "bindings": [
-        //     // todo
-        //   ]},
+        { "keys": "k", "name": "+Keybindings", "type": "bindings", "bindings": [
+            { "key": "c", "name": "Copy keybinding", "type": "command", "command": "keybindings.editor.copyKeybindingEntry", },
+            { "key": "d", "name": "Remove keybinding", "type": "command", "command": "keybindings.editor.removeKeybindingEntry", },
+            { "key": "e", "name": "Edit keybinding", "type": "command", "command": "keybindings.editor.editKeybinding", },
+            { "key": "k", "name": "Define keybinding", "type": "command", "command": "keybindings.editor.defineKeybinding", },
+
+        ]},
         { "keys": "p", "name": "+Python", "type": "bindings", "bindings": [
             { "key": "d", "name": "Debug in Terminal", "type": "command", "command": "python.debugInTerminal", },
             { "key": "f", "name": "Format", "type": "command", "command": "editor.action.formatDocument", },
-            { "key": "l", "name": "Toggle Linting", "type": "command", "command": "python.enableLinting", },
-            { "key": "l", "name": "Toggle Linting", "type": "command", "command": "python.enableLinting", },
+            { "key": "l", "name": "Lint", "type": "command", "command": "python.runLinting", },
+            { "key": "i", "name": "Start repl", "type": "command", "command": "python.startREPL", },
             { "key": "n", "name": "Create new Python File", "type": "command", "command": "python.createNewFile", },
+            { "key": "r", "name": "Run Python File", "type": "command", "command": "python.execInTerminal-icon", },
+            //exp: { "key": "r", "name": "Run Python File", "type": "command", "command": "python.execInTerminal", },
             { "key": "t", "name": "Create Terminal", "type": "command", "command": "python.createTerminal", },
+            { "key": "v", "name": "View output", "type": "command", "command": "python.viewOutput", },
 
-            { "key": "T", "name": "Configure Tests", "type": "command", "command": "python.configureTests", },
+            { "key": "L", "name": "Toggle Linting", "type": "command", "command": "python.enableLinting", },
             { "key": "O", "name": "Open in Terminal", "type": "command", "command": "python.envManager.openInTerminal", },
             { "key": "R", "name": "Run in python terminal", "type": "command", "command": "python.execSelectionInTerminal", },
-
-
+            { "key": "T", "name": "Configure Tests", "type": "command", "command": "python.configureTests", },
+        ]},
+        { "keys": "t", "name": "+Toggles", "type": "bindings", "bindings": [
+            { "key": "a", "name": "Toggle Activity Bar", "type": "command", "command": "workbench.action.toggleActivityBarVisibility", },
+            { "key": "b", "name": "Toggle Sidebar", "type": "command", "command": "workbench.action.toggleSidebarVisibility", },
+            { "key": "c", "name": "Toggle Centered Layout", "type": "command", "command": "workbench.action.toggleCenteredLayout", },
+            { "key": "d", "name": "Toggle Distraction Free Mode", "type": "command", "command": "workbench.action.toggleDistractionFree", },
+            { "key": "e", "name": "Toggle Editor Layout", "type": "command", "command": "workbench.action.toggleEditorGroupLayout", },
+            { "key": "f", "name": "Toggle Full Screen", "type": "command", "command": "workbench.action.toggleFullScreen", },
+            { "key": "g", "name": "Toggle Zen Mode", "type": "command", "command": "workbench.action.toggleZenMode", },
+            { "key": "l", "name": "Toggle Line Numbers", "type": "command", "command": "editor.action.toggleLineNumbers", },
+            { "key": "m", "name": "Toggle Menu Bar", "type": "command", "command": "workbench.action.toggleMenuBar", },
+            { "key": "p", "name": "Toggle Panel", "type": "command", "command": "workbench.action.togglePanel", },
+            { "key": "s", "name": "Toggle Status Bar", "type": "command", "command": "workbench.action.toggleStatusbarVisibility", },
+            { "key": "t", "name": "Toggle Tab Bar", "type": "command", "command": "workbench.action.toggleTabsVisibility", },
+            { "key": "w", "name": "Toggle Word Wrap", "type": "command", "command": "editor.action.toggleWordWrap", },
         ]},
         { "keys": "r", "name": "+Rust", "type": "bindings", "bindings": [
             { "key": "a", "name": "Add", "type": "command", "command": "cargo.add", },
