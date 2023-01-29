@@ -287,11 +287,6 @@
         "when": "editorTextFocus && foldingEnabled"
     },
     {
-        "key": "ctrl+shift+i",
-        "command": "-notebook.formatCell",
-        "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
-    },
-    {
         "key": "ctrl+k ctrl+f",
         "command": "-editor.action.formatSelection",
         "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
@@ -3055,5 +3050,15 @@
     {
         "key": "ctrl+'",
         "command": "whichkey.show"
+    },
+    {
+        "key": "ctrl+m ctrl+f",
+        "command": "notebook.formatCell",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-notebook.formatCell",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
     }
 ]
