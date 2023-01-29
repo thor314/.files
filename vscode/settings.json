@@ -213,6 +213,20 @@
         // { "keys": "j", "name": "Jupyter...", "type": "bindings", "bindings": [
         //     // todo
         //   ]},
+        { "keys": "r", "name": "+Rust", "type": "bindings", "bindings": [
+            { "key": "a", "name": "Add", "type": "command", "command": "cargo.add", },
+            { "key": "b", "name": "Add", "type": "command", "command": "cargo.build", },
+            { "key": "c", "name": "Check", "type": "command", "command": "cargo.check", },
+            { "key": "d", "name": "Debug", "type": "command", "command": "rust-analyzer.debug", },
+            { "key": "r", "name": "Run", "type": "command", "command": "rust-analyzer.run", },
+            { "key": "R", "name": "Reload", "type": "command", "command": "rust-analyzer.reload", },
+            { "key": "t", "name": "Open Cargo.toml", "type": "command", "command": "rust-analyzer.openCargoToml", },
+            { "key": "x", "name": "+Extra", "type": "command", "command": "rust-analyzer.run", },
+            { "keys": "r", "name": "+Extra", "type": "bindings", "bindings": [
+                { "key": "x", "name": "run", "type": "command", "command": "rust-analyzer.run", },
+            ]},
+            // todo
+          ]},
         // replaces errors:
         // { "keys": "x", "name": "Explorer...", "type": "bindings", "bindings": [
         //     { "key": "x", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
@@ -241,7 +255,6 @@
           { "keys": " ", "position": "-1"},
           { "keys": "!", "position": "-1"},
           { "keys": "i", "position": "-1"},
-          { "keys": "r", "position": "-1"},
           { "keys": "v", "position": "-1"},
           { "keys": "x", "position": "-1"},
     ],
