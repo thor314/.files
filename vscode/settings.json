@@ -191,17 +191,9 @@
     "whichkey.delay": 100,  // millis, default 0
     "whichkey.sortOrder": "custom", // put custom bindings near top
     "whichkey.bindingOverrides": [
-        // { "keys": "\\", "name": "Split", "type": "command", "command":"workbench.action.splitEditor", },
-        // { "keys": "<space>", "name": "EasyMotion...", "type": "bindings", "bindings": [
-        //     { "key": "s", "name": "Search char", "type": "command", "after": ["<leader>","<leader>","s"] },
-        // ]},
-        // replaces errors:
-        // { "keys": "e", "name": "Explorer...", "type": "bindings", "bindings": [
-        //     { "key": "e", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
-        // ]},
         { "keys": "e", "name": "Error Lens...", "type": "bindings", "bindings": [
-            { "key": "c", "name": "toggle copy", "type": "command", "command": "errorLens.copyProblemMessage", },
             { "key": " ", "name": "toggle all", "type": "command", "command": "errorLens.toggle", },
+            { "key": "c", "name": "toggle copy", "type": "command", "command": "errorLens.copyProblemMessage", },
             { "key": "e", "name": "toggle errors", "type": "command", "command": "errorLens.toggleError", },
             { "key": "h", "name": "toggle hint", "type": "command", "command": "errorLens.toggleHint", },
             { "key": "i", "name": "toggle info", "type": "command", "command": "errorLens.toggleInfo", },
@@ -221,6 +213,10 @@
         // { "keys": "j", "name": "Jupyter...", "type": "bindings", "bindings": [
         //     // todo
         //   ]},
+        // replaces errors:
+        // { "keys": "x", "name": "Explorer...", "type": "bindings", "bindings": [
+        //     { "key": "x", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
+        // ]},
         { "keys": "/", "name": "+Search", "type": "bindings", "bindings": [
             { "key": "r", "name": "Replace", "type": "command", "command": "workbench.action.replaceInFiles", },
             { "key": "/", "name": "Search", "type": "command", "command": "workbench.view.search.focus", },
