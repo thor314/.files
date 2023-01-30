@@ -23,7 +23,7 @@
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.defaultProfile.linux": "fish",
     "workbench.colorTheme": "Moonlight II",
-    "window.zoomLevel": -3,
+    "window.zoomLevel": -2,
     "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
 
     // SAVE AND FORMAT OFTEN
@@ -181,8 +181,6 @@
         { "before": ["<leader>"], "commands": ["whichkey.show"]}
     ],
 
-    
-
     //\/\/\//\\//\\//\\\///\
     // WHICH KEY BINDINGS //
     //\/\/\//\\//\\//\\\///\
@@ -305,8 +303,15 @@
           { "keys": "x", "position": "-1"},
     ],
 
+    // don't show these in explorer
     "files.exclude": {
         "**/.git": true,
+        "Cargo.lock": true,
+        "APACHE2": true,
+        "LICENSE*": true,
+        ".taplo*": true,
+        ".clippy*": true,
+        ".rustfmt*": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
@@ -320,4 +325,5 @@
     ],
     "workbench.editor.showTabs": false,
     "window.menuBarVisibility": "compact",
+    "workbench.sideBar.location": "right",
 }

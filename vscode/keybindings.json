@@ -1253,11 +1253,11 @@
         "command": "-workbench.action.openSettings"
     },
     {
-        "key": "ctrl+shift+f3",
+        "key": "ctrl+shift+f4",
         "command": "workbench.action.previousSideBarView"
     },
     {
-        "key": "ctrl+f3",
+        "key": "ctrl+f4",
         "command": "workbench.action.nextSideBarView"
     },
     {
@@ -1788,10 +1788,6 @@
         "command": "editor.action.refactor"
     },
     {
-        "key": "f4",
-        "command": "workbench.action.focusAuxiliaryBar"
-    },
-    {
         "key": "ctrl+shift+`",
         "command": "-workbench.action.terminal.new",
         "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
@@ -1881,7 +1877,8 @@
     },
     {
         "key": "alt+u",
-        "command": "cursorRedo"
+        "command": "cursorRedo",
+        "when": "editorTextFocus"
     },
     {
         "key": "alt+k t",
@@ -2254,7 +2251,7 @@
         "command": "breadcrumbs.toggle"
     },
     {
-        "key": "f4",
+        "key": "f3",
         "command": "workbench.action.toggleAuxiliaryBar"
     },
     {
@@ -2672,7 +2669,7 @@
         "command": "-workbench.action.quickOpen"
     },
     {
-        "key": "f3",
+        "key": "f4",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
@@ -2806,8 +2803,12 @@
         "when": "notebookEditorFocused"
     },
     {
-        "key": "ctrl+shift+keyincomposition",
+        "key": "alt+u",
         "command": "crates.updateAll",
         "when": "editorTextFocus && editorLangId == 'toml'"
+    },
+    {
+        "key": "ctrl+0",
+        "command": "-workbench.action.focusSideBar"
     }
 ]
