@@ -129,6 +129,7 @@
     // VIM REMAPPINGS 
     // JSON formatting makes the following annoying, disable it
     "json.format.enable": false,
+    "vim.debug.silent": true, // don't bother me 
     // note: use non-recursive binding to avoid recursive chains of bindings
     "vim.insertModeKeyBindings": [
         // go to normal if accidentally start using normal-mode movements
