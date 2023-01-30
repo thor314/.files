@@ -344,17 +344,17 @@
     // don't show these in explorer
     "files.exclude": {
         "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
         "Cargo.lock": true,
         "APACHE2": true,
         "LICENSE*": true,
         ".taplo*": true,
         ".clippy*": true,
         ".rustfmt*": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
         "**/*.olean": true
     },
     "jupyter.widgetScriptSources": [
