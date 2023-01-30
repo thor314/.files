@@ -1871,10 +1871,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "alt+k t",
-        "command": "timeline.focus"
-    },
-    {
         "key": "alt+t e",
         "command": "workbench.view.explorer"
     },
