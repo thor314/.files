@@ -1995,7 +1995,7 @@
     {
         "key": "g t",
         "command": "editor.action.peekTypeDefinition",
-        "when": "editorTextFocus && !isInEmbeddedEditor"
+        "when": "editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+shift+.",
@@ -2074,9 +2074,9 @@
         "when": "editorFocus"
     },
     {
-        "key": "g ]",
+        "key": "g [",
         "command": "rust-analyzer.matchingBrace",
-        "when": "editorTextFocus && editorLangId == 'rust'"
+        "when": "editorTextFocus && editorLangId == 'rust' && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+shift+m",
@@ -2763,7 +2763,7 @@
     {
         "key": "g [",
         "command": "rust-analyzer.matchingBrace",
-        "when": "editorTextFocus && editorLangId == 'rust'"
+        "when": "editorTextFocus && editorLangId == 'rust' && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+k ctrl+alt+c",
@@ -2874,7 +2874,7 @@
     {
         "key": "g i",
         "command": "editor.action.showDefinitionPreviewHover",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
     },
     {
         "key": "g d",
@@ -2890,5 +2890,15 @@
         "key": "g g",
         "command": "-list.focusFirst",
         "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+shift+;",
+        "command": "-breadcrumbs.focus",
+        "when": "breadcrumbsPossible && breadcrumbsVisible"
+    },
+    {
+        "key": "ctrl+shift+.",
+        "command": "-breadcrumbs.focusAndSelect",
+        "when": "breadcrumbsPossible && breadcrumbsVisible"
     }
 ]

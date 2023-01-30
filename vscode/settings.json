@@ -208,10 +208,13 @@
             { "key": "w", "name": "open recent workspace", "type": "command", "command": "workbench.action.openRecent", },
         ]},
         { "keys": "o", "name": "+Focus", "type": "bindings", "bindings": [
-            { "key": "d", "name": "Focus Debuer", "type": "command", "command": "keybindings.editor.copyKeybindingEntry", },
-            { "key": "d", "name": "Remove keybinding", "type": "command", "command": "keybindings.editor.removeKeybindingEntry", },
-            { "key": "e", "name": "Edit keybinding", "type": "command", "command": "keybindings.editor.editKeybinding", },
-            { "key": "k", "name": "Define keybinding", "type": "command", "command": "keybindings.editor.defineKeybinding", },
+            { "key": "d", "name": "Focus Debugger", "type": "command", "command": "workbench.debug.welcome.focus", },
+            { "key": "e", "name": "Focus Explorer", "type": "command", "command": "workbench.files.action.focusFilesExplorer", },
+            { "key": "o", "name": "Focus Panel", "type": "command", "command": "workbench.action.focusPanel", },
+            { "key": "p", "name": "Focus Problems", "type": "command", "command": "workbench.action.problems.focus", },
+            { "key": "t", "name": "Focus Terminal", "type": "command", "command": "workbench.action.terminal.focus", },
+            { "key": "x", "name": "Focus Extensions", "type": "command", "command": "workbench.views.extensions.installed.focus", },
+            { "key": "O", "name": "Focus Explorer Outline", "type": "command", "command": "outline.focus", },
 
         ]},
         { "keys": "p", "name": "+Python", "type": "bindings", "bindings": [
@@ -326,4 +329,5 @@
     "workbench.editor.showTabs": false,
     "window.menuBarVisibility": "compact",
     "workbench.sideBar.location": "right",
+    "editor.multiCursorModifier": "ctrlCmd",
 }
