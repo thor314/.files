@@ -168,11 +168,18 @@
         { "before": [ "gi" ], "commands": [ "editor.action.peekDefinition"] },
         { "before": [ "gt" ], "commands": [ "editor.action.peekTypeDefinition"] },
         { "before": [ "gT" ], "commands": [ "editor.action.goToTypeDefinition"] },
+        { "before": [ "gm" ], "commands": [ "editor.action.peekImplementation"] },
+        { "before": [ "gM" ], "commands": [ "editor.action.goToImplementation"] },
+        { "before": [ "gr" ], "commands": [ "editor.action.referenceSearch.trigger"] },
+        { "before": [ "gR" ], "commands": [ "editor.action.goToReferences"] },
         { "before": [ "g/" ], "commands": [ "editor.action.revealDefinitionAside" ] },
-        { "before": [ "g," ], "commands": [ "workbench.action.navigateBack" ] },
-        { "before": [ "g." ], "commands": [ "workbench.action.navigateForward" ] },
-        { "before": [ "go" ], "commands": [ "workbench.action.editor.previousChange" ] },
-        { "before": [ "gi" ], "commands": [ "workbench.action.editor.nextChange" ] },
+
+        // changes
+        { "before": [ "]]" ], "commands": [ "workbench.action.navigateBack" ] },
+        { "before": [ "[[" ], "commands": [ "workbench.action.navigateForward" ] },
+        { "before": [ "[c" ], "commands": [ "workbench.action.editor.previousChange" ] },
+        { "before": [ "]c" ], "commands": [ "workbench.action.editor.nextChange" ] },
+        // nav problems
         
         // { "before": [ "\\" ], "commands": [ "cursorPageDown" ] }, 
         // https://vspacecode.github.io/docs/whichkey/

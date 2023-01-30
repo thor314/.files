@@ -2060,11 +2060,6 @@
         "when": "editorFocus"
     },
     {
-        "key": "g [",
-        "command": "rust-analyzer.matchingBrace",
-        "when": "editorTextFocus && editorLangId == 'rust' && vim.mode == 'Normal'"
-    },
-    {
         "key": "ctrl+shift+m",
         "command": "-rust-analyzer.matchingBrace",
         "when": "editorTextFocus && editorLangId == 'rust'"
@@ -2742,11 +2737,6 @@
         "when": "editorTextFocus && editorLangId == 'rust'"
     },
     {
-        "key": "g [",
-        "command": "rust-analyzer.matchingBrace",
-        "when": "editorTextFocus && editorLangId == 'rust' && vim.mode == 'Normal'"
-    },
-    {
         "key": "ctrl+k ctrl+alt+c",
         "command": "-copyFilePath",
         "when": "editorFocus"
@@ -2841,11 +2831,6 @@
         "key": "f12",
         "command": "-editor.action.revealDefinition",
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-    },
-    {
-        "key": "g \\",
-        "command": "editor.action.revealDefinitionAside",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
     },
     {
         "key": "g g",
