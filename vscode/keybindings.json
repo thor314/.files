@@ -1375,11 +1375,6 @@
         "command": "workbench.action.replaceInFiles"
     },
     {
-        "key": "f12",
-        "command": "-editor.action.revealDefinition",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-    },
-    {
         "key": "ctrl+,",
         "command": "workbench.action.navigateBack"
     },
@@ -1993,12 +1988,14 @@
         "when": "editorTextFocus && hasWordHighlights"
     },
     {
-        "key": "ctrl+alt+.",
-        "command": "editor.action.goToTypeDefinition"
+        "key": "g shift+t",
+        "command": "editor.action.goToTypeDefinition",
+        "when": "editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
     },
     {
-        "key": "ctrl+alt+,",
-        "command": "editor.action.peekTypeDefinition"
+        "key": "g t",
+        "command": "editor.action.peekTypeDefinition",
+        "when": "editorTextFocus && !isInEmbeddedEditor"
     },
     {
         "key": "ctrl+shift+.",
@@ -2813,11 +2810,6 @@
         "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
     },
     {
-        "key": "g s",
-        "command": "focusSuggestion",
-        "when": "suggestWidgetVisible && textInputFocus && !config.editor.suggest.selectQuickSuggestions && !suggestWidgetHasFocusedSuggestion"
-    },
-    {
         "key": "ctrl+i",
         "command": "-focusSuggestion",
         "when": "suggestWidgetVisible && textInputFocus && !config.editor.suggest.selectQuickSuggestions && !suggestWidgetHasFocusedSuggestion"
@@ -2863,5 +2855,40 @@
         "key": "ctrl+shift+-",
         "command": "-workbench.action.navigateForward",
         "when": "canNavigateForward"
+    },
+    {
+        "key": "g shift+d",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "g \\",
+        "command": "editor.action.revealDefinitionAside",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
+    },
+    {
+        "key": "g i",
+        "command": "editor.action.showDefinitionPreviewHover",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "g d",
+        "command": "editor.action.peekDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
+    },
+    {
+        "key": "g g",
+        "command": "list.focusFirst",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "g g",
+        "command": "-list.focusFirst",
+        "when": "listFocus && !inputFocus"
     }
 ]

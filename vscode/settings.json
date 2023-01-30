@@ -208,7 +208,7 @@
             { "key": "w", "name": "open recent workspace", "type": "command", "command": "workbench.action.openRecent", },
         ]},
         { "keys": "o", "name": "+Focus", "type": "bindings", "bindings": [
-            { "key": "d", "name": "Focus Debu", "type": "command", "command": "keybindings.editor.copyKeybindingEntry", },
+            { "key": "d", "name": "Focus Debuer", "type": "command", "command": "keybindings.editor.copyKeybindingEntry", },
             { "key": "d", "name": "Remove keybinding", "type": "command", "command": "keybindings.editor.removeKeybindingEntry", },
             { "key": "e", "name": "Edit keybinding", "type": "command", "command": "keybindings.editor.editKeybinding", },
             { "key": "k", "name": "Define keybinding", "type": "command", "command": "keybindings.editor.defineKeybinding", },
