@@ -162,6 +162,18 @@
         // quickly find and fix problems
         { "before": [ "+" ], "commands": [ "editor.action.marker.next", ] },
         { "before": [ "=" ], "commands": [ "editor.action.quickFix" ] }, 
+        // g operators
+        { "before": [ "gd" ], "commands": [ "editor.action.peekDefinition"] },
+        { "before": [ "gD" ], "commands": [ "editor.action.revealDefinition" ] },
+        { "before": [ "gi" ], "commands": [ "editor.action.peekDefinition"] },
+        { "before": [ "gt" ], "commands": [ "editor.action.peekTypeDefinition"] },
+        { "before": [ "gT" ], "commands": [ "editor.action.goToTypeDefinition"] },
+        { "before": [ "g/" ], "commands": [ "editor.action.revealDefinitionAside" ] },
+        { "before": [ "g," ], "commands": [ "workbench.action.navigateBack" ] },
+        { "before": [ "g." ], "commands": [ "workbench.action.navigateForward" ] },
+        { "before": [ "go" ], "commands": [ "workbench.action.editor.previousChange" ] },
+        { "before": [ "gi" ], "commands": [ "workbench.action.editor.nextChange" ] },
+        
         // { "before": [ "\\" ], "commands": [ "cursorPageDown" ] }, 
         // https://vspacecode.github.io/docs/whichkey/
         { "before": ["<leader>"], "commands": ["whichkey.show"]}

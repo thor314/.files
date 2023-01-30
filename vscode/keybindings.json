@@ -1984,16 +1984,6 @@
         "when": "editorTextFocus && hasWordHighlights"
     },
     {
-        "key": "g shift+t",
-        "command": "editor.action.goToTypeDefinition",
-        "when": "editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
-    },
-    {
-        "key": "g t",
-        "command": "editor.action.peekTypeDefinition",
-        "when": "editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
-    },
-    {
         "key": "ctrl+shift+.",
         "command": "-breadcrumbs.toggleToOn",
         "when": "!config.breadcrumbs.enabled"
@@ -2348,11 +2338,6 @@
         "key": "ctrl+k ctrl+6",
         "command": "-editor.foldLevel6",
         "when": "editorTextFocus && foldingEnabled"
-    },
-    {
-        "key": "ctrl+f n",
-        "command": "workbench.action.editor.nextChange",
-        "when": "editorTextFocus && !textCompareEditorActive"
     },
     {
         "key": "alt+c",
@@ -2853,11 +2838,6 @@
         "when": "canNavigateForward"
     },
     {
-        "key": "g shift+d",
-        "command": "editor.action.revealDefinition",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
-    },
-    {
         "key": "f12",
         "command": "-editor.action.revealDefinition",
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
@@ -2865,16 +2845,6 @@
     {
         "key": "g \\",
         "command": "editor.action.revealDefinitionAside",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
-    },
-    {
-        "key": "g i",
-        "command": "editor.action.showDefinitionPreviewHover",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
-    },
-    {
-        "key": "g d",
-        "command": "editor.action.peekDefinition",
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
     },
     {
@@ -2896,5 +2866,15 @@
         "key": "ctrl+shift+.",
         "command": "-breadcrumbs.focusAndSelect",
         "when": "breadcrumbsPossible && breadcrumbsVisible"
+    },
+    {
+        "key": "shift+alt+f5",
+        "command": "-workbench.action.editor.previousChange",
+        "when": "editorTextFocus && !textCompareEditorActive"
+    },
+    {
+        "key": "alt+f5",
+        "command": "-workbench.action.editor.nextChange",
+        "when": "editorTextFocus && !textCompareEditorActive"
     }
 ]
