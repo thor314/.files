@@ -125,7 +125,8 @@
         // ,F84k1,F401,E302,E305" // "--ignore 402,F84k1,F401,E302,E305"
     "python.linting.flake8Enabled": true,
     "python.analysis.typeCheckingMode": "basic",
-    //
+
+
     // VIM REMAPPINGS 
     // JSON formatting makes the following annoying, disable it
     "json.format.enable": false,
@@ -215,7 +216,7 @@
             { "key": "o", "name": "Focus Panel", "type": "command", "command": "workbench.action.focusPanel", },
             { "key": "p", "name": "Focus Problems", "type": "command", "command": "workbench.action.problems.focus", },
             { "key": "t", "name": "Focus Terminal", "type": "command", "command": "workbench.action.terminal.focus", },
-            { "key": "x", "name": "Focus Extensions", "type": "command", "command": "workbench.views.extensions.installed.focus", },
+            { "key": "x", "name": "Focus Extensions", "type": "command", "command": "workbench.extensions.action.showEnabledExtensions", },
             { "key": "O", "name": "Focus Explorer Outline", "type": "command", "command": "outline.focus", },
 
         ]},
