@@ -331,12 +331,14 @@
           { "keys": "7", "position": "-1"},
           { "keys": "8", "position": "-1"},
           { "keys": "*", "position": "-1"},
-          { "keys": ".", "position": "-1"},
+        //   { "keys": ".", "position": "-1"},
           { "keys": " ", "position": "-1"},
           { "keys": "!", "position": "-1"},
           { "keys": "i", "position": "-1"},
           { "keys": "v", "position": "-1"},
           { "keys": "x", "position": "-1"},
+          { "keys": "T", "position": "-1"},
+          { "keys": "z", "position": "-1"},
     ],
 
     // don't show these in explorer
