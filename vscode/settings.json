@@ -113,6 +113,7 @@
     // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
     "cargo.automaticCheck": false,
     "rust-analyzer.cargo.autoreload": false,
+    // KEY NOTES
 
     //\//\//\//\//\///
     ///// PYTHON \\\\\
@@ -195,7 +196,6 @@
             { "key": "h", "name": "toggle hint", "type": "command", "command": "errorLens.toggleHint", },
             { "key": "i", "name": "toggle info", "type": "command", "command": "errorLens.toggleInfo", },
             { "key": "w", "name": "toggle warning", "type": "command", "command": "errorLens.toggleWarning", },
-            // todo
           ]},
         { "keys": "f", "name": "+Files", "type": "bindings", "bindings": [
             { "key": "d", "name": "new directory", "type": "command", "command": "fileutils.newFolder", },
@@ -207,8 +207,8 @@
             { "key": "r", "name": "rename file", "type": "command", "command": "fileutils.renameFile", },
             { "key": "w", "name": "open recent workspace", "type": "command", "command": "workbench.action.openRecent", },
         ]},
-        { "keys": "k", "name": "+Keybindings", "type": "bindings", "bindings": [
-            { "key": "c", "name": "Copy keybinding", "type": "command", "command": "keybindings.editor.copyKeybindingEntry", },
+        { "keys": "o", "name": "+Focus", "type": "bindings", "bindings": [
+            { "key": "d", "name": "Focus Debu", "type": "command", "command": "keybindings.editor.copyKeybindingEntry", },
             { "key": "d", "name": "Remove keybinding", "type": "command", "command": "keybindings.editor.removeKeybindingEntry", },
             { "key": "e", "name": "Edit keybinding", "type": "command", "command": "keybindings.editor.editKeybinding", },
             { "key": "k", "name": "Define keybinding", "type": "command", "command": "keybindings.editor.defineKeybinding", },
