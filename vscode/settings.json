@@ -371,4 +371,5 @@
     "workbench.sideBar.location": "right",
     "editor.multiCursorModifier": "ctrlCmd",
     "workbench.editor.showTabs": false,
+    "explorer.confirmDelete": false,
 }
