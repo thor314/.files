@@ -2861,5 +2861,9 @@
     {
         "key": "alt+;",
         "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "alt+a alt+a",
+        "command": "editor.debug.action.selectionToWatch"
     }
 ]
