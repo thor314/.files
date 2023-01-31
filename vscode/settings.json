@@ -240,7 +240,7 @@
             { "key": "w", "name": "open recent workspace", "type": "command", "command": "workbench.action.openRecent", },
         ]},
         { "keys": "o", "name": "+Focus", "type": "bindings", "bindings": [
-            { "key": "d", "name": "Focus Debugger", "type": "command", "command": "workbench.debug.welcome.focus", },
+            { "key": "d", "name": "Focus Debugger", "type": "command", "command": "workbench.panel.repl.view.focus", },
             { "key": "e", "name": "Focus Explorer", "type": "command", "command": "workbench.files.action.focusFilesExplorer", },
             { "key": "f", "name": "Focus Explorer Folders", "type": "command", "command": "workbench.explorer.fileView.focus", },
             { "key": "o", "name": "Focus Panel", "type": "command", "command": "workbench.action.focusPanel", },
