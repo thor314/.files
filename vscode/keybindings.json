@@ -2552,10 +2552,6 @@
         "command": "workbench.view.explorer"
     },
     {
-        "key": "alt+t alt+n",
-        "command": "notifications.clearAll"
-    },
-    {
         "key": "shift+alt+h",
         "command": "editor.unfoldAll",
         "when": "editorTextFocus && foldingEnabled"
@@ -2861,5 +2857,9 @@
         "key": "alt+f5",
         "command": "-workbench.action.editor.nextChange",
         "when": "editorTextFocus && !textCompareEditorActive"
+    },
+    {
+        "key": "alt+;",
+        "command": "workbench.action.togglePanel"
     }
 ]
