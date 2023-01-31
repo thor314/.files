@@ -356,6 +356,7 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "Cargo.lock": true,
+        "target": true,
         "APACHE2": true,
         "LICENSE*": true,
         ".taplo*": true,
