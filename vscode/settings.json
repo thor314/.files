@@ -271,6 +271,7 @@
             { "key": "b", "name": "Toggle Sidebar", "type": "command", "command": "workbench.action.toggleSidebarVisibility", },
             { "key": "d", "name": "Toggle Debug Repl", "type": "command", "command": "workbench.debug.action.toggleRepl", },
             { "key": "e", "name": "Toggle Editor Visibility", "type": "command", "command": "workbench.action.toggleEditorVisibility", },
+            { "key": "n", "name": "Clear Notifications", "type": "command", "command": "notifications.clearAll", },
             { "key": "p", "name": "Toggle Panel", "type": "command", "command": "workbench.action.togglePanel", },
             { "key": "r", "name": "Toggle Problems", "type": "command", "command": "workbench.action.tasks.toggleProblems", },
             { "key": "t", "name": "Toggle Terminal", "type": "command", "command": "workbench.action.terminal.toggleTerminal", },
