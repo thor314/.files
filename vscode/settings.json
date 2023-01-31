@@ -225,7 +225,6 @@
         // - RA debug - this can be used to debug tests outside the executable (currently spc r d)
         // - RA view HIR: see desugared Rust 
         // - RA memory usage - can see what's hogging memory
-        // debug visualizer new view / use selection as expression
         { "keys": "e", "name": "+Error Lens", "type": "bindings", "bindings": [
             { "key": " ", "name": "toggle all", "type": "command", "command": "errorLens.toggle", },
             { "key": "c", "name": "toggle copy", "type": "command", "command": "errorLens.copyProblemMessage", },
