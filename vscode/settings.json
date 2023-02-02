@@ -98,7 +98,6 @@
     // cargo: https://doc.rust-lang.org/cargo/reference/features.html
     // RA: https://rust-analyzer.github.io/manual.html#configuration
     "rust-analyzer.check.command": "clippy",
-    // Other features:
     "rust-analyzer.diagnostics.experimental.enable": false, // def: false, match <>
     "rust-analyzer.imports.granularity.enforce": true, // group imports
     "rust-analyzer.rustfmt.rangeFormatting.enable": true, // get rid of this line when rangeformatting goes stable
@@ -108,7 +107,7 @@
         "editor.suggest.showKeywords": false,
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
     },
-    // "rust-analyzer.check.features": "all", // uncomment to check all features, slows down RA
+    "rust-analyzer.check.features": "all", // uncomment to check all features, slows down RA
     // IF RUST-ANALYZER IS TOO SLOW, UNCOMMENT:
     // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
     "cargo.automaticCheck": false,
