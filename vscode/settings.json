@@ -109,8 +109,8 @@
     },
     "rust-analyzer.check.features": "all", // uncomment to check all features, slows down RA
     // IF RUST-ANALYZER IS TOO SLOW, UNCOMMENT:
-    // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
-    "cargo.automaticCheck": false,
+    "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
+    // "cargo.automaticCheck": false,
     // "rust-analyzer.cargo.autoreload": false, // stops cargo from reloading on toml changes
     // KEY NOTES
 
