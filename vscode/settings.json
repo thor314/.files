@@ -23,7 +23,7 @@
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.defaultProfile.linux": "fish",
     "workbench.colorTheme": "Moonlight II",
-    "window.zoomLevel": -3,
+    "window.zoomLevel": -2,
     "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
 
     // SAVE AND FORMAT OFTEN
@@ -107,12 +107,11 @@
         "editor.suggest.showKeywords": false,
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
     },
-    "rust-analyzer.check.features": "all", // uncomment to check all features, slows down RA
     // IF RUST-ANALYZER IS TOO SLOW, UNCOMMENT:
-    "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
+    "rust-analyzer.cargo.features": "all", // uncomment to check features (not greyed out)
+    // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
     // "cargo.automaticCheck": false,
     // "rust-analyzer.cargo.autoreload": false, // stops cargo from reloading on toml changes
-    // KEY NOTES
 
     //\//\//\//\//\///
     ///// PYTHON \\\\\
