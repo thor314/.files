@@ -35,7 +35,7 @@
     "editor.formatOnPaste": true,
 
     // GENERAL CODING SETTINGS
-    "editor.foldingImportsByDefault": true,
+    // "editor.foldingImportsByDefault": true, // hides imports
     "search.smartCase": true, // figure out whether I care about case-sensitivity
     "editor.tabCompletion": "on", // complete snippets w tab 
     // "editor.wordWrap": "wordWrapColumn", // if I wrote it, I want it on screen
