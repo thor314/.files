@@ -113,6 +113,9 @@
     // "cargo.automaticCheck": false,
     // "rust-analyzer.cargo.autoreload": false, // stops cargo from reloading on toml changes
 
+    // nonsense languages
+    "[tsx]": { "editor.tabSize": 2, },
+
     //\//\//\//\//\///
     ///// PYTHON \\\\\
     //\//\//\//\//\///
@@ -371,4 +374,5 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "workbench.editor.showTabs": false,
     "explorer.confirmDelete": false,
+    "editor.detectIndentation": false,
 }
