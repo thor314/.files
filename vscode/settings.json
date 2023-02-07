@@ -111,7 +111,7 @@
     "rust-analyzer.cargo.features": "all", // uncomment to check features (not greyed out)
     // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
     // "cargo.automaticCheck": false,
-    // "rust-analyzer.cargo.autoreload": false, // stops cargo from reloading on toml changes
+    "rust-analyzer.cargo.autoreload": false, // stops cargo from reloading on toml changes
 
     // nonsense languages
     "[tsx]": { "editor.tabSize": 2, },
