@@ -104,6 +104,7 @@
     "rust-analyzer.typing.autoClosingAngleBrackets.enable": false, // Can't get VS code to intelligently skip '>'
     "[rust]": {
         // language keywords tend to get in way of snippets, but are useful in less familiar languages
+        "editor.tabSize": 2,
         "editor.suggest.showKeywords": false,
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
     },
