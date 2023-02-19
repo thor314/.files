@@ -1245,10 +1245,6 @@
         "when": "!editorFocus"
     },
     {
-        "key": "ctrl+f1",
-        "command": "workbench.action.openGlobalKeybindings"
-    },
-    {
         "key": "ctrl+,",
         "command": "-workbench.action.openSettings"
     },
@@ -1375,7 +1371,7 @@
         "command": "workbench.action.replaceInFiles"
     },
     {
-        "key": "ctrl+,",
+        "key": "alt+,",
         "command": "workbench.action.navigateBack"
     },
     {
@@ -1391,10 +1387,6 @@
         "key": "ctrl+f i",
         "command": "editor.action.goToImplementation",
         "when": "editorFocus || editorIsOpen"
-    },
-    {
-        "key": "alt+.",
-        "command": "editor.action.peekImplementation"
     },
     {
         "key": "shift+alt+.",
@@ -2075,22 +2067,6 @@
         "when": "editorFocus"
     },
     {
-        "key": "alt+, k",
-        "command": "workbench.action.openGlobalKeybindings"
-    },
-    {
-        "key": "alt+, s",
-        "command": "workbench.action.openSettings"
-    },
-    {
-        "key": "alt+, shift+k",
-        "command": "workbench.action.openGlobalKeybindingsFile"
-    },
-    {
-        "key": "alt+, j",
-        "command": "workbench.action.openSettingsJson"
-    },
-    {
         "key": "ctrl+alt+r",
         "command": "workbench.action.reloadWindow"
     },
@@ -2112,10 +2088,6 @@
         "key": "shift+alt+f",
         "command": "-filesExplorer.findInFolder",
         "when": "explorerResourceIsFolder && explorerViewletVisible && filesExplorerFocus && !inputFocus"
-    },
-    {
-        "key": "alt+, d",
-        "command": "workbench.action.openFolderSettings"
     },
     {
         "key": "ctrl+k o",
@@ -2443,10 +2415,6 @@
         "key": "alt+f alt+g",
         "command": "workbench.view.scm",
         "when": "workbench.scm.active"
-    },
-    {
-        "key": "alt+, z",
-        "command": "workbench.action.toggleZenMode"
     },
     {
         "key": "alt+m alt+h",
@@ -2865,5 +2833,9 @@
     {
         "key": "alt+a alt+a",
         "command": "editor.debug.action.selectionToWatch"
+    },
+    {
+        "key": "alt+.",
+        "command": "editor.action.revealDefinition"
     }
 ]
