@@ -23,6 +23,16 @@ function checkall
     end
 end
 
+function reactpls
+    npx create-react-app $1 --template typescrypt
+    cd $1
+    npm i -S node-sass # node sass
+    npm i -D @types/node-sass # node sass types
+    mv src/App.css src/App.scss
+    sd 'App.css' 'App.scss' src/App.tsx
+    npm i -D npm-run-all # runner
+    npm install @mui/material @emotion/react @emotion/styled # material ui library
+end
 
 # PERMANENT(ish)
 abbr -a -g agi "sudo apt -y install"
