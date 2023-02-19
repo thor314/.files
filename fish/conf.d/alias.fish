@@ -31,6 +31,8 @@ function reactpls
     npm i -D @types/node-sass # node sass types
     mv src/App.css src/App.scss
     sd 'App.css' 'App.scss' src/App.tsx
+    sd 'export default App;' '' src/App.tsx
+    sd 'function App' 'export default function App' src/App.tsx
     # https://mui.com/core/
     npm install @mui/material @emotion/react @emotion/styled # material ui library
     code .
