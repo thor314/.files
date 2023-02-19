@@ -24,15 +24,22 @@ function checkall
 end
 
 function reactpls
+    echo 'creating a react app with typescript, scss, material ui'
     npx create-react-app $1 --template typescrypt
     cd $1
     npm i -S node-sass # node sass
     npm i -D @types/node-sass # node sass types
     mv src/App.css src/App.scss
     sd 'App.css' 'App.scss' src/App.tsx
-    npm i -D npm-run-all # runner
+    # https://mui.com/core/
     npm install @mui/material @emotion/react @emotion/styled # material ui library
+    code .
+    npm start &
 end
+
+# run npm-scripts in para/seq.  https://www.npmjs.com/package/npm-run-all
+# npm i -D -g npm-run-all # runner
+abbr -a -g npmra 'npm-run-all'
 
 # PERMANENT(ish)
 abbr -a -g agi "sudo apt -y install"
