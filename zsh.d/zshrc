@@ -78,3 +78,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet # don't complain at me
 
 ## misc
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# pnpm
+export PNPM_HOME="/home/thor/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

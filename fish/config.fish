@@ -27,3 +27,7 @@ nvm use 19.2.0 >> /dev/null # puts npm in path, and b quiet
 
 # PATH fuckery
 set PATH $PATH $HOME/.local/bin
+
+# pnpm is our fast friend https://pnpm.io/
+set PNPM_HOME /home/thor/.local/share/pnpm
+set PATH $PNPM_HOME $PATH
