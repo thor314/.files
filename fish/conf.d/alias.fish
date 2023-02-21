@@ -29,17 +29,35 @@ function reactpls
     echo 'creating a react app with typescript, scss, material ui'
     npx create-react-app $1 --template typescrypt
     cd $1
-    npm i -S node-sass # node sass
-    npm i -D @types/node-sass # node sass types
+    pnpm i -S node-sass # node sass
+    pnpm i -D @types/node-sass # node sass types
     mv src/App.css src/App.scss
     sd 'App.css' 'App.scss' src/App.tsx
     sd 'export default App;' '' src/App.tsx
     sd 'function App' 'export default function App' src/App.tsx
     # https://mui.com/core/
-    npm install @mui/material @emotion/react @emotion/styled # material ui library
+    pnpm install @mui/material @emotion/react @emotion/styled # material ui library
     code .
-    npm start &
+    pnpm start &
 end
+
+function vitepls
+    echo 'creating a react app with typescript, vite, scss, material ui'
+    pnpm create vite $1 --template react-ts
+    cd $1
+    #pnpm i -S node-sass # node sass
+    pnpm i -S sass
+    pnpm i -D @types/node-sass # node sass types
+    sd 'App.css' 'App.scss' src/*
+    sd 'index.css' 'index.scss' src/*
+    mv src/App.css src/App.scss
+    mv src/index.css src/index.scss
+    # # https://mui.com/core/
+    # npm install @mui/material @emotion/react @emotion/styled # material ui library
+    code .
+    pnmm install && pnpm dev
+end
+
 
 # run npm-scripts in para/seq.  https://www.npmjs.com/package/npm-run-all
 # npm i -D -g npm-run-all # runner
