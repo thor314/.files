@@ -5,7 +5,7 @@
     "editor.minimap.enabled": false, // no clutter pls
     "window.customMenuBarAltFocus": false,
     "editor.cursorBlinking": "solid",
-    "glassit.alpha": 245, // tabs are annoying to close, can I just...disable them? No. This hides them.
+    "glassit.alpha": 225, // tabs are annoying to close, can I just...disable them? No. This hides them.
     "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": false,
@@ -23,7 +23,7 @@
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.defaultProfile.linux": "fish",
     "workbench.colorTheme": "Moonlight II",
-    "window.zoomLevel": -1,
+    "window.zoomLevel": -2,
     "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
 
     // SAVE AND FORMAT OFTEN
