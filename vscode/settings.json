@@ -374,4 +374,7 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "workbench.editor.showTabs": false,
     "explorer.confirmDelete": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
