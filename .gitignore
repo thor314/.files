@@ -1,5 +1,6 @@
-# get's auto-poked a lot
+# gets auto-poked a lot
 fish_variables
+fish/functions
 fishd.tmp
 nv/*
 nvim/*

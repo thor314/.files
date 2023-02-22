@@ -37,9 +37,9 @@
     ~/.gitconfig:
     ~/.config/helix: helix
     # ~/.vimrc:
-    ~/.share/bin: ~/bin/share
-    ~/.local/bin: ~/bin/local
-    ~/.cargo/bin: ~/bin/cargo
+    # ~/.share/bin: ~/bin/share
+    # ~/.local/bin: ~/bin/local
+    # ~/.cargo/bin: ~/bin/cargo
     ~/.cargo/cargo-generate.toml: cargo-generate.toml
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.config/Code/User/settings.json: vscode/settings.json
