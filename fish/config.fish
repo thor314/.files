@@ -4,7 +4,6 @@ end
 
 # Overwrite default greeting
 function fish_greeting 
-    # Option to replace this with some quote or joke generator
     echo "hello Thor" 
 end
 
@@ -23,7 +22,7 @@ set ZELLIJ_AUTO_ATTACH true # attach to the any pre-existing sessions
 # https://docs.jupyter.org/en/latest/use/jupyter-directories.html
 set -g JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
 
-nvm use 19.2.0 >> /dev/null # puts npm in path, and b quiet
+# nvm use 19.2.0 >> /dev/null # puts npm in path, and b quiet
 
 # PATH fuckery
 set PATH $PATH $HOME/.local/bin
@@ -31,3 +30,6 @@ set PATH $PATH $HOME/.local/bin
 # pnpm is our fast friend https://pnpm.io/
 set PNPM_HOME /home/thor/.local/share/pnpm
 set PATH $PNPM_HOME $PATH
+
+source $HOME/.files/fish/abbr.fish
+source $HOME/.files/fish/bind.fish
