@@ -23,7 +23,6 @@
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.defaultProfile.linux": "fish",
     "workbench.colorTheme": "Moonlight II",
-    "window.zoomLevel": -2,
     "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
 
     // SAVE AND FORMAT OFTEN

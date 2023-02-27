@@ -48,14 +48,10 @@ function vitepls
     #pnpm i -S node-sass # node sass
     pnpm i -S sass
     pnpm i -D @types/node-sass # node sass types
-    sd 'App.css' 'App.scss' src/*
-    sd 'index.css' 'index.scss' src/*
-    mv src/App.css src/App.scss
-    mv src/index.css src/index.scss
     # # https://mui.com/core/
     # npm install @mui/material @emotion/react @emotion/styled # material ui library
-    code .
-    pnmm install && pnpm dev
+    # code .
+    # pnpm install && pnpm dev
 end
 
 
@@ -282,7 +278,7 @@ function pythonplay
 end
 
 function rga
-  abbr -a -g | rg -e "$argv" | cut -d" " -f5-
+  abbr -g | rg -e "$argv" | cut -d" " -f4-
 end
 function rgg 
   rg $argv $HOME/.files/fish/conf.d/git.md
