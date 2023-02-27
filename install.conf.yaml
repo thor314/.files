@@ -8,7 +8,7 @@
 
 - clean: ['~'] # clean dead symlinks
 
-# automate new system mkdirs
+# autoeate new system mkdirs
 - create: 
     - ~/archive
     - ~/img
@@ -36,7 +36,7 @@
     ~/.config/fish: fish
     ~/.gitconfig:
     ~/.config/helix: helix
-    # ~/.vimrc:
+    ~/.vimrc: 
     # ~/.share/bin: ~/bin/share
     # ~/.local/bin: ~/bin/local
     # ~/.cargo/bin: ~/bin/cargo
