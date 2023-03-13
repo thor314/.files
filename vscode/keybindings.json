@@ -1149,6 +1149,10 @@
         "when": "viewContainer.workbench.view.debug.enabled"
     },
     {
+        "key": "alt+f d",
+        "command": "workbench.view.debug"
+    },
+    {
         "key": "ctrl+shift+i",
         "command": "-editor.action.formatDocument.none",
         "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
@@ -1367,10 +1371,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+f ctrl+r",
-        "command": "workbench.action.replaceInFiles"
-    },
-    {
         "key": "alt+,",
         "command": "workbench.action.navigateBack"
     },
@@ -1384,11 +1384,6 @@
         "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
     },
     {
-        "key": "ctrl+f i",
-        "command": "editor.action.goToImplementation",
-        "when": "editorFocus || editorIsOpen"
-    },
-    {
         "key": "shift+alt+.",
         "command": "references-view.findReferences",
         "when": "editorHasReferenceProvider"
@@ -1397,10 +1392,6 @@
         "key": "shift+alt+f12",
         "command": "-references-view.findReferences",
         "when": "editorHasReferenceProvider"
-    },
-    {
-        "key": "ctrl+f ctrl+f",
-        "command": "workbench.action.findInFiles"
     },
     {
         "key": "ctrl+l",
@@ -1853,6 +1844,18 @@
         "when": "viewContainer.workbench.view.explorer.enabled"
     },
     {
+        "key": "alt+t e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "alt+f alt+e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "alt+t alt+e",
+        "command": "workbench.view.explorer"
+    },
+    {
         "key": "ctrl+shift+e",
         "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
@@ -1861,10 +1864,6 @@
         "key": "alt+u",
         "command": "cursorRedo",
         "when": "editorTextFocus"
-    },
-    {
-        "key": "alt+t e",
-        "command": "workbench.view.explorer"
     },
     {
         "key": "ctrl+shift+n",
@@ -1999,12 +1998,13 @@
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "alt+f t",
-        "command": "workbench.action.terminal.focus"
-    },
-    {
         "key": "ctrl+shift+x",
         "command": "-workbench.view.extensions",
+        "when": "viewContainer.workbench.view.extensions.enabled"
+    },
+    {
+        "key": "alt+f alt+x",
+        "command": "workbench.view.extensions",
         "when": "viewContainer.workbench.view.extensions.enabled"
     },
     {
@@ -2016,6 +2016,16 @@
         "key": "ctrl+shift+g",
         "command": "-workbench.view.scm",
         "when": "workbench.scm.active"
+    },
+    {
+        "key": "alt+f alt+g",
+        "command": "workbench.view.scm",
+        "when": "workbench.scm.active"
+    },
+    {
+        "key": "ctrl+shift+g g",
+        "command": "-workbench.view.scm",
+        "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
     },
     {
         "key": "ctrl+shift+f",
@@ -2033,10 +2043,6 @@
         "when": "openFolderWorkspaceSupport"
     },
     {
-        "key": "alt+f p",
-        "command": "workbench.action.problems.focus"
-    },
-    {
         "key": "shift+j",
         "command": "rust-analyzer.joinLines",
         "when": "editorTextFocus && !suggestWidgetVisible && editorLangId == 'rust' && vim.mode != 'Insert'"
@@ -2045,11 +2051,6 @@
         "key": "f5",
         "command": "-debug.openView",
         "when": "!debuggersAvailable"
-    },
-    {
-        "key": "ctrl+f r",
-        "command": "editor.action.startFindReplaceAction",
-        "when": "editorFocus"
     },
     {
         "key": "ctrl+shift+m",
@@ -2071,18 +2072,9 @@
         "command": "workbench.action.reloadWindow"
     },
     {
-        "key": "alt+f f",
-        "command": "workbench.files.action.showActiveFileInExplorer"
-    },
-    {
         "key": "ctrl+o",
         "command": "-workbench.action.files.openFileFolder",
         "when": "isMacNative && openFolderWorkspaceSupport"
-    },
-    {
-        "key": "ctrl+f f",
-        "command": "filesExplorer.findInFolder",
-        "when": "explorerResourceIsFolder && explorerViewletVisible && filesExplorerFocus && !inputFocus"
     },
     {
         "key": "shift+alt+f",
@@ -2097,16 +2089,6 @@
     {
         "key": "ctrl+alt+=",
         "command": "workbench.action.duplicateWorkspaceInNewWindow"
-    },
-    {
-        "key": "ctrl+f ctrl+s",
-        "command": "workbench.action.showAllSymbols",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+f s",
-        "command": "workbench.action.gotoSymbol",
-        "when": "editorTextFocus"
     },
     {
         "key": "alt+h",
@@ -2268,10 +2250,6 @@
         "command": "-workbench.action.toggleEditorGroupLayout"
     },
     {
-        "key": "alt+f p",
-        "command": "workbench.panel.markers.view.focus"
-    },
-    {
         "key": "alt+e r",
         "command": "errorLens.revealLine"
     },
@@ -2322,11 +2300,6 @@
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+f f",
-        "command": "actions.find",
-        "when": "editorFocus || editorIsOpen"
-    },
-    {
         "key": "ctrl+f",
         "command": "-actions.find",
         "when": "editorFocus || editorIsOpen"
@@ -2342,19 +2315,9 @@
         "when": "inKeybindings"
     },
     {
-        "key": "ctrl+f f",
-        "command": "editor.action.webvieweditor.showFind",
-        "when": "webviewFindWidgetEnabled && !editorFocus && activeEditor == 'WebviewEditor'"
-    },
-    {
         "key": "ctrl+f",
         "command": "-editor.action.webvieweditor.showFind",
         "when": "webviewFindWidgetEnabled && !editorFocus && activeEditor == 'WebviewEditor'"
-    },
-    {
-        "key": "ctrl+f f",
-        "command": "notebook.find",
-        "when": "notebookEditorFocused && !editorFocus && activeEditor == 'workbench.editor.notebook'"
     },
     {
         "key": "ctrl+f",
@@ -2362,19 +2325,9 @@
         "when": "notebookEditorFocused && !editorFocus && activeEditor == 'workbench.editor.notebook'"
     },
     {
-        "key": "ctrl+f f",
-        "command": "problems.action.focusFilter",
-        "when": "focusedView == 'workbench.panel.markers.view'"
-    },
-    {
         "key": "ctrl+f",
         "command": "-problems.action.focusFilter",
         "when": "focusedView == 'workbench.panel.markers.view'"
-    },
-    {
-        "key": "ctrl+f f",
-        "command": "workbench.action.terminal.focusFind",
-        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
     {
         "key": "ctrl+f",
@@ -2407,16 +2360,6 @@
         "when": "customTreeView && listFocus && !inputFocus"
     },
     {
-        "key": "alt+f alt+x",
-        "command": "workbench.view.extensions",
-        "when": "viewContainer.workbench.view.extensions.enabled"
-    },
-    {
-        "key": "alt+f alt+g",
-        "command": "workbench.view.scm",
-        "when": "workbench.scm.active"
-    },
-    {
         "key": "alt+m alt+h",
         "command": "workbench.action.positionPanelLeft"
     },
@@ -2435,15 +2378,6 @@
     {
         "key": "alt+m alt+t",
         "command": "workbench.action.terminal.moveToEditor"
-    },
-    {
-        "key": "alt+f alt+p",
-        "command": "workbench.action.focusPanel"
-    },
-    {
-        "key": "ctrl+shift+g g",
-        "command": "-workbench.view.scm",
-        "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
     },
     {
         "key": "alt+t a",
@@ -2475,14 +2409,6 @@
         "command": "workbench.debug.action.toggleRepl"
     },
     {
-        "key": "alt+f alt+d",
-        "command": "workbench.panel.repl.view.focus"
-    },
-    {
-        "key": "alt+f d",
-        "command": "workbench.view.debug"
-    },
-    {
         "key": "ctrl+enter",
         "command": "workbench.action.debug.continue",
         "when": "debugState == 'stopped'"
@@ -2512,14 +2438,6 @@
         "command": "workbench.action.togglePanel"
     },
     {
-        "key": "alt+f alt+e",
-        "command": "workbench.view.explorer"
-    },
-    {
-        "key": "alt+t alt+e",
-        "command": "workbench.view.explorer"
-    },
-    {
         "key": "shift+alt+h",
         "command": "editor.unfoldAll",
         "when": "editorTextFocus && foldingEnabled"
@@ -2528,10 +2446,6 @@
         "key": "shift+alt+h",
         "command": "-references-view.showCallHierarchy",
         "when": "editorHasCallHierarchyProvider"
-    },
-    {
-        "key": "alt+f e",
-        "command": "workbench.action.focusActiveEditorGroup"
     },
     {
         "key": "alt+]",
@@ -2837,5 +2751,33 @@
     {
         "key": "alt+.",
         "command": "editor.action.revealDefinition"
+    },
+    {
+        "key": "alt+f t",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "alt+f p",
+        "command": "workbench.action.problems.focus"
+    },
+    {
+        "key": "alt+f f",
+        "command": "workbench.files.action.showActiveFileInExplorer"
+    },
+    {
+        "key": "alt+f p",
+        "command": "workbench.panel.markers.view.focus"
+    },
+    {
+        "key": "alt+f alt+p",
+        "command": "workbench.action.focusPanel"
+    },
+    {
+        "key": "alt+f alt+d",
+        "command": "workbench.panel.repl.view.focus"
+    },
+    {
+        "key": "alt+f e",
+        "command": "workbench.action.focusActiveEditorGroup"
     }
 ]
