@@ -33,3 +33,8 @@ set PATH $PNPM_HOME $PATH
 
 source $HOME/.files/fish/abbr.fish
 source $HOME/.files/fish/bind.fish
+
+# pnpm
+set -gx PNPM_HOME "/home/thor/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end
