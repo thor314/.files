@@ -18,6 +18,8 @@
 	credentialStore = secretservice
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager-core
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
 
 [merge]
   # Prefer squash merge, but not sure how to set this as default yet

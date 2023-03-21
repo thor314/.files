@@ -37,3 +37,5 @@ PATH="$PATH:$HOME/.share/bin"
 setxkbmap dvorak -option ctrl:nocaps
 
 
+
+export PATH="$HOME/.elan/bin:$PATH"
