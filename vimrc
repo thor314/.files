@@ -137,7 +137,7 @@ set tabstop=2         " tab width
 set expandtab         " spaces > tabs
 set smartindent     	" Enable smart-indent
 set smarttab	        " Enable smart-tabs
-set number            " Comment out to remove line-numbers
+set nonumber          " Comment out to remove line-numbers
 set linebreak         " Break at `text-width`, at prior `showbreak` char
 set showbreak=" "
 set textwidth=120
