@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/fish
 # Thor's aliases and convenience functions, mostly alphabetized.
 # aliases a poor man's tldr: grep through my aliases for examples.
 # define functions and bind aliases to them to include them in rg results.
@@ -61,7 +61,6 @@ function vitepls
     # code .
     # pnpm install && pnpm dev
 end
-
 
 # run npm-scripts in para/seq.  https://www.npmjs.com/package/npm-run-all
 # npm i -D -g npm-run-all # runner
@@ -217,30 +216,30 @@ abbr -a -g gg gityeet
 abbr -a -g ggu gityeeet
 abbr -a -g gghub gityeeeet
 
-abbr -a -g h "hx ."  
-abbr -a -g hxa "hx ~/.files/fish/abbr.fish" 
+abbr -a -g h "vi ."  
+abbr -a -g via "vi ~/.files/fish/abbr.fish" 
 abbr -a -g sa "source ~/.files/fish/abbr.fish"
-abbr -a -g hxb "hx ~/.files/fish/bind.fish"
-abbr -a -g hxc "hx ~/.files/helix/config.toml"
-abbr -a -g hxd "hx ~/.files/install.conf.yaml"
-abbr -a -g hxe "hx ~/.config/espanso/match"
-abbr -a -g hxet "hx ~/.config/espanso/match/thor.yml"
-abbr -a -g hxeb "hx ~/.config/espanso/match/base.yml"
-abbr -a -g hxcr "hx ~/.config/espanso/match/code/_rust.yml"
-abbr -a -g hxct "hx ~/.config/espanso/match/code/_toml.yml"
-abbr -a -g hxcp "hx ~/.config/espanso/match/code/_python.yml"
-abbr -a -g hxml "hx ~/.config/espanso/match/markdown/_latex.yml"
-abbr -a -g hxmo "hx ~/.config/espanso/match/markdown/_obsidian.yml"
-abbr -a -g hxmm "hx ~/.config/espanso/match/markdown/_mermaid.yml"
-abbr -a -g hxmg "hx ~/.config/espanso/match/markdown/_greek.yml"
-abbr -a -g hxf "hx ~/.files/fish/config.fish"
-abbr -a -g hxl "hx ~/.files/helix/languages.toml"
-abbr -a -g hxs "hx ~/.setup/install.sh"
-abbr -a -g hxv "hx ~/.files/vimrc"
-abbr -a -g hxsu "hx ~/.setup/unsorted.sh"
-# open hx in docs
-abbr -a -g hxdk "hx ~/.setup/clones/helix/book/src/keymap.md"
-abbr -a -g hxdo "hx ~/.setup/clones/helix/book/src/configuration.md"
+abbr -a -g vib "vi ~/.files/fish/bind.fish"
+abbr -a -g vic "vi ~/.files/helix/config.toml"
+abbr -a -g vid "vi ~/.files/install.conf.yaml"
+abbr -a -g vie "vi ~/.config/espanso/match"
+abbr -a -g viet "vi ~/.config/espanso/match/thor.yml"
+abbr -a -g vieb "vi ~/.config/espanso/match/base.yml"
+abbr -a -g vicr "vi ~/.config/espanso/match/code/_rust.yml"
+abbr -a -g vict "vi ~/.config/espanso/match/code/_toml.yml"
+abbr -a -g vicp "vi ~/.config/espanso/match/code/_python.yml"
+abbr -a -g viml "vi ~/.config/espanso/match/markdown/_latex.yml"
+abbr -a -g vimo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
+abbr -a -g vimm "vi ~/.config/espanso/match/markdown/_mermaid.yml"
+abbr -a -g vimg "vi ~/.config/espanso/match/markdown/_greek.yml"
+abbr -a -g vif "vi ~/.files/fish/config.fish"
+abbr -a -g vil "vi ~/.files/helix/languages.toml"
+abbr -a -g vis "vi ~/.setup/install.sh"
+abbr -a -g viv "vi ~/.files/vimrc"
+abbr -a -g visu "vi ~/.setup/unsorted.sh"
+# open vi in docs
+abbr -a -g vidk "vi ~/.setup/clones/helix/book/src/keymap.md"
+abbr -a -g vido "vi ~/.setup/clones/helix/book/src/configuration.md"
 
 abbr -a -g hbr "hub browse"
 abbr -a -g hcl "hub clone"
@@ -282,7 +281,7 @@ function pythonplay
   mkdir $argv[1]
   cd $argv[1]
   touch main.py
-  hx main.py .
+  vi main.py .
 end
 
 function rga
