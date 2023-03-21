@@ -115,6 +115,10 @@ abbr -a -g ctc 'cargo tarpaulin -v -o Html'
 abbr -a -g ctp 'cargo tarpaulin -v -o Html'
 abbr -a -g cwa "cargo watch -c" 
 
+abbr -a -g chat "chatblade -i"
+abbr -a -g ch3 "chatblade -i --chat-gpt 3.5"
+abbr -a -g ch4 "chatblade -i --chat-gpt 4"
+
 ## test workspace generation
 abbr -a -g cgtb 'cargo generate --path ~/r/tmpl/bin --bin -n cgtbin -d description="test cargo-generate binary"'
 abbr -a -g cgtl 'cargo generate --path ~/r/tmpl/lib --lib -n cgtlib -d description="test cargo-generate library"'
