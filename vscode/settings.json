@@ -392,5 +392,8 @@
         "markdown": false
     },
     "workbench.activityBar.visible": false,
+<<<<<<< HEAD
     "window.zoomLevel": -2,
+=======
+>>>>>>> b819597 (lil-birb-2023-03-21 20:30UTC)
 }

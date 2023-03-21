@@ -25,6 +25,14 @@ function checkall
     end
 end
 
+function nextpls
+    pnpm create next-app --ts $n
+    cd $1 
+    # touch .tsconfig.json # next will automatically fill this
+    pnpm install -D sass
+    pnpm run dev &
+end
+
 function reactpls
     echo 'creating a react app with typescript, scss, material ui'
     npx create-react-app $1 --template typescrypt
@@ -210,9 +218,9 @@ abbr -a -g ggu gityeeet
 abbr -a -g gghub gityeeeet
 
 abbr -a -g h "hx ."  
-abbr -a -g hxa "hx ~/.files/fish/conf.d/alias.fish"  
-abbr -a -g sa "source ~/.files/fish/conf.d/alias.fish"
-abbr -a -g hxb "hx ~/.files/fish/conf.d/bind.fish"
+abbr -a -g hxa "hx ~/.files/fish/abbr.fish" 
+abbr -a -g sa "source ~/.files/fish/abbr.fish"
+abbr -a -g hxb "hx ~/.files/fish/bind.fish"
 abbr -a -g hxc "hx ~/.files/helix/config.toml"
 abbr -a -g hxd "hx ~/.files/install.conf.yaml"
 abbr -a -g hxe "hx ~/.config/espanso/match"
