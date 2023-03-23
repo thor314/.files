@@ -106,10 +106,10 @@
         "editor.suggest.showKeywords": false,
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
     },
-    // IF RUST-ANALYZER IS TOO SLOW, UNCOMMENT:
     "rust-analyzer.cargo.features": "all", // uncomment to check features (not greyed out)
-    // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
-    // "cargo.automaticCheck": false,
+    // IF RUST-ANALYZER IS TOO SLOW, UNCOMMENT:
+    "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
+    "cargo.automaticCheck": false,
     // "rust-analyzer.cargo.autoreload": false, // stops cargo from reloading on toml changes
 
     //\//\//\//\//\///
