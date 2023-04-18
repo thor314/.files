@@ -9,7 +9,6 @@
     "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": false,
-    "zenMode.hideActivityBar": false,
     "window.titleBarStyle": "custom", // hide gross top bar
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.startupEditor": "none", // statusbar at bottom
@@ -391,5 +390,4 @@
         "plaintext": false,
         "markdown": false
     },
-    "workbench.activityBar.visible": false,
 }
