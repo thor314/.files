@@ -1399,7 +1399,7 @@
         "when": "editorFocus && findWidgetVisible"
     },
     {
-        "key": "alt+o",
+        "key": "alt+capslock ctrl+alt+o",
         "command": "workbench.action.openRecent"
     },
     {
@@ -2779,5 +2779,9 @@
     {
         "key": "alt+f e",
         "command": "workbench.action.focusActiveEditorGroup"
+    },
+    {
+        "key": "alt+o",
+        "command": "workbench.action.quickOpen"
     }
 ]
