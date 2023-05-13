@@ -2784,5 +2784,10 @@
     {
         "key": "alt+o",
         "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "cursorUp",
+        "when": "terminalFocus && terminalHasBeenCreated"
     }
 ]
