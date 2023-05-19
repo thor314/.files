@@ -21,11 +21,4 @@ remove the file and wherever its symlink lives
 ## What about files in my root directory?
 `dotbot` can't update symlinks in my root directory unless run with sudo. So be careful about that. 
 
-## Setting up a new machine with PopOS
-After following the steps [here](https://support.system76.com/articles/live-disk/):
-```sh
-git clone https://github.com/thor314/.files && cd .files/setup && ./sh/setup_zsh.sh
-./package_managers.zsh # this will end by logging me out
-./install.zsh
-```
 
