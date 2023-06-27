@@ -202,11 +202,15 @@ function gsa
 end
 
 function gityeet
+  cargo format
+  taplo format
   git add --all . --verbose
   git commit -m $argv[1]
   git push
 end
 function gityeeet # new branch
+  cargo format
+  taplo format
   git add --all . --verbose
   git commit -m $argv[1]
   git push --set-upstream origin (git branch --show-current)
