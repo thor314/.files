@@ -1981,7 +1981,7 @@
         "when": "!config.breadcrumbs.enabled"
     },
     {
-        "key": "ctrl+shift+.",
+        "key": "ctrl+alt+.",
         "command": "editor.action.showHover"
     },
     {
@@ -2789,9 +2789,5 @@
         "key": "ctrl+p",
         "command": "cursorUp",
         "when": "terminalFocus && terminalHasBeenCreated"
-    },
-    {
-        "key": "ctrl+alt+t",
-        "command": "editor.action.showDefinitionPreviewHover"
     }
 ]
