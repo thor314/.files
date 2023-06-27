@@ -2789,5 +2789,9 @@
         "key": "ctrl+p",
         "command": "cursorUp",
         "when": "terminalFocus && terminalHasBeenCreated"
+    },
+    {
+        "key": "ctrl+alt+t",
+        "command": "editor.action.showDefinitionPreviewHover"
     }
 ]
