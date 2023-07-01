@@ -50,6 +50,8 @@
     ~/.config/zellij: zellij
       #~/note/.obsidian: obsidian # may move this to private
       # ~/note2/.obsidian.vimrc: obsidian.vimrc
+    ~/note2/.obsidian.vimrc: obsidian/obsidian.vimrc
+    ~/note2/.obsidian/preamble.sty: obsidian/preamble.sty
     # ~/.config/cointop: 
     # ~/.fehbg: 
 
