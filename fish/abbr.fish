@@ -247,13 +247,15 @@ abbr -a -g vmo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
 abbr -a -g vmm "vi ~/.config/espanso/match/markdown/_mermaid.yml"
 abbr -a -g vmg "vi ~/.config/espanso/match/markdown/_greek.yml"
 
-abbr -a -g vsi "vi ~/.setup/install.sh"
-abbr -a -g vsv "vi ~/.files/vimrc"
-abbr -a -g visu "vi ~/.setup/unsorted.sh"
+abbr -a -g vop "vi ~/note2/.obsidian/preamble.sty"
 
-# open vi in docs
-abbr -a -g vidk "vi ~/.setup/clones/helix/book/src/keymap.md"
-abbr -a -g vido "vi ~/.setup/clones/helix/book/src/configuration.md"
+abbr -a -g vsi "vi ~/.setup/install.sh"
+abbr -a -g vv "vi ~/.files/vimrc"
+abbr -a -g vsu "vi ~/.setup/unsorted.sh"
+
+# open hx in docs
+abbr -a -g hxdk "vi ~/.setup/clones/helix/book/src/keymap.md"
+abbr -a -g hxdo "vi ~/.setup/clones/helix/book/src/configuration.md"
 
 abbr -a -g hbr "hub browse"
 abbr -a -g hcl "hub clone"
