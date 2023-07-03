@@ -224,27 +224,33 @@ abbr -a -g gg gityeet
 abbr -a -g ggu gityeeet
 abbr -a -g gghub gityeeeet
 
-abbr -a -g h "vi ."  
-abbr -a -g via "vi ~/.files/fish/abbr.fish" 
-abbr -a -g sa "source ~/.files/fish/abbr.fish"
-abbr -a -g vib "vi ~/.files/fish/bind.fish"
-abbr -a -g vic "vi ~/.files/helix/config.toml"
-abbr -a -g vid "vi ~/.files/install.conf.yaml"
-abbr -a -g vie "vi ~/.config/espanso/match"
-abbr -a -g viet "vi ~/.config/espanso/match/thor.yml"
-abbr -a -g vieb "vi ~/.config/espanso/match/base.yml"
-abbr -a -g vicr "vi ~/.config/espanso/match/code/_rust.yml"
-abbr -a -g vict "vi ~/.config/espanso/match/code/_toml.yml"
-abbr -a -g vicp "vi ~/.config/espanso/match/code/_python.yml"
-abbr -a -g viml "vi ~/.config/espanso/match/markdown/_latex.yml"
-abbr -a -g vimo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
-abbr -a -g vimm "vi ~/.config/espanso/match/markdown/_mermaid.yml"
-abbr -a -g vimg "vi ~/.config/espanso/match/markdown/_greek.yml"
-abbr -a -g vif "vi ~/.files/fish/config.fish"
-abbr -a -g vil "vi ~/.files/helix/languages.toml"
-abbr -a -g vis "vi ~/.setup/install.sh"
-abbr -a -g viv "vi ~/.files/vimrc"
+## VIM
+abbr -a -g vdc "vi ~/.files/install.conf.yaml"
+
+abbr -a -g sfa "source ~/.files/fish/abbr.fish"
+abbr -a -g vfa "vi ~/.files/fish/abbr.fish" 
+abbr -a -g vfb "vi ~/.files/fish/bind.fish"
+abbr -a -g vfc "vi ~/.files/fish/config.fish"
+
+abbr -a -g vhc "vi ~/.files/helix/config.toml"
+abbr -a -g vhl "vi ~/.files/helix/languages.toml"
+
+
+abbr -a -g ve "vi ~/.config/espanso/match"
+abbr -a -g vet "vi ~/.config/espanso/match/thor.yml"
+abbr -a -g veb "vi ~/.config/espanso/match/base.yml"
+abbr -a -g vcr "vi ~/.config/espanso/match/code/_rust.yml"
+abbr -a -g vct "vi ~/.config/espanso/match/code/_toml.yml"
+abbr -a -g vcp "vi ~/.config/espanso/match/code/_python.yml"
+abbr -a -g vml "vi ~/.config/espanso/match/markdown/_latex.yml"
+abbr -a -g vmo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
+abbr -a -g vmm "vi ~/.config/espanso/match/markdown/_mermaid.yml"
+abbr -a -g vmg "vi ~/.config/espanso/match/markdown/_greek.yml"
+
+abbr -a -g vsi "vi ~/.setup/install.sh"
+abbr -a -g vsv "vi ~/.files/vimrc"
 abbr -a -g visu "vi ~/.setup/unsorted.sh"
+
 # open vi in docs
 abbr -a -g vidk "vi ~/.setup/clones/helix/book/src/keymap.md"
 abbr -a -g vido "vi ~/.setup/clones/helix/book/src/configuration.md"
