@@ -116,7 +116,7 @@
     //\//\//\//\//\///
     // https://stackoverflow.com/questions/50177173/how-do-i-get-flake8-to-reliably-ignore-rules-in-vs-code
     "[python]": {
-        "editor.tabSize": 2,
+        "editor.tabSize": 4,
         "editor.formatOnType": true
     },
     "python.linting.flake8Args": [ "--max-line-length=120", "--ignoreE=402,F841,F401,E302,E305", ],
@@ -390,4 +390,5 @@
         "plaintext": false,
         "markdown": false
     },
+    "window.zoomLevel": -1,
 }
