@@ -38,3 +38,6 @@ source $HOME/.files/fish/bind.fish
 set -gx PNPM_HOME "/home/thor/.local/share/pnpm"
 set -gx PATH "$PNPM_HOME" $PATH
 # pnpm end
+
+# sagemath (maybe unnecessary)
+set -gx PYTHONPATH /usr/lib/python3/dist-packages/sage $PYTHONPATH
