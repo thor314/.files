@@ -391,4 +391,7 @@
         "markdown": false
     },
     "window.zoomLevel": -1,
+    "python.analysis.extraPaths": [
+        "/usr/lib/python3/dist-packages/sage"
+    ],
 }
