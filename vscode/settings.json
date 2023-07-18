@@ -124,7 +124,13 @@
         // ,F84k1,F401,E302,E305" // "--ignore 402,F84k1,F401,E302,E305"
     "python.linting.flake8Enabled": true,
     "python.analysis.typeCheckingMode": "basic",
-
+    // Pylance doesn't recognize sagemath types, it's quite annoying to fix this unfortunately
+    "python.analysis.exclude": [
+        "*.ipynb"
+    ],
+    "python.analysis.ignore": [
+        "*.ipynb"
+    ],
 
     // VIM REMAPPINGS 
     // JSON formatting makes the following annoying, disable it
