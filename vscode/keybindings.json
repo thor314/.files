@@ -2568,11 +2568,6 @@
         "when": "notebookCellListFocused && notebookCellType == 'markup' || notebookCellListFocused && notebookMissingKernelExtension && !notebookCellExecuting && notebookCellType == 'code' || notebookCellListFocused && !notebookCellExecuting && notebookCellType == 'code' && notebookKernelCount > 0 || notebookCellListFocused && !notebookCellExecuting && notebookCellType == 'code' && notebookKernelSourceCount > 0"
     },
     {
-        "key": "shift+i",
-        "command": "notebook.cell.focusOutOutput",
-        "when": "notebookEditorFocused"
-    },
-    {
         "key": "meta+enter",
         "command": "-notebook.cell.quitEdit",
         "when": "inputFocus && notebookEditorFocused && notebookCellType == 'markup'"
@@ -2788,5 +2783,15 @@
     {
         "key": "alt+z",
         "command": "notebook.centerActiveCell"
+    },
+    {
+        "key": "m",
+        "command": "-notebook.cell.changeToMarkdown",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'code'"
+    },
+    {
+        "key": "y",
+        "command": "-notebook.cell.changeToCode",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'markup'"
     }
 ]
