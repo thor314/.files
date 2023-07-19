@@ -2626,11 +2626,6 @@
         "when": "editorFocus"
     },
     {
-        "key": "z z",
-        "command": "notebook.centerActiveCell",
-        "when": "notebookEditorFocused"
-    },
-    {
         "key": "ctrl+l",
         "command": "-notebook.centerActiveCell",
         "when": "notebookEditorFocused"
@@ -2789,5 +2784,9 @@
         "key": "ctrl+p",
         "command": "cursorUp",
         "when": "terminalFocus && terminalHasBeenCreated"
+    },
+    {
+        "key": "alt+z",
+        "command": "notebook.centerActiveCell"
     }
 ]
