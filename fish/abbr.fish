@@ -202,15 +202,11 @@ function gsa
 end
 
 function gityeet
-  cargo format
-  taplo format
   git add --all . --verbose
   git commit -m $argv[1]
   git push
 end
 function gityeeet # new branch
-  cargo format
-  taplo format
   git add --all . --verbose
   git commit -m $argv[1]
   git push --set-upstream origin (git branch --show-current)
@@ -221,7 +217,9 @@ function gityeeeet # new repo
 end
 abbr -a -g gc "git add --all . --verbose && git commit -m"
 abbr -a -g gg gityeet
+abbr -a -g ggr 'cargo fmt; gityeet'
 abbr -a -g ggu gityeeet
+abbr -a -g ggur 'cargo fmt; gityeeet'
 abbr -a -g gghub gityeeeet
 
 ## VIM
