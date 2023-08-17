@@ -230,6 +230,11 @@
         // - RA debug - this can be used to debug tests outside the executable (currently spc r d)
         // - RA view HIR: see desugared Rust 
         // - RA memory usage - can see what's hogging memory
+
+        { "keys": "c", "name": "+Copilot", "type": "bindings", "bindings": [
+            { "key": " ", "name": "Trigger Inline Suggestion", "type": "command", "command": "editor.action.inlineSuggest.trigger", },
+            { "key": "c", "name": "Trigger Inline Suggestion", "type": "command", "command": "github.copilot.toggleCopilot", },
+          ]},
         { "keys": "e", "name": "+Error Lens", "type": "bindings", "bindings": [
             { "key": " ", "name": "Toggle all", "type": "command", "command": "errorLens.toggle", },
             { "key": "c", "name": "Toggle copy", "type": "command", "command": "errorLens.copyProblemMessage", },
@@ -395,5 +400,8 @@
         "yaml": true,
         "plaintext": false,
         "markdown": false
+    },
+    "github.copilot.advanced": {
+        "inlineSuggestCount": 3
     },
 }
