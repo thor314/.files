@@ -12,6 +12,8 @@
     "window.titleBarStyle": "custom", // hide gross top bar
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.startupEditor": "none", // statusbar at bottom
+    "workbench.colorTheme": "Moonlight II",
+    "workbench.preferredDarkColorTheme": "Moonlight II",
     "explorer.confirmDragAndDrop": false, // no confirm on drag/drop file
     "editor.inlineSuggest.enabled": true, // preview suggestions inline in greyed out text
     "editor.fontLigatures": true,
@@ -21,7 +23,6 @@
     "terminal.integrated.fontFamily": "MesloLGS NF", // terminal font bug pls no
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.defaultProfile.linux": "fish",
-    "workbench.colorTheme": "Default Light+",
     "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
 
     // SAVE AND FORMAT OFTEN
@@ -408,5 +409,5 @@
     "window.zoomLevel": -1,
     "github.copilot.advanced": {
         "inlineSuggestCount": 3 // doesn't seem to work
-    }
+    },
 }
