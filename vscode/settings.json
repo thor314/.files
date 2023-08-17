@@ -232,9 +232,9 @@
         // - RA memory usage - can see what's hogging memory
 
         { "keys": "c", "name": "+Copilot", "type": "bindings", "bindings": [
-            { "key": " ", "name": "Trigger Inline Suggestion", "type": "command", "command": "editor.action.inlineSuggest.trigger", },
-            { "key": "c", "name": "Toggle Copilot", "type": "command", "command": "github.copilot.toggleCopilot", },
-            { "key": "p", "name": "Open Completions Panel", "type": "command", "command": "github.copilot.generate", },
+            // { "key": " ", "name": "Trigger Inline Suggestion", "type": "command", "command": "editor.action.inlineSuggest.trigger", },
+            // { "key": "c", "name": "Toggle Copilot", "type": "command", "command": "github.copilot.toggleCopilot", },
+            // { "key": "p", "name": "Open Completions Panel", "type": "command", "command": "github.copilot.generate", },
           ]},
         { "keys": "e", "name": "+Error Lens", "type": "bindings", "bindings": [
             { "key": " ", "name": "Toggle all", "type": "command", "command": "errorLens.toggle", },
@@ -402,8 +402,5 @@
         "plaintext": false,
         "markdown": false
     },
-    "github.copilot.advanced": {
-        "inlineSuggestCount": 3
-    },
-    "window.zoomLevel": -1,
+    "window.zoomLevel": -1
 }
