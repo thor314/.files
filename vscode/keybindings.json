@@ -1985,10 +1985,6 @@
         "command": "editor.action.showHover"
     },
     {
-        "key": "alt+c",
-        "command": "githublinker.copyMarkdown"
-    },
-    {
         "key": "alt+j",
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
@@ -2818,5 +2814,15 @@
         "key": "alt+]",
         "command": "github.copilot.previousPanelSolution",
         "when": "github.copilot.activated && github.copilot.panelVisible"
+    },
+    {
+        "key": "alt+c",
+        "command": "editor.action.inlineSuggest.trigger",
+        "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+    },
+    {
+        "key": "alt+\\",
+        "command": "-editor.action.inlineSuggest.trigger",
+        "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
     }
 ]
