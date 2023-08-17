@@ -21,7 +21,7 @@
     "terminal.integrated.fontFamily": "MesloLGS NF", // terminal font bug pls no
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.defaultProfile.linux": "fish",
-    "workbench.colorTheme": "Moonlight II",
+    "workbench.colorTheme": "Default Light+",
     "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
 
     // SAVE AND FORMAT OFTEN
