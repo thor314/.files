@@ -1465,10 +1465,6 @@
         "command": "workbench.action.joinAllGroups"
     },
     {
-        "key": "ctrl+alt+c",
-        "command": "githublinker.copyLink"
-    },
-    {
         "key": "ctrl+j",
         "command": "-workbench.action.togglePanel"
     },
@@ -2791,28 +2787,13 @@
         "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'markup'"
     },
     {
-        "key": "shift+alt+=",
+        "key": "alt+]",
         "command": "github.copilot.nextPanelSolution",
-        "when": "github.copilot.activated && github.copilot.panelVisible"
+        "when": "github.copilot.activated"
     },
     {
         "key": "alt+]",
         "command": "-github.copilot.nextPanelSolution",
-        "when": "github.copilot.activated && github.copilot.panelVisible"
-    },
-    {
-        "key": "shift+alt+-",
-        "command": "github.copilot.previousPanelSolution",
-        "when": "github.copilot.activated && github.copilot.panelVisible"
-    },
-    {
-        "key": "alt+[",
-        "command": "-github.copilot.previousPanelSolution",
-        "when": "github.copilot.activated && github.copilot.panelVisible"
-    },
-    {
-        "key": "alt+]",
-        "command": "github.copilot.previousPanelSolution",
         "when": "github.copilot.activated && github.copilot.panelVisible"
     },
     {
@@ -2824,5 +2805,30 @@
         "key": "alt+\\",
         "command": "-editor.action.inlineSuggest.trigger",
         "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "github.copilot.acceptCursorPanelSolution",
+        "when": "github.copilot.activated"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "-github.copilot.acceptCursorPanelSolution",
+        "when": "github.copilot.activated && github.copilot.panelVisible"
+    },
+    {
+        "key": "alt+[",
+        "command": "github.copilot.previousPanelSolution",
+        "when": "github.copilot.activated"
+    },
+    {
+        "key": "alt+[",
+        "command": "-github.copilot.previousPanelSolution",
+        "when": "github.copilot.activated && github.copilot.panelVisible"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "-search.action.copyPath",
+        "when": "fileMatchOrFolderMatchWithResourceFocus"
     }
 ]
