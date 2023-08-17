@@ -232,11 +232,14 @@
         // - RA memory usage - can see what's hogging memory
 
         { "keys": "c", "name": "+Copilot", "type": "bindings", "bindings": [
-            { "key": " ", "name": "Trigger Inline Suggestion", "type": "command", "command": "editor.action.inlineSuggest.trigger", },
-            { "key": "c", "name": "Toggle Copilot", "type": "command", "command": "github.copilot.toggleCopilot", },
-            { "key": "p", "name": "Open Completions Panel", "type": "command", "command": "github.copilot.generate", },
-            { "key": "s", "name": "Toggle Copilot Suggestions", "type": "command", "command": "github.copilot.toggleInlineSuggestions", },
-            // add 
+            // { "key": " ", "name": "Trigger Inline Suggestion", "type": "command", "command": "editor.action.inlineSuggest.trigger" },
+            { "key": "t", "name": "Toggle Copilot", "type": "command", "command": "github.copilot.toggleCopilot" },
+            { "key": "p", "name": "Open Completions Panel", "type": "command", "command": "github.copilot.generate" },
+            { "key": "s", "name": "Toggle Copilot Suggestions", "type": "command", "command": "github.copilot.toggleInlineSuggestions" },
+            { "key": " ", "name": "Accept Copilot Suggestion", "type": "command", "command": "github.copilot.acceptSuggestion" },
+            { "key": "]", "name": "Next Copilot Suggestion", "type": "command", "command": "github.copilot.nextSuggestion" },
+            { "key": "[", "name": "Previous Copilot Suggestion", "type": "command", "command": "github.copilot.previousSuggestion" },
+            
           ]},
         { "keys": "e", "name": "+Error Lens", "type": "bindings", "bindings": [
             { "key": " ", "name": "Toggle all", "type": "command", "command": "errorLens.toggle", },
