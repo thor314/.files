@@ -406,7 +406,6 @@
         "plaintext": false,
         "markdown": false
     },
-    "window.zoomLevel": -1,
     "github.copilot.advanced": {
         "inlineSuggestCount": 3 // doesn't seem to work
     },
