@@ -1,11 +1,17 @@
 {
+    // Toggle me //
+    // "editor.foldingImportsByDefault": true, // uncomment to hide import statements
+    "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
+    // "editor.snippetSuggestions": "top", // I like my snippets 
+
     // WELL THAT'S DUMB (make it less dumb)
     "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
-
     "window.customMenuBarAltFocus": false, // don't show menu bar when press alt
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "custom", // hide gross top bar
 
+    "editor.formatOnType": false, // BUGGGYYYYY, turn off. Eg, inserts $0 after typing '<' in rust
+    "editor.formatOnPaste": true,
     "editor.minimap.enabled": false, // screen clutter
     "editor.multiCursorModifier": "ctrlCmd", // ctrl+click to add cursors
     "editor.cursorBlinking": "solid", // oh good lord above, don't blink my damn cursor
@@ -13,16 +19,17 @@
     "editor.fontLigatures": true,
     "editor.fontFamily": "Fira Code", // ligature supporting font
     "editor.fontWeight": "500",
-    "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
+    "editor.tabCompletion": "on", // complete snippets w tab 
+    "editor.wordWrapColumn": 120,
+    "editor.wordWrap": "wordWrapColumn", // visually soft-wrap wrap lines at above value
     // "editor.formatOnSaveMode": "file", // no effect since I use autosave
+    "editor.suggest.showDeprecated": false, // show me ghost outline of what suggest will fill
+    "editor.suggest.snippetsPreventQuickSuggestions": false, // I like my snippets to have suggestions
+    "editor.inlayHints.enabled": "offUnlessPressed", // VERY GOOD, toggle type hints with ctrl-alt
+    // "editor.suggest.showWords": false, // unclear
 
-    "glassit.alpha": 245, // transparent window
-
-    "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
-    "zenMode.hideLineNumbers": false,
-    "zenMode.centerLayout": false,
-
-    "security.workspace.trust.untrustedFiles": "open", // don't ask me to trust files
+    "files.autoSave": "afterDelay", // other options are suprisingly bad, autosave every half second after change
+    "files.autoSaveDelay": 500, // ms
 
     "workbench.startupEditor": "none", // statusbar at bottom
     "workbench.colorTheme": "Moonlight II",
@@ -32,8 +39,30 @@
 
     "explorer.confirmDragAndDrop": false, // no confirm on drag/drop file
     "explorer.confirmDelete": false, // don't confirm to delete file
-
+    "files.exclude": { // don't show these in explorer
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "Cargo.lock": true,
+        "target": true,
+        "APACHE2": true,
+        "LICENSE*": true,
+        ".taplo*": true,
+        ".clippy*": true,
+        ".rustfmt*": true,
+        "**/*.olean": true
+    },
     "breadcrumbs.enabled": false, // reduce UI clutter, hide breadcrumbs
+    "search.smartCase": true, // figure out whether I care about case-sensitivity
+    "security.workspace.trust.untrustedFiles": "open", // don't ask me to trust files
+
+    "glassit.alpha": 245, // transparent window
+    "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
+    "zenMode.hideLineNumbers": false,
+    "zenMode.centerLayout": false,
 
     "terminal.integrated.allowChords": false, // disable chords that get in the way of terminal actions
     "terminal.integrated.tabStopWidth": 4, 
@@ -42,35 +71,22 @@
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.defaultProfile.linux": "fish",
 
-
-    // GENERAL CODING SETTINGS
-    // "editor.foldingImportsByDefault": true,
-    "search.smartCase": true, // figure out whether I care about case-sensitivity
-    "editor.tabCompletion": "on", // complete snippets w tab 
-    // "editor.wordWrap": "wordWrapColumn", // if I wrote it, I want it on screen
-    "editor.wordWrap": "on", // hard break at 120. Soft wrap is called "bounded". defaults to off.
-    "editor.wordWrapColumn": 120,
-    // "rewrap.autoWrap.enabled": true, // simple ext to automatically word-wrap my comments
-
-    // GIT OPS and LENS
-    "git.autofetch": true,
+    "git.autofetch": true, // autocheck if upstream changes exist
     "diffEditor.codeLens": true, // show clicky buttons in merge rebases
 
-    // ERROR SETTINGS
     "errorLens.delay": 1000, // doesn't appear to do what I'd think it would
     "errorLens.enableOnDiffView": true, // view errors on diff
     "errorLens.statusBarIconsEnabled": true,
     "errorLens.enabled": false, // toggle this often
     "errorLens.enabledDiagnosticLevels": [ "warning", "error" ],
 
-    // MISC CODING SETTINGS
-    // Make suggestions suck less. see: https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions
-    "editor.suggest.showDeprecated": false, // def: true; don't show deprecations in suggests
-    "editor.suggest.showWords": false, // show me ghost outline of what suggest will fill
-    "editor.suggest.snippetsPreventQuickSuggestions": false, // I like my snippets to have suggestions
-    "editor.inlayHints.enabled": "offUnlessPressed", // toggle with ctrl-alt
-    // OPTION: migrate snippets out of VSCode to espanso OS snippets system.
-    // "editor.snippetSuggestions": "top", // I like my snippets 
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": false,
+        "markdown": false
+    },
+    "window.zoomLevel": -1,
 
     //\//\//\//\//\
     ///// VIM \\\\\
@@ -122,6 +138,7 @@
     //\//\//\//\//\///
     ///// PYTHON \\\\\
     //\//\//\//\//\///
+    // this section probably needs a revisit 2023-09-01
     // https://stackoverflow.com/questions/50177173/how-do-i-get-flake8-to-reliably-ignore-rules-in-vs-code
     "[python]": {
         "editor.tabSize": 4,
@@ -131,13 +148,23 @@
         // Pylance doesn't recognize sagemath types, it's quite annoying to fix this unfortunately, haven't solved yet
     },
     "python.analysis.typeCheckingMode": "basic",
-    "flake8.args": [ "--max-line-length=120", "--ignoreE=402,F841,F401,E302,E305", ],
     "python.analysis.exclude": [ "*.ipynb" ],
     "python.analysis.ignore": [ "*.ipynb" ],
+    "flake8.args": [ "--max-line-length=120", "--ignoreE=402,F841,F401,E302,E305", ],
+    // failingly, screwing around trying to get sagemath to work with syntax checker
+    "jupyter.widgetScriptSources": [ "jsdelivr.com", "unpkg.com" ],
+
+    ///////////////////// 
+    // Other Languages // 
+    ///////////////////// 
+    // update formatters (forget if this is good lol)
+    "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
 
     // VIM REMAPPINGS 
-    // JSON formatting makes the following annoying, disable it
-    "json.format.enable": false,
+    "json.format.enable": false, // JSON formatting makes the annoying, disable it
     // note: use non-recursive binding to avoid recursive chains of bindings
     "vim.insertModeKeyBindings": [
         // go to normal if accidentally start using normal-mode movements
@@ -225,7 +252,7 @@
     // WHICH KEY BINDINGS //
     //\/\/\//\\//\\//\\\///\
     // ref: https://vspacecode.github.io/docs/whichkey/
-    "whichkey.delay": 100,  // millis, default 0
+    "whichkey.delay": 50,  // millis, default 0
     "whichkey.sortOrder": "custom", // put custom bindings near top
     "whichkey.bindingOverrides": [
         // debug wishlist:
@@ -324,15 +351,6 @@
             { "key": "S", "name": "Syntax tree", "type": "command", "command": "rust-analyzer.syntaxTree", },
           ]
         },
-
-            // { "keys": "r", "name": "+Extra", "type": "bindings", "bindings": [
-            //     { "key": "x", "name": "run", "type": "command", "command": "rust-analyzer.run", },
-            // ]},
-            // todo
-        // replaces errors:
-        // { "keys": "x", "name": "Explorer...", "type": "bindings", "bindings": [
-        //     { "key": "x", "name": "Explorer", "type": "command", "command": "workbench.view.explorer", },
-        // ]},
         { "keys": "/", "name": "+Search", "type": "bindings", "bindings": [
             { "key": "r", "name": "Replace", "type": "command", "command": "workbench.action.replaceInFiles", },
             { "key": "/", "name": "Search", "type": "command", "command": "workbench.view.search.focus", },
@@ -362,37 +380,4 @@
           { "keys": "T", "position": "-1"},
           { "keys": "z", "position": "-1"},
     ],
-
-    // don't show these in explorer
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "Cargo.lock": true,
-        "target": true,
-        "APACHE2": true,
-        "LICENSE*": true,
-        ".taplo*": true,
-        ".clippy*": true,
-        ".rustfmt*": true,
-        "**/*.olean": true
-    },
-    "jupyter.widgetScriptSources": [
-      "jsdelivr.com",
-      "unpkg.com"
-    ],
-    "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-    "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-    "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-    "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-    "github.copilot.enable": {
-        "*": true,
-        "yaml": true,
-        "plaintext": false,
-        "markdown": false
-    },
-    "window.zoomLevel": -1,
 }
