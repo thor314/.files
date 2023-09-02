@@ -19,11 +19,16 @@
     "editor.fontLigatures": true,
     "editor.fontFamily": "Fira Code", // ligature supporting font
     "editor.fontWeight": "500",
-    "breadcrumbs.enabled": false, // reduce UI clutter, hide breadcrumbs
-    "terminal.integrated.fontFamily": "MesloLGS NF", // terminal font bug pls no
-    "terminal.integrated.fontWeight": "bold",
-    "terminal.integrated.defaultProfile.linux": "fish",
     "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
+    "breadcrumbs.enabled": false, // reduce UI clutter, hide breadcrumbs
+    "[terminal.integrated]": {
+"terminal.integrated.allowChords": false, // disable chords that get in the way of terminal actions
+"terminal.integrated.tabStopWidth": 4, 
+"terminal.integrated.shellIntegration.enabled": false, // causes terminal to display prompt on 2 lines
+"terminal.integrated.fontFamily": "MesloLGS NF", // terminal font bug pls no
+"terminal.integrated.fontWeight": "bold",
+"terminal.integrated.defaultProfile.linux": "fish",
+    },
 
     // SAVE AND FORMAT OFTEN
     "editor.formatOnSaveMode": "file",
@@ -58,9 +63,11 @@
 
     // MISC CODING SETTINGS
     // Make suggestions suck less. see: https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions
-    "editor.suggest.showDeprecated": false, // def: true; don't show deprecations in suggests
-    "editor.suggest.showWords": false, // show me ghost outline of what suggest will fill
-    "editor.suggest.snippetsPreventQuickSuggestions": false, // I like my snippets to have suggestions
+    "[editor.suggest]": {
+        "showDeprecated": false, // def: true; don't show deprecations in suggests
+        "showWords": false, // show me ghost outline of what suggest will fill
+        "snippetsPreventQuickSuggestions": false, // I like my snippets to have suggestions
+    },
     "editor.inlayHints.enabled": "offUnlessPressed", // toggle with ctrl-alt
     // OPTION: migrate snippets out of VSCode to espanso OS snippets system.
     // "editor.snippetSuggestions": "top", // I like my snippets 
@@ -73,6 +80,9 @@
     // I read up to Input Method, the rest might be info overload.
     // with noun a=args: cia - change the arg under the cursor preserving comma separators
     // see bottom for key remappings
+    "[vim]": {
+        "leader": "<space>",
+    },
     "vim.leader": "<space>",
     "vim.sneak": true, // module: jump to char after "s<char><char>". Uses 'z' in operator mode. 
     "vim.sneakReplacesF": true, // replace f w/ single-char sneak, wraps around lines
@@ -96,21 +106,23 @@
     //\//\//\//\//\/
     // cargo: https://doc.rust-lang.org/cargo/reference/features.html
     // RA: https://rust-analyzer.github.io/manual.html#configuration
-    "rust-analyzer.check.command": "clippy",
-    "rust-analyzer.diagnostics.experimental.enable": false, // def: false, match <>
-    "rust-analyzer.imports.granularity.enforce": true, // group imports
-    "rust-analyzer.rustfmt.rangeFormatting.enable": true, // get rid of this line when rangeformatting goes stable
-    "rust-analyzer.typing.autoClosingAngleBrackets.enable": false, // Can't get VS code to intelligently skip '>'
     "[rust]": {
         // language keywords tend to get in way of snippets, but are useful in less familiar languages
         "editor.suggest.showKeywords": false,
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
     },
-    "rust-analyzer.cargo.features": "all", // uncomment to check features (not greyed out)
-    // IF RUST-ANALYZER IS TOO SLOW, UNCOMMENT:
-    // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
-    // "cargo.automaticCheck": false,
-    // "rust-analyzer.cargo.autoreload": false, // stops cargo from reloading on toml changes
+    "[rust-analyzer]": {
+        "check.command": "clippy",
+        "diagnostics.experimental.enable": false, // def: false, match <>
+        "imports.granularity.enforce": true, // group imports
+        "rustfmt.rangeFormatting.enable": true, // get rid of this line when rangeformatting goes stable
+        "typing.autoClosingAngleBrackets.enable": false, // Can't get VS code to intelligently skip '>'
+        "cargo.features": "all", // uncomment to check features (not greyed out)
+        // IF RUST-ANALYZER IS TOO SLOW, UNCOMMENT:
+        // "rust-analyzer.checkOnSave": false, // uncomment if rust is slow
+        // "cargo.automaticCheck": false,
+        // "rust-analyzer.cargo.autoreload": false, // stops cargo from reloading on toml changes
+    },
 
     //\//\//\//\//\///
     ///// PYTHON \\\\\
@@ -118,20 +130,16 @@
     // https://stackoverflow.com/questions/50177173/how-do-i-get-flake8-to-reliably-ignore-rules-in-vs-code
     "[python]": {
         "editor.tabSize": 4,
-        "editor.formatOnType": true
+        "editor.formatOnType": true,
+        "linting.flake8Args": [ "--max-line-length=120", "--ignoreE=402,F841,F401,E302,E305", ],
+        "formatting.autopep8Args": [ "--ignore", "E302,E305,F401,F841"],
+            // ,F84k1,F401,E302,E305" // "--ignore 402,F84k1,F401,E302,E305"
+        "linting.flake8Enabled": true,
+        "analysis.typeCheckingMode": "basic",
+        // Pylance doesn't recognize sagemath types, it's quite annoying to fix this unfortunately, haven't solved yet
+        "analysis.exclude": [ "*.ipynb" ],
+        "analysis.ignore": [ "*.ipynb" ],
     },
-    "python.linting.flake8Args": [ "--max-line-length=120", "--ignoreE=402,F841,F401,E302,E305", ],
-    "python.formatting.autopep8Args": [ "--ignore", "E302,E305,F401,F841"],
-        // ,F84k1,F401,E302,E305" // "--ignore 402,F84k1,F401,E302,E305"
-    "python.linting.flake8Enabled": true,
-    "python.analysis.typeCheckingMode": "basic",
-    // Pylance doesn't recognize sagemath types, it's quite annoying to fix this unfortunately
-    "python.analysis.exclude": [
-        "*.ipynb"
-    ],
-    "python.analysis.ignore": [
-        "*.ipynb"
-    ],
 
     // VIM REMAPPINGS 
     // JSON formatting makes the following annoying, disable it
@@ -406,12 +414,5 @@
         "plaintext": false,
         "markdown": false
     },
-    "github.copilot.advanced": {
-        "inlineSuggestCount": 3 // doesn't seem to work
-    },
     "window.zoomLevel": -1,
-    "terminal.integrated.allowChords": false, // disable chords that get in the way of terminal actions
-    "terminal.integrated.tabStopWidth": 4, 
-    "terminal.integrated.shellIntegration.enabled": false, // causes terminal to display prompt on 2 lines
-    // "terminal.integrated.shellIntegration.decorationsEnabled": "never",
 }
