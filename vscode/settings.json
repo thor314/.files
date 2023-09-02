@@ -410,5 +410,8 @@
         "inlineSuggestCount": 3 // doesn't seem to work
     },
     "window.zoomLevel": -1,
-    "terminal.integrated.allowChords": false,
+    "terminal.integrated.allowChords": false, // disable chords that get in the way of terminal actions
+    "terminal.integrated.tabStopWidth": 4, 
+    "terminal.integrated.shellIntegration.enabled": false, // causes terminal to display prompt on 2 lines
+    // "terminal.integrated.shellIntegration.decorationsEnabled": "never",
 }
