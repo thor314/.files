@@ -410,4 +410,5 @@
         "inlineSuggestCount": 3 // doesn't seem to work
     },
     "window.zoomLevel": -1,
+    "terminal.integrated.allowChords": false,
 }
