@@ -1,30 +1,40 @@
 {
     // WELL THAT'S DUMB (make it less dumb)
     "keyboard.dispatch": "keyCode", // caps lock as ctrl should work as expected
-    "editor.minimap.enabled": false, // screen clutter
+
     "window.customMenuBarAltFocus": false, // don't show menu bar when press alt
     "window.menuBarVisibility": "compact",
+    "window.titleBarStyle": "custom", // hide gross top bar
+
+    "editor.minimap.enabled": false, // screen clutter
     "editor.multiCursorModifier": "ctrlCmd", // ctrl+click to add cursors
     "editor.cursorBlinking": "solid", // oh good lord above, don't blink my damn cursor
-    "glassit.alpha": 245, // transparent window
-    "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
-    "zenMode.hideLineNumbers": false,
-    "zenMode.centerLayout": false,
-    "window.titleBarStyle": "custom", // hide gross top bar
-    "security.workspace.trust.untrustedFiles": "open",
-    "workbench.startupEditor": "none", // statusbar at bottom
-    "workbench.colorTheme": "Moonlight II",
-    "workbench.preferredDarkColorTheme": "Moonlight II",
-    "workbench.editor.showTabs": false,
-    "workbench.sideBar.location": "right", // nice to not move my code on-screen when I open sidebar
-    "explorer.confirmDragAndDrop": false, // no confirm on drag/drop file
-    "explorer.confirmDelete": false, // don't confirm to delete file
     "editor.inlineSuggest.enabled": true, // preview suggestions inline in greyed out text
     "editor.fontLigatures": true,
     "editor.fontFamily": "Fira Code", // ligature supporting font
     "editor.fontWeight": "500",
     "editor.tabSize": 2, // prefer 2-space width. Disable to automatically configure.
+    // "editor.formatOnSaveMode": "file", // no effect since I use autosave
+
+    "glassit.alpha": 245, // transparent window
+
+    "zenMode.hideStatusBar": false, // Zen mode is great, but disable some zen-mode defaults
+    "zenMode.hideLineNumbers": false,
+    "zenMode.centerLayout": false,
+
+    "security.workspace.trust.untrustedFiles": "open", // don't ask me to trust files
+
+    "workbench.startupEditor": "none", // statusbar at bottom
+    "workbench.colorTheme": "Moonlight II",
+    "workbench.preferredDarkColorTheme": "Moonlight II",
+    "workbench.editor.showTabs": false,
+    "workbench.sideBar.location": "right", // nice to not move my code on-screen when I open sidebar
+
+    "explorer.confirmDragAndDrop": false, // no confirm on drag/drop file
+    "explorer.confirmDelete": false, // don't confirm to delete file
+
     "breadcrumbs.enabled": false, // reduce UI clutter, hide breadcrumbs
+
     "terminal.integrated.allowChords": false, // disable chords that get in the way of terminal actions
     "terminal.integrated.tabStopWidth": 4, 
     "terminal.integrated.shellIntegration.enabled": false, // causes terminal to display prompt on 2 lines
@@ -32,13 +42,6 @@
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.defaultProfile.linux": "fish",
 
-    // SAVE AND FORMAT OFTEN
-    "editor.formatOnSaveMode": "file",
-    "files.autoSave": "afterDelay", // other options are suprisingly bad
-    "files.autoSaveDelay": 500, // ms
-    // "editor.formatOnSave": true, // does nothing if save after delay
-    "editor.formatOnType": false, // BUGGGYYYYY, turn off. Eg, inserts $0 after typing '<' in rust
-    "editor.formatOnPaste": true,
 
     // GENERAL CODING SETTINGS
     // "editor.foldingImportsByDefault": true,
