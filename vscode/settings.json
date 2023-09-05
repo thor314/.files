@@ -39,7 +39,7 @@
 
     "explorer.confirmDragAndDrop": false, // no confirm on drag/drop file
     "explorer.confirmDelete": false, // don't confirm to delete file
-    "files.exclude": { // don't show these in explorer
+    "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
