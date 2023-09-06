@@ -2830,5 +2830,9 @@
         "key": "ctrl+alt+c",
         "command": "-search.action.copyPath",
         "when": "fileMatchOrFolderMatchWithResourceFocus"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "workbench.action.findInFiles"
     }
 ]
