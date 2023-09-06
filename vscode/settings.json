@@ -26,6 +26,7 @@
     "editor.suggest.showDeprecated": false, // show me ghost outline of what suggest will fill
     "editor.suggest.snippetsPreventQuickSuggestions": false, // I like my snippets to have suggestions
     "editor.inlayHints.enabled": "offUnlessPressed", // VERY GOOD, toggle type hints with ctrl-alt
+    // "editor.inlayHints.enabled": "on", // VERY GOOD, toggle type hints with ctrl-alt
     // "editor.suggest.showWords": false, // unclear
 
     "files.autoSave": "afterDelay", // other options are suprisingly bad, autosave every half second after change
