@@ -20,7 +20,7 @@
     "editor.fontFamily": "Fira Code", // ligature supporting font
     "editor.fontWeight": "500",
     "editor.tabCompletion": "on", // complete snippets w tab 
-    "editor.wordWrapColumn": 120,
+    "editor.wordWrapColumn": 100,
     "editor.wordWrap": "wordWrapColumn", // visually soft-wrap wrap lines at above value
     // "editor.formatOnSaveMode": "file", // no effect since I use autosave
     "editor.suggest.showDeprecated": false, // show me ghost outline of what suggest will fill
@@ -150,7 +150,7 @@
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.exclude": [ "*.ipynb" ],
     "python.analysis.ignore": [ "*.ipynb" ],
-    "flake8.args": [ "--max-line-length=120", "--ignoreE=402,F841,F401,E302,E305", ],
+    "flake8.args": [ "--max-line-length=100", "--ignoreE=402,F841,F401,E302,E305", ],
     // failingly, screwing around trying to get sagemath to work with syntax checker
     "jupyter.widgetScriptSources": [ "jsdelivr.com", "unpkg.com" ],
 
