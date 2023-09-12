@@ -1,9 +1,13 @@
-# gets auto-poked a lot
-fish_variables
+# syncing fish across machines turns out to be rather bad
+# Most reproducible approach so far is to turn off all non-user settings and re-install them across machines
+# Thus all the gitignores
 fish/functions
 fish/conf.d
 fish/themes
+fish/completions
 fishd.tmp*
+fish_plugins
+fish_variables
 
 nv/*
 nvim/*
