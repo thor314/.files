@@ -29,7 +29,6 @@
 
 - link:
     ~/.config/leftwm: leftwm
-      # ~/.config/nvim: nvim
     ~/.local/share/fonts: fonts
     ~/.files/zsh.d/.zshrc: zsh.d/zshrc # maybe redundant
     ~/.zsh.d:
@@ -39,9 +38,6 @@
     ~/.gitconfig:
     ~/.config/helix: helix
     ~/.vimrc: 
-    # ~/.share/bin: ~/bin/share
-    # ~/.local/bin: ~/bin/local
-    # ~/.cargo/bin: ~/bin/cargo
     ~/.cargo/cargo-generate.toml: cargo-generate.toml
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.config/Code/User/settings.json: vscode/settings.json
@@ -50,11 +46,12 @@
     ~/.profile:  
     ~/.xprofile:
     ~/.config/zellij: zellij
-      #~/note/.obsidian: obsidian # may move this to private
-      # ~/note2/.obsidian.vimrc: obsidian.vimrc
-      #~/note2/.obsidian.vimrc: obsidian/obsidian.vimrc
-      # ~/note2/.obsidian/preamble.sty: obsidian/preamble.sty
-    # ~/.config/cointop: 
+    ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
+    ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
     # ~/.fehbg: 
+    # ~/.config/nvim: nvim
+    # ~/.share/bin: ~/bin/share
+    # ~/.local/bin: ~/bin/local
+    # ~/.cargo/bin: ~/bin/cargo
 
 
