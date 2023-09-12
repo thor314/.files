@@ -2294,6 +2294,11 @@
     },
     {
         "key": "ctrl+f",
+        "command": "-actions.find",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "ctrl+f",
         "command": "keybindings.editor.searchKeybindings",
         "when": "inKeybindings"
     },
@@ -2825,19 +2830,5 @@
         "key": "ctrl+alt+c",
         "command": "-search.action.copyPath",
         "when": "fileMatchOrFolderMatchWithResourceFocus"
-    },
-    {
-        "key": "ctrl+shift+f",
-        "command": "workbench.action.findInFiles"
-    },
-    {
-        "key": "ctrl+f",
-        "command": "actions.find",
-        "when": "editorFocus || editorIsOpen"
-    },
-    {
-        "key": "ctrl+f",
-        "command": "-actions.find",
-        "when": "editorFocus || editorIsOpen"
     }
 ]

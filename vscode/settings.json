@@ -20,13 +20,12 @@
     "editor.fontFamily": "Fira Code", // ligature supporting font
     "editor.fontWeight": "500",
     "editor.tabCompletion": "on", // complete snippets w tab 
-    "editor.wordWrapColumn": 100,
+    "editor.wordWrapColumn": 120,
     "editor.wordWrap": "wordWrapColumn", // visually soft-wrap wrap lines at above value
     // "editor.formatOnSaveMode": "file", // no effect since I use autosave
     "editor.suggest.showDeprecated": false, // show me ghost outline of what suggest will fill
     "editor.suggest.snippetsPreventQuickSuggestions": false, // I like my snippets to have suggestions
     "editor.inlayHints.enabled": "offUnlessPressed", // VERY GOOD, toggle type hints with ctrl-alt
-    // "editor.inlayHints.enabled": "on", // VERY GOOD, toggle type hints with ctrl-alt
     // "editor.suggest.showWords": false, // unclear
 
     "files.autoSave": "afterDelay", // other options are suprisingly bad, autosave every half second after change
@@ -40,7 +39,7 @@
 
     "explorer.confirmDragAndDrop": false, // no confirm on drag/drop file
     "explorer.confirmDelete": false, // don't confirm to delete file
-    "files.exclude": {
+    "files.exclude": { // don't show these in explorer
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
@@ -150,7 +149,7 @@
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.exclude": [ "*.ipynb" ],
     "python.analysis.ignore": [ "*.ipynb" ],
-    "flake8.args": [ "--max-line-length=100", "--ignoreE=402,F841,F401,E302,E305", ],
+    "flake8.args": [ "--max-line-length=120", "--ignoreE=402,F841,F401,E302,E305", ],
     // failingly, screwing around trying to get sagemath to work with syntax checker
     "jupyter.widgetScriptSources": [ "jsdelivr.com", "unpkg.com" ],
 
