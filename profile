@@ -1,4 +1,5 @@
-# TK: this file is run on login, and by bash if .bash_profile doesn't exist.
+# TK: this file is run on login, but not for subsequent terminal creation.
+#
 # Generally used to set up env variables at login,
 # eg: https://www.unix.com/unix-for-advanced-and-expert-users/5477-looking-profile-examples.html
 #
