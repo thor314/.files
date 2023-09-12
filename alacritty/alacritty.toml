@@ -40,7 +40,7 @@ mods = "Control|Alt"
 hide_when_typing = true
 
 [scrolling]
-faux_multiplier = 3
+# faux_multiplier = 3 # removed feature? causes bugs on uncomment
 history = 10000
 multiplier = 3
 
