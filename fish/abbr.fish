@@ -3,7 +3,7 @@
 # aliases a poor man's tldr: grep through my aliases for examples.
 # define functions and bind aliases to them to include them in rg results.
 
-alias npm=pnpm # lazy way of search-replace inside this script
+# alias npm=pnpm # lazy way of search-replace inside this script
 abbr -a -g npm pnpm
 # TEMP
 function unset-right 
