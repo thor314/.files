@@ -33,7 +33,9 @@
     ~/.local/share/fonts: fonts
     ~/.files/zsh.d/.zshrc: zsh.d/zshrc # maybe redundant
     ~/.zsh.d:
-    ~/.config/fish: fish
+    ~/.config/fish/abbr.fish: fish/abbr.fish
+    ~/.config/fish/bind.fish: fish/bind.fish
+    ~/.config/fish/config.fish: fish/config.fish
     ~/.gitconfig:
     ~/.config/helix: helix
     ~/.vimrc: 
@@ -55,10 +57,4 @@
     # ~/.config/cointop: 
     # ~/.fehbg: 
 
-- shell: 
-  - rm $HOME/bash_history
-  - rm $HOME/sudo_as_admin_successful
-  - rm $HOME/viminfo
-  - rm $HOME/lesshst
 
-    
