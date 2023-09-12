@@ -1,7 +1,10 @@
 # gets auto-poked a lot
 fish_variables
 fish/functions
-fishd.tmp
+fish/conf.d
+fish/themes
+fishd.tmp*
+
 nv/*
 nvim/*
 
