@@ -47,3 +47,6 @@ set -gx PYTHONPATH /usr/lib/python3/dist-packages/sage $PYTHONPATH
 
 # set shell
 set -gx SHELL 'usr/bin/fish'
+
+# store selected editor config somewhere else
+set -gx SELECTED_EDITOR "/home/thor/.config/selected_editor"

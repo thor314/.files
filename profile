@@ -37,6 +37,7 @@ PATH="$PATH:$HOME/.share/bin"
 # Please ser, may I have my keyboard
 setxkbmap dvorak -option ctrl:nocaps
 
-
-
 export PATH="$HOME/.elan/bin:$PATH"
+
+# declutter home env
+export SELECTED_EDITOR="/home/thor/.config/selected_editor"

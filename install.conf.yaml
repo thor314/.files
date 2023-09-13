@@ -8,24 +8,23 @@
 
 - clean: ['~'] # clean dead symlinks
 
-# autoeate new system mkdirs
-- create: 
-    - ~/archive
-    - ~/img
-    - ~/fun
-    - ~/img
-    - ~/vid
-    - ~/py/play
-    - ~/r/play
-    - ~/tmp/bak
-    - ~/.trash
-    - ~/Downloads/book
-    - ~/Downloads/delete_soon
-    - ~/Downloads/invoice
-    - ~/Downloads/official
-    - ~/Downloads/paper
-    - ~/Downloads/tax
-    - ~/.config/Code/User
+# automate new system mkdirs
+# - create: 
+    # - ~/archive
+    # - ~/img
+    # - ~/fun
+    # - ~/py/play
+    # - ~/r/play
+    # - ~/tmp
+    # - ~/.trash
+    # - ~/.config/Code/User
+    # - ~/vid
+    # - ~/Downloads/book
+    # - ~/Downloads/delete_soon
+    # - ~/Downloads/invoice
+    # - ~/Downloads/official
+    # - ~/Downloads/paper
+    # - ~/Downloads/tax
 
 - link:
     ~/.config/leftwm: leftwm
@@ -50,8 +49,3 @@
     ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
     # ~/.fehbg: 
     # ~/.config/nvim: nvim
-    # ~/.share/bin: ~/bin/share
-    # ~/.local/bin: ~/bin/local
-    # ~/.cargo/bin: ~/bin/cargo
-
-
