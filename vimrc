@@ -198,6 +198,9 @@ Plug 'justinmk/vim-sneak'
 Plug 'airblade/vim-gitgutter'     
 " edit gpg encrypted files as normal https://github.com/jamessan/vim-gnupg
 Plug 'jamessan/vim-gnupg'     
+" fish syntax highlighting
+Plug 'dag/vim-fish' 
+
 "" Unused:
 " supercharged tab for completions https://github.com/ervandew/supertab
 " Plug 'ervandew/supertab'
@@ -244,6 +247,17 @@ autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 
 "" Rust
 autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
+
+"" Fish
+" https://github.com/dag/vim-fish
+" Set up :make to use fish for syntax checking.
+autocmd FileType fish compiler fish
+
+
+" if &shell =~# 'fish$'
+"     set shell=sh
+" endif
+
 
 """ Graveyard
 " Bug: seems to not select buffer.

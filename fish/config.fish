@@ -50,3 +50,6 @@ set -gx SHELL 'usr/bin/fish'
 
 # store selected editor or it dirties home env
 set -gx SELECTED_EDITOR /usr/bin/vim.gtk3
+
+set -gx MANPAGER sh -c 'col -bx | bat -l man -p'
+# set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"

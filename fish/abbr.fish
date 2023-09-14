@@ -282,7 +282,7 @@ function logout
     pkill -u (whoami)
 end
 
-abbr -a -g man "batman" # du du du du du du du du
+# abbr -a -g man "batman" # du du du du du du du du 
 
 abbr -a -g pipi "pip install"
 abbr -a -g python python3
