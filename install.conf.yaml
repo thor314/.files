@@ -47,5 +47,6 @@
     ~/.config/zellij: zellij
     ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
     ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
+    ~/.share: 
     # ~/.fehbg: 
     # ~/.config/nvim: nvim
