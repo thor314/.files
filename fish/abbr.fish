@@ -283,6 +283,9 @@ function logout
 end
 
 # abbr -a -g man "batman" # du du du du du du du du 
+# function bman 
+#   man $1 | bat
+# end
 
 abbr -a -g pipi "pip install"
 abbr -a -g python python3

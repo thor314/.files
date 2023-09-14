@@ -1,3 +1,6 @@
+#!/usr/bin/fish
+# Thor's fishy config
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -51,5 +54,5 @@ set -gx SHELL 'usr/bin/fish'
 # store selected editor or it dirties home env
 set -gx SELECTED_EDITOR /usr/bin/vim.gtk3
 
-set -gx MANPAGER sh -c 'col -bx | bat -l man -p'
-# set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+# use bat to display man pages with syntax highlighting etc
+set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"

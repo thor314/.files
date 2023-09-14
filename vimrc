@@ -252,11 +252,10 @@ autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
 " https://github.com/dag/vim-fish
 " Set up :make to use fish for syntax checking.
 autocmd FileType fish compiler fish
-
-
-" if &shell =~# 'fish$'
-"     set shell=sh
-" endif
+" may load slowly, but disables vim complaining about fish not being posix compatible
+if &shell =~# 'fish$'
+    set shell=sh
+endif
 
 
 """ Graveyard
