@@ -40,4 +40,4 @@ setxkbmap dvorak -option ctrl:nocaps
 export PATH="$HOME/.elan/bin:$PATH"
 
 # declutter home env
-export SELECTED_EDITOR="usr/bin/vim"
+export SELECTED_EDITOR="usr/bin/vim.gtk3"
