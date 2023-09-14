@@ -49,4 +49,4 @@ set -gx PYTHONPATH /usr/lib/python3/dist-packages/sage $PYTHONPATH
 set -gx SHELL 'usr/bin/fish'
 
 # store selected editor config somewhere else
-set -gx SELECTED_EDITOR "/home/thor/.config/selected_editor"
+# /* set -gx SELECTED_EDITOR vim */
