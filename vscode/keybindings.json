@@ -829,10 +829,6 @@
         "when": "listFocus && searchViewletVisible && !inputFocus && searchState != '0'"
     },
     {
-        "key": "ctrl+shift+f",
-        "command": "-workbench.action.findInFiles"
-    },
-    {
         "key": "f4",
         "command": "-search.action.focusNextSearchResult",
         "when": "hasSearchResult || inSearchEditor"
