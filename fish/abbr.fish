@@ -152,7 +152,7 @@ abbr -a -g df "duf"
 abbr -a -g diff difft # fancy difftool
 abbr -a -g dl "cd $HOME/Downloads"
 abbr -a -g dt "dotbot -c ~/.files/install.conf.yaml"
-abbr -a -g dtp "dotbot -c ~/.files/private/install.conf.yaml"
+abbr -a -g dtp "dotbot -c ~/.private/install.conf.yaml"
 abbr -a -g dtr "sudo dotbot -c ~/.files/root/install.conf.yaml"
 abbr -a -g dts "sudo dotbot -c ~/.files/root/install.conf.yaml"
 abbr -a -g du "dust" # gimme stats
