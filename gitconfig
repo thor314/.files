@@ -1,4 +1,6 @@
 # https://git-scm.com/docs/git-config
+# https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities
+
 [gpg]
 	program = gpg
 
