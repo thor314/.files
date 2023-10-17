@@ -141,7 +141,7 @@ set nonumber          " Comment out to remove line-numbers
 set linebreak         " Break at `text-width`, at prior `showbreak` char
 set showbreak=" "
 set textwidth=120
-" set nowrap            " allow line to extend as far as it goes, don't wrap-around
+set nowrap            " allow line to extend as far as it goes, don't wrap-around
 set visualbell        " use visual bell instead of beeps
 set scrolloff=1       " Do not let cursor scroll below or above N number of lines when scrolling.
 set showcmd           " Show partial command you type in the last line of the screen.
