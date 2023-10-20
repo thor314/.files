@@ -61,10 +61,12 @@ call plug#end()
 " neovim keys: https://neovim.io/doc/user/quickref.html
 " verbose docs: https://vim.fandom.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
 " Note that operators like d,g,c, etc. sometimes cannot be remapped.
+"
+let mapleader = " "
 
 " for replacing OpenAI style \( \) with latex $
-nmap <C-r> :%s/\\(\s\\|\s\\)/$/g<CR>
-nmap <C-l> :%s/\\\[\s\\|\s\\\]/$$/g<CR>
+nmap <leader>r :%s/\\(\s\\|\s\\)/$/g<CR>
+nmap <leader>R :%s/\\\[\s\\|\s\\\]/$$/g<CR>
 map <C-a> ggVG
 "map <A-a> 
 "map <C-o>
