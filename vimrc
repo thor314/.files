@@ -61,11 +61,7 @@ call plug#end()
 " neovim keys: https://neovim.io/doc/user/quickref.html
 " verbose docs: https://vim.fandom.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
 " Note that operators like d,g,c, etc. sometimes cannot be remapped.
-nmap <A-o> :%s/\\(\s*\|\s*\\)/$/g
-nmap <A-a> :%s/\\(\s*\|\s*\\)/$/g
-nmap <A-e> :%s/\\(\s*\|\s*\\)/$/g
-nmap <A-'> :%s/\\(\s*\|\s*\\)/$/g
-nmap <C-'> :%s/\\(\s*\|\s*\\)/$/g
+:nmap <M-'> :%s/\\(\s*\|\s*\\)/$/g<CR>
 map <C-a> ggVG
 "map <A-a> 
 "map <C-o>
