@@ -26,7 +26,8 @@ vmap <C-r> :s/
 nmap <C-r> <C-a>:s/
 
 " for replacing OpenAI style \( \) with latex $
-nmap <leader>r :%s/\\(\s\\|\s\\)/$/g
+nmap <leader>r :%s/(\\\(\s|\s\\\))/$/g
+":%s/\\(\s\\|\s\\)/$/g
 nmap <leader>R :%s/\[\s\\|\s\\\]/$$/g
 
 " Navigate Forward and Back between pages:
