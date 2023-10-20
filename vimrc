@@ -64,6 +64,8 @@ call plug#end()
 nmap <A-o> :%s/\\(\s*\|\s*\\)/$/g
 nmap <A-a> :%s/\\(\s*\|\s*\\)/$/g
 nmap <A-e> :%s/\\(\s*\|\s*\\)/$/g
+nmap <A-'> :%s/\\(\s*\|\s*\\)/$/g
+nmap <C-'> :%s/\\(\s*\|\s*\\)/$/g
 map <C-a> ggVG
 "map <A-a> 
 "map <C-o>
