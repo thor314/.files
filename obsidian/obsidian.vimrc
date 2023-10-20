@@ -26,8 +26,8 @@ vmap <C-r> :s/
 nmap <C-r> <C-a>:s/
 
 " for replacing OpenAI style \( \) with latex $
-nmap <leader>r :%s/\\(\s\\|\s\\)/$/g<CR>
-nmap <leader>R :%s/\\\[\s\\|\s\\\]/$$/g<CR>
+nmap <leader>r :%s/\\(\s\\|\s\\)/$/g
+nmap <leader>R :%s/\\\[\s\\|\s\\\]/$$/g
 
 " Navigate Forward and Back between pages:
 " This mapping repeats a mapping in the in-app hotkeys menu for demonstration; the in-app menu overwrites mappings here.
