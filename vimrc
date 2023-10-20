@@ -91,8 +91,12 @@ nmap <leader>k 10k
 "map <A-k>
 "map <C-x>
 "map <A-x>
+" use CamelCaseMotion plug to refine word boundaries
+nmap b ,b
 "map <C-b>
 "map <A-b>
+" use CamelCaseMotion plug to refine word boundaries
+nmap w ,w
 "map <C-w>
 "map <A-w>
 "map <C-v>
