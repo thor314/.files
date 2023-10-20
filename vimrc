@@ -6,6 +6,56 @@
 " neovim FAQ: https://github.com/neovim/neovim/wiki/FAQ
 " todo: try https://vim-bootstrap.com
 
+""" Plugin Management
+" ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+" Install vim-plug plugin manager if not found on system
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+call plug#begin()             " List the plugins to install
+" Left sidebar file tree. https://github.com/preservim/nerdtree
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 
+" vim-surround - manipulate surrounding symbolics ergonomically https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'     
+" gc gC operators for commenting lines https://github.com/tpope/vim-surround
+Plug 'tpope/vim-commentary'   
+" Create textobjects. https://github.com/kana/vim-textobj-user
+Plug 'kana/vim-textobj-user' 
+" use indentation level, e.g. ai, ii, aI,iI, as a noun https://github.com/michaeljsmith/vim-indent-object
+Plug 'michaeljsmith/vim-indent-object' 
+" motion inside camel/snake-case words w leader https://github.com/bkad/CamelCaseMotion
+Plug 'bkad/CamelCaseMotion'   
+" location jumping with s<char><char> (z in operator mode) https://github.com/justinmk/vim-sneak
+Plug 'justinmk/vim-sneak'     
+" Show git diff in gutter. jump between changes with ]c, [c https://github.com/airblade/vim-gitgutter
+Plug 'airblade/vim-gitgutter'     
+" edit gpg encrypted files as normal https://github.com/jamessan/vim-gnupg
+Plug 'jamessan/vim-gnupg'     
+" fish syntax highlighting
+Plug 'dag/vim-fish' 
+
+"" Unused:
+" supercharged tab for completions https://github.com/ervandew/supertab
+" Plug 'ervandew/supertab'
+" syntax highlighting, completion, and errors in many languages https://github.com/dense-analysis/ale
+" Plug 'dense-analysis/ale'
+" Popular git interface. https://github.com/tpope/vim-fugitive
+" plug 'tpope/vim-fugitive'
+" Use fzf for search. https://github.com/junegunn/fzf.vim
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+" Change the status-line. Not that much of a power-user yet, but could be useful for tabs. 
+" https://github.com/vim-airline/vim-airline
+" Plug 'vim-airline/vim-airline'
+call plug#end()
+
 """ Keybindings
 " docs: https://vimhelp.org/map.txt.html#mapping
 " neovim keys: https://neovim.io/doc/user/quickref.html
@@ -92,11 +142,11 @@ nmap <leader>k 10k
 "map <C-x>
 "map <A-x>
 " use CamelCaseMotion plug to refine word boundaries
-nmap b ,b
+map <silent> w <Plug>CamelCaseMotion_w
 "map <C-b>
 "map <A-b>
 " use CamelCaseMotion plug to refine word boundaries
-nmap w ,w
+map <silent> b <Plug>CamelCaseMotion_b
 "map <C-w>
 "map <A-w>
 "map <C-v>
@@ -169,56 +219,6 @@ set wildmode=list:longest " Make wildmenu behave like similar to Bash completion
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 " Have nerdtree ignore certain files and directories.
 let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
-
-""" Plugin Management
-" ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
-" Install vim-plug plugin manager if not found on system
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
-call plug#begin()             " List the plugins to install
-" Left sidebar file tree. https://github.com/preservim/nerdtree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 
-" vim-surround - manipulate surrounding symbolics ergonomically https://github.com/tpope/vim-surround
-Plug 'tpope/vim-surround'     
-" gc gC operators for commenting lines https://github.com/tpope/vim-surround
-Plug 'tpope/vim-commentary'   
-" Create textobjects. https://github.com/kana/vim-textobj-user
-Plug 'kana/vim-textobj-user' 
-" use indentation level, e.g. ai, ii, aI,iI, as a noun https://github.com/michaeljsmith/vim-indent-object
-Plug 'michaeljsmith/vim-indent-object' 
-" motion inside camel/snake-case words w leader https://github.com/bkad/CamelCaseMotion
-Plug 'bkad/CamelCaseMotion'   
-" location jumping with s<char><char> (z in operator mode) https://github.com/justinmk/vim-sneak
-Plug 'justinmk/vim-sneak'     
-" Show git diff in gutter. jump between changes with ]c, [c https://github.com/airblade/vim-gitgutter
-Plug 'airblade/vim-gitgutter'     
-" edit gpg encrypted files as normal https://github.com/jamessan/vim-gnupg
-Plug 'jamessan/vim-gnupg'     
-" fish syntax highlighting
-Plug 'dag/vim-fish' 
-
-"" Unused:
-" supercharged tab for completions https://github.com/ervandew/supertab
-" Plug 'ervandew/supertab'
-" syntax highlighting, completion, and errors in many languages https://github.com/dense-analysis/ale
-" Plug 'dense-analysis/ale'
-" Popular git interface. https://github.com/tpope/vim-fugitive
-" plug 'tpope/vim-fugitive'
-" Use fzf for search. https://github.com/junegunn/fzf.vim
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-" Change the status-line. Not that much of a power-user yet, but could be useful for tabs. 
-" https://github.com/vim-airline/vim-airline
-" Plug 'vim-airline/vim-airline'
-call plug#end()
 
 " source: https://breuer.dev/blog/top-neovim-plugins
 function! WinMove(key)
