@@ -65,6 +65,7 @@ map <C-a> ggVG
 "map <A-a> 
 "map <C-o>
 "map <A-o>
+map <silent> e <Plug>CamelCaseMotion_e
 "map <C-e>
 "map <A-e>
 nmap U :redo<CR>
