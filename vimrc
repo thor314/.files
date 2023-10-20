@@ -63,7 +63,7 @@ call plug#end()
 " Note that operators like d,g,c, etc. sometimes cannot be remapped.
 
 " for replacing OpenAI style \( \) with latex $
-nmap <C-r> :%s/\\(\s\|\s\\)/$/g<CR>
+nmap <C-r> :%s/\\(\s|\s\\)/$/g<CR>
 nmap <C-l> :%s/\\\[\s\|\s\\\]/$$/g<CR>
 map <C-a> ggVG
 "map <A-a> 
