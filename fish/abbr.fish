@@ -245,7 +245,7 @@ abbr -a -g vmo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
 abbr -a -g vmm "vi ~/.config/espanso/match/markdown/_mermaid.yml"
 abbr -a -g vmg "vi ~/.config/espanso/match/markdown/_greek.yml"
 
-abbr -a -g vop "vi ~/note2/.obsidian/preamble.sty"
+abbr -a -g vop "vi ~/obsidian/.obsidian/preamble.sty"
 
 abbr -a -g vsi "vi ~/.setup/install.sh"
 abbr -a -g vv "vi ~/.files/vimrc"
