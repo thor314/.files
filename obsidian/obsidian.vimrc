@@ -39,12 +39,9 @@ nmap <A-.> :forward
 " enable select all with C-a
 unmap <C-a>
 
-" be able to type gL or dL to delete rest of line
-nmap H ^
-nmap L $
-" These appear not to work as expected, uncertain how to obtain better operator support:
-omap H ^ 
-omap L $
+" Must use map, not omap, to get these to work in visual mode
+map H ^ 
+map L $
 
 " transpose, shift case
 nmap t xhPl 
