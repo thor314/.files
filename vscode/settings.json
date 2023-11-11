@@ -379,4 +379,7 @@
           { "keys": "T", "position": "-1"},
           { "keys": "z", "position": "-1"},
     ],
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
