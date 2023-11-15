@@ -10,6 +10,9 @@ function fish_greeting
     echo "hello Thor" 
 end
 
+# ssh config
+set -q SSH_AGENT_PID; or eval (ssh-agent -c)
+
 gpg -qd "$HOME/.private/secrets.gpg" | source
 
 setxkbmap dvorak -option ctrl:nocaps
