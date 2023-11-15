@@ -19,25 +19,17 @@ export GOROOT=/usr/local/go
 PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 PATH="$PATH:$HOME/.cargo/bin/bat-extras/bin"
 PATH="$PATH:$HOME/.cargo/bin/"
-# PATH=":$HOME/.files/local-bin/npm-bin"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.share/bin"
-# # todo: remove one of the following
-# PATH=":$HOME/.share/bin/lean-bin"
-# PATH=":$HOME/.lean/bin"
-
-# if [[ $(hostname) == "starchy" ]]; then
-#   # default isTERM=alacritty; this fixes weird input bugs with alacritty
-#   TERM=xterm-256color 
-# fi
+PATH="$HOME/.elan/bin:$PATH"
+# PATH=":$HOME/.files/local-bin/npm-bin"
 
 # configure shell with cargo commands 
-# source "$HOME/.cargo/env" 
+source "$HOME/.cargo/env" 
 
 # Please ser, may I have my keyboard
 setxkbmap dvorak -option ctrl:nocaps
 
-export PATH="$HOME/.elan/bin:$PATH"
 
 # declutter home env
 export SELECTED_EDITOR="usr/bin/vim.gtk3"

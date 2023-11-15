@@ -10,7 +10,7 @@ function fish_greeting
     echo "hello Thor" 
 end
 
-# ssh config
+# ssh config?
 # set -q SSH_AGENT_PID; or eval (ssh-agent -c)
 
 gpg -qd "$HOME/.private/secrets.gpg" | source
@@ -31,8 +31,8 @@ set -g JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
 nvm use latest >> /dev/null # puts npm in path, and b quiet
 
 # PATH fuckery
-set PATH $PATH $HOME/.local/bin
-set PATH $PATH $HOME/.cargo/bin
+#set PATH $PATH $HOME/.local/bin
+#set PATH $PATH $HOME/.cargo/bin
 
 # pnpm is our fast friend https://pnpm.io/
 set PNPM_HOME /home/thor/.local/share/pnpm
