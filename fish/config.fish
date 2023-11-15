@@ -11,7 +11,7 @@ function fish_greeting
 end
 
 # ssh config
-set -q SSH_AGENT_PID; or eval (ssh-agent -c)
+# set -q SSH_AGENT_PID; or eval (ssh-agent -c)
 
 gpg -qd "$HOME/.private/secrets.gpg" | source
 
