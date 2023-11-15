@@ -3,15 +3,15 @@
 # aliases a poor man's tldr: grep through my aliases for examples.
 # define functions and bind aliases to them to include them in rg results.
 
-# alias npm=pnpm # lazy way of search-replace inside this script
-abbr -a -g npm pnpm
 # TEMP
+# abbr -a -g npm pnpm
+
 function unset-right 
     function fish_right_prompt 
     end
 end
 
-function ck
+function cck
     echo checking (pwd)
     cargo check -q 
     cargo clippy -- -D warnings 
@@ -21,7 +21,7 @@ end
 
 function checkall
     for D in */
-        pushd $D && ck && popd 
+        pushd $D && cck && popd 
     end
 end
 
@@ -174,6 +174,8 @@ function formatall
     popd 
   end
 end
+
+abbr -a -g hsd "hugo server -D"
 
 abbr -a -g gaa "git add --all ." 
 abbr -a -g gcm "git commit -m "
