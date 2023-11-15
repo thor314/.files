@@ -38,9 +38,6 @@
     ~/.config/helix: helix
     ~/.vimrc: 
     ~/.cargo/cargo-generate.toml: cargo-generate.toml
-    ~/.config/Code/User/keybindings.json: vscode/keybindings.json
-    ~/.config/Code/User/settings.json: vscode/settings.json
-    ~/.config/Code/User/snippets: vscode/snippets
     ~/.config/alacritty: alacritty
     ~/.profile:  
     ~/.xprofile:
