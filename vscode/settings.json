@@ -287,6 +287,7 @@
             { "key": "w", "name": "Open recent workspace", "type": "command", "command": "workbench.action.openRecent", },
         ]},
         { "keys": "o", "name": "+Focus", "type": "bindings", "bindings": [
+            { "key": "c", "name": "Focus Cursor", "type": "command", "command": "workbench.view.extension.aicursor", },
             { "key": "d", "name": "Focus Debugger", "type": "command", "command": "workbench.panel.repl.view.focus", },
             { "key": "e", "name": "Focus Explorer", "type": "command", "command": "workbench.files.action.focusFilesExplorer", },
             { "key": "f", "name": "Focus Explorer Folders", "type": "command", "command": "workbench.explorer.fileView.focus", },
@@ -350,6 +351,16 @@
             { "key": "S", "name": "Syntax tree", "type": "command", "command": "rust-analyzer.syntaxTree", },
           ]
         },
+        { "keys": "u", "name": "+Cursor", "type": "bindings", "bindings": [
+            { "key": "a", "name": "Accept Changes", "type": "command", "command": "aicursor.acceptChanges", },
+            { "key": "f", "name": "Focus Chat View", "type": "command", "command": "chat.focus", },
+            { "key": "g", "name": "Generate Code", "type": "command", "command": "aicursor.generateCode", },
+            { "key": "r", "name": "Reject Changes", "type": "command", "command": "aicursor.rejectChanges", },
+            { "key": "s", "name": "Show Generated Code", "type": "command", "command": "aicursor.showLastResult", },
+            { "key": "G", "name": "Generate Project", "type": "command", "command": "aicursor.generateProject", },
+            { "key": "R", "name": "Reset Chat", "type": "command", "command": "aicursor.resetChat", },
+          ]
+        },
         { "keys": "/", "name": "+Search", "type": "bindings", "bindings": [
             { "key": "r", "name": "Replace", "type": "command", "command": "workbench.action.replaceInFiles", },
             { "key": "/", "name": "Search", "type": "command", "command": "workbench.view.search.focus", },
@@ -379,4 +390,8 @@
           { "keys": "T", "position": "-1"},
           { "keys": "z", "position": "-1"},
     ],
+    "window.zoomLevel": -1,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
