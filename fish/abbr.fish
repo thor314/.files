@@ -113,7 +113,8 @@ abbr -a -g ct 'cargo test'
 abbr -a -g ctt "RUST_LOG=DEBUG RUST_BACKTRACE=1 ct -- --nocapture"
 abbr -a -g ctc 'cargo tarpaulin -v -o Html'
 abbr -a -g ctp 'cargo tarpaulin -v -o Html'
-abbr -a -g cwa "cargo watch -c" 
+abbr -a -g cw "cargo watch" 
+abbr -a -g cwr 'cargo watch -x run'
 
 abbr -a -g chat "chatblade -i"
 abbr -a -g ch3 "chatblade -i --chat-gpt 3.5"
