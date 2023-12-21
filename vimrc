@@ -193,9 +193,10 @@ filetype plugin on    " Enable plugins and load plugin for the detected file typ
 filetype indent on    " Load an indent file for the detected file type.
 set cursorline        " Uncomment to highlight respectively, current row, current column.
 set cursorcolumn      " highlight column. warning, can be visually noisy.
-highlight CursorColumn ctermbg=grey guibg=61
-highlight CursorLine ctermbg=grey guibg=61
-" colors: 0,8,16,56,60,61,darkmagenta seem o
+" colors: 0,8,16,56,60,61,darkmagenta seem ok
+" will turn the cursor column light purple
+highlight CursorColumn ctermbg=61 
+" highlight CursorLine ctermbg=61 
 set shiftwidth=2      " <,> shift keys
 set tabstop=2         " tab width
 set expandtab         " spaces > tabs
