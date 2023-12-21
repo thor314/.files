@@ -192,7 +192,10 @@ filetype on           " Enable type file detection. Vim will try to detect the t
 filetype plugin on    " Enable plugins and load plugin for the detected file type.
 filetype indent on    " Load an indent file for the detected file type.
 set cursorline        " Uncomment to highlight respectively, current row, current column.
-" set cursorcolumn      " highlight column. warning, annoying.
+set cursorcolumn      " highlight column. warning, can be visually noisy.
+highlight CursorColumn ctermbg=grey guibg=61
+highlight CursorLine ctermbg=grey guibg=61
+" colors: 0,8,16,56,60,61,darkmagenta seem o
 set shiftwidth=2      " <,> shift keys
 set tabstop=2         " tab width
 set expandtab         " spaces > tabs
@@ -200,9 +203,9 @@ set smartindent     	" Enable smart-indent
 set smarttab	        " Enable smart-tabs
 set nonumber          " Comment out to remove line-numbers
 " set linebreak       " Hard break at `text-width`, at prior `showbreak` char. Prefer a formatter for this.
-set showbreak=" "
-set textwidth=120
-" set wrap              " allow line to render far right as it goes, don't wrap-around
+set textwidth=120     " see linebreak
+" set nowrap          " allow line to render far right as it goes, don't wrap-around
+set showbreak="↩"     " when `wrap` is set, define the character to show at the wrap point:
 set visualbell        " use visual bell instead of beeps
 set scrolloff=1       " Do not let cursor scroll below or above N number of lines when scrolling.
 set showcmd           " Show partial command you type in the last line of the screen.
