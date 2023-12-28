@@ -63,6 +63,9 @@ nmap <leader>, :back
 " Yank to system clipboard https://forum.obsidian.md/t/how-to-copy-with-vim-mode/3881
 set clipboard=unnamed
 
+" set tab size to something other than 4, note to that this should be mirror in editor::tab_size
+" set tabstop=2
+
 """ Trash
 " - useless, not sure how to get rid of Obsidian's persistent search highlight, except hit esc every time
 " nmap <F9> :nohl 
