@@ -38,7 +38,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'airblade/vim-gitgutter'     
 " edit gpg encrypted files as normal https://github.com/jamessan/vim-gnupg
 Plug 'jamessan/vim-gnupg'     
-" fish syntax highlighting
+" fish syntax highlighting https://github.com/dag/vim-fish/blob/master/README.md
 Plug 'dag/vim-fish' 
 
 "" Unused:
@@ -263,15 +263,13 @@ autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 "" Rust
 autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
 
-"" Fish
-" https://github.com/dag/vim-fish
+" https://github.com/dag/vim-fish/blob/master/README.md
 " Set up :make to use fish for syntax checking.
-autocmd FileType fish compiler fish
-" may load slowly, but disables vim complaining about fish not being posix compatible
-if &shell =~# 'fish$'
-    set shell=sh
-endif
-
+autocmd Filetype fish compiler fish
+" Set this to have long lines wrap inside comments.
+autocmd Filetype fish setlocal textwidth=79
+" Enable folding of block structures in fish.
+autocmd Filetype fish setlocal foldmethod=expr
 
 """ Graveyard
 " Bug: seems to not select buffer.
