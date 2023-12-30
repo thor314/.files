@@ -34,7 +34,7 @@
     "workbench.startupEditor": "none", // statusbar at bottom
     "workbench.colorTheme": "Moonlight II",
     "workbench.preferredDarkColorTheme": "Moonlight II",
-    "workbench.editor.showTabs": false,
+    "workbench.editor.showTabs": "single",
     "workbench.sideBar.location": "right", // nice to not move my code on-screen when I open sidebar
 
     "explorer.confirmDragAndDrop": false, // no confirm on drag/drop file

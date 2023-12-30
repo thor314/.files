@@ -338,7 +338,8 @@ abbr -a -g sshzs "ssh -t thor@$IP_STARCHY ZDOTDIR=.zsh.d zsh"
 abbr -a -g sshzh "ssh -t thor@$IP_HOME ZDOTDIR=.zsh.d "
 abbr -a -g sz 'source ~/.zsh.d/.zshrc'
 abbr -a -g sza 'source ~/.zsh.d/alias.sh'
-abbr -a -g spot spt # spotify-tui
+# cli for internet search
+abbr -a -g sf 'surfraw -browser=firefox'
 
 abbr -a -g top 'btm' # kinky
 abbr -a -g tw 'rainbowstream' # terminal twitter client, kinda shit tho
