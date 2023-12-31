@@ -6,6 +6,14 @@
 " neovim FAQ: https://github.com/neovim/neovim/wiki/FAQ
 " todo: try https://vim-bootstrap.com
 
+" https://github.com/khaveesh/vim-fish-syntax
+" Vim needs a more POSIX compatible shell than fish for certain functionality to work, such as :%!, 
+" compressed help pages and many third-party plugins. If you use fish as your login shell, 
+" you need to set shell to something else in your vimrc, for example:
+if &shell =~# 'fish$'
+      set shell=sh
+    endif
+
 """ Plugin Management
 " ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 " Install vim-plug plugin manager if not found on system
@@ -39,8 +47,8 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'     
   " edit gpg encrypted files as normal https://github.com/jamessan/vim-gnupg
   Plug 'jamessan/vim-gnupg'     
-  " fish syntax highlighting https://github.com/dag/vim-fish/blob/master/README.md
-  Plug 'dag/vim-fish' 
+  " vim fish systax highlighting support https://github.com/khaveesh/vim-fish-syntax
+  Plug 'khaveesh/vim-fish-syntax'
 
   "" Unused:
   " supercharged tab for completions https://github.com/ervandew/supertab
@@ -55,6 +63,9 @@ call plug#begin()
   " Change the status-line. Not that much of a power-user yet, but could be useful for tabs. 
   " https://github.com/vim-airline/vim-airline
   " Plug 'vim-airline/vim-airline'
+  " DEPRECATED: vim-fish; unmaintained, loading bugs
+  " fish syntax highlighting https://github.com/dag/vim-fish/blob/master/README.md
+  " Plug 'dag/vim-fish' 
 call plug#end()
 
 """ Keybindings
@@ -263,14 +274,6 @@ autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 
 "" Rust
 autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
-
-" https://github.com/dag/vim-fish/blob/master/README.md
-" Set up :make to use fish for syntax checking.
-autocmd Filetype fish compiler fish
-" Set this to have long lines wrap inside comments.
-" autocmd Filetype fish setlocal textwidth=79
-" Enable folding of block structures in fish. This is actually very annoying, no want
-" autocmd Filetype fish setlocal foldmethod=expr
 
 """ Graveyard
 " Bug: seems to not select buffer.
