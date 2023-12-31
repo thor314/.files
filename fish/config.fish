@@ -28,7 +28,6 @@ set ZELLIJ_AUTO_ATTACH true # attach to the any pre-existing sessions
 # https://docs.jupyter.org/en/latest/use/jupyter-directories.html
 set -g JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
 
-nvm use latest >> /dev/null # puts npm in path, and b quiet
 
 # PATH fuckery
 #set PATH $PATH $HOME/.local/bin
@@ -59,3 +58,11 @@ set -gx SELECTED_EDITOR /usr/bin/vim.gtk3
 
 # use bat to display man pages with syntax highlighting etc
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
+# #########
+ # ARCHIVE #
+# #########
+
+# 2023-12-30 - experiment; silence warning "nvm: can't use node latest" warnings
+# nvm use latest >> /dev/null # puts npm in path, and b quiet
+
