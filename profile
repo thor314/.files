@@ -25,7 +25,7 @@ PATH="$HOME/.elan/bin:$PATH"
 # PATH=":$HOME/.files/local-bin/npm-bin"
 
 # configure shell with cargo commands 
-source "$HOME/.cargo/env" 
+# source "/home/thor/.cargo/env" 
 
 # Please ser, may I have my keyboard
 setxkbmap dvorak -option ctrl:nocaps
