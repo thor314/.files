@@ -48,7 +48,7 @@ set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 # https://docs.jupyter.org/en/latest/use/jupyter-directories.html
 # set -gx JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
 # 2023-12-30 - experiment; silence warning "nvm: can't use node latest" warnings
-# nvm use latest >> /dev/null # puts npm in path, and b quiet
+nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
 
 # seems this only is required for setup, but only until .profile gets loaded correctly on re-login
 # PATH fuckery
