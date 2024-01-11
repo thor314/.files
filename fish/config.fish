@@ -32,27 +32,8 @@ set -g JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
 
  ##########################################################################
 # PATH UPDATES SHOULD BE IN .profile THOR, WHAT ARE YOU DOING TO YOURSELF? #
- ##########################################################################
-set PATH $PNPM_HOME $PATH
-
-set ZELLIJ_AUTO_ATTACH true # attach to the any pre-existing sessions
-#eval "$(zellij setup --generate-auto-start zsh)" # uncomment to run zj at start
-
-setxkbmap dvorak -option ctrl:nocaps
-if test (hostname) = "starchy" 
-  # default is TERM=alacritty; this fixes weird input bugs with alacritty
-  set TERM xterm-256color 
-end
-
-# pnpm
-# -g: global, make variable available outside this session
-# -x: export the variable, making available to child processes
-set -gx PATH "$PNPM_HOME" $PATH
-# pnpm end
-
-# sagemath (maybe unnecessary)
-set -gx PYTHONPATH /usr/lib/python3/dist-packages/sage $PYTHONPATH
-
+ ########################################################################### 
+# moved to profile
 # #########
  # ARCHIVE #
 # #########
