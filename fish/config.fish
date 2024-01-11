@@ -17,6 +17,10 @@ if status is-interactive
       # default is TERM=alacritty; this fixes weird input bugs with alacritty
       set TERM xterm-256color 
     end
+
+    # 2023-12-30 - experiment; silence warning "nvm: can't use node latest" warnings
+    # 2024-01-11 - uncommenting this after cleaning path issues. may re-deprecate if issues re-arise.
+    nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
 end
 
 # load secret environment variables
@@ -47,8 +51,6 @@ set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 # bug: doesn't appear to change the output of `jupyter --config-dir`
 # https://docs.jupyter.org/en/latest/use/jupyter-directories.html
 # set -gx JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
-# 2023-12-30 - experiment; silence warning "nvm: can't use node latest" warnings
-nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
 
 # seems this only is required for setup, but only until .profile gets loaded correctly on re-login
 # PATH fuckery
