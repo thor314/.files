@@ -20,7 +20,7 @@ export PYTHONPATH="$PYTHONPATH:/usr/lib/python3/dist-packages/sage"
 # 2024 - no path is repeated, except snap, which may be a bug with installation. We can live with it.
 
 # other environment var settings to set across *all* login shells
-export SELECTED_EDITOR="usr/bin/vim.gtk3"
+export SELECTED_EDITOR="/usr/bin/vim.gtk3"
 
 # #########
  # ARCHIVE #

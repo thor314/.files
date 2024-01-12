@@ -37,6 +37,11 @@ set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 # set -gx ZELLIJ_AUTO_ATTACH=true # attach to any pre-existing sessions
 # eval "$(zellij setup --generate-auto-start bash)"
 
+ ######
+# TEMP # - these belong somewhere else, but are here for the moment
+ ######
+export SELECTED_EDITOR="/usr/bin/vim.gtk3" # jan 12 - fixed profile bug, remove this in a week or two
+
 # #########
  # ARCHIVE #
 # #########

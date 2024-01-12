@@ -91,11 +91,11 @@ abbr -a -g ccq 'cargo check -q'
 abbr -a -g cct 'cargo check --tests'
 # abbr -a -g cc 'RUSTFLAGS=-Awarnings cargo check -q'
 
-abbr -a -g cdb "cd ~/r/tmpl/"
+abbr -a -g cdb "cd ~/projects/tmpl/"
 abbr -a -g cde 'cd $HOME/.config/espanso/match'
 abbr -a -g cdf 'cd $HOME/.files/fish'
 abbr -a -g cds 'cd $HOME/.setup'
-abbr -a -g cdt 'cd $HOME/r/tmpl'
+abbr -a -g cdt 'cd $HOME/projects/tmpl'
 
 abbr -a -g cf 'cargo fmt'
 abbr -a -g cfc "cargo fmt --all -- --check"
@@ -121,16 +121,16 @@ abbr -a -g ch3 "chatblade -i --chat-gpt 3.5"
 abbr -a -g ch4 "chatblade -i --chat-gpt 4"
 
 ## test workspace generation
-abbr -a -g cgtb 'cargo generate --path ~/r/tmpl/bin --bin -n cgtbin -d description="test cargo-generate binary"'
-abbr -a -g cgtl 'cargo generate --path ~/r/tmpl/lib --lib -n cgtlib -d description="test cargo-generate library"'
-abbr -a -g cgtw 'cargo generate --path ~/r/tmpl/workspace -n cgtw -d description="test cargo-generate workspace"'
-abbr -a -g cgl 'cargo generate --path ~/r/tmpl/lib -n'
-abbr -a -g cgb 'cargo generate --path ~/r/tmpl/bin -n'
-abbr -a -g cgw 'cargo generate --path ~/r/tmpl/workspace -n'
+abbr -a -g cgtb 'cargo generate --path ~/projects/tmpl/bin --bin -n cgtbin -d description="test cargo-generate binary"'
+abbr -a -g cgtl 'cargo generate --path ~/projects/tmpl/lib --lib -n cgtlib -d description="test cargo-generate library"'
+abbr -a -g cgtw 'cargo generate --path ~/projects/tmpl/workspace -n cgtw -d description="test cargo-generate workspace"'
+abbr -a -g cgl 'cargo generate --path ~/projects/tmpl/lib -n'
+abbr -a -g cgb 'cargo generate --path ~/projects/tmpl/bin -n'
+abbr -a -g cgw 'cargo generate --path ~/projects/tmpl/workspace -n'
 function cgp # create a new experiment module with cg, and track it in my module-explorer
   alias cg='cargo generate'
   cd ~/r/play
-  cg --path ~/r/tmpl/base --name $argv[1] 
+  cg --path ~/projects/tmpl/base --name $argv[1] 
   cd $argv[1] 
   cargo fmt && taplo fmt
   git init && git add --all && git commit -m "init" 
