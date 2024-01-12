@@ -8,7 +8,31 @@
 
 - clean: ['~'] # clean dead symlinks
 
-# automate new system mkdirs
+- link:
+    ~/.local/share/fonts: fonts
+    ~/.config/fish/abbr.fish: fish/abbr.fish
+    ~/.config/fish/bind.fish: fish/bind.fish
+    ~/.config/fish/config.fish: fish/config.fish
+    ~/.gitconfig:
+    ~/.vimrc: 
+    ~/.cargo/cargo-generate.toml: cargo-generate.toml
+    ~/.config/alacritty: alacritty
+    ~/.profile:  
+    ~/.xprofile:
+    ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
+    ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
+
+# ARCHIVE 
+    # ~/.config/leftwm: leftwm
+    # ~/.config/helix: helix
+    # ~/.config/zellij: zellij
+    # ~/.share: 
+    # ~/.fehbg: 
+    # ~/.config/nvim: nvim
+    # ~/.files/zsh.d/.zshrc: zsh.d/zshrc # maybe redundant
+    # ~/.zsh.d:
+
+# automate new system mkdirs - deprecated, do this in setup instead; dotbot sets the wrong permissions
 # - create: 
     # - ~/archive
     # - ~/img
@@ -25,25 +49,3 @@
     # - ~/Downloads/official
     # - ~/Downloads/paper
     # - ~/Downloads/tax
-
-- link:
-    ~/.config/leftwm: leftwm
-    ~/.local/share/fonts: fonts
-    ~/.files/zsh.d/.zshrc: zsh.d/zshrc # maybe redundant
-    ~/.zsh.d:
-    ~/.config/fish/abbr.fish: fish/abbr.fish
-    ~/.config/fish/bind.fish: fish/bind.fish
-    ~/.config/fish/config.fish: fish/config.fish
-    ~/.gitconfig:
-    ~/.config/helix: helix
-    ~/.vimrc: 
-    ~/.cargo/cargo-generate.toml: cargo-generate.toml
-    ~/.config/alacritty: alacritty
-    ~/.profile:  
-    ~/.xprofile:
-    ~/.config/zellij: zellij
-    ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
-    ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
-    ~/.share: 
-    # ~/.fehbg: 
-    # ~/.config/nvim: nvim
