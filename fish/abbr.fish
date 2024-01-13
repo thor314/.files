@@ -79,8 +79,6 @@ abbr -a -g gpu 'git push -u origin $(git symbolic-ref --short HEAD)'
 abbr -a -g gs "git status -sb"
 abbr -a -g gc "git add --all . --verbose && git commit -m"
 
-abbr -a -g grep "rg" 
-
 abbr -a -g hbr "hub browse"
 abbr -a -g hpr "hub pull-request"
 abbr -a -g hi "hub issue"
