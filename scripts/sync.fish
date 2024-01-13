@@ -3,6 +3,7 @@
 
 if not type -q taplo
   # https://taplo.tamasfe.dev/cli/introduction.html
+  echo "installing taplo"
   wget https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux-x86.gz
   gunzip taplo-linux-x86.gz
   chmod +x taplo-linux-x86
@@ -11,7 +12,16 @@ end
 
 if not type -q gi
   # https://github.com/oh-my-fish/plugin-gi
+  echo "updating fish plugin gi"
   fisher install oh-my-fish/plugin-gi
   gi update-completions
+end
+
+if test -L ~/.config/Code/User/settings.json
+    echo "unlink vscode symlinks, which are i have merge conflicts with now every day"
+    set CODE ~/.config/Code/User
+    cp ~/.private/vscode $CODE
+    rm -rf $CODE/{settings.json, keybindings.json, snippets}
+    cp $CODE/vscode/* $CODE
 end
 
