@@ -116,8 +116,8 @@ noremap N Nzz
 "map <A-'>
 "map <C-,> " todo: open config
 map <A-,> <C-o>
-nmap < <<
-nmap > >>
+" nmap < <<
+" nmap > >>
 "map <C-.>
 map <A-.> <C-i>
 "map <C-p>
