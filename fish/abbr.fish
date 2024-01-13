@@ -52,9 +52,9 @@ abbr -a -g cwr  'cargo watch -x run'
 abbr -a -g cyf  'cargo clippy --fix' # try to fix lints
 
 ## test workspace generation
-abbr -a -g cg 'cargo generate --path ~/projects/tmpl/template'
+abbr -a -g cg  'cargo generate --path ~/projects/tmpl/template'
 abbr -a -g cgl 'cargo generate --path ~/projects/tmpl/template --lib'
-abbr -a -g cgb'cargo generate --path ~/projects/tmpl/template --bin'
+abbr -a -g cgb 'cargo generate --path ~/projects/tmpl/template --bin'
 abbr -a -g cgt 'cargo generate --path ~/projects/tmpl/template -n cgt -d description="test cgt"'
  
 abbr -a -g df "duf"

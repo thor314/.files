@@ -148,10 +148,11 @@ noremap L $
 nmap <leader>q :wq<CR>
 "map <C-q>
 "map <A-q>
-imap jj <Esc> 
-imap kk <Esc>
-imap jk <Esc>
-imap kj <Esc>
+" may be causing input bugs and weird stuff
+" imap jj <Esc> 
+" imap kk <Esc>
+" imap jk <Esc>
+" imap kj <Esc>
 nmap <leader>j 10j
 nmap <leader>k 10k
 "map <C-j>
