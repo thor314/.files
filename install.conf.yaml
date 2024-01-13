@@ -1,14 +1,18 @@
+# Thor's dotfile config
+#
 # NOTE: must use SPACES not TABS
 # help: https://github.com/anishathalye/dotbot#configuration
+
 - defaults:
      link:
        relink: true # update symlinks
-       force: true # update symlinks
+       force: true # will remove file at destination
          # create: true # create any necessary directories
 
-- clean: ['~'] # clean dead symlinks
+- clean: ['~'] # clean dead symlinks in home
 
 - link:
+  # <DESTINATION>: <PATH_IN_DOTFILE_DIR>
     ~/.local/share/fonts: fonts
     ~/.config/fish/abbr.fish: fish/abbr.fish
     ~/.config/fish/bind.fish: fish/bind.fish
@@ -22,6 +26,13 @@
     ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
     ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
 
+- create: 
+  # create directory, may have weird permissions
+  - ~/dotfile
+
+# - shell:
+#   -  
+
 # ARCHIVE 
     # ~/.config/leftwm: leftwm
     # ~/.config/helix: helix
@@ -32,7 +43,8 @@
     # ~/.files/zsh.d/.zshrc: zsh.d/zshrc # maybe redundant
     # ~/.zsh.d:
 
-# automate new system mkdirs - deprecated, do this in setup instead; dotbot sets the wrong permissions
+# automate new system mkdirs - deprecated, do this in setup instead; dotbot sets the wrong permissions; guess I could
+# change them but meh
 # - create: 
     # - ~/archive
     # - ~/img
