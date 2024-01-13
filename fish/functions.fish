@@ -1,4 +1,8 @@
-function cck
+function clip
+    echo $argv | xclip -selection clipboard
+end
+
+function rustcheck
     echo checking (pwd)
     cargo check -q 
     cargo clippy -- -D warnings 
@@ -7,8 +11,67 @@ function cck
 end
 function checkall
     for D in */
-        pushd $D && cck && popd 
+        pushd $D && rustcheck && popd 
     end
+end
+
+function gcl # clone a rust library from github
+  hub clone $1
+  set repo_name $(echo $1 | pz "s.split('/')[-1]")
+  cd $repo_name
+end
+abbr -a -g hcl gcl
+
+function formatall
+  for D in */
+    pushd $D 
+    echo "cargo fmt $D\n" && cf 
+    echo "taplo fmt $D\n" && taplo fmt 
+    popd 
+  end
+end
+
+function gsa
+  git submodule add https://github.com/thor314/$1 $1
+end
+
+function gg
+  git add --all . --verbose
+  git commit -m $argv[1]
+  git push
+end
+function ggu # new branch
+  git add --all . --verbose
+  git commit -m $argv[1]
+  git push --set-upstream origin (git branch --show-current)
+end
+function ggr # new repo
+  hub create
+  gityeeet $argv[1]
+end
+
+function logout
+    pkill -u (whoami)
+end
+
+function pythonplay 
+  cd $HOME/py/play
+  mkdir $argv[1]
+  cd $argv[1]
+  touch main.py
+  vi main.py .
+end
+
+function rga
+  abbr -g | rg -e "$argv" | cut -d" " -f4-
+end
+function rgg 
+  rg $argv $HOME/.files/fish/conf.d/git.md
+  functions | rg -e "$argv"
+end
+
+function sync
+    echo "$argv" >> ~/.files/scripts/sync.sh
 end
 
 function unset-right # call to remove the right-prompt ui element
@@ -56,3 +119,17 @@ function vitepls
     # pnpm install && pnpm dev
 end
 
+## Deprecation
+# function cgp # create a new experiment module with cg, and track it in my module-explorer
+#   alias cg='cargo generate'
+#   cd ~/r/play
+#   cg --path ~/projects/tmpl/base --name $argv[1] 
+#   cd $argv[1] 
+#   cargo fmt && taplo fmt
+#   git init && git add --all && git commit -m "init" 
+#   hub create && gpu &
+#   cd ..
+#   git submodule add https://github.com/thor314/$argv[1] $argv[1]
+#   git commit -m "$argv[1] init" && gp
+#   code $1
+# end

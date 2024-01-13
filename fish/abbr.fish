@@ -3,58 +3,53 @@
 # aliases a poor man's tldr: grep through my aliases for examples.
 # define functions and bind aliases to them to include them in rg results.
 
-# run npm-scripts in para/seq.  https://www.npmjs.com/package/npm-run-all
-# npm i -D -g npm-run-all # runner
-abbr -a -g npmra 'npm-run-all'
-
-# PERMANENT(ish)
 abbr -a -g agi "sudo apt -y install"
 abbr -a -g ags "apt-cache search"
 abbr -a -g acs "apt-cache search"
 
 abbr -a -g bat "bat --theme=zenburn --style=plain" # plain: no line numbers
+
+abbr -a -g cdc "cd ~/.cron"
+abbr -a -g cdd "cd $HOME/Downloads"
+abbr -a -g cd. "cd $HOME/.files"
+abbr -a -g cde "cd $HOME/.config/espanso/match"
+abbr -a -g cdf "cd $HOME/.files/fish"
+abbr -a -g cdk "cd ~/.keep"
+abbr -a -g cdp "cd ~/projects/"
+abbr -a -g cdo "cd ~/obsidian"
+abbr -a -g cdos "cd ~/projects/obsidian-setup"
+abbr -a -g cds "cd $HOME/.setup"
+abbr -a -g cdpt "cd $HOME/projects/tmpl"
+abbr -a -g cdpp "cd $HOME/projects/pebble-stark"
+
 abbr -a -g cat "bat --theme=zenburn --style=plain" # i like fancy cats
-function clip
-    echo $argv | xclip -selection clipboard
-end
 abbr -a -g c clip
+abbr -a -g cpr 'cp -r'
+
+# big ones:
 abbr -a -g ca "cargo add"
 abbr -a -g cb 'cargo build -q'
 abbr -a -g cbr 'cargo build --release'
 abbr -a -g cbe 'cargo bench'
-abbr -a -g cc 'cargo check'
-abbr -a -g ccq 'cargo check -q'
+abbr -a -g cc 'cargo check -q'
 abbr -a -g cct 'cargo check --tests'
-# abbr -a -g cc 'RUSTFLAGS=-Awarnings cargo check -q'
-
-abbr -a -g cdb "cd ~/projects/tmpl/"
-abbr -a -g cde 'cd $HOME/.config/espanso/match'
-abbr -a -g cdf 'cd $HOME/.files/fish'
-abbr -a -g cds 'cd $HOME/.setup'
-abbr -a -g cdt 'cd $HOME/projects/tmpl'
-
 abbr -a -g cf 'cargo fmt'
-abbr -a -g cfc "cargo fmt --all -- --check"
-abbr -a -g cplay "pushd $HOME/r/play/playground && code . && popd"
-abbr -a -g caplay "pushd $HOME/r/play/async-playground && code . && popd"
-abbr -a -g ci 'cargo install'
-abbr -a -g cl 'cargo clippy'
-abbr -a -g cy 'cargo clippy'
-abbr -a -g clf 'cargo clippy --fix' # try to fix lints
 abbr -a -g cn 'cargo new'
-abbr -a -g cpr 'cp -r'
 abbr -a -g cq 'cargo clean'
 abbr -a -g cr 'cargo run'
 abbr -a -g ct 'cargo test'
-abbr -a -g ctt "RUST_LOG=DEBUG RUST_BACKTRACE=1 ct -- --nocapture"
+abbr -a -g ctt 'cargo test -- --nocapture'
+abbr -a -g cy 'cargo clippy'
+
+# other:
+abbr -a -g cfc "cargo fmt --all -- --check"
+abbr -a -g ci 'cargo install'
+abbr -a -g cttt "RUST_LOG=DEBUG RUST_BACKTRACE=1 cargo test -- --nocapture"
 abbr -a -g ctc 'cargo tarpaulin -v -o Html'
 abbr -a -g ctp 'cargo tarpaulin -v -o Html'
 abbr -a -g cw "cargo watch" 
 abbr -a -g cwr 'cargo watch -x run'
-
-abbr -a -g chat "chatblade -i"
-abbr -a -g ch3 "chatblade -i --chat-gpt 3.5"
-abbr -a -g ch4 "chatblade -i --chat-gpt 4"
+abbr -a -g cyf 'cargo clippy --fix' # try to fix lints
 
 ## test workspace generation
 abbr -a -g cgtb 'cargo generate --path ~/projects/tmpl/bin --bin -n cgtbin -d description="test cargo-generate binary"'
@@ -63,110 +58,33 @@ abbr -a -g cgtw 'cargo generate --path ~/projects/tmpl/workspace -n cgtw -d desc
 abbr -a -g cgl 'cargo generate --path ~/projects/tmpl/lib -n'
 abbr -a -g cgb 'cargo generate --path ~/projects/tmpl/bin -n'
 abbr -a -g cgw 'cargo generate --path ~/projects/tmpl/workspace -n'
-function cgp # create a new experiment module with cg, and track it in my module-explorer
-  alias cg='cargo generate'
-  cd ~/r/play
-  cg --path ~/projects/tmpl/base --name $argv[1] 
-  cd $argv[1] 
-  cargo fmt && taplo fmt
-  git init && git add --all && git commit -m "init" 
-  hub create && gpu &
-  cd ..
-  git submodule add https://github.com/thor314/$argv[1] $argv[1]
-  git commit -m "$argv[1] init" && gp
-  code $argv[1]
-end
-function ccl # clone a rust library from github
-  cd ~/r/clone
-  hub clone $argv[1]
-  set repo_name $(echo $argv[1] | pz "s.split('/')[-1]")
-  cd $repo_name
-  cc
-  code .
-end
  
 abbr -a -g df "duf"
 abbr -a -g diff difft # fancy difftool
-abbr -a -g dl "cd $HOME/Downloads"
 abbr -a -g dt "dotbot -c ~/.files/install.conf.yaml"
 abbr -a -g dtp "dotbot -c ~/.private/install.conf.yaml"
-abbr -a -g dtr "sudo dotbot -c ~/.files/root/install.conf.yaml"
-abbr -a -g dts "sudo dotbot -c ~/.files/root/install.conf.yaml"
 abbr -a -g du "dust" # gimme stats
 
 abbr -a -g fd fdfind
-abbr -a -g files "cd $HOME/.files"
 abbr -a -g fk fuck
-abbr -a -g fa "forge install" # think add
-abbr -a -g fb "forge build"
-abbr -a -g fn "forge init"
-abbr -a -g fnt "forge init --template" #https://book.getfoundry.sh/projects/creating-a-new-project.html
-abbr -a -g fr "forge remappings > remappings.txt" # fix import errors in vscode
-abbr -a -g ft "forge test"
-function formatall
-  for D in */
-    pushd $D 
-    echo "cargo fmt $D\n" && cf 
-    echo "taplo fmt $D\n" && taplo fmt 
-    popd 
-  end
-end
 
 abbr -a -g hsd "hugo server -D"
 
 abbr -a -g gaa "git add --all ." 
 abbr -a -g gcm "git commit -m "
-# abbr -a -g gc "git commit -m "
-# abbr -a -g gca "git commit -v -a -m "
 abbr -a -g gca "git add --all . -v && git commit --amend --no-edit"
 abbr -a -g gcaa "git commit --amend" # update message
-abbr -a -g gcl "git clone --recurse-submodules"
 abbr -a -g gcll "cd $HOME/r/clone && gcl"
 abbr -a -g gcln "cd $HOME/r/clone && gcl"
-abbr -a -g gu "gitui" # ui interface to git
-abbr -a -g gin 'git init'
-abbr -a -g girust 'gi rust >> .gitignore'
-abbr -a -g gir 'gi rust >> .gitignore'
 abbr -a -g gm "git merge"  
-# OMZ gitignore gi {list,<template>end
-# OMZ: git; esp. gam,gc!
-# OMZ: rga go+
 abbr -a -g gpu 'git push -u origin $(git symbolic-ref --short HEAD)' 
-abbr -a -g grep "rg" 
 abbr -a -g gs "git status -sb"
-abbr -a -g guake "tdrop -ma -h "100%" -s dropdown alacritty"
-
-function gsa
-  git submodule add https://github.com/thor314/$argv[1] $argv[1]
-end
-
-function gityeet
-  git add --all . --verbose
-  git commit -m $argv[1]
-  git push
-end
-function gityeeet # new branch
-  git add --all . --verbose
-  git commit -m $argv[1]
-  git push --set-upstream origin (git branch --show-current)
-end
-function gityeeeet # new repo
-  hub create
-  gityeeet $argv[1]
-end
 abbr -a -g gc "git add --all . --verbose && git commit -m"
-abbr -a -g gg gityeet
-abbr -a -g ggr 'cargo fmt; gityeet'
-abbr -a -g ggu gityeeet
-abbr -a -g ggur 'cargo fmt; gityeeet'
-abbr -a -g gghub gityeeeet
+abbr -a -g grep "rg" 
 
 abbr -a -g hbr "hub browse"
-abbr -a -g hcl "hub clone"
-abbr -a -g hcll "cd $HOME/r/clone && hcl"
-abbr -a -g hcln "cd $HOME/r/clone && hcl"
 abbr -a -g hpr "hub pull-request"
-abbr -a -g hci "hub ci-status"
+abbr -a -g hi "hub issue"
 
 abbr -a -g htop 'zenith'
 
@@ -182,28 +100,12 @@ abbr -a -g ls 'lsd --icon never'
 abbr -a -g la 'lsd --icon never -al'
 abbr -a -g ll 'lsd --icon never -al'
 
-function logout
-    pkill -u (whoami)
-end
+abbr -a -g npmra 'npm-run-all' # run npm-scripts in para/seq.  https://www.npmjs.com/package/npm-run-all
 
 abbr -a -g pipi "pip install"
 abbr -a -g python python3
 abbr -a -g pp pythonplay
-function pythonplay 
-  cd $HOME/py/play
-  mkdir $argv[1]
-  cd $argv[1]
-  touch main.py
-  vi main.py .
-end
 
-function rga
-  abbr -g | rg -e "$argv" | cut -d" " -f4-
-end
-function rgg 
-  rg $argv $HOME/.files/fish/conf.d/git.md
-  functions | rg -e "$argv"
-end
 abbr -a -g ru rustup
 abbr -a -g rmf "rm -rf" 
 abbr -a -g rmr "rm -rf" 
@@ -221,14 +123,6 @@ abbr -a -g sr 'fd --type file -x sd' # search replace in directory
 abbr -a -g srp 'fd --type file -x sd -p' # search replace in directory practice
 abbr -a -g sc "maim -s | xclip -selection clipboard -target image/png"
 abbr -a -g sf 'surfraw -browser=firefox' # cli for internet search
-abbr -a -g sshb "ssh -t thor@$IP_LILBIRB"
-abbr -a -g sshl "ssh -t thor@$IP_LILBIRB"
-abbr -a -g sshs "ssh -t thor@$IP_STARCHY"
-abbr -a -g sshh "ssh -t thor@$IP_HOME" 
-abbr -a -g sshzb "ssh -t thor@$IP_LILBIRB ZDOTDIR=.zsh.d zsh"
-abbr -a -g sshzl "ssh -t thor@$IP_LILBIRB ZDOTDIR=.zsh.d zsh"
-abbr -a -g sshzs "ssh -t thor@$IP_STARCHY ZDOTDIR=.zsh.d zsh"
-abbr -a -g sshzh "ssh -t thor@$IP_HOME ZDOTDIR=.zsh.d "
 function sync
     echo "$argv" >> ~/.files/scripts/sync.sh
 end
@@ -236,7 +130,6 @@ end
 abbr -a -g top 'btm' # kinky
 abbr -a -g tw 'rainbowstream' # terminal twitter client, kinda shit tho
 abbr -a -g thes 'moby' # thesaurus
-abbr -a -g trashout "rm -rf $HOME/.trash/*"
 abbr -a -g tf "taplo fmt"
 
 abbr -a -g zj zellij
@@ -245,18 +138,20 @@ abbr -a -g zj zellij
 abbr -a -g vi vim
 abbr -a -g v vim
 
-abbr -a -g vb "vi ~/.setup/unsorted.sh"
 abbr -a -g vd "vi ~/.files"
 abbr -a -g vdi "vi ~/.files/install.conf.yaml"
-abbr -a -g vdy "vi ~/.files/scripts/sync.sh"
-abbr -a -g ve "vi ~/.config/espanso/match"
+abbr -a -g vs "vi ~/.files/scripts/sync.sh"
 abbr -a -g vf "vi ~/.files/fish/config.fish"
 abbr -a -g vfa "vi ~/.files/fish/abbr.fish" 
 abbr -a -g vfb "vi ~/.files/fish/bind.fish"
 abbr -a -g vff "vi ~/.files/fish/functions.fish" 
+abbr -a -g vop "vi ~/.files/obsidian/preamble.sty"
+abbr -a -g vov "vi ~/.files/obsidian/obsidian.vimrc"
+
+abbr -a -g vb "vi ~/.setup/unsorted.sh"
 abbr -a -g vk "vi ~/.setup/keybinds.sh"
+abbr -a -g ve "vi ~/.config/espanso/match"
 abbr -a -g vo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
-abbr -a -g vp "vi ~/obsidian/.obsidian/preamble.sty"
 abbr -a -g vu "vi ~/.setup/unsorted.sh"
 abbr -a -g vv "vi ~/.files/vimrc"
 
@@ -270,6 +165,7 @@ abbr -a -g :q exit
 # function bman 
 #   man $1 | bat
 # end
+# abbr -a -g trashout "rm -rf $HOME/.trash/*"
 # abbr -a -g rr 'shuf -i 0-1 -n1' # pick 0 or 1 at random
 # abbr -a -g sz 'source ~/.zsh.d/.zshrc'
 # abbr -a -g sza 'source ~/.zsh.d/alias.sh'
@@ -277,3 +173,7 @@ abbr -a -g :q exit
 # abbr -a -g snr 'snap remove'
 # abbr -a -g tor "flatpak run com.github.micahflee.torbrowser-launcher"
 # abbr -a -g zotero "flatpak run org.zotero.Zotero"
+# abbr -a -g chat "chatblade -i"
+# abbr -a -g ch3 "chatblade -i --chat-gpt 3.5"
+# abbr -a -g ch4 "chatblade -i --chat-gpt 4"
+
