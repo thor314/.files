@@ -3,65 +3,6 @@
 # aliases a poor man's tldr: grep through my aliases for examples.
 # define functions and bind aliases to them to include them in rg results.
 
-# TEMP
-# abbr -a -g npm pnpm
-
-function unset-right 
-    function fish_right_prompt 
-    end
-end
-
-function cck
-    echo checking (pwd)
-    cargo check -q 
-    cargo clippy -- -D warnings 
-    cargo fmt --check 
-    taplo fmt --check
-end
-
-function checkall
-    for D in */
-        pushd $D && cck && popd 
-    end
-end
-
-function nextpls
-    pnpm create next-app --ts $n
-    cd $1 
-    # touch .tsconfig.json # next will automatically fill this
-    pnpm install -D sass
-    pnpm run dev &
-end
-
-function reactpls
-    echo 'creating a react app with typescript, scss, material ui'
-    npx create-react-app $1 --template typescrypt
-    cd $1
-    pnpm i -S node-sass # node sass
-    pnpm i -D @types/node-sass # node sass types
-    mv src/App.css src/App.scss
-    sd 'App.css' 'App.scss' src/App.tsx
-    sd 'export default App;' '' src/App.tsx
-    sd 'function App' 'export default function App' src/App.tsx
-    # https://mui.com/core/
-    pnpm install @mui/material @emotion/react @emotion/styled # material ui library
-    code .
-    pnpm start &
-end
-
-function vitepls
-    echo 'creating a react app with typescript, vite, scss, material ui'
-    pnpm create vite $1 --template react-ts
-    cd $1
-    #pnpm i -S node-sass # node sass
-    pnpm i -S sass
-    pnpm i -D @types/node-sass # node sass types
-    # # https://mui.com/core/
-    # npm install @mui/material @emotion/react @emotion/styled # material ui library
-    # code .
-    # pnpm install && pnpm dev
-end
-
 # run npm-scripts in para/seq.  https://www.npmjs.com/package/npm-run-all
 # npm i -D -g npm-run-all # runner
 abbr -a -g npmra 'npm-run-all'
@@ -72,13 +13,6 @@ abbr -a -g ags "apt-cache search"
 abbr -a -g acs "apt-cache search"
 
 abbr -a -g bat "bat --theme=zenburn --style=plain" # plain: no line numbers
-function bu
-    echo "$argv" >> ~/.setup/unsorted.sh
-end
-function sync
-    echo "$argv" >> ~/.files/scripts/sync.sh
-end
-
 abbr -a -g cat "bat --theme=zenburn --style=plain" # i like fancy cats
 function clip
     echo $argv | xclip -selection clipboard
@@ -227,49 +161,13 @@ abbr -a -g ggu gityeeet
 abbr -a -g ggur 'cargo fmt; gityeeet'
 abbr -a -g gghub gityeeeet
 
-## VIM
-abbr -a -g vdc "vi ~/.files/install.conf.yaml"
-
-abbr -a -g sfa "source ~/.files/fish/abbr.fish"
-abbr -a -g vfa "vi ~/.files/fish/abbr.fish" 
-abbr -a -g vfb "vi ~/.files/fish/bind.fish"
-abbr -a -g vfc "vi ~/.files/fish/config.fish"
-
-abbr -a -g vhc "vi ~/.files/helix/config.toml"
-abbr -a -g vhl "vi ~/.files/helix/languages.toml"
-
-
-abbr -a -g ve "vi ~/.config/espanso/match"
-abbr -a -g vet "vi ~/.config/espanso/match/thor.yml"
-abbr -a -g veb "vi ~/.config/espanso/match/base.yml"
-abbr -a -g vcr "vi ~/.config/espanso/match/code/_rust.yml"
-abbr -a -g vct "vi ~/.config/espanso/match/code/_toml.yml"
-abbr -a -g vcp "vi ~/.config/espanso/match/code/_python.yml"
-abbr -a -g vkbd "vi ~/.setup/keybinds.sh"
-abbr -a -g vml "vi ~/.config/espanso/match/markdown/_latex.yml"
-abbr -a -g vmo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
-abbr -a -g vmm "vi ~/.config/espanso/match/markdown/_mermaid.yml"
-abbr -a -g vmg "vi ~/.config/espanso/match/markdown/_greek.yml"
-
-abbr -a -g vop "vi ~/obsidian/.obsidian/preamble.sty"
-
-abbr -a -g vsi "vi ~/.setup/install.sh"
-abbr -a -g vv "vi ~/.files/vimrc"
-abbr -a -g vsu "vi ~/.setup/unsorted.sh"
-
-# open hx in docs
-abbr -a -g hxdk "vi ~/.setup/clones/helix/book/src/keymap.md"
-abbr -a -g hxdo "vi ~/.setup/clones/helix/book/src/configuration.md"
-
 abbr -a -g hbr "hub browse"
 abbr -a -g hcl "hub clone"
 abbr -a -g hcll "cd $HOME/r/clone && hcl"
 abbr -a -g hcln "cd $HOME/r/clone && hcl"
 abbr -a -g hpr "hub pull-request"
 abbr -a -g hci "hub ci-status"
-# abbr -a -g hd rhai-debug
-# abbr -a -g hr rhai-repl
-# abbr -a -g hu rhai-run
+
 abbr -a -g htop 'zenith'
 
 abbr -a -g jn 'jupyter notebook'
@@ -288,17 +186,9 @@ function logout
     pkill -u (whoami)
 end
 
-# abbr -a -g man "batman" # du du du du du du du du 
-# function bman 
-#   man $1 | bat
-# end
-
 abbr -a -g pipi "pip install"
 abbr -a -g python python3
 abbr -a -g pp pythonplay
-abbr -a -g priv cd $HOME/.private
-abbr -a -g pyp pythonplay
-abbr -a -g pyplay pythonplay
 function pythonplay 
   cd $HOME/py/play
   mkdir $argv[1]
@@ -330,8 +220,7 @@ abbr -a -g rrs "rusty-rain -c shapes"
 abbr -a -g sr 'fd --type file -x sd' # search replace in directory
 abbr -a -g srp 'fd --type file -x sd -p' # search replace in directory practice
 abbr -a -g sc "maim -s | xclip -selection clipboard -target image/png"
-abbr -a -g sni 'snap install'
-abbr -a -g snr 'snap remove'
+abbr -a -g sf 'surfraw -browser=firefox' # cli for internet search
 abbr -a -g sshb "ssh -t thor@$IP_LILBIRB"
 abbr -a -g sshl "ssh -t thor@$IP_LILBIRB"
 abbr -a -g sshs "ssh -t thor@$IP_STARCHY"
@@ -340,25 +229,51 @@ abbr -a -g sshzb "ssh -t thor@$IP_LILBIRB ZDOTDIR=.zsh.d zsh"
 abbr -a -g sshzl "ssh -t thor@$IP_LILBIRB ZDOTDIR=.zsh.d zsh"
 abbr -a -g sshzs "ssh -t thor@$IP_STARCHY ZDOTDIR=.zsh.d zsh"
 abbr -a -g sshzh "ssh -t thor@$IP_HOME ZDOTDIR=.zsh.d "
-abbr -a -g sz 'source ~/.zsh.d/.zshrc'
-abbr -a -g sza 'source ~/.zsh.d/alias.sh'
-# cli for internet search
-abbr -a -g sf 'surfraw -browser=firefox'
+function sync
+    echo "$argv" >> ~/.files/scripts/sync.sh
+end
 
 abbr -a -g top 'btm' # kinky
 abbr -a -g tw 'rainbowstream' # terminal twitter client, kinda shit tho
 abbr -a -g thes 'moby' # thesaurus
 abbr -a -g trashout "rm -rf $HOME/.trash/*"
-abbr -a -g tor "flatpak run com.github.micahflee.torbrowser-launcher"
 abbr -a -g tf "taplo fmt"
 
 abbr -a -g zj zellij
-abbr -a -g zotero "flatpak run org.zotero.Zotero"
 
+## VIM
 abbr -a -g vi vim
 abbr -a -g v vim
+
+abbr -a -g vb "vi ~/.setup/unsorted.sh"
+abbr -a -g vd "vi ~/.files"
+abbr -a -g vdi "vi ~/.files/install.conf.yaml"
+abbr -a -g vdy "vi ~/.files/scripts/sync.sh"
+abbr -a -g ve "vi ~/.config/espanso/match"
+abbr -a -g vf "vi ~/.files/fish/config.fish"
+abbr -a -g vfa "vi ~/.files/fish/abbr.fish" 
+abbr -a -g vfb "vi ~/.files/fish/bind.fish"
+abbr -a -g vff "vi ~/.files/fish/functions.fish" 
+abbr -a -g vk "vi ~/.setup/keybinds.sh"
+abbr -a -g vo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
+abbr -a -g vp "vi ~/obsidian/.obsidian/preamble.sty"
+abbr -a -g vu "vi ~/.setup/unsorted.sh"
+abbr -a -g vv "vi ~/.files/vimrc"
 
 abbr -a -g :q exit
 
 ## Graveyard 
-#abbr -a -g rr 'shuf -i 0-1 -n1' # pick 0 or 1 at random
+# abbr -a -g hd rhai-debug
+# abbr -a -g hr rhai-repl
+# abbr -a -g hu rhai-run
+# abbr -a -g man batman # du du du du du du du du 
+# function bman 
+#   man $1 | bat
+# end
+# abbr -a -g rr 'shuf -i 0-1 -n1' # pick 0 or 1 at random
+# abbr -a -g sz 'source ~/.zsh.d/.zshrc'
+# abbr -a -g sza 'source ~/.zsh.d/alias.sh'
+# abbr -a -g sni 'snap install'
+# abbr -a -g snr 'snap remove'
+# abbr -a -g tor "flatpak run com.github.micahflee.torbrowser-launcher"
+# abbr -a -g zotero "flatpak run org.zotero.Zotero"

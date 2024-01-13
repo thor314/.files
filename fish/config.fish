@@ -12,6 +12,7 @@ if status is-interactive
     # only need these for interactive sessions
     source $HOME/.files/fish/abbr.fish
     source $HOME/.files/fish/bind.fish
+    source $HOME/.files/fish/functions.fish
 
     if test (hostname) = "starchy" 
       # default is TERM=alacritty; this fixes weird input bugs with alacritty
