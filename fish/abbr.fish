@@ -52,8 +52,8 @@ abbr -a -g cwr  'cargo watch -x run'
 abbr -a -g cyf  'cargo clippy --fix' # try to fix lints
 
 ## test workspace generation
-abbr -a -g cg 'cargo generate --path ~/projects/tmpl'
-abbr -a -g cgt 'cargo generate --path ~/projects/tmpl -n cgt -d description="test cgt"'
+abbr -a -g cg 'cargo generate --path ~/projects/tmpl/template'
+abbr -a -g cgt 'cargo generate --path ~/projects/tmpl/template -n cgt -d description="test cgt"'
 # abbr -a -g cgtb 'cargo generate --path ~/projects/tmpl/bin --bin -n cgtbin -d description="test cargo-generate binary"'
 # abbr -a -g cgtl 'cargo generate --path ~/projects/tmpl/lib --lib -n cgtlib -d description="test cargo-generate library"'
 # abbr -a -g cgtw 'cargo generate --path ~/projects/tmpl/workspace -n cgtw -d description="test cargo-generate workspace"'
