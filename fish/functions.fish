@@ -16,8 +16,8 @@ function checkall
 end
 
 function gcl # clone a rust library from github
-  hub clone $1
-  set repo_name $(echo $1 | pz "s.split('/')[-1]")
+  hub clone $argv[1]
+  set repo_name $(echo $argv[1] | pz "s.split('/')[-1]")
   cd $repo_name
 end
 abbr -a -g hcl gcl
@@ -32,7 +32,7 @@ function formatall
 end
 
 function gsa
-  git submodule add https://github.com/thor314/$1 $1
+  git submodule add https://github.com/thor314/$argv[1] $argv[1]
 end
 
 function gg
@@ -84,7 +84,7 @@ end
 ##
 function nextpls
     pnpm create next-app --ts $n
-    cd $1 
+    cd $argv[1]
     # touch .tsconfig.json # next will automatically fill this
     pnpm install -D sass
     pnpm run dev &
@@ -92,8 +92,8 @@ end
 
 function reactpls
     echo 'creating a react app with typescript, scss, material ui'
-    npx create-react-app $1 --template typescrypt
-    cd $1
+    npx create-react-app $argv[1] --template typescrypt
+    cd $argv[1]
     pnpm i -S node-sass # node sass
     pnpm i -D @types/node-sass # node sass types
     mv src/App.css src/App.scss
@@ -108,8 +108,8 @@ end
 
 function vitepls
     echo 'creating a react app with typescript, vite, scss, material ui'
-    pnpm create vite $1 --template react-ts
-    cd $1
+    pnpm create vite $argv[1] --template react-ts
+    cd $argv[1]
     #pnpm i -S node-sass # node sass
     pnpm i -S sass
     pnpm i -D @types/node-sass # node sass types
@@ -131,5 +131,5 @@ end
 #   cd ..
 #   git submodule add https://github.com/thor314/$argv[1] $argv[1]
 #   git commit -m "$argv[1] init" && gp
-#   code $1
+#   code $argv[1]
 # end
