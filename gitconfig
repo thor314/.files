@@ -18,9 +18,7 @@
 [credential]
   # manage 2FA interface to github for me
 	credentialStore = secretservice
-	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager-core
-	helper = 
 	helper = /usr/local/bin/git-credential-manager
 
 [merge]
@@ -53,14 +51,14 @@
 # Use a pager for large output, just like other git commands.
 [pager]
   difftool = true
-# `git dft` is less to type than `git difftool`.
+# `git dft/difft` is less to type than `git difftool`.
 [alias]
   dft = difftool
-	root = rev-parse --show-toplevel
+  difft = difftool
+	root = rev-parse --show-toplevel # 
 [commit]
 	gpgsign = false
 [safe]
-	directory = /home/thor/.files/setup/clone/bat-extras
 	directory = /home/thor/.files/setup/clone/bat-extras
 [credential "https://dev.azure.com"]
 	useHttpPath = true
