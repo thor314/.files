@@ -2,15 +2,13 @@
 #
 # NOTE: must use SPACES not TABS
 # help: https://github.com/anishathalye/dotbot#configuration
-
 - defaults:
      link:
-       relink: true # update symlinks
+       relink: true # update symlinks, remove the old target if its a symlink
        force: true # will remove file at destination
          # create: true # create any necessary directories
-
-- clean: ['~'] # clean dead symlinks in home
-
+         
+# https://github.com/anishathalye/dotbot#link
 - link:
   # <DESTINATION>: <PATH_IN_DOTFILE_DIR>
     ~/.local/share/fonts: fonts
@@ -26,12 +24,20 @@
     ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
     ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
 
-- create: 
-  # create directory, may have weird permissions
-  - ~/dotfile
+# https://github.com/anishathalye/dotbot#clean
+- clean: ['~'] # clean dead symlinks in home
 
+# create directories
+# - create: 
+#   ~/dotfile:
+#     mode: 0660 # default is 0777
+
+# https://github.com/anishathalye/dotbot#shell
 # - shell:
-#   -  
+# Generally prefer to do shell stuff in a separate script and only use this for very simple stuff
+  ### examples:
+  # - [git submodule update --init --recursive, Installing submodules] # can specify comment in 2-elem array
+  # - git submodule update --init --recursive # or just run the command
 
 # ARCHIVE 
     # ~/.config/leftwm: leftwm
@@ -42,22 +48,3 @@
     # ~/.config/nvim: nvim
     # ~/.files/zsh.d/.zshrc: zsh.d/zshrc # maybe redundant
     # ~/.zsh.d:
-
-# automate new system mkdirs - deprecated, do this in setup instead; dotbot sets the wrong permissions; guess I could
-# change them but meh
-# - create: 
-    # - ~/archive
-    # - ~/img
-    # - ~/fun
-    # - ~/py/play
-    # - ~/r/play
-    # - ~/tmp
-    # - ~/.trash
-    # - ~/.config/Code/User
-    # - ~/vid
-    # - ~/Downloads/book
-    # - ~/Downloads/delete_soon
-    # - ~/Downloads/invoice
-    # - ~/Downloads/official
-    # - ~/Downloads/paper
-    # - ~/Downloads/tax
