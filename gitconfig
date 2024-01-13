@@ -43,7 +43,8 @@
 # difftastic is diff with increased granularity
 # https://difftastic.wilfred.me.uk/git.html
 [diff]
-  tool = difftastic
+  tool = difftastic # declare that difft exists
+  external = difft # use difft as default
 [difftool]
   prompt = false
 [difftool "difftastic"]
@@ -55,6 +56,7 @@
 [alias]
   dft = difftool
   difft = difftool
+  dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 	root = rev-parse --show-toplevel # 
 [commit]
 	gpgsign = false
