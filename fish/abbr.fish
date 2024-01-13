@@ -9,16 +9,16 @@ abbr -a -g acs "apt-cache search"
 
 abbr -a -g bat "bat --theme=zenburn --style=plain" # plain: no line numbers
 
-abbr -a -g cdc "cd ~/.cron"
-abbr -a -g cdd "cd $HOME/Downloads"
-abbr -a -g cd. "cd $HOME/.files"
-abbr -a -g cde "cd $HOME/.config/espanso/match"
-abbr -a -g cdf "cd $HOME/.files/fish"
-abbr -a -g cdk "cd ~/.keep"
-abbr -a -g cdp "cd ~/projects/"
-abbr -a -g cdo "cd ~/obsidian"
+abbr -a -g cdc  "cd ~/.cron"
+abbr -a -g cdd  "cd $HOME/Downloads"
+abbr -a -g cd.  "cd $HOME/.files"
+abbr -a -g cde  "cd $HOME/.config/espanso/match"
+abbr -a -g cdf  "cd $HOME/.files/fish"
+abbr -a -g cdk  "cd ~/.keep"
+abbr -a -g cdp  "cd ~/projects/"
+abbr -a -g cdo  "cd ~/obsidian"
 abbr -a -g cdos "cd ~/projects/obsidian-setup"
-abbr -a -g cds "cd $HOME/.setup"
+abbr -a -g cds  "cd $HOME/.setup"
 abbr -a -g cdpt "cd $HOME/projects/tmpl"
 abbr -a -g cdpp "cd $HOME/projects/pebble-stark"
 
@@ -27,37 +27,37 @@ abbr -a -g c clip
 abbr -a -g cpr 'cp -r'
 
 # big ones:
-abbr -a -g ca "cargo add"
-abbr -a -g cb 'cargo build -q'
+abbr -a -g ca  "cargo add"
+abbr -a -g cb  'cargo build -q'
 abbr -a -g cbr 'cargo build --release'
 abbr -a -g cbe 'cargo bench'
-abbr -a -g cc 'cargo check -q'
+abbr -a -g cc  'cargo check -q'
 abbr -a -g cct 'cargo check --tests'
-abbr -a -g cf 'cargo fmt'
-abbr -a -g cn 'cargo new'
-abbr -a -g cq 'cargo clean'
-abbr -a -g cr 'cargo run'
-abbr -a -g ct 'cargo test'
+abbr -a -g cf  'cargo fmt'
+abbr -a -g cn  'cargo new'
+abbr -a -g cq  'cargo clean'
+abbr -a -g cr  'cargo run'
+abbr -a -g ct  'cargo test'
 abbr -a -g ctt 'cargo test -- --nocapture'
-abbr -a -g cy 'cargo clippy'
+abbr -a -g cy  'cargo clippy'
 
-# other:
-abbr -a -g cfc "cargo fmt --all -- --check"
-abbr -a -g ci 'cargo install'
+# other cargo commands:
+abbr -a -g cfc  "cargo fmt --all -- --check"
+abbr -a -g ci   'cargo install'
 abbr -a -g cttt "RUST_LOG=DEBUG RUST_BACKTRACE=1 cargo test -- --nocapture"
-abbr -a -g ctc 'cargo tarpaulin -v -o Html'
-abbr -a -g ctp 'cargo tarpaulin -v -o Html'
-abbr -a -g cw "cargo watch" 
-abbr -a -g cwr 'cargo watch -x run'
-abbr -a -g cyf 'cargo clippy --fix' # try to fix lints
+abbr -a -g ctc  'cargo tarpaulin -v -o Html'
+abbr -a -g ctp  'cargo tarpaulin -v -o Html'
+abbr -a -g cw   "cargo watch" 
+abbr -a -g cwr  'cargo watch -x run'
+abbr -a -g cyf  'cargo clippy --fix' # try to fix lints
 
 ## test workspace generation
 abbr -a -g cgtb 'cargo generate --path ~/projects/tmpl/bin --bin -n cgtbin -d description="test cargo-generate binary"'
 abbr -a -g cgtl 'cargo generate --path ~/projects/tmpl/lib --lib -n cgtlib -d description="test cargo-generate library"'
 abbr -a -g cgtw 'cargo generate --path ~/projects/tmpl/workspace -n cgtw -d description="test cargo-generate workspace"'
-abbr -a -g cgl 'cargo generate --path ~/projects/tmpl/lib -n'
-abbr -a -g cgb 'cargo generate --path ~/projects/tmpl/bin -n'
-abbr -a -g cgw 'cargo generate --path ~/projects/tmpl/workspace -n'
+abbr -a -g cgl  'cargo generate --path ~/projects/tmpl/lib -n'
+abbr -a -g cgb  'cargo generate --path ~/projects/tmpl/bin -n'
+abbr -a -g cgw  'cargo generate --path ~/projects/tmpl/workspace -n'
  
 abbr -a -g df "duf"
 abbr -a -g diff difft # fancy difftool
@@ -74,12 +74,11 @@ abbr -a -g gaa "git add --all ."
 abbr -a -g gcm "git commit -m "
 abbr -a -g gca "git add --all . -v && git commit --amend --no-edit"
 abbr -a -g gcaa "git commit --amend" # update message
-abbr -a -g gcll "cd $HOME/r/clone && gcl"
-abbr -a -g gcln "cd $HOME/r/clone && gcl"
 abbr -a -g gm "git merge"  
 abbr -a -g gpu 'git push -u origin $(git symbolic-ref --short HEAD)' 
 abbr -a -g gs "git status -sb"
 abbr -a -g gc "git add --all . --verbose && git commit -m"
+
 abbr -a -g grep "rg" 
 
 abbr -a -g hbr "hub browse"
@@ -123,12 +122,8 @@ abbr -a -g sr 'fd --type file -x sd' # search replace in directory
 abbr -a -g srp 'fd --type file -x sd -p' # search replace in directory practice
 abbr -a -g sc "maim -s | xclip -selection clipboard -target image/png"
 abbr -a -g sf 'surfraw -browser=firefox' # cli for internet search
-function sync
-    echo "$argv" >> ~/.files/scripts/sync.sh
-end
 
 abbr -a -g top 'btm' # kinky
-abbr -a -g tw 'rainbowstream' # terminal twitter client, kinda shit tho
 abbr -a -g thes 'moby' # thesaurus
 abbr -a -g tf "taplo fmt"
 
@@ -172,6 +167,7 @@ abbr -a -g :q exit
 # abbr -a -g sni 'snap install'
 # abbr -a -g snr 'snap remove'
 # abbr -a -g tor "flatpak run com.github.micahflee.torbrowser-launcher"
+# abbr -a -g tw 'rainbowstream' # terminal twitter client, kinda shit tho
 # abbr -a -g zotero "flatpak run org.zotero.Zotero"
 # abbr -a -g chat "chatblade -i"
 # abbr -a -g ch3 "chatblade -i --chat-gpt 3.5"
