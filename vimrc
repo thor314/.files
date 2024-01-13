@@ -204,7 +204,7 @@ filetype on           " Enable type file detection. Vim will try to detect the t
 filetype plugin on    " Enable plugins and load plugin for the detected file type.
 filetype indent on    " Load an indent file for the detected file type.
 set cursorline        " Uncomment to highlight respectively, current row, current column.
-set cursorcolumn      " highlight column. warning, can be visually noisy.
+" set cursorcolumn      " highlight column. warning, can be visually noisy.
 " colors: 0,8,16,56,60,61,darkmagenta seem ok
 " will turn the cursor column light purple
 highlight CursorColumn ctermbg=61 

@@ -4,18 +4,23 @@
 - `git clone github.com/thor314/dotfiles.git && cd .dotfiles && dotbot -c install.conf.yaml`
 
 ## Add new dotfiles:
-```sh
-# put this in a zshrc function
-mv "path/to/dotfile" "~./dotfiles/dotfile"
-echo "    ~/.dotfile:" >> ~/.dotfiles/install.confqyaml
-./install
-# automate this in a cronjob
-git add .
-git commit -m "new dotfile message"
-git push
-````
+```fish
+function makedotfile
+  set DOTPATH $argv[1]
+  set DOTNAME (cut --delimiter="/" 
+# move the dotfile
+  mv $DOTPATH "~/.files"
+# add a symlink instruction
+  vi ~/.files/install.conf.yaml
+# run dotbot
+end
+```
 
-## Remove a dotfile:
+## Put a dotfile back
+remove the symlink
+move the dotfile back and ro
+Remove a dotfile:
+
 remove the file and wherever its symlink lives
 
 ## What about files in my root directory?

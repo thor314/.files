@@ -9,11 +9,6 @@ function rustcheck
     cargo fmt --check 
     taplo fmt --check
 end
-function checkall
-    for D in */
-        pushd $D && rustcheck && popd 
-    end
-end
 
 function gcl # clone a rust library from github
   hub clone $argv[1]
@@ -45,10 +40,22 @@ function logout
     pkill -u (whoami)
 end
 
-function makedotfile 
-    mv $argv[1] "~/.files/"
+function make_dotfile 
+    set dotpath $argv[1]
+    set dotname (path_to_name $dotpath)
+    mv $dotfile "~/.files/"
+    echo "adding #    $dotpath: $dotname   to dotbot config"
+    echo "#    $dotpath: $dotname" >> ~/.files/install.conf.yaml
     vi "~/.files/install.conf.yaml"
 end
+
+function path_to_name
+    # obtain the trailing directory or filename from a path; trim the optional trailing slash 
+    set path $argv[1]
+    set no_trailing_slash_path (string trim -r -c '/' -- $path)
+    set last_item (string replace -r '.*/' '' --  $no_trailing_slash_path)
+    echo $last_item
+end 
 
 function pythonplay 
   cd $HOME/py/play
