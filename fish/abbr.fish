@@ -72,10 +72,12 @@ abbr -a -g ags "apt-cache search"
 abbr -a -g acs "apt-cache search"
 
 abbr -a -g bat "bat --theme=zenburn --style=plain" # plain: no line numbers
-function backup
+function bu
     echo "$argv" >> ~/.setup/unsorted.sh
 end
-abbr -a -g bu backup
+function sync
+    echo "$argv" >> ~/.files/scripts/sync.sh
+end
 
 abbr -a -g cat "bat --theme=zenburn --style=plain" # i like fancy cats
 function clip
