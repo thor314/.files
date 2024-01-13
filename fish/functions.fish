@@ -22,15 +22,6 @@ function gcl # clone a rust library from github
 end
 abbr -a -g hcl gcl
 
-function formatall
-  for D in */
-    pushd $D 
-    echo "cargo fmt $D\n" && cf 
-    echo "taplo fmt $D\n" && taplo fmt 
-    popd 
-  end
-end
-
 function gsa
   git submodule add https://github.com/thor314/$argv[1] $argv[1]
 end
