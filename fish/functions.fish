@@ -45,6 +45,11 @@ function logout
     pkill -u (whoami)
 end
 
+function makedotfile 
+    mv $argv[1] "~/.files/"
+    vi "~/.files/install.conf.yaml"
+end
+
 function pythonplay 
   cd $HOME/py/play
   mkdir $argv[1]
