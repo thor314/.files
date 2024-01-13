@@ -9,4 +9,4 @@
 	url = git@github.com:thor314/helix.git
 [submodule "zotero"]
 	path = zotero
-	url = https://github.com/thor314/zotero
+  url = git@github.com:thor314/zotero.git
