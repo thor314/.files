@@ -2,6 +2,16 @@ function clip
     echo $argv | xclip -selection clipboard
 end
 
+function cg
+    set NAME $argv[1]
+    set TYPE $argv[2] || "bin"
+    cargo generate --path ~/projects/tmpl/template -n $NAME --$TYPE
+    cd $NAME
+    cargo update && cargo fmt && taplo fmt
+    git add --all . && git commit -m "init"
+    cargo check -q &
+end
+
 function rustcheck
     echo checking (pwd)
     cargo check -q 
