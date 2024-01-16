@@ -22,7 +22,7 @@ end
 
 function gcl # clone a rust library from github
   hub clone $argv[1]
-  set repo_name $(echo $argv[1] | pz "s.split('/')[-1]")
+  set repo_name (path_to_name $argv[1])
   cd $repo_name
 end
 abbr -a -g hcl gcl
