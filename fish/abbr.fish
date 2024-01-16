@@ -37,10 +37,12 @@ abbr -a -g cf  'cargo fmt'
 abbr -a -g cn  'cargo new'
 abbr -a -g cq  'cargo clean'
 abbr -a -g cr  'cargo run'
+abbr -a -g crl 'cargo run &> log' # need '&' to capture logs
+abbr -a -g crlh 'cargo run &> log; head log' # need '&' to capture logs
 abbr -a -g ct  'cargo test'
 abbr -a -g ctt 'cargo test -- --nocapture'
-abbr -a -g ctl 'cargo test -- --nocapture >& log' # need '&' to capture logs
-abbr -a -g ctlh 'cargo test -- --nocapture >& log; head log'
+abbr -a -g ctl 'cargo test -- --nocapture &> log' 
+abbr -a -g ctlh 'cargo test -- --nocapture &> log; head log'
 abbr -a -g cy  'cargo clippy'
 
 # other cargo commands:
