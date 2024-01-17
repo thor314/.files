@@ -20,32 +20,6 @@ function rustcheck
     taplo fmt --check
 end
 
-function gcl # clone a rust library from github
-  hub clone $argv[1]
-  set repo_name (path_to_name $argv[1])
-  cd $repo_name
-end
-abbr -a -g hcl gcl
-
-function gsa
-  git submodule add https://github.com/thor314/$argv[1] $argv[1]
-end
-
-function gg
-  git add --all . --verbose
-  git commit -m $argv[1]
-  git push
-end
-function ggu # new branch
-  git add --all . --verbose
-  git commit -m $argv[1]
-  git push --set-upstream origin (git branch --show-current)
-end
-function ggr # new repo
-  hub create
-  gityeeet $argv[1]
-end
-
 function logout
     pkill -u (whoami)
 end

@@ -69,19 +69,6 @@ abbr -a -g fk fuck
 
 abbr -a -g hsd "hugo server -D"
 
-abbr -a -g gaa "git add --all ." 
-abbr -a -g gcm "git commit -m "
-abbr -a -g gca "git add --all . -v && git commit --amend --no-edit"
-abbr -a -g gcaa "git commit --amend" # update message
-abbr -a -g gm "git merge"  
-abbr -a -g gpu 'git push -u origin $(git symbolic-ref --short HEAD)' 
-abbr -a -g gs "git status -sb"
-abbr -a -g gc "git add --all . --verbose && git commit -m"
-
-abbr -a -g hbr "hub browse"
-abbr -a -g hpr "hub pull-request"
-abbr -a -g hi "hub issue"
-
 abbr -a -g htop 'zenith'
 
 abbr -a -g jn 'jupyter notebook'
