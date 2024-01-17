@@ -15,6 +15,8 @@
     ~/.config/fish/abbr.fish: fish/abbr.fish
     ~/.config/fish/bind.fish: fish/bind.fish
     ~/.config/fish/config.fish: fish/config.fish
+      # ~/.config/fish/git_helpers.fish: fish/git_helpers.fish # test 2024-01-17: does this need to be included? they seem to
+      # be loading anyhow
     ~/.gitconfig:
     ~/.vimrc: 
     ~/.cargo/cargo-generate.toml: cargo-generate.toml

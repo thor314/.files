@@ -22,7 +22,8 @@ if status is-interactive
 
     # 2023-12-30 - experiment; silence warning "nvm: can't use node latest" warnings
     # 2024-01-11 - uncommenting this after cleaning path issues. may re-deprecate if issues re-arise.
-    nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
+    # 2024-01-17 - crow: node errors
+    # nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
 end
 
 # load secret environment variables
