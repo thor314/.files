@@ -1,0 +1,104 @@
+// For info about configuration please visit https://github.com/leftwm/leftwm/wiki
+#![enable(implicit_some)]
+(
+    modkey: "Mod4", // which super key
+    mousekey: "Mod4", // which super key to use to drag windows
+    tags: [ "1-main", "2-mainish", "3-webapp", "4-social", "5-other", "6-otherish", "7-otherest", ],
+    max_window_width: None, // useful for ultrawides
+    layouts: [ MainAndVertStack, MainAndDeck, GridHorizontal, Fibonacci, LeftMain, Monocle, LeftWiderRightStack, ],
+    // how Left will remember the layout of windows.
+    layout_mode: Workspace, // Workspace or Tag
+    insert_behavior: Bottom, // default to spawn windows on bottom tag
+    // Pop-up utility for certain windows
+    scratchpad: [
+      ( name: "Alacritty", // name referenced when calling (case-sensitive)
+        value: "alacritty", // command to load the application if it isn't started (first application to start)
+        // x, y, width, height are in pixels when an integer is inputted or a percentage when a float is inputted.
+        // These values are relative to the size of the workspace, and will be restricted depending on the workspace size.
+        x: 0, y: 0, height: 1.0, width: 0.5
+      ),
+    ],
+    // where to spawn particular applications; try `window_class` and `window_title`
+    window_rules: [
+      ( window_class: "code", spawn_on_tag: 1 ),
+      // ( window_class: "md.obsidian.Obsidian", spawn_on_tag: 2 ), // not currently functioning correctly, since installed obsidian thru flatpak
+      // ( window_class: "firefox", spawn_on_tag: 3 ), // may not actually want this
+      ( window_class: "signal-desktop", spawn_on_tag: 4 ),
+      ( window_class: "discord", spawn_on_tag: 4 ),
+      ( window_class: "telegram-desktop", spawn_on_tag: 4 ),
+    ], 
+    disable_current_tag_swap: true, // if on tag 1, press super-1, rotate tags
+    disable_tile_drag: false, // allow dragging windows with super-left-click-drag
+    focus_behaviour: Sloppy, // follow cursor
+    focus_new_windows: true, // focus new windows on creation
+    workspaces: [], // how tags are drawn on monitors; can have multiple tags on one monitor
+    keybind: [
+        // LAUNCHERS
+        // prefer rofi to dmenu for launcher, prettier, more customizeable
+        (command: Execute, value: "rofi -show drun", modifier: ["modkey"], key: "space"), 
+        (command: CloseWindow, value: "", modifier: ["modkey", "Shift"], key: "q"),
+
+        (command: Execute, value: "alacritty", modifier: ["modkey"], key: "t"),
+        (command: Execute, value: "code", modifier: ["modkey"], key: "c"),
+        (command: Execute, value: "flatpak run md.obsidian.Obsidian", modifier: ["modkey"], key: "o"),
+        (command: Execute, value: "firefox", modifier: ["modkey"], key: "f"),
+        (command: Execute, value: "signal-desktop", modifier: ["modkey"], key: "s"),
+        (command: Execute, value: "discord", modifier: ["modkey"], key: "d"),
+        (command: Execute, value: "telegram-desktop", modifier: ["modkey", "Shift"], key: "t"),
+
+        // MISC
+        (command: SoftReload, value: "", modifier: ["modkey", "Shift"], key: "r"),
+
+        // SCRATCHPAD
+        (command: ToggleScratchPad, value: "Alacritty", modifier: ["modkey"], key: "g"),
+        (command: ReleaseScratchPad, value: "", modifier: ["modkey"], key: "p"),
+
+        // CHANGE FOCUS
+        (command: ToggleFloating, value: "", modifier: ["modkey"], key: "m"),
+        (command: FocusWindowUp, value: "", modifier: ["modkey"], key: "k"),
+        (command: FocusWindowDown, value: "", modifier: ["modkey"], key: "j"),
+        (command: FocusWorkspaceNext, value: "", modifier: ["modkey"], key: "l"),
+        (command: FocusWorkspacePrevious, value: "", modifier: ["modkey"], key: "h"),
+        (command: ReturnToLastTag, value: "", modifier: ["modkey"], key: "Tab"),
+        (command: SwapTags, value: "", modifier: ["modkey", "Shift"], key: "Tab"),
+
+        (command: GotoTag, value: "1", modifier: ["modkey"], key: "1"),
+        (command: GotoTag, value: "2", modifier: ["modkey"], key: "2"),
+        (command: GotoTag, value: "3", modifier: ["modkey"], key: "3"),
+        (command: GotoTag, value: "4", modifier: ["modkey"], key: "4"),
+        (command: GotoTag, value: "5", modifier: ["modkey"], key: "5"),
+        (command: GotoTag, value: "6", modifier: ["modkey"], key: "6"),
+        (command: GotoTag, value: "7", modifier: ["modkey"], key: "7"),
+
+        // SET WINDOW PRIORITY WITHIN TAG
+        (command: MoveWindowUp, value: "", modifier: ["modkey", "Shift"], key: "k"), // move window up within tag
+        (command: MoveWindowDown, value: "", modifier: ["modkey", "Shift"], key: "j"),
+        (command: MoveWindowTop, value: "", modifier: ["modkey"], key: "Return"),
+        (command: MoveWindowUp, value: "", modifier: ["modkey", "Shift"], key: "Up"),
+        (command: MoveWindowDown, value: "", modifier: ["modkey", "Shift"], key: "Down"),
+        (command: RotateTag, value: "", modifier: ["modkey"], key: "r"), // rotates windows within tag
+
+        // MOVE WINDOW TO ANOTHER TAG
+        (command: MoveToTag, value: "1", modifier: ["modkey", "Shift"], key: "1"),
+        (command: MoveToTag, value: "2", modifier: ["modkey", "Shift"], key: "2"),
+        (command: MoveToTag, value: "3", modifier: ["modkey", "Shift"], key: "3"),
+        (command: MoveToTag, value: "4", modifier: ["modkey", "Shift"], key: "4"),
+        (command: MoveToTag, value: "5", modifier: ["modkey", "Shift"], key: "5"),
+        (command: MoveToTag, value: "6", modifier: ["modkey", "Shift"], key: "6"),
+        (command: MoveToTag, value: "7", modifier: ["modkey", "Shift"], key: "7"),
+        (command: MoveToLastWorkspace, value: "", modifier: ["modkey", "Shift"], key: "8"), // move window to prior WS
+
+        // SET LAYOUT
+        (command: SetLayout, value: "MainAndVertStack", modifier: ["modkey", "Control"], key: "1"),
+        (command: SetLayout, value: "MainAndDeck", modifier: ["modkey", "Control"], key: "2"),
+        (command: SetLayout, value: "GridHorizontal", modifier: ["modkey", "Control"], key: "3"),
+        (command: SetLayout, value: "Fibonacci", modifier: ["modkey", "Control"], key: "4"),
+        (command: SetLayout, value: "LeftMain", modifier: ["modkey", "Control"], key: "5"),
+        (command: SetLayout, value: "Monocle", modifier: ["modkey", "Control"], key: "6"),
+        (command: SetLayout, value: "LeftWiderRightStack", modifier: ["modkey", "Control"], key: "7"),
+
+        // tmp
+        // (command: Execute, value: "loginctl kill-session $XDG_SESSION_ID", modifier: ["modkey", "Shift"], key: "x"), // logout
+        // (command: Execute, value: "slock", modifier: ["modkey", "Control"], key: "l"), // ANGRY GOD, SCREEN OF RED
+    ],
+)
