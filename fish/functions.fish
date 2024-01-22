@@ -1,8 +1,14 @@
+# Thor's lil functions
+
 function clip
     echo $argv | xclip -selection clipboard
 end
 
 function cg
+    if not test (count $argv) -eq 1 -a (count $argv) -eq 2
+        echo "Error: Function requires 1 or 2 arguments."
+        return 1
+    end
     set NAME $argv[1]
     set TYPE $argv[2] || "bin"
     cargo generate --path ~/projects/tmpl/template -n $NAME --$TYPE
