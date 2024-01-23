@@ -1,3 +1,6 @@
+[publish.config]
+description = "a configuration doc for my publishing script"
+
 [[files]]
 source = "/home/thor/obsidian/writing/blog/Solving ZK Hack IV puzzle 1.md"
 
