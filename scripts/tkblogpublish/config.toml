@@ -1,12 +1,12 @@
-[publish.config]
-description = "a configuration doc for my publishing script"
-
-[[files]]
-source = "/home/thor/obsidian/writing/blog/Solving ZK Hack IV puzzle 1.md"
-
 [[files]]
 source = "/home/thor/obsidian/writing/blog/I'm looking for a job.md"
 
 [[files]]
 source = "/home/thor/obsidian/writing/blog/Getting Started with Obsidian.md"
 target = "/home/thor/projects/obsidian-setup/Getting Started with Obsidian.md"
+
+[[files]]
+source = "/home/thor/obsidian/writing/blog/Solving ZK Hack IV puzzle 2 - Supervillain.md"
+
+[[files]]
+source = "/home/thor/obsidian/writing/blog/Solving ZK Hack IV puzzle 1 - Gamma Ray.md"
