@@ -117,21 +117,28 @@ abbr -a -g zj zellij
 abbr -a -g vi vim
 abbr -a -g v vim
 
-abbr -a -g vd "vi ~/.files"
-abbr -a -g vdi "vi ~/.files/install.conf.yaml"
-abbr -a -g vs "vi ~/.files/scripts/sync.sh"
-abbr -a -g vf "vi ~/.files/fish/config.fish"
+abbr -a -g v. "vi ~/.files/install.conf.yaml"
+
+abbr -a -g ve "vi ~/.config/espanso/match"
+
+abbr -a -g vfc "vi ~/.files/fish/config.fish"
 abbr -a -g vfa "vi ~/.files/fish/abbr.fish" 
 abbr -a -g vfb "vi ~/.files/fish/bind.fish"
 abbr -a -g vff "vi ~/.files/fish/functions.fish" 
+abbr -a -g vfg "vi ~/.files/fish/git_helpers.fish"
+
 abbr -a -g vop "vi ~/.files/obsidian/preamble.sty"
 abbr -a -g vov "vi ~/.files/obsidian/obsidian.vimrc"
 
-abbr -a -g vb "vi ~/.setup/unsorted.sh"
-abbr -a -g vk "vi ~/.setup/keybinds.sh"
-abbr -a -g ve "vi ~/.config/espanso/match"
+abbr -a -g vsk "vi ~/.setup/keybinds.sh"
+
+abbr -a -g vss "vi ~/.files/scripts/sync.sh"
+abbr -a -g vsu "vi ~/.setup/unsorted.sh"
+
 abbr -a -g vo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
-abbr -a -g vu "vi ~/.setup/unsorted.sh"
+
+abbr -a -g vp "vi ~/.private/install.conf.yaml"
+
 abbr -a -g vv "vi ~/.files/vimrc"
 
 abbr -a -g :q exit
