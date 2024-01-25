@@ -30,7 +30,7 @@ function tk-git-clone-and-cd # echo "clone from github convenience"
 end
 abbr -a -g hcl gcl
 
-function tk-gitsubmodule-add # reminder to not use http, all sorts of weird cloning and pushing issues.
+function tk-git-submodule-add # reminder to not use http, all sorts of weird cloning and pushing issues.
   git submodule add git@github.com:thor314/$argv[1].git $argv[1]
 end
 
