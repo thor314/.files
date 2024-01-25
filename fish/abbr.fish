@@ -9,19 +9,6 @@ abbr -a -g acs "apt-cache search"
 
 abbr -a -g bat "bat --theme=zenburn --style=plain" # plain: no line numbers
 
-abbr -a -g cdc  "cd ~/.cron"
-abbr -a -g cdd  "cd $HOME/Downloads"
-abbr -a -g cd.  "cd $HOME/.files"
-abbr -a -g cde  "cd $HOME/.config/espanso/match"
-abbr -a -g cdf  "cd $HOME/.files/fish"
-abbr -a -g cdk  "cd ~/.keep"
-abbr -a -g cdp  "cd ~/projects/"
-abbr -a -g cdo  "cd ~/obsidian"
-abbr -a -g cdos "cd ~/projects/obsidian-setup"
-abbr -a -g cds  "cd $HOME/.setup"
-abbr -a -g cdpt "cd $HOME/projects/tmpl"
-abbr -a -g cdpp "cd $HOME/projects/pebble-stark"
-
 abbr -a -g cat "bat --theme=zenburn --style=plain" # i like fancy cats
 abbr -a -g c clip
 abbr -a -g cpr 'cp -r'
@@ -111,15 +98,16 @@ abbr -a -g top 'btm' # kinky
 abbr -a -g thes 'moby' # thesaurus
 abbr -a -g tf "taplo fmt"
 
-abbr -a -g zj zellij
-
 ## VIM
 abbr -a -g vi vim
 abbr -a -g v vim
 
 abbr -a -g v. "vi ~/.files/install.conf.yaml"
+abbr -a -g v.p "vi ~/.private/install.conf.yaml"
+abbr -a -g v.s "vi ~/.files/scripts/sync.sh"
 
 abbr -a -g ve "vi ~/.config/espanso/match"
+abbr -a -g veo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
 
 abbr -a -g vfc "vi ~/.files/fish/config.fish"
 abbr -a -g vfa "vi ~/.files/fish/abbr.fish" 
@@ -131,15 +119,31 @@ abbr -a -g vop "vi ~/.files/obsidian/preamble.sty"
 abbr -a -g vov "vi ~/.files/obsidian/obsidian.vimrc"
 
 abbr -a -g vsk "vi ~/.setup/keybinds.sh"
-
-abbr -a -g vss "vi ~/.files/scripts/sync.sh"
 abbr -a -g vsu "vi ~/.setup/unsorted.sh"
 
-abbr -a -g vo "vi ~/.config/espanso/match/markdown/_obsidian.yml"
-
-abbr -a -g vp "vi ~/.private/install.conf.yaml"
-
 abbr -a -g vv "vi ~/.files/vimrc"
+
+abbr -a -g zj zellij
+
+abbr -a -g z.  "cd $HOME/.files"
+abbr -a -g z.s "cd $HOME/.files/scripts"
+abbr -a -g zc  "cd ~/.cron"
+abbr -a -g zd  "cd $HOME/Downloads"
+abbr -a -g ze  "cd $HOME/.config/espanso/match"
+abbr -a -g zem  "cd $HOME/.config/espanso/match/markdown"
+abbr -a -g zeo  "cd $HOME/.config/espanso/match/markdown"
+abbr -a -g zf  "cd $HOME/.files/fish"
+abbr -a -g zk  "cd ~/.keep"
+abbr -a -g zo  "cd ~/obsidian"
+abbr -a -g zp  "cd ~/projects"
+abbr -a -g zpb "cd ~/projects/blog"
+abbr -a -g zpo "cd ~/projects/obsidian-setup"
+abbr -a -g zpp "cd ~/projects/puzzles"
+abbr -a -g zps "cd ~/projects/pebble-stark"
+abbr -a -g zpt "cd ~/projects/tmpl/template"
+abbr -a -g zos "cd ~/projects/obsidian-setup"
+abbr -a -g zs  "cd $HOME/.setup"
+
 
 abbr -a -g :q exit
 
