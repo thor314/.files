@@ -18,6 +18,8 @@
 [credential]
   # manage 2FA interface to github for me
 	credentialStore = secretservice
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
 	; helper = /usr/local/share/gcm-core/git-credential-manager-core
 	; helper = /usr/local/bin/git-credential-manager
 
