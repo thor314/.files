@@ -21,7 +21,7 @@ if status is-interactive
     end
 
     # having ssh-issues? configure keychain
-    keychain --eval --quiet -Q | source # ensure agent is running
+    # keychain --eval --quiet -Q | source # ensure agent is running
     keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
 
     # 2023-12-30 - experiment; silence warning "nvm: can't use node latest" warnings
