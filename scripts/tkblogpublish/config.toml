@@ -10,3 +10,7 @@ source = "/home/thor/obsidian/writing/blog/Solving ZK Hack IV puzzle 2 - Supervi
 
 [[files]]
 source = "/home/thor/obsidian/writing/blog/Solving ZK Hack IV puzzle 1 - Gamma Ray.md"
+
+[[files]]
+source = "/home/thor/obsidian/writing/blog/about_me.md"
+target = "/home/thor/projects/blog/content/about/_index.md"
