@@ -22,6 +22,10 @@ export PYTHONPATH="$PYTHONPATH:/usr/lib/python3/dist-packages/sage"
 # other environment var settings to set across *all* login shells
 export SELECTED_EDITOR="/usr/bin/vim.gtk3"
 
+eval $(keychain --eval --agents ssh)
+# fish equiv:
+# keychain --eval --agents ssh ; keychain --eval --agents ssh | source # start ssh agent
+
 # #########
  # ARCHIVE #
 # #########
