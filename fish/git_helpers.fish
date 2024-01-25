@@ -7,6 +7,7 @@ abbr -a -g gcaa "git commit --amend" # update message
 abbr -a -g gcl "tk-git-clone-and-cd"
 abbr -a -g gcm "git commit -m " # don't add all
 
+abbr -a -g gg "tk-git-add-all-commit-message-push" 
 abbr -a -g ggu "tk-git-add-all-commit-message-push-create-upstream-branch" 
 abbr -a -g gguu "tk-git-add-all-commit-message-push-create-repo" 
 abbr -a -g ggr "tk-git-add-all-commit-message-push-create-repo" 

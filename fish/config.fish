@@ -15,10 +15,14 @@ if status is-interactive
     source $HOME/.files/fish/functions.fish
     source $HOME/.files/fish/git_helpers.fish
 
+    # default is TERM=alacritty; this fixes weird input bugs with alacritty
     if test (hostname) = "starchy" 
-      # default is TERM=alacritty; this fixes weird input bugs with alacritty
       set TERM xterm-256color 
     end
+
+    # having ssh-issues? configure keychain
+    keychain --eval --quiet -Q | source # ensure agent is running
+    keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
 
     # 2023-12-30 - experiment; silence warning "nvm: can't use node latest" warnings
     # 2024-01-11 - uncommenting this after cleaning path issues. may re-deprecate if issues re-arise.
@@ -29,6 +33,9 @@ end
 
 # load secret environment variables
 gpg -qd "$HOME/.private/secrets.gpg" | source
+
+if status --is-interactive
+end
 
  # # # ## ##### ## # # #
 # ENVIRONMENT VARIABLES #

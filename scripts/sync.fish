@@ -1,7 +1,7 @@
 #!/usr/bin/fish
 # argument to run on my other machines to keep them in sync
 
-if not type -q taplo
+if not test -f ~/.cargo/bin/taplo
   # https://taplo.tamasfe.dev/cli/introduction.html
   echo "installing taplo"
   wget https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux-x86.gz
@@ -24,4 +24,8 @@ if test -L ~/.config/Code/User/settings.json
     rm -rf $CODE/{settings.json, keybindings.json, snippets}
     cp $CODE/vscode/* $CODE
 end
+
+# require password
+# sudo apt -y install libnotify-bin
+# sudo apt -y install keychain
 
