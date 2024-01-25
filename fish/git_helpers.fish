@@ -31,7 +31,8 @@ end
 abbr -a -g hcl gcl
 
 function tk-git-submodule-add # reminder to not use http, all sorts of weird cloning and pushing issues.
-  git submodule add git@github.com:thor314/$argv[1].git $argv[1]
+  set repo_name (path_to_name $argv[1])
+  git submodule add git@github.com:thor314/$repo_name.git $repo_name
 end
 
 function tk-git-add-all-commit-message-push # git commit and push convenience
