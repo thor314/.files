@@ -79,15 +79,11 @@ abbr -a -g pp pythonplay
 abbr -a -g ru rustup
 abbr -a -g rmf "rm -rf" 
 abbr -a -g rmr "rm -rf" 
-abbr -a -g rra "rusty-rain -c arrow"
+abbr -a -g rr "rusty-rain -c bin"
 abbr -a -g rrb "rusty-rain -c bin"
 abbr -a -g rrc "rusty-rain -c crab"
-abbr -a -g rrcc "rusty-rain -c cards"
-abbr -a -g rrd "rusty-rain -c dominosv"
 abbr -a -g rrj "rusty-rain -c jap"
-abbr -a -g rrm "rusty-rain -c moon"
 abbr -a -g rrn "rusty-rain -c numbers"
-abbr -a -g rrs "rusty-rain -c shapes"
 
 abbr -a -g sr 'fd --type file -x sd' # search replace in directory
 abbr -a -g srp 'fd --type file -x sd -p' # search replace in directory practice
