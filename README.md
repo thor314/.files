@@ -6,4 +6,3 @@
 # notes
 ## What about files in my root directory?
 `dotbot` can't update symlinks in my root directory unless run with sudo. So be careful about that. 
-
