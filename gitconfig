@@ -62,7 +62,7 @@
   dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 	root = rev-parse --show-toplevel # 
 [commit]
-	gpgsign = false
+	gpgsign = true
 [safe]
 	directory = /home/thor/.files/setup/clone/bat-extras
 [credential "https://dev.azure.com"]

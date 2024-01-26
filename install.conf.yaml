@@ -15,8 +15,6 @@
     ~/.config/fish/abbr.fish: fish/abbr.fish
     ~/.config/fish/bind.fish: fish/bind.fish
     ~/.config/fish/config.fish: fish/config.fish
-      # ~/.config/fish/git_helpers.fish: fish/git_helpers.fish # test 2024-01-17: does this need to be included? they seem to
-      # be loading anyhow
     ~/.gitconfig:
     ~/.vimrc: 
     ~/.cargo/cargo-generate.toml: cargo-generate.toml
@@ -25,6 +23,8 @@
     ~/.xprofile:
     ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
     ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
+      # ~/.config/fish/git_helpers.fish: fish/git_helpers.fish # test 2024-01-17: does this need to be included? they seem to
+      # be loading anyhow
 
 # https://github.com/anishathalye/dotbot#clean
 - clean: ['~'] # clean dead symlinks in home
