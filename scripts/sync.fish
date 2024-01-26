@@ -29,9 +29,9 @@ if not test -f ~/.cargo/bin/cargo-binstall
     cargo binstall cargo-binstall # fast binary installer, don't build from source
 end
 
-if not test -f ~/.cargo/bin/zellij
-    cargo install --locked zellij   
-end
+# if not test -f ~/.cargo/bin/zellij
+#     cargo install --locked zellij   
+# end
 
 # require password
 # sudo apt -y install libnotify-bin
