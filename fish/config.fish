@@ -8,7 +8,6 @@ if status is-interactive
   function fish_greeting 
       echo "hello Thor" 
   end
-
   
   # only need these for interactive sessions
   source $HOME/.files/fish/abbr.fish
@@ -25,8 +24,7 @@ if status is-interactive
   # keychain --eval --quiet -Q | source # ensure agent is running
   keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
 
-  # nvm install latest & # if nvm errors, run this
-  nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
+  # nvm install latest && nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
 end
 
 # load secret environment variables

@@ -47,8 +47,6 @@ abbr -a -g cgt 'cg cgt bin'
  
 abbr -a -g df "duf"
 abbr -a -g diff difft # fancy difftool
-abbr -a -g dt "dotbot -c ~/.files/install.conf.yaml"
-abbr -a -g dtp "dotbot -c ~/.private/install.conf.yaml"
 abbr -a -g du "dust" # gimme stats
 
 abbr -a -g fd fdfind
@@ -142,7 +140,8 @@ abbr -a -g zpt "cd ~/projects/tmpl/template"
 abbr -a -g zos "cd ~/projects/obsidian-setup"
 abbr -a -g zs  "cd $HOME/.setup"
 
-
+abbr -a -g .f "dotbot -c ~/.files/install.conf.yaml"
+abbr -a -g .p "dotbot -c ~/.private/install.conf.yaml"
 abbr -a -g :q exit
 
 ## Graveyard 
