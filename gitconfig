@@ -1,28 +1,26 @@
 # https://git-scm.com/docs/git-config
+# if I transition to cryptograthor:
 # https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities
 
 [gpg]
 	program = gpg
-
 [github]
 	user = thor314
-
 [init]
-	defaultBranch = main
-
+	defaultBranch = main # no gods, no masters
 [user]
 	email = thorck@pm.me
 	name = Thor Kampefner
-  # my shared gpg key across birb, crow, boorb, etc
+  # 2024-01-26 my shared gpg key across birb, crow, boorb, etc
 	signingkey = F787E9AC0EABDBC6C04E989D886BC8B98E6DC66D 
 
-[credential]
+# 2024-01-26 deprecated section, no longer using gcm, pending removal
+# [credential]
   # manage 2FA interface to github for me
-	credentialStore = secretservice
-	helper = 
-	helper = /usr/local/bin/git-credential-manager
-	; helper = /usr/local/share/gcm-core/git-credential-manager-core
-	; helper = /usr/local/bin/git-credential-manager
+	# credentialStore = secretservice
+	# helper = /usr/local/bin/git-credential-manager
+	# helper = /usr/local/share/gcm-core/git-credential-manager-core
+	# helper = /usr/local/bin/git-credential-manager
 
 [merge]
   # Prefer squash merge, but not sure how to set this as default yet
