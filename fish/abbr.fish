@@ -68,8 +68,6 @@ abbr -a -g ls 'lsd --icon never'
 abbr -a -g la 'lsd --icon never -al'
 abbr -a -g ll 'lsd --icon never -al'
 
-abbr -a -g npmra 'npm-run-all' # run npm-scripts in para/seq.  https://www.npmjs.com/package/npm-run-all
-
 abbr -a -g pipi "pip install"
 abbr -a -g python python3
 abbr -a -g pp pythonplay
@@ -78,10 +76,8 @@ abbr -a -g ru rustup
 abbr -a -g rmf "rm -rf" 
 abbr -a -g rmr "rm -rf" 
 abbr -a -g rr "rusty-rain -c bin"
-abbr -a -g rrb "rusty-rain -c bin"
 abbr -a -g rrc "rusty-rain -c crab"
 abbr -a -g rrj "rusty-rain -c jap"
-abbr -a -g rrn "rusty-rain -c numbers"
 
 abbr -a -g s source # search replace in directory
 abbr -a -g sr 'fd --type file -x sd' # search replace in directory
