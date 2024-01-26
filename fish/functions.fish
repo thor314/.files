@@ -58,10 +58,6 @@ end
 function rga
   abbr -g | rg -e "$argv" | cut -d" " -f4-
 end
-function rgg 
-  rg $argv $HOME/.files/fish/conf.d/git.md
-  functions | rg -e "$argv"
-end
 
 function sync
     echo "$argv" >> ~/.files/scripts/sync.sh
