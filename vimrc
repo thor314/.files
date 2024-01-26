@@ -187,7 +187,6 @@ nnoremap <F3> :NERDTreeToggle<CR>
 " nnoremap Q q@ " bug
 " nnoremap q @@ " bug
 
-
 """ Settings 
 " Search following list of options, or type `:help <option>`: https://vimhelp.org/options.txt.html
 " Ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
@@ -213,7 +212,7 @@ highlight CursorColumn ctermbg=61
 set shiftwidth=2      " <,> shift keys
 set tabstop=2         " tab width
 set expandtab         " spaces > tabs
-set smartindent     	" Enable smart-indent
+set smartindent     	" Enable smart-indent - return keeps indentation level.
 set smarttab	        " Enable smart-tabs
 set nonumber          " Comment out to remove line-numbers
 " set linebreak       " Hard break at `text-width`, at prior `showbreak` char. Prefer a formatter for this.
@@ -236,7 +235,7 @@ set smartcase         " Search: use smart-case matching
 set showmatch         " Show matching words/braces during a search.
 set hlsearch          " highlighting when doing a search.
 set history=1000      " Set the commands to save in history default=20.
-set backspace=indent,eol,start	" Backspace behaviour
+" set backspace=indent,eol,start	" Backspace behaviour
 set wildmode=list:longest " Make wildmenu behave like similar to Bash completion.
 
 " There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
