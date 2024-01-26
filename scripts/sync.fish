@@ -18,17 +18,21 @@ if not type -q gi
 end
 
 if test -L ~/.config/Code/User/settings.json
-    echo "unlink vscode symlinks, which are i have merge conflicts with now every day"
-    set CODE ~/.config/Code/User
-    cp ~/.private/vscode $CODE
-    rm -rf $CODE/{settings.json, keybindings.json, snippets}
-    cp $CODE/vscode/* $CODE
+  echo "unlink vscode symlinks, which are i have merge conflicts with now every day"
+  set CODE ~/.config/Code/User
+  cp ~/.private/vscode $CODE
+  rm -rf $CODE/{settings.json, keybindings.json, snippets}
+  cp $CODE/vscode/* $CODE
 end
 
 if not test -f ~/.cargo/bin/cargo-binstall
-    cargo binstall cargo-binstall # fast binary installer, don't build from source
+  cargo binstall cargo-binstall # fast binary installer, don't build from source
 end
 
+if not test -f /home/thor/.local/share/nvm/v20.6.1/bin/prettier
+  npm install -g prettier
+end
+  
 # zellij - buggy to start, and installation options are crap
 # if not test -f ~/.local/bin/zellij
 #     wget https://github.com/zellij-org/zellij/releases/download/v0.39.2/zellij-x86_64-unknown-linux-musl.tar.gz
