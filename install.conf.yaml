@@ -25,6 +25,7 @@
     ~/.xprofile:
     ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
     ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
+    ~/.ssh/config: ssh-config
 
 # https://github.com/anishathalye/dotbot#clean
 - clean: ['~'] # clean dead symlinks in home
