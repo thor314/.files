@@ -2,7 +2,7 @@
 # Docs: https://fishshell.com/docs/current/cmds/bind.html 
 # generally surround in \" for binds to work as expected
 bind \cZ fg
-bind \cS zellij
+bind \eS "zellij" #
 # bind \cW 'exit' # don't need, but keep as proof of concept
 
 # very nice forward/back binds

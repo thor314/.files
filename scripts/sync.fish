@@ -29,14 +29,15 @@ if not test -f ~/.cargo/bin/cargo-binstall
     cargo binstall cargo-binstall # fast binary installer, don't build from source
 end
 
-if not test -f ~/.local/bin/zellij
-    wget https://github.com/zellij-org/zellij/releases/download/v0.39.2/zellij-aarch64-unknown-linux-musl.tar.gz
-    tar -xvf zellij*.tar.gz
-    chmod +x zellij
-    mv zellij ~/.local/bin
-    rm zellij*
-    # cargo install --locked zellij # bugged install
-end
+# zellij - buggy to start, and installation options are crap
+# if not test -f ~/.local/bin/zellij
+#     wget https://github.com/zellij-org/zellij/releases/download/v0.39.2/zellij-x86_64-unknown-linux-musl.tar.gz
+#     tar -xvf zellij*.tar.gz
+#     chmod +x zellij
+#     mv zellij ~/.local/bin
+#     rm zellij*
+#     # cargo install --locked zellij # bugged install
+# end
 
 # require password
 # sudo apt -y install libnotify-bin
