@@ -12,8 +12,9 @@
 
 [user]
 	email = thorck@pm.me
-	name = Thor Kamphefner
-	signingkey = F787E9AC0EABDBC6C04E989D886BC8B98E6DC66D
+	name = Thor Kampefner
+  # my shared gpg key across birb, crow, boorb, etc
+	signingkey = F787E9AC0EABDBC6C04E989D886BC8B98E6DC66D 
 
 [credential]
   # manage 2FA interface to github for me
