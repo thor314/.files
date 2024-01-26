@@ -4,28 +4,6 @@ function clip
     echo $argv | xclip -selection clipboard
 end
 
-function cg
-    if not test (count $argv) -eq 1 -a (count $argv) -eq 2
-        echo "Error: Function requires 1 or 2 arguments."
-        return 1
-    end
-    set NAME $argv[1]
-    set TYPE $argv[2] || "bin"
-    cargo generate --path ~/projects/tmpl/template -n $NAME --$TYPE
-    cd $NAME
-    cargo update && cargo fmt && taplo fmt
-    git add --all . && git commit -m "init"
-    cargo check -q &
-end
-
-function rustcheck
-    echo checking (pwd)
-    cargo check -q 
-    cargo clippy -- -D warnings 
-    cargo fmt --check 
-    taplo fmt --check
-end
-
 function logout
     pkill -u (whoami)
 end
@@ -68,57 +46,3 @@ function unset-right # call to remove the right-prompt ui element
     end
 end
 
-##
-# Web dev, may deprecate soon 2024-01-12
-##
-function nextpls
-    pnpm create next-app --ts $n
-    cd $argv[1]
-    # touch .tsconfig.json # next will automatically fill this
-    pnpm install -D sass
-    pnpm run dev &
-end
-
-function reactpls
-    echo 'creating a react app with typescript, scss, material ui'
-    npx create-react-app $argv[1] --template typescrypt
-    cd $argv[1]
-    pnpm i -S node-sass # node sass
-    pnpm i -D @types/node-sass # node sass types
-    mv src/App.css src/App.scss
-    sd 'App.css' 'App.scss' src/App.tsx
-    sd 'export default App;' '' src/App.tsx
-    sd 'function App' 'export default function App' src/App.tsx
-    # https://mui.com/core/
-    pnpm install @mui/material @emotion/react @emotion/styled # material ui library
-    code .
-    pnpm start &
-end
-
-function vitepls
-    echo 'creating a react app with typescript, vite, scss, material ui'
-    pnpm create vite $argv[1] --template react-ts
-    cd $argv[1]
-    #pnpm i -S node-sass # node sass
-    pnpm i -S sass
-    pnpm i -D @types/node-sass # node sass types
-    # # https://mui.com/core/
-    # npm install @mui/material @emotion/react @emotion/styled # material ui library
-    # code .
-    # pnpm install && pnpm dev
-end
-
-## Deprecation
-# function cgp # create a new experiment module with cg, and track it in my module-explorer
-#   alias cg='cargo generate'
-#   cd ~/r/play
-#   cg --path ~/projects/tmpl/base --name $argv[1] 
-#   cd $argv[1] 
-#   cargo fmt && taplo fmt
-#   git init && git add --all && git commit -m "init" 
-#   hub create && gpu &
-#   cd ..
-#   git submodule add https://github.com/thor314/$argv[1] $argv[1]
-#   git commit -m "$argv[1] init" && gp
-#   code $argv[1]
-# end

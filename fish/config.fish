@@ -14,6 +14,8 @@ if status is-interactive
   source $HOME/.files/fish/bind.fish
   source $HOME/.files/fish/functions.fish
   source $HOME/.files/fish/git_helpers.fish
+  source $HOME/.files/fish/rust_helpers.fish
+  source $HOME/.files/fish/web_helpers.fish
 
   # default is TERM=alacritty; this fixes weird input bugs with alacritty
   if test (hostname) = "starchy" 

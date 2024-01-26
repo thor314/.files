@@ -12,38 +12,6 @@ abbr -a -g bat "bat --theme=zenburn --style=plain" # plain: no line numbers
 abbr -a -g cat "bat --theme=zenburn --style=plain" # i like fancy cats
 abbr -a -g c clip
 abbr -a -g cpr 'cp -r'
-
-# big ones:
-abbr -a -g ca  "cargo add"
-abbr -a -g cb  'cargo build -q'
-abbr -a -g cbr 'cargo build --release'
-abbr -a -g cbe 'cargo bench'
-abbr -a -g cc  'cargo check -q'
-abbr -a -g cct 'cargo check --tests'
-abbr -a -g cf  'cargo fmt'
-abbr -a -g cn  'cargo new'
-abbr -a -g cq  'cargo clean'
-abbr -a -g cr  'cargo run'
-abbr -a -g crl 'cargo run &> log' # need '&' to capture logs
-abbr -a -g crlh 'cargo run &> log; head log' # need '&' to capture logs
-abbr -a -g ct  'cargo test'
-abbr -a -g ctt 'cargo test -- --nocapture'
-abbr -a -g ctl 'cargo test -- --nocapture &> log' 
-abbr -a -g ctlh 'cargo test -- --nocapture &> log; head log'
-abbr -a -g cy  'cargo clippy'
-
-# other cargo commands:
-abbr -a -g cfc  "cargo fmt --all -- --check"
-abbr -a -g ci   'cargo install'
-abbr -a -g cttt "RUST_LOG=DEBUG RUST_BACKTRACE=1 cargo test -- --nocapture"
-abbr -a -g ctc  'cargo tarpaulin -v -o Html'
-abbr -a -g ctp  'cargo tarpaulin -v -o Html'
-abbr -a -g cw   "cargo watch" 
-abbr -a -g cwr  'cargo watch -x run'
-abbr -a -g cyf  'cargo clippy --fix' # try to fix lints
-
-## test workspace generation
-abbr -a -g cgt 'cg cgt bin'
  
 abbr -a -g df "duf"
 abbr -a -g diff difft # fancy difftool
@@ -72,7 +40,6 @@ abbr -a -g pipi "pip install"
 abbr -a -g python python3
 abbr -a -g pp pythonplay
 
-abbr -a -g ru rustup
 abbr -a -g rmf "rm -rf" 
 abbr -a -g rmr "rm -rf" 
 abbr -a -g rr "rusty-rain -c bin"
@@ -105,6 +72,8 @@ abbr -a -g vfa "vi ~/.files/fish/abbr.fish"
 abbr -a -g vfb "vi ~/.files/fish/bind.fish"
 abbr -a -g vff "vi ~/.files/fish/functions.fish" 
 abbr -a -g vfg "vi ~/.files/fish/git_helpers.fish"
+abbr -a -g vfr "vi ~/.files/fish/rust_helpers.fish"
+abbr -a -g vfw "vi ~/.files/fish/web_helpers.fish"
 
 abbr -a -g vop "vi ~/.files/obsidian/preamble.sty"
 abbr -a -g vov "vi ~/.files/obsidian/obsidian.vimrc"
@@ -114,7 +83,7 @@ abbr -a -g vsu "vi ~/.setup/unsorted.sh"
 
 abbr -a -g vv "vi ~/.files/vimrc"
 
-abbr -a -g zj zellij
+# abbr -a -g zj zellij
 
 abbr -a -g z.  "cd $HOME/.files"
 abbr -a -g z.s "cd $HOME/.files/scripts"
