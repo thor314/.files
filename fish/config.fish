@@ -24,10 +24,7 @@ if status is-interactive
     # keychain --eval --quiet -Q | source # ensure agent is running
     keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
 
-    # 2023-12-30 - experiment; silence warning "nvm: can't use node latest" warnings
-    # 2024-01-11 - uncommenting this after cleaning path issues. may re-deprecate if issues re-arise.
-    # 2024-01-17 - crow: node errors; try:
-    #nvm install latest
+    # nvm install latest & # if nvm errors, run this
     nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
 end
 
