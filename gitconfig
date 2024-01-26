@@ -33,7 +33,7 @@
 [core]
   # use vim or helix
   editor = vim
-  #editor = code --wait
+  #editor = code --wait # don't use a fat slow ide
 
 [pull]
   # rebase on merge, don't create merge commits on my local
@@ -55,14 +55,19 @@
 # Use a pager for large output, just like other git commands.
 [pager]
   difftool = true
+# use nice easy-to-read git diff tool alternative
 # `git dft/difft` is less to type than `git difftool`.
 [alias]
   dft = difftool
   difft = difftool
   dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 	root = rev-parse --show-toplevel # 
-[commit]
+
+# always sign commits with my shared key
+[commit] 
 	gpgsign = true
+
+# misc, forget why here, maybe git-credential-manager, idk
 [safe]
 	directory = /home/thor/.files/setup/clone/bat-extras
 [credential "https://dev.azure.com"]
