@@ -85,6 +85,7 @@ abbr -a -g rrc "rusty-rain -c crab"
 abbr -a -g rrj "rusty-rain -c jap"
 abbr -a -g rrn "rusty-rain -c numbers"
 
+abbr -a -g s source # search replace in directory
 abbr -a -g sr 'fd --type file -x sd' # search replace in directory
 abbr -a -g srp 'fd --type file -x sd -p' # search replace in directory practice
 abbr -a -g sc "maim -s | xclip -selection clipboard -target image/png"

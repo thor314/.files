@@ -23,4 +23,5 @@ bind \eL "lsd -al --icon=never; commandline -f repaint"
 bind \eF "cargo fmt -v; commandline -f repaint"
 bind \eT "cargo test"
 bind \eR "cargo run"
+bind \er "rusty-rain -c numbers"
 
