@@ -29,7 +29,7 @@ if status is-interactive
 end
 
 # load secret environment variables
-gpg -qd "$HOME/.private/secrets.gpg" | source
+gpg -qd "$HOME/.private/no-sync/secrets.gpg" | source
 
 if status --is-interactive
 end

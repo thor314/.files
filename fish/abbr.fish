@@ -124,6 +124,7 @@ abbr -a -g zj zellij
 
 abbr -a -g z.  "cd $HOME/.files"
 abbr -a -g z.s "cd $HOME/.files/scripts"
+abbr -a -g z.p "cd $HOME/.private"
 abbr -a -g zc  "cd ~/.cron"
 abbr -a -g zd  "cd $HOME/Downloads"
 abbr -a -g ze  "cd $HOME/.config/espanso/match"
