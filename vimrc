@@ -11,8 +11,8 @@
 " compressed help pages and many third-party plugins. If you use fish as your login shell, 
 " you need to set shell to something else in your vimrc, for example:
 if &shell =~# 'fish$'
-      set shell=sh
-    endif
+  set shell=sh
+endif
 
 """ Plugin Management
 " ref: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
@@ -212,7 +212,7 @@ highlight CursorColumn ctermbg=61
 set shiftwidth=2      " <,> shift keys
 set tabstop=2         " tab width
 set expandtab         " spaces > tabs
-set smartindent     	" Enable smart-indent - return keeps indentation level.
+set smartindent     	" Enable smart-indent - return keeps indentation level. May cause comment indentation bugs in fish?
 set smarttab	        " Enable smart-tabs
 set nonumber          " Comment out to remove line-numbers
 " set linebreak       " Hard break at `text-width`, at prior `showbreak` char. Prefer a formatter for this.
@@ -235,7 +235,7 @@ set smartcase         " Search: use smart-case matching
 set showmatch         " Show matching words/braces during a search.
 set hlsearch          " highlighting when doing a search.
 set history=1000      " Set the commands to save in history default=20.
-" set backspace=indent,eol,start	" Backspace behaviour
+set backspace=indent,eol,start	" Backspace behaviour
 set wildmode=list:longest " Make wildmenu behave like similar to Bash completion.
 
 " There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
@@ -269,11 +269,18 @@ let g:camelcasemotion_key = '<leader>'
 "vmap <C-/> gcc " nope
 
 """ Filetype-specific
+"" Fish
+" 2024-01-26 deny comment indentation bug
+autocmd Filetype fish set nosmartindent
+autocmd Filetype fish set cindent
+autocmd Filetype fish set cinkeys-=0# " deny hashtag jump to start of line
+autocmd Filetype fish setlocal tabstop=2 shiftwidth=2 expandtab
+
 "" HTML
 autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 
 "" Rust
-autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
+" autocmd Filetype rs setlocal tabstop=4 shiftwidth=4 expandtab
 
 """ Graveyard
 " Bug: seems to not select buffer.

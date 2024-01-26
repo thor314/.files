@@ -1,31 +1,32 @@
 #!/usr/bin/fish
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-    # set shell to fish, don't set everywhere, we been warned that fish not POSIX so mebe breaks elsewhere
-    set -gx SHELL 'usr/bin/fish'
+  # Commands to run in interactive sessions can go here
+  # set shell to fish, don't set everywhere, we been warned that fish not POSIX so mebe breaks elsewhere
+  set -gx SHELL 'usr/bin/fish' 
 
-    # Overwrite default greeting
-    function fish_greeting 
-        echo "hello Thor" 
-    end
-    
-    # only need these for interactive sessions
-    source $HOME/.files/fish/abbr.fish
-    source $HOME/.files/fish/bind.fish
-    source $HOME/.files/fish/functions.fish
-    source $HOME/.files/fish/git_helpers.fish
+  # Overwrite default greeting
+  function fish_greeting 
+      echo "hello Thor" 
+  end
 
-    # default is TERM=alacritty; this fixes weird input bugs with alacritty
-    if test (hostname) = "starchy" 
-      set TERM xterm-256color 
-    end
+  
+  # only need these for interactive sessions
+  source $HOME/.files/fish/abbr.fish
+  source $HOME/.files/fish/bind.fish
+  source $HOME/.files/fish/functions.fish
+  source $HOME/.files/fish/git_helpers.fish
 
-    # having ssh-issues? configure keychain
-    # keychain --eval --quiet -Q | source # ensure agent is running
-    keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
+  # default is TERM=alacritty; this fixes weird input bugs with alacritty
+  if test (hostname) = "starchy" 
+    set TERM xterm-256color 
+  end
 
-    # nvm install latest & # if nvm errors, run this
-    nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
+  # having ssh-issues? configure keychain
+  # keychain --eval --quiet -Q | source # ensure agent is running
+  keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
+
+  # nvm install latest & # if nvm errors, run this
+  nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
 end
 
 # load secret environment variables
@@ -49,6 +50,7 @@ set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 # TEMP # - these belong somewhere else, but are here for the moment
  ######
 export SELECTED_EDITOR="/usr/bin/vim.gtk3" # jan 12 - fixed profile bug, remove this in a week or two
+export EDITOR="/usr/bin/vim.gtk3" # jan 12 - fixed profile bug, remove this in a week or two
 
 # #########
  # ARCHIVE #
