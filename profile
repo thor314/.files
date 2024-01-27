@@ -22,7 +22,7 @@ export PYTHONPATH="$PYTHONPATH:/usr/lib/python3/dist-packages/sage"
 # other environment var settings to set across *all* login shells
 export SELECTED_EDITOR="/usr/bin/vim.gtk3"
 
-# keep in profile to avoid vscode bug
+# set in user settings and here, for extra sanity
 setxkbmap dvorak -option caps:ctrl_modifier 
 
 # #########

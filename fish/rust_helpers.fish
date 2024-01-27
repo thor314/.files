@@ -9,7 +9,8 @@ abbr -a -g cc  'cargo check -q'
 abbr -a -g cct 'cargo check --tests'
 abbr -a -g cca "tk-cargo-checkall-clippy-fmt-taplo"
 abbr -a -g cf  'cargo fmt'
-abbr -a -g cg  'tk-cargo-generate'
+abbr -a -g cgb 'tk-cargo-generate --bin'
+abbr -a -g cgl 'tk-cargo-generate --lib'
 abbr -a -g cn  'cargo new'
 abbr -a -g cq  'cargo clean'
 abbr -a -g cr  'cargo run'
@@ -32,18 +33,20 @@ abbr -a -g cwr  'cargo watch -x run'
 abbr -a -g cyf  'cargo clippy --fix' # try to fix lints
 
 ## test workspace generation
-abbr -a -g cgt 'cg cgt bin'
+abbr -a -g cgtb 'tk-cargo-generate --bin cgtb'
+abbr -a -g cgtl 'tk-cargo-generate --lib cgtl'
 abbr -a -g ru rustup
 
 # cargo generate
 function tk-cargo-generate
-    if not test (count $argv) -eq 1 -o (count $argv) -eq 2
-        echo "Error: Function requires 1 or 2 arguments."
+    if not test (count $argv) -eq 2
+        echo "Error: Function requires 2 arguments."
         return 1
     end
-    set name $argv[1]
-    set type $argv[2] || "bin"
-    cargo generate --path ~/projects/tmpl/template -n $name --$type
+    set binlib $argv[1]
+    set name $argv[2]
+    
+    cargo generate --path ~/projects/tmpl/template $binlib -n $name 
     cd $name
     cargo update && cargo fmt && taplo fmt
     git add --all . && git commit -m "init"
