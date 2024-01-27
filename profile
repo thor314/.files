@@ -22,11 +22,13 @@ export PYTHONPATH="$PYTHONPATH:/usr/lib/python3/dist-packages/sage"
 # other environment var settings to set across *all* login shells
 export SELECTED_EDITOR="/usr/bin/vim.gtk3"
 
+# keep in profile to avoid vscode bug
+setxkbmap dvorak -option caps:ctrl_modifier 
+
 # #########
  # ARCHIVE #
 # #########
 # keyboard set - 2024-10-11 - stop deduplication, deprecation pending
-# setxkbmap dvorak -option ctrl:nocaps
 # configure shell with cargo stuff - 2024-01-11 - is this only necessary for install? haven't needed since
 # source "/home/thor/.cargo/env" 
 

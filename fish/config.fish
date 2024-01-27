@@ -8,7 +8,7 @@ if status is-interactive
   function fish_greeting 
       echo "hello Thor" 
   end
-  
+
   # only need these for interactive sessions
   source $HOME/.files/fish/abbr.fish
   source $HOME/.files/fish/bind.fish
@@ -26,14 +26,14 @@ if status is-interactive
   # keychain --eval --quiet -Q | source # ensure agent is running
   keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
 
+  # even if set elsewhere, to avoid capslock vscode bug, keep this line
+  setxkbmap dvorak -option caps:ctrl_modifier 
+
   # nvm install latest && nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
 end
 
 # load secret environment variables
 gpg -qd "$HOME/.private/no-sync/secrets.gpg" | source
-
-if status --is-interactive
-end
 
  # # # ## ##### ## # # #
 # ENVIRONMENT VARIABLES #
