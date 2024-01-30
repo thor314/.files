@@ -25,6 +25,12 @@ if status is-interactive
   # having ssh-issues? configure keychain
   # keychain --eval --quiet -Q | source # ensure agent is running
   keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
+  
+  # 2024-10-29
+  # it's unclear whether running these enable my sync-dirs scripts to run correctly, so leave them here for now
+  eval (keychain --eval -Q) &>> /dev/null # -Q is "quick" not quiet
+  # make sure the cron key is added 
+  keychain --nogui ~/.ssh/id_ed25519 -Q &>> /dev/null
 
   # even if set elsewhere, to avoid capslock vscode bug, keep this line
   setxkbmap dvorak -option caps:ctrl_modifier 
