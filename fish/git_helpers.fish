@@ -33,7 +33,7 @@ abbr -a -g hcl gcl
 
 function tk-git-submodule-add # reminder to not use http, all sorts of weird cloning and pushing issues.
   set repo_name (path_to_name $argv[1])
-  git submodule add git@github.com:thor314/$repo_name.git $repo_name
+  git submodule add git@github.com:thor314/$repo_name.git $argv[1]
   git add --all . && git commit -m "added submodule $repo_name"
 end
 
