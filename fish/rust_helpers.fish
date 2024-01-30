@@ -46,7 +46,7 @@ function tk-cargo-generate
     set binlib $argv[1]
     set name $argv[2]
     
-    cargo generate --path ~/projects/tmpl/template $binlib -n $name 
+    cargo generate --path ~/projects/tk-cargo-generate/template $binlib -n $name 
     cd $name
     cargo update && cargo fmt && taplo fmt
     git add --all . && git commit -m "init"

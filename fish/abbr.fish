@@ -101,7 +101,7 @@ abbr -a -g zpb "cd ~/projects/blog"
 abbr -a -g zpo "cd ~/projects/obsidian-setup"
 abbr -a -g zpp "cd ~/projects/puzzles"
 abbr -a -g zps "cd ~/projects/pebble-stark"
-abbr -a -g zpt "cd ~/projects/tmpl/template"
+abbr -a -g zpt "cd ~/projects/tk-cargo-generate/template"
 abbr -a -g zos "cd ~/projects/obsidian-setup"
 abbr -a -g zs  "cd $HOME/.setup"
 
