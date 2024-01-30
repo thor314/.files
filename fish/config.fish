@@ -26,9 +26,8 @@ if status is-interactive
   # keychain --eval --quiet -Q | source # ensure agent is running
   keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
   
-  # 2024-10-29
-  # it's unclear whether running these enable my sync-dirs scripts to run correctly, so leave them here for now
-  eval (keychain --eval -Q) &>> /dev/null # -Q is "quick" not quiet
+  # 2024-10-29 run these to ensure my ssh keys are loaded in a way that my cronjobs can access
+  keychain --eval -Q &>> /dev/null # -Q is "quick" not quiet
   # make sure the cron key is added 
   keychain --nogui ~/.ssh/id_ed25519 -Q &>> /dev/null
 
