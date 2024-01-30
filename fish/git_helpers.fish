@@ -17,6 +17,7 @@ abbr -a -g gpf 'git push -f'
 abbr -a -g gpu 'git push -u origin $(git symbolic-ref --short HEAD)'  # after creating a new branch
 abbr -a -g gs "git status -sb" # better git status
 abbr -a -g gsua "tk-git-submodule-add"
+abbr -a -g gsur "tk-git-submodule-replace"
 
 abbr -a -g hb "hub browse"
 abbr -a -g hbc "hub browse -c"
@@ -33,6 +34,16 @@ abbr -a -g hcl gcl
 function tk-git-submodule-add # reminder to not use http, all sorts of weird cloning and pushing issues.
   set repo_name (path_to_name $argv[1])
   git submodule add git@github.com:thor314/$repo_name.git $repo_name
+  git add --all . && git commit -m "added submodule $repo_name"
+end
+
+function tk-git-submodule-replace # for when accidentally committed a submodule instead of adding it
+  set repo_name (path_to_name $argv[1])
+  git rm -r --cached $repo_name
+  mv $repo_name ../$repo_name.tmp.d
+  git add --all . && git commit -m "removed $repo_name"
+  mv ../$repo_name.tmp.d $repo_name
+  tk-git-submodule-add $repo_name
 end
 
 function tk-git-add-all-commit-message-push # git commit and push convenience
