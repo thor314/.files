@@ -27,10 +27,9 @@ if status is-interactive
   keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
   
   # 2024-10-29 run these to ensure my ssh keys are loaded in a way that my cronjobs can access
-  # eval (keychain --eval -Q) &>> /dev/null # -Q is "quick" not quiet
-  keychain --eval -Q &>> /dev/null # -Q is "quick" not quiet
+  eval (keychain --eval -Q) &>> /dev/null # -Q is "quick" not quiet
   # make sure the cron key is added 
-  keychain --nogui ~/.ssh/id_ed25519 -Q &>> /dev/null
+  # keychain --nogui ~/.ssh/id_ed25519 -Q &>> /dev/null
 
   # even if set elsewhere, to avoid capslock vscode bug, keep this line
   setxkbmap dvorak -option caps:ctrl_modifier 
