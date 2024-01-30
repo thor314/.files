@@ -47,5 +47,5 @@ function tk-git-add-all-commit-message-push-create-upstream-branch # new branch
 end
 function tk-git-add-all-commit-message-push-create-repo # new repo
   hub create $argv[2] # optional arg to allow private; i.e. -p, pass to hub create
-  tk-git-add-all-commit-message-push-create-upstream-branche $argv[1]
+  tk-git-add-all-commit-message-push-create-upstream-branch $argv[1]
 end
