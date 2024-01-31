@@ -8,6 +8,7 @@ abbr -a -g gcl "tk-git-clone-and-cd"
 abbr -a -g gcm "git commit -m " # don't add all
 
 abbr -a -g gg "tk-git-add-all-commit-message-push" 
+abbr -a -g gsuc "tk-git-submodule-update-commits-recursive" 
 abbr -a -g ggu "tk-git-add-all-commit-message-push-create-upstream-branch" 
 abbr -a -g gguu "tk-git-add-all-commit-message-push-create-repo" 
 abbr -a -g ggr "tk-git-add-all-commit-message-push-create-repo" 
@@ -21,7 +22,7 @@ abbr -a -g gsur "tk-git-submodule-replace"
 
 abbr -a -g hb "hub browse"
 abbr -a -g hbc "hub browse -c"
-abbr -a -g hcl tk-git-clone-and-cd
+abbr -a -g hcl "tk-git-clone-and-cd"
 abbr -a -g hpr "hub pull-request"
 abbr -a -g hi "hub issue"
 
@@ -44,6 +45,10 @@ function tk-git-submodule-replace # for when accidentally committed a submodule 
   git add --all . && git commit -m "removed $repo_name"
   mv ../$repo_name.tmp.d $repo_name
   tk-git-submodule-add $repo_name
+end
+
+function tk-git-submodule-update-commits-recursive
+  
 end
 
 function tk-git-add-all-commit-message-push # git commit and push convenience
