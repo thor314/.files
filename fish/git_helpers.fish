@@ -48,7 +48,8 @@ function tk-git-submodule-replace # for when accidentally committed a submodule 
 end
 
 function tk-git-submodule-update-commits-recursive
-  
+  # recursively update a submodule dir, (bottom up)
+  echo todo
 end
 
 function tk-git-add-all-commit-message-push # git commit and push convenience
