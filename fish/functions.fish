@@ -4,6 +4,10 @@ function clip
     echo $argv | xclip -selection clipboard
 end
 
+function copyfile
+    bat $argv[1] | xclip -selection clipboard
+end
+
 function logout
     pkill -u (whoami)
 end
