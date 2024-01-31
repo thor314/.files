@@ -21,15 +21,15 @@ abbr -a -g gsur "tk-git-submodule-replace"
 
 abbr -a -g hb "hub browse"
 abbr -a -g hbc "hub browse -c"
+abbr -a -g hcl tk-git-clone-and-cd
 abbr -a -g hpr "hub pull-request"
 abbr -a -g hi "hub issue"
 
 function tk-git-clone-and-cd # echo "clone from github convenience"
-  hub clone $argv[1]
+  hub clone $argv[1] --recursive
   set repo_name (path_to_name $argv[1]) # path-to-name is my helper function 
   cd $repo_name
 end
-abbr -a -g hcl gcl
 
 function tk-git-submodule-add # reminder to not use http, all sorts of weird cloning and pushing issues.
   set repo_name (path_to_name $argv[1])
