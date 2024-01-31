@@ -22,5 +22,6 @@ bind \eF "cargo fmt -v; commandline -f repaint"
 bind \eR "cargo run"
 bind \eS "vi $HOME/.files/fish/config.fish"
 bind \eT "cargo test"
+bind \eU "source $HOME/.files/fish/config.fish"
 bind \eV "vi $HOME/.vimrc"
 
