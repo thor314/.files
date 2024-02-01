@@ -7,7 +7,7 @@ function tk-hackmd-publish -d "publish file to hackmd and open"
   # create the note, save its id
   # read/write options: owner, signed_in, guest
   # comment options   : disabled, forbidden, owners, signed_in_users, everyone
-  set noteId (hackmd-cli notes create --content=$content --readPermission=everyone --writePermission=owner --commentPermission=everyone --no-header | string split " ")[2]
+  set noteId (hackmd-cli notes create --content=$content --readPermission=guest --writePermission=signed_in --commentPermission=everyone --no-header | string split " ")[2]
   echo created note with id: $noteId
   firefox https://hackmd.io/$noteId
 end
