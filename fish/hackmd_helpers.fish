@@ -14,8 +14,8 @@ end
 abbr -a -g tkhp "tk-hackmd-publish"
 
 function tk-hackmd-update -d "update note NOTEID on hackmd with the contents of FILE." 
-  set -l file $argv[1]
-  set -l noteId $argv[2]
+  set -l noteId $argv[1]
+  set -l file $argv[2]
   set content (string collect --no-trim-newlines < $file) 
   # create the note, save its id
   hackmd-cli notes update --noteId=noteId --content=$content 
@@ -23,7 +23,7 @@ function tk-hackmd-update -d "update note NOTEID on hackmd with the contents of 
   firefox https://hackmd.io/$noteId
 end
 abbr -a -g tkhu "tk-hackmd-update"
-abbr -a -g tkhd "hackmd-cli notes delete --noteId=$noteId"
+abbr -a -g tkhd "hackmd-cli notes delete --noteId=\$noteId"
 
 function tk-hackmd-rg -d "look for the note id of file with TITLE"
   set -l title $argv[1]
