@@ -2,6 +2,8 @@
 # pseudo-tdrop.fish
 # This script toggles the visibility of a specified application and moves it to the current workspace.
 # It accepts an application name as an input.
+# 
+# this script is pretty much a failure, and we have given up on it
 
 function is_app_running
   set app_name $argv[1]

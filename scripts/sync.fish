@@ -29,10 +29,16 @@ if not test -f ~/.cargo/bin/cargo-binstall
   cargo binstall cargo-binstall # fast binary installer, don't build from source
 end
 
-if not test -f /home/thor/.local/share/nvm/v20.6.1/bin/prettier
+if not contains prettier $PATH
+  nvm use latest
   npm install -g prettier
 end
   
+if not contains hackmd-cli $PATH
+  nvm use latest
+  npm install -g hackmd-cli
+end
+
 # zellij - buggy to start, and installation options are crap
 # if not test -f ~/.local/bin/zellij
 #     wget https://github.com/zellij-org/zellij/releases/download/v0.39.2/zellij-x86_64-unknown-linux-musl.tar.gz

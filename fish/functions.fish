@@ -42,7 +42,7 @@ function rga
 end
 
 function sync
-    echo "$argv" >> ~/.files/scripts/sync.sh
+    echo "$argv" >> ~/.files/scripts/sync.fish
 end
 
 function unset-right # call to remove the right-prompt ui element
