@@ -23,6 +23,8 @@ function tk-hackmd-update -d "update note NOTEID on hackmd with the contents of 
   firefox https://hackmd.io/$noteId
 end
 abbr -a -g tkhu "tk-hackmd-update"
+
+abbr -a -g tkhg "hackmd-cli notes --noteId=\$noteId"
 abbr -a -g tkhd "hackmd-cli notes delete --noteId=\$noteId"
 
 function tk-hackmd-rg -d "look for the note id of file with TITLE"
