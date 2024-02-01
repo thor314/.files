@@ -28,18 +28,18 @@ abbr -a -g hi "hub issue"
 
 function tk-git-clone-and-cd # echo "clone from github convenience"
   hub clone $argv[1] --recursive
-  set repo_name (path_to_name $argv[1]) # path-to-name is my helper function 
+  set repo_name (tk-path-to-name $argv[1]) # path-to-name is my helper function 
   cd $repo_name
 end
 
 function tk-git-submodule-add # reminder to not use http, all sorts of weird cloning and pushing issues.
-  set repo_name (path_to_name $argv[1])
+  set repo_name (tk-path-to-name $argv[1])
   git submodule add git@github.com:thor314/$repo_name.git $argv[1]
   git add --all . && git commit -m "added submodule $repo_name"
 end
 
 function tk-git-submodule-replace # for when accidentally committed a submodule instead of adding it
-  set repo_name (path_to_name $argv[1])
+  set repo_name (tk-path-to-name $argv[1])
   git rm -r --cached $repo_name
   mv $repo_name ../$repo_name.tmp.d
   git add --all . && git commit -m "removed $repo_name"

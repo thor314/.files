@@ -10,7 +10,6 @@ abbr -a -g acs "apt-cache search"
 abbr -a -g bat "bat --theme=zenburn --style=plain" # plain: no line numbers
 
 abbr -a -g cat "bat --theme=zenburn --style=plain" # i like fancy cats
-abbr -a -g c clip
 abbr -a -g cpr 'cp -r'
  
 abbr -a -g df "duf"
@@ -49,7 +48,7 @@ abbr -a -g rrj "rusty-rain -c jap"
 abbr -a -g s source # search replace in directory
 abbr -a -g sr 'fd --type file -x sd' # search replace in directory
 abbr -a -g srp 'fd --type file -x sd -p' # search replace in directory practice
-abbr -a -g sc "maim -s | xclip -selection clipboard -target image/png"
+# abbr -a -g sc "maim -s | xclip -selection clipboard -target image/png"
 abbr -a -g sf 'surfraw -browser=firefox' # cli for internet search
 
 abbr -a -g top 'btm' # kinky
