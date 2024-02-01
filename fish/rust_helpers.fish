@@ -39,26 +39,36 @@ abbr -a -g ru rustup
 
 # cargo generate
 function tk-cargo-generate
-    if not test (count $argv) -eq 2
-        echo "Error: Function requires 2 arguments."
-        return 1
-    end
-    set binlib $argv[1]
-    set name $argv[2]
-    
-    cargo generate --path ~/projects/tk-cargo-generate/template $binlib -n $name 
-    cd $name
-    cargo update && cargo fmt && taplo fmt
-    git add --all . && git commit -m "init"
-    cargo check -q &
+  if not test (count $argv) -eq 2
+    echo "Error: Function requires 2 arguments."
+    return 1
+  end
+  set binlib $argv[1]
+  set name $argv[2]
+  
+  cargo generate --path ~/projects/tk-cargo-generate/template $binlib -n $name 
+  cd $name
+  cargo update && cargo fmt && taplo fmt
+  git init && git add --all . && git commit -m "init"
+  cargo check -q &
 end
 
 # check everything
 function tk-cargo-checkall-clippy-fmt-taplo
-    echo checking (pwd)
-    cargo check -q
-    cargo clippy -- -D warnings
-    cargo fmt --check
-    taplo fmt --check
+  echo checking (pwd)
+  cargo check -q
+  cargo clippy -- -D warnings
+  cargo fmt --check
+  taplo fmt --check
 end
 
+function tk-rust-playground-new
+  set binlib $argv[1]
+  set name $argv[2]
+  cd ~/rust-playground || exit 1
+  tk-cargo-generate $binlib $name
+  pushd .. && tk-git-submodule-add $name && popd
+
+
+
+end
