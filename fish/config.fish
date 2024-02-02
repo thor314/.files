@@ -23,13 +23,7 @@ if status is-interactive
     set TERM xterm-256color 
   end
 
-  # having ssh-issues? configure keychain
-  # keychain --eval --quiet -Q | source # ensure agent is running
-  # keychain --nogui ~/.ssh/id_ed25519 &>> /dev/null # if no key is not yet known, add key
-  # 2024-10-29 run these to ensure my ssh keys are loaded in a way that my cronjobs can access
-  # equivalent: `eval (ssh-agent -c)`, but looks for existing agents, avoids dupl/pass reentry 
-  eval (keychain --eval -Q) &>> /dev/null # -Q is "quick" not quiet
-  keychain --nogui ~/.ssh/id_ed25519 -Q &>> /dev/null
+  tk-keychain ~/.ssh/id_ed25519 # avoid ssh-key issues
 
   # even if set elsewhere, to avoid capslock vscode bug, keep this line
   setxkbmap dvorak -option caps:ctrl_modifier 
