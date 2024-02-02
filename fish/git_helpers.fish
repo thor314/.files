@@ -18,7 +18,7 @@ abbr -a -g gpf 'git push -f'
 abbr -a -g gpu 'git push -u origin $(git symbolic-ref --short HEAD)'  # after creating a new branch
 abbr -a -g gs "git status -sb" # better git status
 abbr -a -g gsua "tk-git-submodule-add"
-abbr -a -g gsur "tk-git-submodule-replace"
+abbr -a -g gsurm "tk-git-submodule-replace"
 
 abbr -a -g hb "hub browse"
 abbr -a -g hbc "hub browse -c"
@@ -41,6 +41,7 @@ end
 # a git helper that removes a submodule
 
 function tk-git-submodule-replace # for when accidentally committed a submodule instead of adding it
+  echo "warn: maybe buggy"
   set repo_name (tk-path-to-name $argv[1])
   git rm -r --cached $repo_name
   mv $repo_name ../$repo_name.tmp.d
