@@ -64,7 +64,8 @@ abbr -a -g v vim
 
 abbr -a -g v. "vi ~/.files/install.conf.yaml"
 abbr -a -g v.p "vi ~/.private/install.conf.yaml"
-abbr -a -g v.s "vi ~/.files/scripts/sync.fish"
+
+abbr -a -g vcs "vi ~/.files/.cron/help_scripts/sync.fish"
 
 abbr -a -g ve "vi ~/.config/espanso/match"
 abbr -a -g veo "vi ~/.config/espanso/match/markdown/_obsidian.yml"

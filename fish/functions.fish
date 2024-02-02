@@ -48,7 +48,7 @@ end
 abbr -a -g rga "tk-rga"
 
 function tk-save-sync
-  echo "$argv" >> ~/.files/scripts/sync.fish
+  echo "$argv" >> ~/.cron/help_scripts/sync.fish
 end
 abbr -a -g tkss "tk-save-sync"
 
