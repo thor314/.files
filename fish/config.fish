@@ -29,7 +29,7 @@ if status is-interactive
   # 2024-10-29 run these to ensure my ssh keys are loaded in a way that my cronjobs can access
   # equivalent: `eval (ssh-agent -c)`, but looks for existing agents, avoids dupl/pass reentry 
   eval (keychain --eval -Q) &>> /dev/null # -Q is "quick" not quiet
-  # keychain --nogui ~/.ssh/id_ed25519 -Q &>> /dev/null
+  keychain --nogui ~/.ssh/id_ed25519 -Q &>> /dev/null
 
   # even if set elsewhere, to avoid capslock vscode bug, keep this line
   setxkbmap dvorak -option caps:ctrl_modifier 
