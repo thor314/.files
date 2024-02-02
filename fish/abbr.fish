@@ -3,6 +3,9 @@
 # aliases a poor man's tldr: grep through my aliases for examples.
 # define functions and bind aliases to them to include them in rg results.
 
+abbr -a -g cmdh "node /home/thor/fun/cmdh/dist/index.js" 
+abbr -a -g oll "ollama run llama2"
+
 abbr -a -g agi "sudo apt -y install"
 abbr -a -g ags "apt-cache search"
 abbr -a -g acs "apt-cache search"
