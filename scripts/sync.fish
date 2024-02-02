@@ -39,6 +39,14 @@ if not contains hackmd-cli $PATH
   npm install -g hackmd-cli
 end
 
+if not contains tsc $PATH # a gizmo to give me linux cli instructions from the command line
+  nvm use latest
+  npm install -g typescript
+  curl https://ollama.ai/install.sh | sh
+  hub clone https://github.com/pgibler/cmdh ~/fun/cmdh && cd cmdh
+  ./install.sh
+end
+
 # zellij - buggy to start, and installation options are crap
 # if not test -f ~/.local/bin/zellij
 #     wget https://github.com/zellij-org/zellij/releases/download/v0.39.2/zellij-x86_64-unknown-linux-musl.tar.gz
