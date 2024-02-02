@@ -38,6 +38,8 @@ function tk-git-submodule-add # reminder to not use http, all sorts of weird clo
   git add --all . && git commit -m "added submodule $repo_name"
 end
 
+# a git helper that removes a submodule
+
 function tk-git-submodule-replace # for when accidentally committed a submodule instead of adding it
   set repo_name (tk-path-to-name $argv[1])
   git rm -r --cached $repo_name
