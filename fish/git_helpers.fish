@@ -21,7 +21,6 @@ abbr -a -g gsua "tk-git-submodule-add"
 abbr -a -g gsur "tk-git-submodule-replace"
 
 abbr -a -g hb "hub browse"
-
 abbr -a -g hbc "hub browse -c"
 abbr -a -g hcl "tk-git-clone-and-cd"
 abbr -a -g hpr "hub pull-request"
