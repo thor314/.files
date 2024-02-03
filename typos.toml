@@ -18,17 +18,12 @@ identifier-leading-digits = false
 locale = "en"
 # Option to specify each of these without trailing `re` for non-regex
 extend-ignore-identifiers-re = [] 
-extend-ignore-words-re = ["groth", "seemless", "linktree", "buidl", "shs", "goin", "tigger", "konstant", "ba", ".."]
+extend-ignore-words-re = ["groth", "seemless", "linktree", "buidl", "shs", "goin", "tigger", "konstant", "ba"]
 extend-ignore-re = []
 
 [default.extend-identifiers] 
-
 [default.extend-words] #replacements
 theyre = "they're"
-
-[default.ignore-re]
-# .*[2] = 
-
 
 [type.css]
 extend-glob = []
