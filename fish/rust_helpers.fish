@@ -66,6 +66,6 @@ function tk-rust-playground-new
   argparse --min-args=1 -- $argv
   set name $argv[1]
   cd ~/rust-playground || exit 1
-  tk-cargo-generate $binlib $name
+  tk-cargo-generate $name $_flag_c $_flag_b
   pushd .. && tk-git-submodule-add $name && popd
 end
