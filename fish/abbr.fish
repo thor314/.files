@@ -67,6 +67,7 @@ abbr -a -g v vim
 
 abbr -a -g v. "vi ~/.files/install.conf.yaml"
 abbr -a -g v.p "vi ~/.private/install.conf.yaml"
+abbr -a -g v.t "vi ~/.files/typos.toml"
 
 abbr -a -g vcs "vi ~/.files/.cron/help_scripts/sync.fish"
 

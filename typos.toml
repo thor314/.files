@@ -1,10 +1,12 @@
+# Configure the typos cli tool
+# 
 [files]
-extend-exclude = []
+extend-exclude = [] # ignore these filenames, supports regex
 ignore-hidden = true
 ignore-files = true
 ignore-dot = true
 ignore-vcs = true
-ignore-global = true
+ignore-global = true # set false to disrespect global ignore files
 ignore-parent = true
 
 [default]
@@ -19,9 +21,9 @@ extend-ignore-identifiers-re = []
 extend-ignore-words-re = []
 extend-ignore-re = []
 
-[default.extend-identifiers]
+[default.extend-identifiers] # change these
 
-[default.extend-words]
+[default.extend-words] # change these
 
 [type.css]
 extend-glob = []
