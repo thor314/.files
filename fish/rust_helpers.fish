@@ -51,6 +51,7 @@ function tk-cargo-generate
   typos --format brief --config=/home/thor/.files/typos.toml --write-changes
   if not set -q _flag_g 
     git init && git add --all . && git commit -m "init"
+    hub create && git push -u origin (git symbolic-ref -short HEAD)
   end
   cargo check -q &
 end

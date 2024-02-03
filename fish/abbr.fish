@@ -48,17 +48,18 @@ abbr -a -g rr "rusty-rain -c bin"
 abbr -a -g rrc "rusty-rain -c crab"
 abbr -a -g rrj "rusty-rain -c jap"
 
-abbr -a -g s source # search replace in directory
+abbr -a -g s source 
+abbr -a -g sfc 'source ~/.files/fish/config.fish'
 abbr -a -g sr 'fd --type file -x sd' # search replace in directory
 abbr -a -g srp 'fd --type file -x sd -p' # search replace in directory practice
-# abbr -a -g sc "maim -s | xclip -selection clipboard -target image/png"
 abbr -a -g sf 'surfraw -browser=firefox' # cli for internet search
+# abbr -a -g sc "maim -s | xclip -selection clipboard -target image/png"
 
 abbr -a -g top 'btm' # kinky
 abbr -a -g thes 'moby' # thesaurus
 abbr -a -g tf "taplo fmt"
-abbr -a -g typos "typos --config=/home/thor/.files/typos.toml --format=brief"
-abbr -a -g typos-fix "typos --config=/home/thor/.files/typos.toml --write-changes"
+abbr -a -g typos "typos --format=brief --config=/home/thor/.files/typos.toml"
+abbr -a -g typos-fix "typos --format=brief --config=/home/thor/.files/typos.toml"
 
 ## VIM
 abbr -a -g vi vim
