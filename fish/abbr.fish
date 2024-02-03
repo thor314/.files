@@ -57,6 +57,8 @@ abbr -a -g sf 'surfraw -browser=firefox' # cli for internet search
 abbr -a -g top 'btm' # kinky
 abbr -a -g thes 'moby' # thesaurus
 abbr -a -g tf "taplo fmt"
+abbr -a -g typos "typos --config=~/.files/typos.toml"
+abbr -a -g typos-fix "typos --config=~/.files/typos.toml --write-changes"
 
 ## VIM
 abbr -a -g vi vim
