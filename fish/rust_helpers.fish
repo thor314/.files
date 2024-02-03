@@ -41,12 +41,9 @@ abbr -a -g rpnl tk-rust-playground-new --lib
 
 # cargo generate
 function tk-cargo-generate
-  if not test (count $argv) -eq 2
-    echo "Error: Function requires 2 arguments."
-    return 1
-  end
-  set binlib $argv[1]
-  set name $argv[2]
+  argparse 'b/bin' 'l/lib' -- $argv
+  argparse --min-args=1 -- $argv
+  set name $argv[1]
   
   cargo generate --path ~/projects/tk-cargo-generate/template $binlib -n $name 
   cd $name
@@ -65,8 +62,9 @@ function tk-cargo-checkall-clippy-fmt-taplo
 end
 
 function tk-rust-playground-new
-  set binlib $argv[1]
-  set name $argv[2]
+  argparse 'b/bin' 'l/lib' -- $argv
+  argparse --min-args=1 -- $argv
+  set name $argv[1]
   cd ~/rust-playground || exit 1
   tk-cargo-generate $binlib $name
   pushd .. && tk-git-submodule-add $name && popd
