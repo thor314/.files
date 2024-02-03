@@ -36,8 +36,8 @@ abbr -a -g cyf  'cargo clippy --fix' # try to fix lints
 abbr -a -g cgtb 'tk-cargo-generate --bin cgtb'
 abbr -a -g cgtl 'tk-cargo-generate --lib cgtl'
 abbr -a -g ru rustup
-abbr -a -g rpnb tk-rust-playground-new --bin
-abbr -a -g rpnl tk-rust-playground-new --lib
+abbr -a -g rpnb 'tk-rust-playground-new --bin'
+abbr -a -g rpnl 'tk-rust-playground-new --lib'
 
 # cargo generate
 function tk-cargo-generate
