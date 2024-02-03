@@ -33,15 +33,15 @@ abbr -a -g cwr  'cargo watch -x run'
 abbr -a -g cyf  'cargo clippy --fix' # try to fix lints
 
 ## test workspace generation
-abbr -a -g cgtb 'tk-cargo-generate --bin cgtb'
-abbr -a -g cgtl 'tk-cargo-generate --lib cgtl'
+abbr -a -g cgtb 'tk-cargo-generate --bin -g cgtb'
+abbr -a -g cgtl 'tk-cargo-generate --lib -g cgtl'
 abbr -a -g ru rustup
 abbr -a -g rpb 'tk-rust-playground-new --bin'
 abbr -a -g rpl 'tk-rust-playground-new --lib'
 
 # cargo generate
 function tk-cargo-generate
-  argparse 'b/bin' 'l/lib' 'g/gitless' -- $argv
+  argparse --exclusive bin,lib b/bin l/lib g/gitless -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
   
@@ -50,7 +50,7 @@ function tk-cargo-generate
   cargo update && cargo fmt && taplo fmt
   typos --format brief --config=/home/thor/.files/typos.toml --write-changes
   if not set -q _flag_g 
-    git init && git add --all . && git commit -m "init"
+    git add --all . && git commit -m "init"
     hub create && git push -u origin (git symbolic-ref -short HEAD)
   end
   cargo check -q &
@@ -67,7 +67,7 @@ function tk-cargo-checkall-clippy-fmt-taplo
 end
 
 function tk-rust-playground-new
-  argparse 'b/bin' 'l/lib' 'g/gitless' -- $argv
+  argparse --exclusive bin,lib b/bin l/lib g/gitless -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
   cd ~/rust-playground || exit 1
