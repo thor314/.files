@@ -41,14 +41,16 @@ abbr -a -g rpl 'tk-rust-playground-new --lib'
 
 # cargo generate
 function tk-cargo-generate
-  argparse 'b/bin' 'l/lib' -- $argv
+  argparse 'b/bin' 'l/lib' 'g/gitless' -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
   
   cargo generate --path ~/projects/tk-cargo-generate/template $binlib -n $name 
   cd $name
   cargo update && cargo fmt && taplo fmt
-  git init && git add --all . && git commit -m "init"
+  if set -q _flag_g 
+    git init && git add --all . && git commit -m "init"
+  end
   cargo check -q &
 end
 
