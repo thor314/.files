@@ -48,7 +48,7 @@ function tk-cargo-generate
   cargo generate --path ~/projects/tk-cargo-generate/template $binlib -n $name 
   cd $name
   cargo update && cargo fmt && taplo fmt
-  if set -q _flag_g 
+  if not set -q _flag_g 
     git init && git add --all . && git commit -m "init"
   end
   cargo check -q &
@@ -64,10 +64,12 @@ function tk-cargo-checkall-clippy-fmt-taplo
 end
 
 function tk-rust-playground-new
-  argparse 'b/bin' 'l/lib' -- $argv
+  argparse 'b/bin' 'l/lib' 'g/gitless' -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
   cd ~/rust-playground || exit 1
-  tk-cargo-generate $name $_flag_c $_flag_b
-  cd .. && tk-git-submodule-add $name && cd $name
+  tk-cargo-generate $name $_flag_c $_flag_b $_flag_g
+  if not set -q _flag_g 
+    cd .. && tk-git-submodule-add $name && cd $name
+  end
 end
