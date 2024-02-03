@@ -47,7 +47,7 @@ function tk-cargo-generate
   
   cargo generate --path ~/projects/tk-cargo-generate/template $binlib -n $name 
   cd $name
-  cargo update && cargo fmt && taplo fmt
+  cargo update && cargo fmt && taplo fmt && typos --write-changes
   if not set -q _flag_g 
     git init && git add --all . && git commit -m "init"
   end
@@ -59,6 +59,7 @@ function tk-cargo-checkall-clippy-fmt-taplo
   echo checking (pwd)
   cargo check -q
   cargo clippy -- -D warnings
+  typos 
   cargo fmt --check
   taplo fmt --check
 end
