@@ -59,7 +59,7 @@ function tk-cargo-checkall-clippy-fmt-taplo
   echo checking (pwd)
   cargo check -q
   cargo clippy -- -D warnings
-  typos 
+  typos --format brief
   cargo fmt --check
   taplo fmt --check
 end
