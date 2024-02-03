@@ -41,8 +41,7 @@ abbr -a -g rpl 'tk-rust-playground-new --lib'
 
 # cargo generate
 function tk-cargo-generate
-  argparse g/gitless --exclusive b/bin,l/lib b/bin l/lib -- $argv
-  # argparse 'b/bin' 'l/lib' 'g/gitless' -- $argv
+  argparse 'b/bin' 'l/lib' 'g/gitless' -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
   
@@ -68,8 +67,7 @@ function tk-cargo-checkall-clippy-fmt-taplo
 end
 
 function tk-rust-playground-new
-  argparse g/gitless --exclusive b,l b/bin l/lib -- $argv
-  # argparse 'b/bin' 'l/lib' 'g/gitless' -- $argv
+  argparse 'b/bin' 'l/lib' 'g/gitless' -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
   cd ~/rust-playground || exit 1
