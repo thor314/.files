@@ -21,3 +21,4 @@ setup/clones/*
 *.swp
 leftwm/themes/*
 *cronlog*
+.swo
