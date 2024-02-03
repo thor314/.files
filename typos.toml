@@ -1,29 +1,34 @@
 # Configure the typos cli tool
-# 
 [files]
 extend-exclude = [] # ignore these filenames, supports regex
 ignore-hidden = true
 ignore-files = true
 ignore-dot = true
 ignore-vcs = true
-ignore-global = true # set false to disrespect global ignore files
+ignore-global = true # d: true. Set false to disrespect global ignore files
 ignore-parent = true
 
 [default]
-binary = false
-check-filename = true
+binary = false # default: false. set true to search binaries.
+check-filename = true 
 check-file = true
 unicode = true
 ignore-hex = true
 identifier-leading-digits = false
 locale = "en"
-extend-ignore-identifiers-re = []
-extend-ignore-words-re = []
+# Option to specify each of these without trailing `re` for non-regex
+extend-ignore-identifiers-re = [] 
+extend-ignore-words-re = ["groth", "seemless", "linktree", "buidl", "shs", "goin", "tigger", "konstant", "ba", ".{2}"]
 extend-ignore-re = []
 
-[default.extend-identifiers] # change these
+[default.extend-identifiers] 
 
-[default.extend-words] # change these
+[default.extend-words] #replacements
+theyre = "they're"
+
+[default.ignore-re]
+# .*[2] = 
+
 
 [type.css]
 extend-glob = []
