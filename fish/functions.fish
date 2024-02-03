@@ -21,7 +21,9 @@ abbr -a -g logout tk-logout
 function tk-keychain -d "configure keychain to correctly initialize and load my ssh-key"
   set key $argv[1]
   if not test -f $key ; echo "WARNING! no such key" && exit 1 ; end
-  eval (keychain --eval -Q) &>> /dev/null # -Q is "quick" not quiet; start the keychain daemon
+  # 2024-02-02 - commenting, may cause issues down the line, we'll seeeeee
+  # -Q is "quick" not quiet
+  # eval (keychain --eval -Q) &>> /dev/null # 
   keychain --nogui $key -Q &>> /dev/null # and add my key
 end
 
