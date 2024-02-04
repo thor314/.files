@@ -47,7 +47,8 @@ function tk-cargo-generate
   
   cargo generate --path ~/projects/tk-cargo-generate/template $_flag_bin $_flag_lib -n $name 
   cd $name
-  cargo update && cargo fmt && taplo fmt
+  cargo update
+  cargo fmt && taplo fmt
   typos --format brief --config=/home/thor/.files/typos.toml --write-changes
   if not set -q _flag_g 
     git add --all . && git commit -m "init"
