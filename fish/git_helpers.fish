@@ -41,17 +41,20 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
   git add --all . && git commit -m "added submodule $repo_name"
 end
 
-# 2024-02-03 - untested
+# 2024-02-03 - todo
 function tk-git-submodule-foreach -d "better git submodule foreach"
   argparse --min-args=1 -- $argv
   set dir $argv[1]
-  set commands $argv[2..]
+  # set commands $argv[2..]
   pushd dir
   set -l modules (git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
-  for m in $modules ; pushd m && (commands) && popd ; end
+  for m in $modules 
+    pushd m
+      # todo
+    popd  
+  end
   popd 
 end
-# a git helper that removes a submodule
 
 function tk-git-submodule-replace # for when accidentally committed a submodule instead of adding it
   argparse --min-args=1 -- $argv
