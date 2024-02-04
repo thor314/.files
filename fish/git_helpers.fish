@@ -35,7 +35,7 @@ end
 
 function tk-git-submodule-add -d "add submodule to gitmodules" 
   # reminder to not use http, all sorts of weird cloning and pushing issues.
-  argparse -l/local -- $argv
+  argparse l/local -- $argv
   argparse --min-args=1 -- $argv
   set repo_name (tk-path-to-name $argv[1])
   git submodule add git@github.com:thor314/$repo_name.git $argv[1]
@@ -88,7 +88,7 @@ function tk-git-add-all-commit-message-push-create-upstream-branch # new branch
   git push --set-upstream origin (git branch --show-current)
 end
 function tk-git-add-all-commit-message-push-create-repo # new repo
-  argparse -p/private -- $argv
+  argparse p/private -- $argv
   argparse --min-args=1 -- $argv
   hub create $_flag_p # optional arg to allow private; i.e. -p, pass to hub create
   tk-git-add-all-commit-message-push-create-upstream-branch $argv[1]
