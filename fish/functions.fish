@@ -2,7 +2,10 @@
 # Thor's lil functions
 
 function tk-copyline -d "copy line to clipboard"
+  argparse v/verbose -- $argv
+  argparse --min-args=1 -- $argv
   echo $argv | xclip -selection clipboard
+  if set -q _flag_v ; echo -e "clipboard: $(xclip -o selection clipboard)" ; end
 end
 
 function tk-copyfile -d "copy file to tk-clipboard"
@@ -21,10 +24,9 @@ abbr -a -g logout tk-logout
 function tk-keychain -d "configure keychain to correctly initialize and load my ssh-key"
   set key $argv[1]
   if not test -f $key ; echo "WARNING! no such key" && exit 1 ; end
-  # 2024-02-02 - commenting, may cause issues down the line, we'll seeeeee
-  # -Q is "quick" not quiet
-  eval (keychain --eval -Q) &>> /dev/null # 
-  keychain --nogui $key -Q &>> /dev/null # and add my key
+  # -Q is "Quick"--use existing agents if one exists
+  eval (keychain --eval -Q) &>> /dev/null # set up the ssh-agent
+  keychain --nogui $key -Q &>> /dev/null # and add my key to the session if not yet added
 end
 
 function tk-make-dotfile 
