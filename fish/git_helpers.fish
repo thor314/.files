@@ -35,10 +35,13 @@ end
 
 function tk-git-submodule-add -d "add submodule to gitmodules" 
   # reminder to not use http, all sorts of weird cloning and pushing issues.
+  argparse -l/local -- $argv
   argparse --min-args=1 -- $argv
   set repo_name (tk-path-to-name $argv[1])
   git submodule add git@github.com:thor314/$repo_name.git $argv[1]
-  git add --all . && git commit -m "added submodule $repo_name"
+  if not set -q _flag_l 
+    git add --all . && git commit -m "added submodule $repo_name"
+  end
 end
 
 # 2024-02-03 - todo
