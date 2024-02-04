@@ -2,26 +2,26 @@
 # Thor's lil functions
 
 function tk-copyline -d "copy line to clipboard"
-  argparse v/verbose -- $argv
+  argparse q/quiet -- $argv
   argparse --min-args=1 -- $argv
-  echo $argv | xclip -selection clipboard
-  if set -q _flag_v ; echo -e "clipboard: $(xclip -o selection clipboard)" ; end
+  echo $argv | xclip -i
+  if not set -q _flag_q ; echo -e "clipboard: $(xclip -o)" ; end
 end
 
 function tk-copyfile -d "copy file to tk-clipboard"
-  bat $argv | xclip -selection -clipboard
+  argparse q/quiet -- $argv
+  argparse --min-args=1 -- $argv
+  bat $argv | xclip -i
+  if not set -q _flag_q ; echo -e "clipboard: \n$(xclip -o)" ; end
 end
 
 function tk-setfile -d "set arg1 with the contents of file without mangling newlines"
+  argparse --min-args=2 -- $argv
   set $argv[1] (string collect --no-trim-newlines < $argv[2])
 end
 
-function tk-logout
-  pkill -u (whoami)
-end
-abbr -a -g logout tk-logout
-
 function tk-keychain -d "configure keychain to correctly initialize and load my ssh-key"
+  argparse --min-args=1 -- $argv
   set key $argv[1]
   if not test -f $key ; echo "WARNING! no such key" && exit 1 ; end
   # -Q is "Quick"--use existing agents if one exists
@@ -30,16 +30,21 @@ function tk-keychain -d "configure keychain to correctly initialize and load my 
 end
 
 function tk-make-dotfile 
+  argparse q/quiet -- $argv
+  argparse --min-args=1 -- $argv
   set dotpath $argv[1]
   set dotname (tk-path-to-name $dotpath)
   mv $dotfile "~/.files/"
-  echo "adding #    $dotpath: $dotname   to dotbot config"
+  if not set -q _flag_q 
+    echo "adding # $dotpath: $dotname to dotbot config"
+  end
   echo "#    $dotpath: $dotname" >> ~/.files/install.conf.yaml
   vi "~/.files/install.conf.yaml"
 end
 
 function tk-path-to-name
   # obtain the trailing directory or filename from a path; trim the optional trailing slash 
+  argparse --min-args=1 -- $argv
   set path $argv[1]
   set no_trailing_slash_path (string trim -r -c '/' -- $path)
   set last_item (string replace -r '.*/' '' --  $no_trailing_slash_path)
@@ -47,16 +52,19 @@ function tk-path-to-name
 end 
 
 function tk-rga
+  argparse --min-args=1 -- $argv
   rg -e "$argv" | cut -d" " -f4-
 end
 abbr -a -g rga "tk-rga"
 
 function tk-save-sync
+  argparse --min-args=1 -- $argv
   echo "$argv" >> ~/.cron/help_scripts/sync.fish
 end
 abbr -a -g tkss "tk-save-sync"
 
 function tk-save-unsorted
+  argparse --min-args=1 -- $argv
   echo "$argv" >> ~/.setup/unsorted.sh
 end
 abbr -a -g tksu "tk-save-unsorted"

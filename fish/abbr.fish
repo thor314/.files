@@ -37,6 +37,7 @@ abbr -a -g less 'bat'
 abbr -a -g ls 'lsd --icon never'
 abbr -a -g la 'lsd --icon never -al'
 abbr -a -g ll 'lsd --icon never -al'
+abbr -a -g logout pkill -u (whoami)
 
 abbr -a -g pipi "pip install"
 abbr -a -g python python3
