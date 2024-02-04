@@ -41,11 +41,11 @@ abbr -a -g rpl 'tk-rust-playground-new --lib'
 
 # cargo generate
 function tk-cargo-generate
-  argparse --exclusive bin,lib b/bin l/lib g/gitless -- $argv
+  argparse --exclusive bin,lib bin lib g/gitless -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
   
-  cargo generate --path ~/projects/tk-cargo-generate/template $binlib -n $name 
+  cargo generate --path ~/projects/tk-cargo-generate/template $_flag_bin $_flag_lib -n $name 
   cd $name
   cargo update && cargo fmt && taplo fmt
   typos --format brief --config=/home/thor/.files/typos.toml --write-changes
