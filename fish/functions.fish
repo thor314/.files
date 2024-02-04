@@ -2,11 +2,11 @@
 # Thor's lil functions
 
 function tk-copyline -d "copy line to clipboard"
-  echo $argv | clip -selection clipboard
+  echo $argv | xclip -selection clipboard
 end
 
 function tk-copyfile -d "copy file to tk-clipboard"
-  bat $argv | clip -selection -clipboard
+  bat $argv | xclip -selection -clipboard
 end
 
 function tk-setfile -d "set arg1 with the contents of file without mangling newlines"
