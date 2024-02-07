@@ -187,14 +187,33 @@ nnoremap <F3> :NERDTreeToggle<CR>
 " nnoremap Q q@ " bug
 " nnoremap q @@ " bug
 
+" 2024-02-07 
+" clipboard issues, workaround use this function (thanks chatGPT)
+" Define a function to yank text using xclip. 
+" testing pending
+function! YankToXclip()
+  let l:save_unnamed_register = @"
+  if mode() == "v"
+    " In visual mode, yank selected text
+    normal! `<v`>y
+  elseif mode() == "n"
+    " In normal mode, yank the current line
+    normal! yy
+  endif
+  let @+=@0
+  let @"=l:save_unnamed_register
+  call system('xclip -selection clipboard', @0)
+endfunction
+nnoremap <leader>y :call YankToXclip()<CR>
+vnoremap <leader>y :call YankToXclip()<CR>
+
 """ Settings 
 " Search following list of options, or type `:help <option>`: https://vimhelp.org/options.txt.html
 " Ref: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
 " neovim defaults: https://neovim.io/doc/user/vim_diff.html#nvim-defaults
 " 
 "" Misc
-" set clipboard=unnamedplus  " Use the + register (system clipboard) by default
-set clipboard=unnamed  " Use the * register (primary selection) by default
+set clipboard=unnamedplus  " Use the + register (system clipboard) by default
 set nocompatible      " Disable compatibility with old vi, avoid issues 
 set hidden            " Allow hidden buffers, don't limit to 1 file per window/split
 set nobackup          " Do not save backup files.
