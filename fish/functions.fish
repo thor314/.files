@@ -42,10 +42,9 @@ function tk-make-dotfile
   vi "~/.files/install.conf.yaml"
 end
 
-function tk-path-to-name
-  # obtain the trailing directory or filename from a path; trim the optional trailing slash 
+function tk-path-to-name -d "obtain the trailing directory or filename from a path; trim the optional trailing slash"
   argparse --min-args=1 -- $argv
-  set path $argv[1]
+  set path (realpath $argv[1])
   set no_trailing_slash_path (string trim -r -c '/' -- $path)
   set last_item (string replace -r '.*/' '' --  $no_trailing_slash_path)
   echo $last_item
@@ -54,12 +53,19 @@ end
 function tk-append-suffix
   # Check if two arguments are provided
   argparse --min-args=2 -- $argv
-  echo $argv[1]$argv[2]
+  set path (realpath $argv[1])
+  echo $path$argv[2]
 end
 
 function tk-strip-suffix
   argparse --min-args=1 -- $argv
-  echo (string split -r '.' -- $argv[1])[1]
+  set path (realpath $argv[1])
+  set out (string split -r '.' -- $argv[1])[..-2]
+  if test (count $out) -gt 1 
+    echo "path contains more than one ."
+    exit 1 
+  end
+  echo $out
 end
 
 function tk-rga
