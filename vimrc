@@ -193,7 +193,8 @@ nnoremap <F3> :NERDTreeToggle<CR>
 " neovim defaults: https://neovim.io/doc/user/vim_diff.html#nvim-defaults
 " 
 "" Misc
-set clipboard=unnamedplus " set default yank register to system clipboard
+" set clipboard=unnamedplus  " Use the + register (system clipboard) by default
+set clipboard=unnamed  " Use the * register (primary selection) by default
 set nocompatible      " Disable compatibility with old vi, avoid issues 
 set hidden            " Allow hidden buffers, don't limit to 1 file per window/split
 set nobackup          " Do not save backup files.
