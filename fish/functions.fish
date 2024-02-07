@@ -50,18 +50,17 @@ function tk-path-to-name -d "obtain the trailing directory or filename from a pa
   echo $last_item
 end 
 
-function tk-append-suffix
-  # Check if two arguments are provided
+function tk-append-suffix -d "append .suffix to a file or path"
   argparse --min-args=2 -- $argv
   set path (realpath $argv[1])
-  echo $path$argv[2]
+  echo {$path}$argv[2]
 end
 
-function tk-strip-suffix
+function tk-strip-suffix -d "remove .suffix from a file or path"
   argparse --min-args=1 -- $argv
   set path (realpath $argv[1])
   set out (string split -r '.' -- $argv[1])[..-2]
-  if test (count $out) -gt 1 
+  if test (count $out) -ne 1 
     echo "path contains more than one ."
     exit 1 
   end
