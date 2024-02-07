@@ -51,6 +51,17 @@ function tk-path-to-name
   echo $last_item
 end 
 
+function tk-append-suffix
+  # Check if two arguments are provided
+  argparse --min-args=2 -- $argv
+  echo $argv[1]$argv[2]
+end
+
+function tk-strip-suffix
+  argparse --min-args=1 -- $argv
+  echo (string split -r '.' -- $argv[1])[1]
+end
+
 function tk-rga
   argparse --min-args=1 -- $argv
   rg -e "$argv" | cut -d" " -f4-
