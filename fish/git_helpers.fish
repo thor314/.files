@@ -89,6 +89,8 @@ function tk-git-submodule-init -d "init submodules recursively, pull if exists, 
   end
 end
 
+function tk-git-submodule-update -d "Update submodules recursively, add untracked repos to .gitmodules, and pull updates"
+end
 
 function tk-git-submodule-add -d "add submodule to gitmodules" 
   # reminder to not use http, all sorts of weird cloning and pushing issues.
@@ -104,17 +106,8 @@ abbr -a -g "git submodule add" tk-git-submodule-add
 
 # 2024-02-03 - todo
 function tk-git-submodule-foreach -d "better git submodule foreach"
-  argparse --min-args=1 -- $argv
-  set dir $argv[1]
-  # set commands $argv[2..]
-  pushd dir
-  set -l modules (git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
-  for m in $modules 
-    pushd m
-      # todo
-    popd  
-  end
-  popd 
+  echo "not yet implemented"
+  exit 1
 end
 
 function tk-git-submodule-replace # for when accidentally committed a submodule instead of adding it
