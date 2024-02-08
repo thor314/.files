@@ -60,8 +60,8 @@ function tk-git-submodule-init -d "init submodules recursively, pull if exists, 
   if not test -f .gitmodules; echo ".gitmodules file not found." && return 1; end
 
   for submodule in (rg '\[submodule' .gitmodules -A2)
-    set -l path (echo $submodule | rg 'path' | cut -d' ' -f3)
-    set -l url (echo $submodule | rg 'url' | cut -d' ' -f3)
+    set -l path (echo $submodule | rg 'path')[3]
+    set -l url (echo $submodule | rg 'url')[3]
 
     if not test -d $path
       echo "Directory does not exist. Cloning submodule $path..."
@@ -90,6 +90,42 @@ function tk-git-submodule-init -d "init submodules recursively, pull if exists, 
 end
 
 function tk-git-submodule-update -d "Update submodules recursively, add untracked repos to .gitmodules, and pull updates"
+  if not test -f .gitmodules
+    echo ".gitmodules file not found." && return 1
+  end
+
+  # Find and process all directories containing a .git directory
+  for dir in (fdfind -H  ".git\$" --prune)[2..] # skip current dir. Footgun: only run this from a .git root.
+    set repo_path (dirname $dir) 
+    
+    if not rg -q "path = $repo_path" .gitmodules
+      echo "$repo_path is not known by .gitmodules. Adding it..."
+      # Ensure repo is not mistakenly cached
+      git rm --cached $repo_path >/dev/null 2>&1 || true
+      set url (git -C $repo_path config --get remote.origin.url)
+      if test -n "$url"
+        git submodule add $url $repo_path
+        git add .gitmodules
+        git commit -m "Added submodule $repo_path"
+      else
+        echo "WARNING: Unable to find remote URL for $repo_path"
+        continue
+      end
+    end
+  end
+
+  # Pull updates for all known submodules
+  for submodule in (rg '\[submodule' .gitmodules -A2)
+    set path (echo $submodule | rg 'path')[3]
+    if test -d $path
+      echo "Pulling updates for submodule $path..."
+      if not git -C $path pull
+        echo "WARNING: Failed to update $path"
+        continue
+      end
+    end
+  end
+end
 end
 
 function tk-git-submodule-add -d "add submodule to gitmodules" 
