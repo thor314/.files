@@ -33,6 +33,58 @@ function tk-git-clone-and-cd # echo "clone from github convenience"
   cd $repo_name
 end
 
+function tk-git-add-all-commit-message-push # git commit and push convenience
+  argparse --min-args=1 -- $argv
+  git add --all . --verbose
+  git commit -m $argv[1]
+  git push
+end
+function tk-git-add-all-commit-message-push-create-upstream-branch # new branch
+  argparse --min-args=1 -- $argv
+  git add --all . --verbose
+  git commit -m $argv[1]
+  git push --set-upstream origin (git branch --show-current)
+end
+function tk-git-add-all-commit-message-push-create-repo # new repo
+  argparse p/private -- $argv
+  argparse --min-args=1 -- $argv
+  hub create $_flag_p # optional arg to allow private; i.e. -p, pass to hub create
+  tk-git-add-all-commit-message-push-create-upstream-branch $argv[1]
+end
+
+# Submodule replacements
+# We hate git submodules, but we also hate git-subtree
+function tk-git-submodule-init -d "init submodules recursively, pull if exists, clone otherwise"
+  if not test -f .gitmodules; echo ".gitmodules file not found." && return 1; end
+
+  for submodule in (rg '\[submodule' .gitmodules -A2)
+    set -l path (echo $submodule | rg 'path' | cut -d' ' -f3)
+    set -l url (echo $submodule | rg 'url' | cut -d' ' -f3)
+
+    if not test -d $path
+      echo "Cloning submodule $path..."
+      hub clone $url $path \ 
+      if not git clone $url $path
+        echo "Failed to clone $path from $url"
+        continue # Skip to the next submodule or use `return 1` to terminate
+      end
+    else
+      echo "Updating submodule $path..."
+      git -C $path pull
+    end
+  end
+
+  # Check for git repos in subdirectories not listed in .gitmodules
+  for dir in */
+    if test -d "$dir/.git" 
+      if not rg -q "path = $dir" .gitmodules
+        echo "Untracked Git repo found in $dir"
+      end
+    end
+  end
+end
+
+
 function tk-git-submodule-add -d "add submodule to gitmodules" 
   # reminder to not use http, all sorts of weird cloning and pushing issues.
   argparse l/local -- $argv
@@ -43,6 +95,7 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
     git add --all . && git commit -m "added submodule $repo_name"
   end
 end
+abbr -a -g "git submodule add" tk-git-submodule-add
 
 # 2024-02-03 - todo
 function tk-git-submodule-foreach -d "better git submodule foreach"
@@ -75,21 +128,3 @@ function tk-git-submodule-update-commits-recursive
   echo todo
 end
 
-function tk-git-add-all-commit-message-push # git commit and push convenience
-  argparse --min-args=1 -- $argv
-  git add --all . --verbose
-  git commit -m $argv[1]
-  git push
-end
-function tk-git-add-all-commit-message-push-create-upstream-branch # new branch
-  argparse --min-args=1 -- $argv
-  git add --all . --verbose
-  git commit -m $argv[1]
-  git push --set-upstream origin (git branch --show-current)
-end
-function tk-git-add-all-commit-message-push-create-repo # new repo
-  argparse p/private -- $argv
-  argparse --min-args=1 -- $argv
-  hub create $_flag_p # optional arg to allow private; i.e. -p, pass to hub create
-  tk-git-add-all-commit-message-push-create-upstream-branch $argv[1]
-end
