@@ -54,6 +54,8 @@ end
 
 # Submodule replacements
 # We hate git submodules, but we also hate git-subtree
+
+# 2024-02-07 untested
 function tk-git-submodule-init -d "init submodules recursively, pull if exists, clone otherwise"
   if not test -f .gitmodules; echo ".gitmodules file not found." && return 1; end
 
@@ -85,15 +87,6 @@ function tk-git-submodule-init -d "init submodules recursively, pull if exists, 
       end     
     end
   end
-
-  # # Check for git repos in subdirectories not listed in .gitmodules
-  # for dir in (fd --type d) */**
-  #   if test -d "$dir/.git" 
-  #     if not rg -q "path = $dir" .gitmodules
-  #       echo "WARNING: Untracked Git repo found in $dir"
-  #     end
-  #   end
-  # end
 end
 
 
