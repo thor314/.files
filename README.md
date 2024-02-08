@@ -1,5 +1,4 @@
 # My dotfiles, organized with [dotbot](https://github.com/anishathalye/dotbot)
-![svg](i.svg)
 ## Get all the dotfiles:
 - `pip3 install dotbot`
 - `git clone github.com/thor314/dotfiles.git && cd .dotfiles && dotbot -c install.conf.yaml`
