@@ -54,14 +54,14 @@ end
 
 # Submodule replacements
 # We hate git submodules, but we also hate git-subtree
-
 # 2024-02-07 untested
 function tk-git-submodule-init -d "init submodules recursively, pull if exists, clone otherwise"
   if not test -f .gitmodules; echo ".gitmodules file not found." && return 1; end
 
+  rg --no-filename --only-matching -- 'path = (.+)' .gitmodules | string replace 'path = ' '' | while read -l path
   for submodule in (rg '\[submodule' .gitmodules -A2)
     set -l path (echo $submodule | rg 'path')[3]
-    set -l url (echo $submodule | rg 'url')[3]
+    set -l url (echo $submodule | rg 'url' | cut -d' ' -f3)
 
     if not test -d $path
       echo "Directory does not exist. Cloning submodule $path..."
