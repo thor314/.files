@@ -98,23 +98,7 @@ function tk-git-submodule-update -d "Update submodules recursively, add untracke
   # Find and process all directories containing a .git directory
   for dir in (fdfind -H  ".git\$" --prune)[2..] # skip current dir. Footgun: only run this from a .git root.
     set repo_path (dirname $dir) 
-    
-    if not rg -q "path = $repo_path" .gitmodules
-      echo "INFO: $repo_path is not known by .gitmodules. Adding it..."
-
-      # Ensure repo is not mistakenly cached
-      git rm --cached $repo_path >/dev/null 2>&1 || true
-      set url (git -C $repo_path config --get remote.origin.url)
-      if test -n "$url"
-        tk-git-submodule-add $url $repo_path
-        # git submodule add $url $repo_path
-        # git add .gitmodules
-        # git commit -m "Added submodule $repo_path"
-      else
-        echo "WARNING: Unable to find remote URL for $repo_path"
-        continue
-      end
-    end
+    tk-git-submodule-add $repo_path --url $url
   end
 
   # Pull updates for all known submodules
@@ -155,31 +139,42 @@ end
 function tk-git-submodule-add -d "add submodule to gitmodules" 
   if not test -f .gitmodules ; echo "ERROR: .gitmodules file not found in (pwd)" && return 1 ;
   else if not test -e .git ; echo "ERROR: .git not found in (pwd)" && return 1 ; end
-  argparse l/local -- $argv
+  argparse l/local u/url= -- $argv
   argparse --min-args=1 -- $argv
   set path $argv[1]
-  if test $argv[2] ; set url $argv[2] ; else 
-    set url git@github.com:thor314/(tk-path-to-name $url).git 
-  end
+  if set -q _flag_u ; set url $_flag_u
+  else; set url git@github.com:thor314/(tk-path-to-name $path).git; end
 
   # Ensure repo is not mistakenly cached
-  git rm --cached $path >/dev/null 2>&1 || true
-  # set url (git -C $path config --get remote.origin.url)
-  if test -n "$url"
-    tk-git-submodule add $url $path
-  else
-    echo "WARNING: Unable to find remote URL for $repo_path"
-    continue
+  if not rg -q "path = $repo_path" .gitmodules
+    echo "INFO: $repo_path is not known by .gitmodules. Adding it..."
+    # Ensure repo is not mistakenly cached
+    git rm --cached $repo_path >/dev/null 2>&1 || true
   end
-end
+
   git submodule add $url $path
   if not set -q _flag_l 
-    git add --all . && git commit -m "added submodule $repo_name"
+    git add --all . && git commit -m "added submodule $repo_name" && git push
   end
 end
 
 abbr -a -g "git submodule add" tk-git-submodule-add
 
+    if not rg -q "path = $repo_path" .gitmodules
+      echo "INFO: $repo_path is not known by .gitmodules. Adding it..."
+
+      # Ensure repo is not mistakenly cached
+      git rm --cached $repo_path >/dev/null 2>&1 || true
+      set url (git -C $repo_path config --get remote.origin.url)
+      if test -n "$url"
+        # git submodule add $url $repo_path
+        # git add .gitmodules
+        # git commit -m "Added submodule $repo_path"
+      else
+        echo "WARNING: Unable to find remote URL for $repo_path"
+        continue
+      end
+    end
   end
 
 function tk-git-submodule-replace # for when accidentally committed a submodule instead of adding it
