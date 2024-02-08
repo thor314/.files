@@ -62,26 +62,38 @@ function tk-git-submodule-init -d "init submodules recursively, pull if exists, 
     set -l url (echo $submodule | rg 'url' | cut -d' ' -f3)
 
     if not test -d $path
-      echo "Cloning submodule $path..."
+      echo "Directory does not exist. Cloning submodule $path..."
       hub clone $url $path \ 
       if not git clone $url $path
-        echo "Failed to clone $path from $url"
-        continue # Skip to the next submodule or use `return 1` to terminate
+        echo "WARNING: Failed to clone $path from $url" 
+        continue # log warning but do not exit
       end
     else
-      echo "Updating submodule $path..."
-      git -C $path pull
+      if test (count (ls $path))
+        echo "Repository at $path is empty. Removing and re-cloning..."
+        rm -rf $path
+        if not git clone $url $path
+          echo "WARNING: Failed to re-clone $path from $url"
+          continue 
+        end 
+      else
+        echo "Pulling for submodule $path..."
+        if not git -C $path pull
+          echo "WARNING: Failed to update $path"
+          continue 
+        end
+      end     
     end
   end
 
-  # Check for git repos in subdirectories not listed in .gitmodules
-  for dir in */
-    if test -d "$dir/.git" 
-      if not rg -q "path = $dir" .gitmodules
-        echo "Untracked Git repo found in $dir"
-      end
-    end
-  end
+  # # Check for git repos in subdirectories not listed in .gitmodules
+  # for dir in (fd --type d) */**
+  #   if test -d "$dir/.git" 
+  #     if not rg -q "path = $dir" .gitmodules
+  #       echo "WARNING: Untracked Git repo found in $dir"
+  #     end
+  #   end
+  # end
 end
 
 
