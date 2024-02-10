@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/fish
 # hackmd convenience
 
 function tk-hackmd-publish -d "publish file to hackmd and open"
