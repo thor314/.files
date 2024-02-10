@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/fish
 # Thor's lil functions
 
 function tk-copyline -d "copy line to clipboard"
