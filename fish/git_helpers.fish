@@ -1,3 +1,4 @@
+#!/usr/bin/fish
 # convenience functions and abbrevs for git. preface my functions with tk for name-clarity
 
 abbr -a -g gaa "git add --all ." 

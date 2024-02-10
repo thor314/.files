@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/fish
 # Thor's aliases and convenience functions, mostly alphabetized.
 # aliases a poor man's tldr: grep through my aliases for examples.
 # define functions and bind aliases to them to include them in rg results.

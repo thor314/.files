@@ -1,3 +1,4 @@
+#!/usr/bin/fish
 # My bindings. 
 # Docs: https://fishshell.com/docs/current/cmds/bind.html 
 # generally surround in \" for binds to work as expected
