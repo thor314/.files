@@ -1,3 +1,4 @@
+#!/usr/bin/fish
 # abbrevs and functions related to web dev stuff
 
 abbr -a -g nra 'npm-run-all' # run npm-scripts in para/seq.  https://www.npmjs.com/package/npm-run-all

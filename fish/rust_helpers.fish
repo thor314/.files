@@ -1,3 +1,4 @@
+#!/usr/bin/fish
 # rust related helper abbrevs and functions
 
 # big ones:
