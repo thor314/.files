@@ -25,12 +25,13 @@ function tk-keychain -d "configure keychain to correctly initialize and load my 
   argparse --min-args=1 -- $argv
   set key $argv[1]
   if not test -f $key ; echo "WARNING! no such key: $key" && exit 1 ; end
+  # SHELL must be set to fish, or eval will flunk (very very frightning me)
+  set SHELL /usr/bin/fish
+  # set up the ssh-agent if none found, else re-use existing agent
   # -Q is "Quick"--use existing agents if one exists
-  # this appears to cause issues in my cron scripts:
-  # eval (keychain --eval -Q) &>> /dev/null # set up the ssh-agent. 
-  keychain --nogui $key -Q &>> /dev/null # and add my key to the session if not yet added
-  echo "keychain --eval -Q from functions.fish"
-  echo (keychain --eval -Q)
+  eval (keychain --eval -Q) &>> /dev/null 
+  # and add my key to the session if not yet added
+  keychain --nogui $key -Q &>> /dev/null 
 
 end
 
