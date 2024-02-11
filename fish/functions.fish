@@ -1,4 +1,5 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
+
 # Thor's lil functions
 
 function tk-copyline -d "copy line to clipboard"
@@ -23,7 +24,7 @@ end
 function tk-keychain -d "configure keychain to correctly initialize and load my ssh-key"
   argparse --min-args=1 -- $argv
   set key $argv[1]
-  if not test -f $key ; echo "WARNING! no such key" && exit 1 ; end
+  if not test -f $key ; echo "WARNING! no such key: $key" && exit 1 ; end
   # -Q is "Quick"--use existing agents if one exists
   eval (keychain --eval -Q) &>> /dev/null # set up the ssh-agent
   keychain --nogui $key -Q &>> /dev/null # and add my key to the session if not yet added
