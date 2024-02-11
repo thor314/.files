@@ -26,8 +26,12 @@ function tk-keychain -d "configure keychain to correctly initialize and load my 
   set key $argv[1]
   if not test -f $key ; echo "WARNING! no such key: $key" && exit 1 ; end
   # -Q is "Quick"--use existing agents if one exists
-  eval (keychain --eval -Q) &>> /dev/null # set up the ssh-agent
+  # this appears to cause issues in my cron scripts:
+  # eval (keychain --eval -Q) &>> /dev/null # set up the ssh-agent. 
   keychain --nogui $key -Q &>> /dev/null # and add my key to the session if not yet added
+  echo "keychain --eval -Q from functions.fish"
+  echo (keychain --eval -Q)
+
 end
 
 function tk-make-dotfile 
