@@ -34,7 +34,7 @@ if status is-interactive
 
   # nvm install latest && nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
   while kill -0 $WEATHER_PID 2>/dev/null
-    echo waiting for wttr.in...
+    echo "waiting for wttr.in..."
     sleep 1
   end
   cat /tmp/weather.txt
