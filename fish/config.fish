@@ -9,21 +9,16 @@ if status is-interactive
   # Overwrite default greeting
   function fish_greeting 
     echo "hello Thor" 
-    curl 'https://wttr.in?format="%l:+%c+%t\n"' > /tmp/weather.txt &
+    # get the weather
+    curl 'https://wttr.in?format="%l:+%c+%t\n"' > /tmp/weather.txt 2>/dev/null &
     set -gx WEATHER_PID $last_pid
     for i in (seq 3 -1 1)
-      echo $WEATHER_PID is wpid
-      # set -gx WEATHER_PID 100000
-      if kill -0 $WEATHER_PID > /dev/null # get weather
-        echo "waiting for wttr.in...$i"
-        sleep 1
-      else 
-        if test -f /tmp/weather.txt
-          echo "weather is:"
-          cat /tmp/weather.txt
-          rm /tmp/weather.txt
-          set -e WEATHER_PID
-        end
+      # wait for $WEATHER_PID process to exit
+      if kill -0 $WEATHER_PID &> /dev/null 
+        echo "waiting for wttr.in...$i" && sleep 0.4
+      end
+      if test -f /tmp/weather.txt
+        cat /tmp/weather.txt && rm /tmp/weather.txt && set -e WEATHER_PID && break
       end
     end
   end
