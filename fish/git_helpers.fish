@@ -138,8 +138,8 @@ function tk-git-submodule-clean -d "For all .git subdirectories, if not tracked 
 end
 
 function tk-git-submodule-add -d "add submodule to gitmodules" 
-  if not test -f .gitmodules ; echo "ERROR: .gitmodules file not found in (pwd)" && return 1 ;
-  else if not test -e .git ; echo "ERROR: .git not found in (pwd)" && return 1 ; end
+  if not test -e .git ; echo "ERROR: .git not found in (pwd)" && return 1 ; end
+  if not test -f .gitmodules ; echo "INFO.gitmodules file not found in $(pwd), adding it" && touch .gitmodules ; end
   argparse l/local u/url= -- $argv
   argparse --min-args=1 -- $argv
   set path $argv[1]

@@ -49,7 +49,7 @@ function tk-cargo-generate
   cargo generate --path ~/projects/tk-cargo-generate/template $_flag_bin $_flag_lib -n $name 
   cd $name
   cargo update
-  cargo fmt && taplo fmt
+  cargo fmt # && taplo fmt # taplo breaks often sadface
   typos --format brief --config=/home/thor/.files/typos.toml --write-changes
   if not set -q _flag_g 
     git add --all . && git commit -m "init"
@@ -65,7 +65,7 @@ function tk-cargo-checkall-clippy-fmt-taplo
   cargo clippy -- -D warnings
   typos --format brief --config=/home/thor/.files/typos.toml
   cargo fmt --check
-  taplo fmt --check
+  # taplo fmt --check # taplo breaks often sadface
 end
 
 function tk-rust-playground-new
