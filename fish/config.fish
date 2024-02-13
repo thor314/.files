@@ -6,8 +6,11 @@ if status is-interactive
 
   # Overwrite default greeting
   function fish_greeting 
-      echo "hello Thor" 
-      curl 'https://wttr.in?format="%l:+%c+%t\n"' &
+    echo "hello Thor" 
+    if not set -q WEATHER_PID
+      curl 'https://wttr.in?format="%l:+%c+%t\n"' > /tmp/weather.txt &
+      set -g WEATHER_PID $last_pid
+    end
   end
 
   # only need these for interactive sessions
@@ -30,6 +33,11 @@ if status is-interactive
   setxkbmap dvorak -option caps:ctrl_modifier 
 
   # nvm install latest && nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
+  while kill -0 $WEATHER_PID 2>/dev/null
+    echo waiting for wttr.in...
+    sleep 1
+  end
+  cat /tmp/weather.txt
 end
 
 # load secret environment variables
