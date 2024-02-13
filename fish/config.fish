@@ -7,6 +7,7 @@ if status is-interactive
   # Overwrite default greeting
   function fish_greeting 
       echo "hello Thor" 
+      curl 'https://wttr.in?format="%l:+%c+%t\n"' &
   end
 
   # only need these for interactive sessions
