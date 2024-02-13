@@ -1,4 +1,6 @@
 #!/usr/bin/fish
+# Thor's config.fish
+
 if status is-interactive
   # Commands to run in interactive sessions can go here
   # set shell to fish, don't set everywhere, we been warned that fish not POSIX so mebe breaks elsewhere
@@ -7,9 +9,22 @@ if status is-interactive
   # Overwrite default greeting
   function fish_greeting 
     echo "hello Thor" 
-    if not set -q WEATHER_PID
-      curl 'https://wttr.in?format="%l:+%c+%t\n"' > /tmp/weather.txt &
-      set -g WEATHER_PID $last_pid
+    curl 'https://wttr.in?format="%l:+%c+%t\n"' > /tmp/weather.txt &
+    set -gx WEATHER_PID $last_pid
+    for i in (seq 3 -1 1)
+      echo $WEATHER_PID is wpid
+      # set -gx WEATHER_PID 100000
+      if kill -0 $WEATHER_PID > /dev/null # get weather
+        echo "waiting for wttr.in...$i"
+        sleep 1
+      else 
+        if test -f /tmp/weather.txt
+          echo "weather is:"
+          cat /tmp/weather.txt
+          rm /tmp/weather.txt
+          set -e WEATHER_PID
+        end
+      end
     end
   end
 
@@ -27,17 +42,12 @@ if status is-interactive
     set TERM xterm-256color 
   end
 
-  tk-keychain ~/.ssh/id_ed25519 # avoid ssh-key issues
+  tk-keychain ~/.ssh/id_ed25519 > /dev/null # avoid ssh-key issues
 
   # even if set elsewhere, to avoid capslock vscode bug, keep this line
   setxkbmap dvorak -option caps:ctrl_modifier 
 
   # nvm install latest && nvm use latest >> /dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
-  while kill -0 $WEATHER_PID 2>/dev/null
-    echo "waiting for wttr.in..."
-    sleep 1
-  end
-  cat /tmp/weather.txt
 end
 
 # load secret environment variables
