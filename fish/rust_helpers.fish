@@ -17,6 +17,9 @@ abbr -a -g cq  'cargo clean'
 abbr -a -g cr  'cargo run'
 abbr -a -g crl 'cargo run &> log' # need '&' to capture logs
 abbr -a -g crlh 'cargo run &> log; head log' # need '&' to capture logs
+abbr -a -g cs  'cargo shuttle'
+abbr -a -g csr  'cargo shuttle run '
+abbr -a -g csd  'cargo shuttle deploy'
 abbr -a -g ct  'cargo test'
 abbr -a -g ctt 'cargo test -- --nocapture'
 abbr -a -g ctl 'cargo test -- --nocapture &> log' 
