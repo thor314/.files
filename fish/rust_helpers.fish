@@ -54,7 +54,8 @@ function tk-cargo-generate
   git init
   if not set -q _flag_g 
     git add --all . && git commit -m "init"
-    hub create && git push -u origin (git symbolic-ref -short HEAD)
+    hub create 
+    git push -u origin (git symbolic-ref --short HEAD)
   end
   cargo check -q &
 end
