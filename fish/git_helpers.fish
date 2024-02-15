@@ -155,7 +155,7 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
 
   git submodule add $url $path
   if not set -q _flag_l 
-    git add --all . && git commit -m "added submodule $repo_name" && git push
+    # git add --all . && git commit -m "added submodule $repo_name" && git push
   end
 end
 # abbr -a -g "git submodule add" tk-git-submodule-add
