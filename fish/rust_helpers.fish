@@ -53,10 +53,18 @@ end
 
 # cargo generate
 function tk-cargo-generate
-  argparse --exclusive bin,lib bin lib g/gitless -- $argv
+  argparse --exclusive bin,lib bin lib -- $argv
+  argparse g/gitless -- $argv
+  argparse a/async b/benches C/cli D/description= i/itests  -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
   set args $argv[2..]
+  test $_flag_a && set a async="-d async=true"
+  test $_flag_b && set b benches="-d benches=true"
+  test $_flag_c && set c itests="-d cli=true"
+  test $_flag_D && set D "-d description=$_flagD"
+  test $_flag_i && set i itests="-d tests=true"
+  
   
   cargo generate --path ~/projects/tk-cargo-generate/template $_flag_bin $_flag_lib -n $name $args
   cd $name
