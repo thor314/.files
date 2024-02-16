@@ -48,8 +48,9 @@ function tk-cargo-generate
   argparse --exclusive bin,lib bin lib g/gitless -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
+  set args $argv[2..]
   
-  cargo generate --path ~/projects/tk-cargo-generate/template $_flag_bin $_flag_lib -n $name 
+  cargo generate --path ~/projects/tk-cargo-generate/template $_flag_bin $_flag_lib -n $name $args
   cd $name
   cargo update
   cargo fmt # && taplo fmt # taplo breaks often sadface
@@ -64,7 +65,7 @@ function tk-cargo-generate
 end
 
 # check everything
-function tk-cargo-checkall-clippy-fmt-taplo
+function tk-cargo-checkall-clippy-fmt-taplo -d "verify: cargo {check,clippy,fmt,typos,taplo}"
   echo checking (pwd)
   cargo check -q
   cargo clippy -- -D warnings
@@ -73,11 +74,11 @@ function tk-cargo-checkall-clippy-fmt-taplo
   # taplo fmt --check # taplo breaks often sadface
 end
 
-function tk-rust-playground-new
+function tk-rust-playground-new -d "create new repo in rust-playground"
   argparse --exclusive bin,lib b/bin l/lib g/gitless -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
-  cd ~/rust-playground || exit 1
+  cd ~/rust-playground || return 1
   tk-cargo-generate $name $_flag_c $_flag_b $_flag_g
   if not set -q _flag_g 
     cd .. && tk-git-submodule-add $name && cd $name
