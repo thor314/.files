@@ -43,6 +43,14 @@ abbr -a -g ru rustup
 abbr -a -g rpb 'tk-rust-playground-new --bin'
 abbr -a -g rpl 'tk-rust-playground-new --lib'
 
+# temporary helper while working on cch23 puzzles
+# 2024-02-15
+function tk-cch23-cg
+  argparse --min-args=1 -- $argv
+  set name $argv[1]
+  tk-cargo-generate --bin $name -- -d async=true -d server=true -d cli=false -d advanced=true -d ci=true -d license=true -d itests=false -d benches=false -d description=$name
+end
+
 # cargo generate
 function tk-cargo-generate
   argparse --exclusive bin,lib bin lib g/gitless -- $argv
