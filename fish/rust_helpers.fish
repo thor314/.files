@@ -55,7 +55,7 @@ end
 function tk-cargo-generate
   argparse --exclusive bin,lib bin lib -- $argv
   argparse g/gitless -- $argv
-  argparse a/async b/benches C/cli D/description= i/itests  -- $argv
+  argparse a/async b/benches C/cli D/description= i/itests s/server -- $argv
   argparse --min-args=1 -- $argv
   set name $argv[1]
   set args $argv[2..]
