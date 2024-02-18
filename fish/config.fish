@@ -30,7 +30,7 @@ if status is-interactive
   source $HOME/.files/fish/rust_helpers.fish
   source $HOME/.files/fish/web_helpers.fish
   source $HOME/.files/fish/hackmd_helpers.fish
-  test (command -q sqlx) || cargo sqlx completions fish | source
+  command -q sqlx || cargo install sqlx-cli && cargo sqlx completions fish | source
 
   # default is TERM=alacritty; this fixes weird input bugs with alacritty
   if test (hostname) = "starchy" 
