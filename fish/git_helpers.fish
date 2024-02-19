@@ -27,6 +27,9 @@ abbr -a -g hcl "tk-git-clone-and-cd"
 abbr -a -g hpr "hub pull-request"
 abbr -a -g hi "hub issue"
 
+contains /home/thor/.cargo/bin $PATH || set $PATH $PATH /home/thor/.cargo/bin # i.e. if run from cron
+source /home/thor/.files/fish/functions.fish # so we may use our helpers
+
 function tk-git-clone-and-cd -d "clone repo and cd into it" 
   argparse --min-args=1 -- $argv
   hub clone $argv[1] 
@@ -142,15 +145,15 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
   if not test -f .gitmodules ; echo "INFO.gitmodules file not found in $(pwd), adding it" && touch .gitmodules ; end
   argparse l/local u/url= -- $argv
   argparse --min-args=1 -- $argv
-  set path $argv[1]
+  set repo $argv[1]
   if set -q _flag_u ; set url $_flag_u
   else; set url git@github.com:thor314/(tk-path-to-name $path).git; end
 
   # Ensure repo is not mistakenly cached
-  if not rg -q "path = $repo_path" .gitmodules
-    echo "INFO: $repo_path is not known by .gitmodules. Adding it..."
+  if not rg -q "path = .*$repo" .gitmodules
+    echo "INFO: $repo is not known by .gitmodules. Adding it..."
     # Ensure repo is not mistakenly cached
-    git rm --cached $repo_path >/dev/null 2>&1 || true
+    git rm --cached $repo >/dev/null 2>&1 || true
   end
 
   git submodule add $url $path
