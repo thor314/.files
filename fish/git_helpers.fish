@@ -151,6 +151,7 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
   else; set url git@github.com:thor314/$repo.git; end
 
   set repo_already_submodule (rg -q "path = git@github.com:thor314/$repo.git" .gitmodules)
+  echo repo: $repo_already_submodule
   if not test -n $repo_already_submodule
     echo "INFO: $repo is not known by .gitmodules, adding it..."
 
