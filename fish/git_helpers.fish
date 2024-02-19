@@ -19,7 +19,6 @@ abbr -a -g gpf 'git push -f'
 abbr -a -g gpu 'git push -u origin $(git symbolic-ref --short HEAD)'  # after creating a new branch
 abbr -a -g gs "git status -sb" # better git status
 abbr -a -g gsua "tk-git-submodule-add"
-abbr -a -g gsurm "tk-git-submodule-replace"
 
 abbr -a -g hb "hub browse"
 abbr -a -g hbc "hub browse -c"
@@ -150,11 +149,13 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
   if set -q _flag_u ; set url $_flag_u
   else; set url git@github.com:thor314/$repo.git; end
 
-  set already_submodule (rg -q "path = $path.git" .gitmodules)
-  if not test "$already_submodule"
+  set already_submodule (rg "path = $path" .gitmodules)
+  # echo module: $already_submodule
+  if not test $already_submodule
     echo "INFO: $repo is not known by .gitmodules, adding it..."
 
     set already_cached (git log --format="%H" -- "$repo" | tail -1)
+    # echo cache: $already_cached
     if test "$already_cached"
       echo "INFO: $repo mistakenly added to .git, removing it from working index..."
       git rm --cached $repo >/dev/null 2>&1 || true
@@ -166,16 +167,5 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
     git submodule add $url $path || echo "ERROR: git submodule add logic error" && return 1
     git add --all && git commit -m "submodule added: $repo"
   else ; echo "WARNING: submodule $repo already added" && return 1 ; end
-end
-
-function tk-git-submodule-replace # for when accidentally committed a submodule instead of adding it
-  argparse --min-args=1 -- $argv
-  echo "warn: maybe buggy"
-  set repo_name (tk-path-to-name $argv[1])
-  git rm -r --cached $repo_name
-  mv $repo_name ../$repo_name.tmp.d
-  git add --all . && git commit -m "removed $repo_name"
-  mv ../$repo_name.tmp.d $repo_name
-  tk-git-submodule-add $repo_name
 end
 
