@@ -145,21 +145,24 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
   if not test -f .gitmodules ; echo "INFO.gitmodules file not found in $(pwd), adding it" && touch .gitmodules ; end
   argparse l/local u/url= -- $argv
   argparse --min-args=1 -- $argv
-  set repo $argv[1]
+  set path $argv[1] # path may have form "/dir/reponame" or just "reponame"
+  set repo (tk-path-to-name $repo)
   if set -q _flag_u ; set url $_flag_u
-  else; set url git@github.com:thor314/(tk-path-to-name $path).git; end
+  else; set url git@github.com:thor314/$repo.git; end
 
-  # Ensure repo is not mistakenly cached
   if not rg -q "path = .*$repo" .gitmodules
-    echo "INFO: $repo is not known by .gitmodules. Adding it..."
+    echo "INFO: $repo is not known by .gitmodules, adding it..."
     # Ensure repo is not mistakenly cached
-    git rm --cached $repo >/dev/null 2>&1 || true
-  end
+    if test -n (git log --all -- "$repo")
+      echo "INFO: $repo mistakenly added, replacing it..."
+      git rm --cached $repo >/dev/null 2>&1 || true
+    end
+  else ; echo "WARNING: submodule already added" && return 1 ; end
 
-  git submodule add $url $path
-  if not set -q _flag_l 
-    # git add --all . && git commit -m "added submodule $repo_name" && git push
-  end
+  # git submodule add $url $path
+  # if not set -q _flag_l 
+  #   # git add --all . && git commit -m "added submodule $repo_name" && git push
+  # end
 end
 # abbr -a -g "git submodule add" tk-git-submodule-add
 
