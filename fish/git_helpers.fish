@@ -146,14 +146,16 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
   argparse u/url= -- $argv
   argparse --min-args=1 -- $argv
   set path $argv[1] # path may have form "/dir/reponame" or just "reponame"
-  set repo (tk-path-to-name $repo)
+  set repo (tk-path-to-name $path)
   if set -q _flag_u ; set url $_flag_u
   else; set url git@github.com:thor314/$repo.git; end
 
-  if not rg -q "path = .*$repo" .gitmodules
+  set repo_already_submodule (rg -q "path = git@github.com:thor314/$repo.git" .gitmodules)
+  if not test -n $repo_already_submodule
     echo "INFO: $repo is not known by .gitmodules, adding it..."
-    # Ensure repo is not mistakenly cached
-    if test -n (git log --all -- "$repo")
+
+    set repo_accidentally_cached
+    if test -n $repo_accidentally_cached
       echo "INFO: $repo mistakenly added to .git, removing it from working index..."
       git rm --cached $repo >/dev/null 2>&1 || true
       mv $path /home/thor/tmp
