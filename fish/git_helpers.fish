@@ -146,7 +146,7 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
   argparse u/url= -- $argv
   argparse --min-args=1 -- $argv
   set path $argv[1] # path may have form "/dir/reponame" or just "reponame"
-  set repo (tk-path-to-name $path)
+  set repo (tk-path-to-name $path) || return 1
   if set -q _flag_u ; set url $_flag_u
   else; set url git@github.com:thor314/$repo.git; end
 
