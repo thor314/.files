@@ -150,23 +150,24 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
   if set -q _flag_u ; set url $_flag_u
   else; set url git@github.com:thor314/$repo.git; end
 
-  set repo_already_submodule (rg -q "path = git@github.com:thor314/$repo.git" .gitmodules)
-  if test -n $repo_already_submodule
+  set already_submodule (rg -q "path = git@github.com:thor314/$repo.git" .gitmodules)
+  echo sb: $already_submodule
+  if not test $already_submodule
     echo "INFO: $repo is not known by .gitmodules, adding it..."
 
-    set repo_accidentally_cached (git log --all -- "$repo")
-    echo cached: $repo_accidentally_cached
-    if not test -n $repo_accidentally_cached
-      echo "INFO: $repo mistakenly added to .git, removing it from working index..."
+    set already_cached (git log --all -- "$repo")
+    echo cached: $already_cached
+    # if not test -n $already_cached
+    #   echo "INFO: $repo mistakenly added to .git, removing it from working index..."
       git rm --cached $repo >/dev/null 2>&1 || true
       mv $path /home/thor/tmp
       git add --all && git commit -m "removed: $repo from index"
       mv /home/thor/tmp/$path .
-    end 
+    # end 
 
     git submodule add $url $path || echo "ERROR: git submodule add logic error" && return 1
     git add --all && git commit -m "submodule added: $repo"
-  else ; echo "WARNING: submodule already added" && return 1 ; end
+  else ; echo "WARNING: submodule $repo already added" && return 1 ; end
 end
 
 function tk-git-submodule-replace # for when accidentally committed a submodule instead of adding it
