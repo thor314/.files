@@ -31,6 +31,7 @@ if status is-interactive
   source $HOME/.files/fish/web_helpers.fish
   source $HOME/.files/fish/hackmd_helpers.fish
   source $HOME/.files/fish/diesel_completions.fish
+  source $HOME/.files/fish/just_completions.fish
 
   # default is TERM=alacritty; this fixes weird input bugs with alacritty
   if test (hostname) = "starchy" 
