@@ -50,11 +50,23 @@ end
 
 function tk-path-to-name -d "obtain the trailing directory or filename from a path; trim the optional trailing slash"
   argparse --min-args=1 -- $argv
-  set path (realpath $argv[1])
-  set no_trailing_slash_path (string trim -r -c '/' -- $path)
-  set last_item (string replace -r '.*/' '' --  $no_trailing_slash_path)
+  set -l segments (string split '/' -- $argv)
+  set -l last_segment ''
+  for segment in $segments
+    if test -n "$segment" # don't take empty strings
+      set last_segment $segment
+    end
+  end
+  if test -n "$last_segment"
+    echo $last_segment
+  else
+    echo $argv
+  end
   echo $last_item
 end 
+function extract_last_segment
+
+end
 
 function tk-append-suffix -d "append .suffix to a file or path"
   argparse --min-args=2 -- $argv
