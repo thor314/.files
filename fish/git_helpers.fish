@@ -31,7 +31,7 @@ source /home/thor/.files/fish/functions.fish # so we may use our helpers
 
 function tk-git-clone-and-cd -d "clone repo and cd into it" 
   argparse --min-args=1 -- $argv
-  hub clone $argv
+  gh repo clone $argv
   set repo_name (tk-path-to-name $argv)
   cd $repo_name[1] # [1] - hack, weird bugfix, some issue with spacing
 end
