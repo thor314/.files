@@ -32,7 +32,6 @@ function tk-keychain -d "configure keychain to correctly initialize and load my 
   eval (keychain --eval -Q) &>> /dev/null 
   # and add my key to the session if not yet added
   keychain --nogui $key -Q &>> /dev/null 
-
 end
 
 function tk-make-dotfile 
