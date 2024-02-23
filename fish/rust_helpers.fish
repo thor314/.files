@@ -64,7 +64,7 @@ function tk-cargo-generate
   argparse --exclusive bin,lib bin lib -- $argv
   argparse g/gitless -- $argv
   # argparse a/async b/benches C/cli D/description= i/itests s/server -- $argv
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   set name $argv[1]
   set args $argv[2..]
   # test $_flag_a && set a async "-d async=true"
@@ -81,11 +81,9 @@ function tk-cargo-generate
   cargo fmt # && taplo fmt # taplo breaks often sadface
   typos --format brief --config=/home/thor/.files/typos.toml --write-changes
   git init
-  if not set -q _flag_g 
-    git add --all . && git commit -m "init"
-    hub create 
-    git push -u origin (git symbolic-ref --short HEAD)
-  end
+  git add --all . && git commit -m "init"
+  # hub create 
+  # git push -u origin (git symbolic-ref --short HEAD)
   cargo check -q &
 end
 
