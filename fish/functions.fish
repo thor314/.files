@@ -4,25 +4,25 @@
 
 function tk-copyline -d "copy line to clipboard"
   argparse q/quiet -- $argv
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   echo $argv | xclip -i
   if not set -q _flag_q ; echo -e "clipboard: $(xclip -o)" ; end
 end
 
 function tk-copyfile -d "copy file to tk-clipboard"
   argparse q/quiet -- $argv
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   bat $argv | xclip -i
   if not set -q _flag_q ; echo -e "clipboard: \n$(xclip -o)" ; end
 end
 
 function tk-setfile -d "set arg1 with the contents of file without mangling newlines"
-  argparse --min-args=2 -- $argv
+  argparse --min-args=2 -- $argv || return 1
   set $argv[1] (string collect --no-trim-newlines < $argv[2])
 end
 
 function tk-keychain -d "configure keychain to correctly initialize and load my ssh-key"
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   set key $argv[1]
   if not test -f $key ; echo "WARNING! no such key: $key" && exit 1 ; end
   # SHELL must be set to fish, or eval will flunk (very very frightning me)
@@ -36,7 +36,7 @@ end
 
 function tk-make-dotfile 
   argparse q/quiet -- $argv
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   set dotpath $argv[1]
   set dotname (tk-path-to-name $dotpath)
   mv $dotfile "~/.files/"
@@ -48,7 +48,7 @@ function tk-make-dotfile
 end
 
 function tk-path-to-name -d "obtain the trailing directory or filename from a path; trim the optional trailing slash"
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   set -l segments (string split '/' -- $argv)
   set -l last_segment ''
   for segment in $segments
@@ -68,13 +68,13 @@ function extract_last_segment
 end
 
 function tk-append-suffix -d "append .suffix to a file or path"
-  argparse --min-args=2 -- $argv
+  argparse --min-args=2 -- $argv || return 1
   set path (realpath $argv[1])
   echo {$path}$argv[2]
 end
 
 function tk-strip-suffix -d "remove .suffix from a file or path"
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   set path (realpath $argv[1])
   set out (string split -r '.' -- $argv[1])[..-2]
   if test (count $out) -ne 1 
@@ -85,19 +85,19 @@ function tk-strip-suffix -d "remove .suffix from a file or path"
 end
 
 function tk-rga
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   rg -e "$argv" | cut -d" " -f4-
 end
 abbr -a -g rga "tk-rga"
 
 function tk-save-sync
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   echo "$argv" >> ~/.cron/help_scripts/sync.fish
 end
 abbr -a -g tkss "tk-save-sync"
 
 function tk-save-unsorted
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   echo "$argv" >> ~/.setup/unsorted.sh
 end
 abbr -a -g tksu "tk-save-unsorted"

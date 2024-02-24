@@ -54,14 +54,14 @@ abbr -a -g rpl 'tk-rust-playground-new --lib'
 # temporary helper while working on cch23 puzzles
 # 2024-02-15
 function tk-cch23-cg
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   set name $argv[1]
   tk-cargo-generate --bin $name -- -d async=true -d server=true -d cli=false -d advanced=true -d ci=true -d license=true -d itests=false -d benches=false -d description=$name
 end
 
 # cargo generate
 function tk-cargo-generate
-  argparse --exclusive bin,lib bin lib -- $argv
+  argparse --exclusive bin,lib bin lib -- $argv || return 1
   argparse g/gitless -- $argv
   # argparse a/async b/benches C/cli D/description= i/itests s/server -- $argv
   argparse --min-args=1 -- $argv || return 1
@@ -98,7 +98,7 @@ function tk-cargo-checkall-clippy-fmt-taplo -d "verify: cargo {check,clippy,fmt,
 end
 
 function tk-rust-playground-new -d "create new repo in rust-playground"
-  argparse --exclusive bin,lib b/bin l/lib g/gitless -- $argv
+  argparse --exclusive bin,lib b/bin l/lib g/gitless -- $argv || return 1
   argparse --min-args=1 -- $argv
   set name $argv[1]
   cd ~/rust-playground || return 1

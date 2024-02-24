@@ -30,27 +30,27 @@ contains /home/thor/.cargo/bin $PATH || set $PATH $PATH /home/thor/.cargo/bin # 
 source /home/thor/.files/fish/functions.fish # so we may use our helpers
 
 function tk-git-clone-and-cd -d "clone repo and cd into it" 
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   gh repo clone $argv
   set repo_name (tk-path-to-name $argv)
   cd $repo_name[1] # [1] - hack, weird bugfix, some issue with spacing
 end
 
 function tk-git-add-all-commit-message-push -d "add all, commit -m and push"
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   git add --all . --verbose
   git commit -m $argv[1]
   git push
 end
 function tk-git-add-all-commit-message-push-create-upstream-branch -d "add all, commit -m, and push create upstream branch"
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   git add --all . --verbose
   git commit -m $argv[1]
   git push --set-upstream origin (git branch --show-current)
 end
 function tk-git-add-all-commit-message-push-create-repo -d "add all, commit -m, and create repo to push to"
   argparse p/private -- $argv
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   hub create $_flag_p # optional arg to allow private; i.e. -p, pass to hub create
   tk-git-add-all-commit-message-push-create-upstream-branch $argv[1]
 end
@@ -143,7 +143,7 @@ function tk-git-submodule-add -d "add submodule to gitmodules"
   if not test -e .git ; echo "ERROR: .git not found in (pwd)" && return 1 ; end
   if not test -f .gitmodules ; echo "INFO.gitmodules file not found in $(pwd), adding it" && touch .gitmodules ; end
   argparse u/url= -- $argv
-  argparse --min-args=1 -- $argv
+  argparse --min-args=1 -- $argv || return 1
   set path $argv[1] # path may have form "/dir/reponame" or just "reponame"
   set repo (tk-path-to-name $path) || return 1
   if set -q _flag_u ; set url $_flag_u
