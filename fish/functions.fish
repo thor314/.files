@@ -61,11 +61,7 @@ function tk-path-to-name -d "obtain the trailing directory or filename from a pa
   else
     echo $argv
   end
-  echo $last_item
 end 
-function extract_last_segment
-
-end
 
 function tk-append-suffix -d "append .suffix to a file or path"
   argparse --min-args=2 -- $argv || return 1
