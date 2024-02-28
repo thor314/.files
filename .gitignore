@@ -6,7 +6,6 @@
 fish/functions
 fish/conf.d
 fish/themes
-fish/completions
 fishd.tmp*
 fish_plugins
 fish_variables
