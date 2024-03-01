@@ -23,14 +23,16 @@ if status is-interactive
   end
 
   # only need these for interactive sessions
-  source $HOME/.files/fish/abbr.fish
-  source $HOME/.files/fish/bind.fish
-  source $HOME/.files/fish/functions.fish
-  source $HOME/.files/fish/git_helpers.fish
-  source $HOME/.files/fish/rust_helpers.fish
-  source $HOME/.files/fish/web_helpers.fish
-  source $HOME/.files/fish/hackmd_helpers.fish
-  source $HOME/.files/fish/completions/*
+  pushd $HOME/.files/fish
+  source abbr.fish
+  source bind.fish
+  source functions.fish
+  source git_helpers.fish
+  source rust_helpers.fish
+  source web_helpers.fish
+  source hackmd_helpers.fish
+  for f in (ls $HOME/.files/fish/completions) ; source completions/$f ; end
+  popd
 
   # default is TERM=alacritty; this fixes weird input bugs with alacritty
   if test (hostname) = "starchy" 
