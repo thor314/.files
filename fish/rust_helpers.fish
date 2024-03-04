@@ -75,7 +75,7 @@ function tk-cargo-generate
   # test $_flag_i && set s server"-d server=true"
   
   # cargo generate --path ~/projects/tk-cargo-generate/template $_flag_bin $_flag_lib -n $name $a $b $c $D $i $s $args
-  cargo generate --path ~/projects/tk-cargo-generate/template $_flag_bin $_flag_lib -n $name $args
+  cargo generate --path ~/projects/tk-cargo-generate/template $_flag_bin $_flag_lib -n $name $args || return 1
   cd $name
   cargo update
   cargo fmt # && taplo fmt # taplo breaks often sadface
