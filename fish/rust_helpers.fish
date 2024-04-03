@@ -26,13 +26,11 @@ abbr -a -g ctl 'cargo test -- --nocapture &> log'
 abbr -a -g ctlh 'cargo test -- --nocapture &> log; head log'
 abbr -a -g cy  'cargo clippy'
 
-# abbr -a -g dm 'diesel migration'
-# abbr -a -g dmr 'diesel migration run'
-# abbr -a -g dmrd 'diesel migration redo'
-# abbr -a -g dmrda 'diesel migration redo -a'
-# abbr -a -g dmrv 'diesel migration revert'
-# abbr -a -g dmrva 'diesel migration revert -a'
-# abbr -a -g dmg 'diesel migration generate'
+abbr -a -g csp  'cargo sqlx prepare'
+abbr -a -g smr 'sqlx migration run'
+abbr -a -g smv 'sqlx migration revert'
+abbr -a -g sdc 'sqlx database create'
+abbr -a -g sdr 'sqlx database reset'
 
 # other cargo commands:
 abbr -a -g cfc  "cargo fmt --all -- --check"
