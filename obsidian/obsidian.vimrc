@@ -25,11 +25,14 @@ nmap U :redo
 vmap <C-r> :s/
 nmap <C-r> <C-a>:s/
 
-" for replacing OpenAI style \( \) with latex $
-nmap <leader>r :%s/(\\\(\s|\s\\\))/$/g
+" for replacing OpenAI style \( \) with latex $ ; last updated 2024-06-06 
+" replace either \( or \) with maybe a trailing/leading space with '$'
+nmap <leader>r :%s/(\\\(\s?|\s?\\\))/$/g
+" replace either \[ or \] with double dollar sign--triple dollar sign not a typo
 nmap <leader>R :%s/(\\\[\s|\s\\\])/$$$/g
-nmap <leader>l :%s/(\\\(|\\\))/$$$/g 
-nmap <leader>L :%s/(\\\[|\\\])/$$$/g
+" i forget why i wrote these
+" nmap <leader>l :%s/(\\\(|\\\))/$$$/g 
+" nmap <leader>L :%s/(\\\[|\\\])/$$$/g
 
 " Navigate Forward and Back between pages:
 " This mapping repeats a mapping in the in-app hotkeys menu for demonstration; the in-app menu overwrites mappings here.
