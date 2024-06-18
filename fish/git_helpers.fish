@@ -29,11 +29,12 @@ abbr -a -g hi "hub issue"
 contains /home/thor/.cargo/bin $PATH || set $PATH $PATH /home/thor/.cargo/bin # i.e. if run from cron
 source /home/thor/.files/fish/functions.fish # so we may use our helpers
 
-function tk-git-clone-and-cd -d "clone repo and cd into it" 
+function tk-git-clone-and-cd -d "clone repo and cd into it"
   argparse --min-args=1 -- $argv || return 1
   gh repo clone $argv
   set repo_name (tk-path-to-name $argv)
-  cd $repo_name[1] # [1] - hack, weird bugfix, some issue with spacing
+  set repo_name (string replace ".git" "" $repo_name)
+  cd $repo_name
 end
 
 function tk-git-add-all-commit-message-push -d "add all, commit -m and push"
