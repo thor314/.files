@@ -91,3 +91,7 @@ export EDITOR="/usr/bin/vim.gtk3" # jan 12 - fixed profile bug, remove this in a
 # set -q SSH_AGENT_PID; or eval (ssh-agent -c)
 
 
+
+export NARGO_HOME="/home/thor/.nargo"
+
+export PATH="$PATH:$NARGO_HOME/bin"
