@@ -95,3 +95,7 @@ export EDITOR="/usr/bin/vim.gtk3" # jan 12 - fixed profile bug, remove this in a
 export NARGO_HOME="/home/thor/.nargo"
 
 export PATH="$PATH:$NARGO_HOME/bin"
+
+export BB_HOME="/home/thor/.bb"
+
+export PATH="$PATH:$BB_HOME"
