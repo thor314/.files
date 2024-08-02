@@ -49,6 +49,8 @@ call plug#begin()
   Plug 'jamessan/vim-gnupg'     
   " vim fish systax highlighting support https://github.com/khaveesh/vim-fish-syntax
   Plug 'khaveesh/vim-fish-syntax'
+  # vim justfile syntax highlighting: https://github.com/NoahTheDuke/vim-just 
+  Plug 'NoahTheDuke/vim-just'
 
   "" Unused:
   " supercharged tab for completions https://github.com/ervandew/supertab
