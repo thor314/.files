@@ -1,4 +1,4 @@
-general.import = [".config/alacritty/themes/challenger_deep.toml"]
+general.import = ["themes/challenger_deep.toml"]
 general.live_config_reload = true
 working_directory = "None"
 
