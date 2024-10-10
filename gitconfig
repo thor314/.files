@@ -1,0 +1,74 @@
+# https://git-scm.com/docs/git-config
+# if I transition to cryptograthor:
+# https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities
+
+[gpg]
+	program = gpg
+[github]
+	user = thor314
+[init]
+	defaultBranch = main # no gods, no masters
+[user]
+	email = thorck@pm.me
+	name = Thor Kampefner
+  # 2024-01-26 my shared gpg key across birb, crow, boorb, etc
+	signingkey = F787E9AC0EABDBC6C04E989D886BC8B98E6DC66D 
+
+# 2024-01-26 deprecated section, no longer using gcm, pending removal
+# [credential]
+  # manage 2FA interface to github for me
+	# credentialStore = secretservice
+	# helper = /usr/local/bin/git-credential-manager
+	# helper = /usr/local/share/gcm-core/git-credential-manager-core
+	# helper = /usr/local/bin/git-credential-manager
+
+# [merge]
+#     ff = only  # Only allow fast-forward merges
+[rebase]
+    autosquash = true  # Automatically squashes commits marked as fixup!/squash! during rebase
+    
+[core]
+  # use vim or helix
+  editor = vim
+  #editor = code --wait # don't use a fat slow ide
+
+[pull]
+  # rebase on merge, don't create merge commits on my local
+  rebase = true
+
+[fetch]
+  # if remote branch is deleted, delete it locally too
+  prune = true
+
+# difftastic is diff with increased granularity
+# https://difftastic.wilfred.me.uk/git.html
+[diff]
+  tool = difftastic # declare that difft exists
+  external = difft # use difft as default
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+# Use a pager for large output, just like other git commands.
+[pager]
+  difftool = true
+# use nice easy-to-read git diff tool alternative
+# `git dft/difft` is less to type than `git difftool`.
+[alias]
+  # squash merge
+  smerge = "!f() { git merge --squash $1 && git commit; }; f"
+  sqmerge = "!f() { git merge --squash $1 && git commit; }; f"
+  dft = difftool
+  difft = difftool
+  dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+	root = rev-parse --show-toplevel # 
+
+# always sign commits with my shared key
+[commit] 
+	gpgsign = true
+
+# misc, forget why here, maybe git-credential-manager, idk
+# [safe]
+# 	directory = $HOME/.files/setup/clone/bat-extras
+# [credential "https://dev.azure.com"]
+# 	useHttpPath = true

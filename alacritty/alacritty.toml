@@ -1,0 +1,60 @@
+general.import = [".config/alacritty/themes/challenger_deep.toml"]
+general.live_config_reload = true
+working_directory = "None"
+
+[bell]
+animation = "EaseOutExpo"
+duration = 10
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 9.0
+
+[font.normal]
+family = "MesloLGS NF"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "U"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "D"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Space"
+mode = "~Search"
+mods = "Control|Alt"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+# faux_multiplier = 3 # removed feature? causes bugs on uncomment
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[terminal.shell]
+program = "/usr/bin/fish"
+
+[window]
+decorations = "none"
+dynamic_padding = true
+opacity = 0.93
+
+[window.dimensions]
+columns = 120
+lines = 64

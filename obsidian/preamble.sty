@@ -1,0 +1,137 @@
+% This file contains latex commands, usable throughout my obsidian vault
+
+% symbols
+\newcommand{xor}{\oplus}
+
+% lower case letters
+\newcommand{a}{\alpha}
+\newcommand{b}{\beta}
+\newcommand{c}{\gamma}
+\newcommand{d}{\delta}
+\newcommand{h}{\hat}
+\newcommand{s}{\sigma}
+\newcommand{t}{\tilde}
+\newcommand{w}{\omega}
+\newcommand{x}{\times}
+
+
+% pairs
+\newcommand{ceil}[1]{\lceil #1 \rceil}
+\newcommand{floor}[1]{\lfloor #1 \rfloor}
+\newcommand{angle}[1]{\langle #1 \rangle}
+\newcommand{\bpar}[1]{\big ( #1 \big )}
+\newcommand{\bcur}[1]{\big \{ #1 \big \}}
+\newcommand{\bsq}[1]{\big [ #1 \big ]}
+\newcommand{\Bpar}[1]{\Big ( #1 \Big )}
+\newcommand{\Bcur}[1]{\Big \{ #1 \Big \}}
+\newcommand{\Bsq}[1]{\Big [ #1 \Big ]}
+
+% capitals, bb, cal
+\newcommand{B}{\mathbb \{0,1\}}
+\newcommand{C}{\mathbb C}
+\newcommand{F}{\mathbb F}
+\newcommand{G}{\mathbb G}
+\newcommand{Q}{\mathbb Q}
+\newcommand{R}{\mathbb R}
+\newcommand{Z}{\mathbb Z}
+
+\newcommand{Cc}{\mathcal C}
+\newcommand{Fc}{\mathcal F}
+\newcommand{I}{\mathcal I}
+\newcommand{P}{\mathcal P}
+\newcommand{Rc}{\mathcal R}
+\newcommand{V}{\mathcal V}
+
+\newcommand{Fs}{\mathsf F}
+\newcommand{Ps}{\mathsf P}
+\newcommand{Vs}{\mathsf V}
+
+% misc commands
+\newcommand{pad}{\mathsf{pad}}
+\newcommand{len}{\mathsf{len}}
+
+\newcommand{hash}{\mathsf{hash}}
+\newcommand{eq}{\mathsf{eq}}
+\newcommand{null}[1]{\text{null(#1)}}
+\newcommand{binomial}[3]{\sum\limits_{i=0}^{#3} {#3 \choose i}#1^i#2^{n-i}}
+\newcommand{char}[1]{\text{char}(#1)}
+
+% calculus
+\newcommand{limty}[1]{\lim_{#1 \to\infty}}
+
+% misc
+\newcommand{upar}[2]{#1^{(#2)}}
+
+% hat chars 
+\newcommand{hM}{\hat M}
+\newcommand{hsi}{\hat \sigma}
+
+% greek adjustments
+\newcommand{phi}{\varphi}
+
+ %%% %%%% %%%% %%%% %%%% 
+%%% PAPERS (very misc) %%%
+ %%% %%%% %%%% %%%% %%%% 
+
+% STARK paper 2018
+\newcommand{RS}[3]{\mathsf{RS}[#1,#2,#3]}
+\newcommand{RSFSp}{\RS{\mathbb{F}} S \rho} 
+
+
+% Hyperplonk
+\newcommand{PLONK}{\mathcal{P}\mathfrak{lon}\mathcal{K}}
+\newcommand{gp}{\mathsf{gp}}
+\newcommand{pp}{\mathsf{pp}}
+\newcommand{vp}{\mathsf{vp}}
+\newcommand{inp}{\mathsf{inp}}
+\newcommand{state}{\mathsf{state}}
+\newcommand{out}{\mathsf{out}}
+\newcommand{perm}{\mathsf{perm}}
+\newcommand{id}{\mathsf{id}}
+
+% Protostar
+\newcommand{acc}{\mathsf{acc}}
+\newcommand{cm}{\mathsf{cm}}
+\newcommand{ck}{\mathsf{ck}}
+\newcommand{vk}{\mathsf{vk}}
+\newcommand{pf}{\mathsf{pf}}
+\newcommand{pisf}{\mathsf{pi}}
+\newcommand{sfpi}{\mathsf{pi}}
+\newcommand{sps}{\mathsf{sps}}
+\newcommand{Commit}{\mathsf{Commit}}
+\newcommand{Setup}{\mathsf{Setup}}
+\newcommand{sfck}{\mathsf{ck}}
+\newcommand{sfpi}{\mathsf{pi}}
+\newcommand{Pisps}{\Pi_{\mathsf{sps}}}
+\newcommand{Pacc}{\mathsf{\rho_{acc}}}
+\newcommand{Vacc}{\mathsf{V_{acc}}}
+\newcommand{Psp}{\mathsf{P_{sps}}}
+\newcommand{Vsps}{\mathsf{V_{sps}}}
+\newcommand{Pnark}{\mathsf{P_{NARK}}}
+\newcommand{Vnark}{\mathsf{V_{NARK}}}
+\newcommand{pnark}{\mathsf{\rho_{NARK}}}
+\newcommand{pnark}{\mathsf{\rho_{NARK}}}
+\newcommand{pacc}{\mathsf{\rho_{acc}}}
+\newcommand{pacc}{\mathsf{\rho_{acc}}}
+\newcommand{FS}{\mathsf{FS}}
+\newcommand{IVC}{\mathsf{IVC}}
+
+
+% Plonk
+\newcommand{PlonkConstraints}{(q_L)_ix_{a_i}+(q_R)_ix_{b_i}+(q_O)_ix_{c_i}+(q_M)_i(x_{a_i}x_{b_i})+(q_C)_i=0}
+
+\newcommand{Flt}[2]{\mathbb F_{\lt #1}[#2]}
+
+\newcommand{gen}[1]{\mathsf{gen}(#1)}
+\newcommand{com}{\mathsf{com}}
+\newcommand{cm}{\mathsf{cm}}
+\newcommand{open}{\mathsf{open}}
+\newcommand{srs}{\mathsf{srs}}
+
+\newcommand{Ppoly}{\mathsf{P_{poly}}}
+\newcommand{Vpoly}{\mathsf{V_{poly}}}
+\newcommand{Ppc}{\mathsf{P_{PC}}}
+\newcommand{Vpc}{\mathsf{V_{PC}}}
+
+\newcommand{Sid}{\mathsf{S_{ID}}}
+\newcommand{Ssigma}{\mathsf{S_{\sigma}}}

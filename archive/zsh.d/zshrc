@@ -1,0 +1,85 @@
+# Thor's totally rad zshrc
+# note to set PATH variables in either .profile or /etc/profile
+export ZSHRC_TEST=1
+# todo: remove
+PATH+=":$HOME/.cargo/bin/bat-extras/bin"
+PATH+=":$HOME/.share/bin"
+PATH+=":$HOME/.cargo/bin/bat-extras/bin"
+PATH+=":$HOME/.share/bin/lean-bin"
+
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of .zshrc
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+## oh-my-zsh configuration, see .zsh.d/default.. for examples.
+# generally aliases, convenience functions, and completions for binaries. 
+#
+# see: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins
+# gh: completion for gh
+# git: aliases, WIP conveniences, convenience functions. rga g+
+# gitignore: gitignore.io, usage: gi {list,<template>}
+# github: hub wrapper on git; rga *gh*; {empty,new,exist}_gh
+# golang: completion, aliases: rga go+
+# pass: completions for pass
+# pip: completions for pip, aliases: rga pip+
+# python: aliases: py*, ipython, venv: mkv, vron
+# ripgrep: completion
+# rust:  completions for cargo, rustup, rustc
+# sudo: press esc twice to prefix current command w/ sudo
+# ubuntu: aliases: rga ^a+; functions: {aar,apt-history, apt-list-packages,kerndeb}
+# vscode: aliases. rg thru vsc+
+plugins=(gh git github gitignore golang pass pip python ripgrep rust sudo ubuntu vscode)
+ZSH="/home/thor/.zsh.d/oh-my-zsh" # Path to oh-my-zsh
+export ZSH_CUSTOM="$ZSH/custom"
+export ZSH_COMPDUMP=$HOME/.zsh.d/zcompdump-pop-os # cache of stuff from prior session
+export HISTFILE=$HOME/.zsh.d/zsh_history
+
+ZSH_THEME="powerlevel10k/powerlevel10k" # "robbyrussell", "agnoster" # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+HYPHEN_INSENSITIVE="true" # make -,_ interchangeable. case-sensitive must be off.
+DISABLE_UPDATE_PROMPT="true" # auto-update, don't prompt, every 2 weeks
+UPDATE_ZSH_DAYS=14
+HIST_STAMPS="yyyy-mm-dd" # history cmd format
+. <(gpg -qd "$HOME/.private/secrets.gpg") # load secret environment variables
+
+source "$ZSH/oh-my-zsh.sh"
+source "$HOME/.zsh.d/alias.sh"
+
+## Other stuff
+setxkbmap dvorak -option ctrl:nocaps
+export EDITOR='vim'
+if [[ $(hostname) == "starchy" ]]; then
+  # default is TERM=alacritty; this fixes weird input bugs with alacritty
+  TERM=xterm-256color 
+fi
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#eval $(thefuck --alias) # `fuck`'s  setup script
+export ZELLIJ_AUTO_ATTACH=true # attach to the any pre-existing sessions
+#eval "$(zellij setup --generate-auto-start zsh)" # uncomment to run zj at start
+
+tk-kill-line () {
+  zle kill-line   # `kill-line` is the default ctrl+k binding
+  echo -n $CUTBUFFER | xclip -selection clipboard
+}
+zle -N tk-kill-line  # register our new function
+bindkey '^K' tk-kill-line 
+
+# To customize prompt, run `p10k configure` or edit ~/.zsh.d/.p10k.zsh.
+[[ ! -f ~/.zsh.d/.p10k.zsh ]] || source ~/.zsh.d/.p10k.zsh
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet # don't complain at me
+
+
+## misc
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# pnpm
+export PNPM_HOME="/home/thor/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

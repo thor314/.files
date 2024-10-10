@@ -1,0 +1,48 @@
+# https://zellij.dev/documentation/options.html
+# x https://github.com/zellij-org/zellij/blob/main/test-template.yaml
+# https://zellij.dev/documentation/keybindings.html
+ui:
+  pane_frames:
+    rounded_corners: true
+simplified-ui: true
+theme: mine2
+themes:
+  mine:
+    fg: [169,177,214] #A9B1D6
+    bg: [26,27,38] #1A1B26
+    black: [56,62,90] #383E5A
+    red: [249,51,87] #F9334D
+    # green: [221,160,221]  #9ECE6A # light plum
+    green: [21,60,221]  #9ECE6A # light plum
+    yellow: [24,75,4] #E0AF68
+    blue: [122,162,247]  #7AA2F7
+    magenta: [187,154,247] #BB9AF7
+    cyan: [42,195,222] #2AC3DE
+    white: [192,202,245] #C0CAF5
+    orange: [255,158,100] #FF9E64
+  mine2:
+    fg: [169,177,214] #A9B1D6
+    bg: [26,27,38] #1A1B26
+    black: [56,62,90] #383E5A
+    red: [249,51,87] #F9334D
+    green: [221,160,221]  #9ECE6A # light plum
+      #green: [21,60,221]  #9ECE6A # light plum
+    yellow: [24,75,4] #E0AF68
+    blue: [122,162,247]  #7AA2F7
+    magenta: [187,154,247] #BB9AF7
+    cyan: [42,195,222] #2AC3DE
+    white: [192,202,245] #C0CAF5
+    orange: [255,158,100] #FF9E64
+
+      # buggy 
+# keybinds:
+#   unbind: true
+#   normal:
+#     - action: [SwitchToMode: Pane,]
+#       key: [Ctrl: 't',]
+#     - action: [SwitchToMode: Tab,]
+#       key: [Ctrl: 'n',]
+#     - action: [SwitchToMode: Resize,]
+#       key: [Ctrl: 'r',]
+#     - action: [Quit,]
+#       key: [Ctrl: 'w',]

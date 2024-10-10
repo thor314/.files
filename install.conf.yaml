@@ -1,0 +1,52 @@
+# Thor's dotfile config
+#
+# NOTE: must use SPACES not TABS
+# help: https://github.com/anishathalye/dotbot#configuration
+- defaults:
+     link:
+       relink: true # update symlinks, remove the old target if its a symlink
+       force: true # will remove file at destination
+         # create: true # create any necessary directories
+         
+# https://github.com/anishathalye/dotbot#link
+- link:
+  # <DESTINATION>: <PATH_IN_DOTFILE_DIR>
+    ~/.taplo.toml: 
+    ~/.local/share/fonts: fonts
+    ~/.config/fish/abbr.fish: fish/abbr.fish
+    ~/.config/fish/bind.fish: fish/bind.fish
+    ~/.config/fish/config.fish: fish/config.fish
+    ~/.gitconfig:
+    ~/.vimrc: 
+    ~/.cargo/cargo-generate.toml: cargo-generate.toml
+    ~/.config/alacritty: alacritty
+    ~/.profile:  
+    ~/.xprofile:
+    ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
+    ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
+      # ~/.config/fish/git_helpers.fish: fish/git_helpers.fish # test 2024-01-17: does this need to be included? they seem to
+      # be loading anyhow
+
+# https://github.com/anishathalye/dotbot#clean
+- clean: ['~'] # clean dead symlinks in home
+
+# create directories
+# - create: 
+#   ~/dotfile:
+#     mode: 0660 # default is 0777
+
+# https://github.com/anishathalye/dotbot#shell
+# - shell:
+# Generally prefer to do shell stuff in a separate script and only use this for very simple stuff
+  ### examples:
+  # - [git submodule update --init --recursive, Installing submodules] # can specify comment in 2-elem array
+  # - git submodule update --init --recursive # or just run the command
+
+# ARCHIVE 
+    # ~/.config/leftwm: leftwm
+    # ~/.config/zellij: zellij
+    # ~/.share: 
+    # ~/.fehbg: 
+    # ~/.config/nvim: nvim
+    # ~/.files/zsh.d/.zshrc: zsh.d/zshrc # maybe redundant
+    # ~/.zsh.d:

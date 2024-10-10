@@ -1,0 +1,23 @@
+# syncing fish across machines turns out to be rather bad
+# Most reproducible approach so far is to turn off all non-user settings and re-install them across machines
+# Thus all the gitignores
+
+# anything that fish creates should be in the normal .config/fish folder; anything I create should live here
+fish/functions
+fish/conf.d
+fish/themes
+fishd.tmp*
+fish_plugins
+fish_variables
+
+nv/*
+nvim/*
+
+zsh.d/zsh_history
+setup/debs/*
+setup/clones/*
+*zcompdump*
+*.swp
+leftwm/themes/*
+*cronlog*
+.swo

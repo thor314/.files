@@ -1,0 +1,4 @@
+# Code coverage
+# https://github.com/xd009642/tarpaulin
+cargo tarpaulin -v -o Html
+open tarpaulin-report.html
