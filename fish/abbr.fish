@@ -104,7 +104,7 @@ abbr -a -g vsu "vi ~/.setup/unsorted.sh"
 
 abbr -a -g vv "vi ~/.files/vimrc"
 
-# abbr -a -g zj zellij
+abbr -a -g zj zellij
 
 abbr -a -g z. "cd $HOME/.files"
 abbr -a -g z.s "cd $HOME/.files/scripts"

@@ -24,6 +24,7 @@
     ~/.xprofile:
     ~/obsidian/.obsidian.vimrc: obsidian/obsidian.vimrc
     ~/obsidian/.obsidian/preamble.sty: obsidian/preamble.sty
+    ~/.config/zellij: zellij
       # ~/.config/fish/git_helpers.fish: fish/git_helpers.fish # test 2024-01-17: does this need to be included? they seem to
       # be loading anyhow
 
@@ -44,7 +45,6 @@
 
 # ARCHIVE 
     # ~/.config/leftwm: leftwm
-    # ~/.config/zellij: zellij
     # ~/.share: 
     # ~/.fehbg: 
     # ~/.config/nvim: nvim

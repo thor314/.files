@@ -26,18 +26,16 @@ if status is-interactive
     end
     popd
 
-    # default is TERM=alacritty; this fixes weird input bugs with alacritty
-    if test (hostname) = starchy
-        set TERM xterm-256color
-    end
-
     tk-keychain ~/.ssh/id_ed25519 >/dev/null # avoid ssh-key issues
-
-    # even if set elsewhere, to avoid capslock vscode bug, keep this line
-    setxkbmap dvorak -option caps:ctrl_modifier
 
     # nvm install latest && 
     nvm use latest >>/dev/null # puts npm in path, and b quiet. May cause warnings if nvm path misconfigured. 
+
+    # launch zellj at shell creation
+    if set -q ZELLIJ
+    else
+        zellij # --layout compact # reduce zellij screen size
+    end
 end
 
 # load secret environment variables
@@ -48,10 +46,6 @@ gpg -qd "$HOME/.private/no-sync/secrets.gpg" | source
 # # # ## ##### ## # # #
 # use bat to display man pages with syntax highlighting etc 
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
-
-# Uncomment the following line to run zellij at start (assuming bash is your shell, which this is not)
-# set -gx ZELLIJ_AUTO_ATTACH=true # attach to any pre-existing sessions
-# eval "$(zellij setup --generate-auto-start bash)"
 
 ########
 # TEMP # - these belong somewhere else, but are here for the moment
@@ -67,8 +61,13 @@ export EDITOR="/usr/bin/hx"
 # https://docs.jupyter.org/en/latest/use/jupyter-directories.html
 # set -gx JUPYTER_CONFIG_DIR "$HOME/.files/jupyter"
 
-# ssh config? This was experiment for making git work in cron scripts, saving for posterity
-# set -q SSH_AGENT_PID; or eval (ssh-agent -c)
+# default is TERM=alacritty; this fixes weird input bugs with alacritty
+# if test (hostname) = starchy
+#     set TERM xterm-256color
+# end
+
+# # even if set elsewhere, to avoid capslock vscode bug, keep this line
+# setxkbmap dvorak -option caps:ctrl_modifier
 
 # noir
 export NARGO_HOME="$HOME/.nargo"
