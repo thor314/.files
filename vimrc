@@ -101,8 +101,8 @@ noremap H ^
 "nmap <leader>h " todo: goto left split
 nmap <leader><A-h> :set hlsearch<CR>
 nmap <leader><A-H> :set nohlsearch<CR>
-nmap t xhPl
-nmap T ~
+nmap t xhp
+" nmap T ~
 "map <C-t>
 "map <A-t>
 noremap n nzz " Center when searching

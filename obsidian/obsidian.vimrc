@@ -49,8 +49,8 @@ map H ^
 map L $
 
 " transpose, shift case
-nmap t xhPl 
-nmap T ~ 
+nmap <C-t> hxp 
+" nmap T ~ 
 
 " nope:
 
