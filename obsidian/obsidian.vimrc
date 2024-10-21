@@ -12,11 +12,6 @@
 " anyhow, but there's a fix coming, eventually, maybe.
 
 """ General Vim Keybindings
-" escapes if I forget to escape
-imap jj <Esc> 
-imap kk <Esc>
-imap jk <Esc>
-imap kj <Esc>
 
 " Undo, Redo, and Navigate inside page:
 " Don't overwrite <C-u> or <C-d> for file movement, or <C-o>,<C-i> for back/forward movement within document. 
