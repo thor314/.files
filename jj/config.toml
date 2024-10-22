@@ -1,3 +1,6 @@
 [user]
 name = "Thor Kamphefner"
 email = "thorck@pm.me"
+
+[ui]
+default-command = "log"
