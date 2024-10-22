@@ -16,7 +16,7 @@
 " Undo, Redo, and Navigate inside page:
 " Don't overwrite <C-u> or <C-d> for file movement, or <C-o>,<C-i> for back/forward movement within document. 
 " <C-r> is for search-replace. u/U for undo/redo. Also Ctrl-z/Z native app.
-nmap U :redo
+" nmap U :redo
 vmap <C-r> :s/
 nmap <C-r> <C-a>:s/
 
