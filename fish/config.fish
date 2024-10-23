@@ -21,6 +21,7 @@ if status is-interactive
     source rust_helpers.fish
     source web_helpers.fish
     source hackmd_helpers.fish
+    source jj_helpers.fish
     for f in (ls $HOME/.files/fish/completions)
         source completions/$f
     end
