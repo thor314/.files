@@ -1,1255 +1,2297 @@
-complete -c jj -n "__fish_use_subcommand" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_use_subcommand" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_use_subcommand" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_use_subcommand" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_use_subcommand" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_use_subcommand" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_use_subcommand" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_use_subcommand" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_use_subcommand" -s V -l version -d 'Print version'
-complete -c jj -n "__fish_use_subcommand" -f -a "abandon" -d 'Abandon a revision'
-complete -c jj -n "__fish_use_subcommand" -f -a "backout" -d 'Apply the reverse of a revision on top of another revision'
-complete -c jj -n "__fish_use_subcommand" -f -a "branch" -d 'Manage branches'
-complete -c jj -n "__fish_use_subcommand" -f -a "cat" -d 'Print contents of a file in a revision'
-complete -c jj -n "__fish_use_subcommand" -f -a "checkout" -d 'Create a new, empty change and edit it in the working copy'
-complete -c jj -n "__fish_use_subcommand" -f -a "chmod" -d 'Sets or removes the executable bit for paths in the repo'
-complete -c jj -n "__fish_use_subcommand" -f -a "commit" -d 'Update the description and create a new change on top'
-complete -c jj -n "__fish_use_subcommand" -f -a "config" -d 'Manage config options'
-complete -c jj -n "__fish_use_subcommand" -f -a "debug" -d 'Low-level commands not intended for users'
-complete -c jj -n "__fish_use_subcommand" -f -a "describe" -d 'Update the change description or other metadata'
-complete -c jj -n "__fish_use_subcommand" -f -a "diff" -d 'Compare file contents between two revisions'
-complete -c jj -n "__fish_use_subcommand" -f -a "diffedit" -d 'Touch up the content changes in a revision with a diff editor'
-complete -c jj -n "__fish_use_subcommand" -f -a "duplicate" -d 'Create a new change with the same content as an existing one'
-complete -c jj -n "__fish_use_subcommand" -f -a "edit" -d 'Edit a commit in the working copy'
-complete -c jj -n "__fish_use_subcommand" -f -a "files" -d 'List files in a revision'
-complete -c jj -n "__fish_use_subcommand" -f -a "git" -d 'Commands for working with the underlying Git repo'
-complete -c jj -n "__fish_use_subcommand" -f -a "init" -d 'Create a new repo in the given directory'
-complete -c jj -n "__fish_use_subcommand" -f -a "interdiff" -d 'Compare the changes of two commits'
-complete -c jj -n "__fish_use_subcommand" -f -a "log" -d 'Show commit history'
-complete -c jj -n "__fish_use_subcommand" -f -a "merge" -d 'Merge work from multiple branches'
-complete -c jj -n "__fish_use_subcommand" -f -a "move" -d 'Move changes from one revision into another'
-complete -c jj -n "__fish_use_subcommand" -f -a "new" -d 'Create a new, empty change and (by default) edit it in the working copy'
-complete -c jj -n "__fish_use_subcommand" -f -a "next" -d 'Move the current working copy commit to the next child revision in the repository.'
-complete -c jj -n "__fish_use_subcommand" -f -a "obslog" -d 'Show how a change has evolved'
-complete -c jj -n "__fish_use_subcommand" -f -a "operation" -d 'Commands for working with the operation log'
-complete -c jj -n "__fish_use_subcommand" -f -a "prev" -d 'Move the working copy commit to the parent of the current revision.'
-complete -c jj -n "__fish_use_subcommand" -f -a "rebase" -d 'Move revisions to different parent(s)'
-complete -c jj -n "__fish_use_subcommand" -f -a "resolve" -d 'Resolve a conflicted file with an external merge tool'
-complete -c jj -n "__fish_use_subcommand" -f -a "restore" -d 'Restore paths from another revision'
-complete -c jj -n "__fish_use_subcommand" -f -a "revert" -d 'A dummy command that accepts any arguments'
-complete -c jj -n "__fish_use_subcommand" -f -a "root" -d 'Show the current workspace root directory'
-complete -c jj -n "__fish_use_subcommand" -f -a "run" -d 'Run a command across a set of revisions.'
-complete -c jj -n "__fish_use_subcommand" -f -a "show" -d 'Show commit description and changes in a revision'
-complete -c jj -n "__fish_use_subcommand" -f -a "sparse" -d 'Manage which paths from the working-copy commit are present in the working copy'
-complete -c jj -n "__fish_use_subcommand" -f -a "split" -d 'Split a revision in two'
-complete -c jj -n "__fish_use_subcommand" -f -a "squash" -d 'Move changes from a revision into its parent'
-complete -c jj -n "__fish_use_subcommand" -f -a "status" -d 'Show high-level repo status'
-complete -c jj -n "__fish_use_subcommand" -f -a "tag" -d 'Manage tags'
-complete -c jj -n "__fish_use_subcommand" -f -a "util" -d 'Infrequently used commands such as for generating shell completions'
-complete -c jj -n "__fish_use_subcommand" -f -a "undo" -d 'Undo an operation (shortcut for `jj op undo`)'
-complete -c jj -n "__fish_use_subcommand" -f -a "unsquash" -d 'Move changes from a revision\'s parent into the revision'
-complete -c jj -n "__fish_use_subcommand" -f -a "untrack" -d 'Stop tracking specified paths in the working copy'
-complete -c jj -n "__fish_use_subcommand" -f -a "version" -d 'Display version information'
-complete -c jj -n "__fish_use_subcommand" -f -a "workspace" -d 'Commands for working with workspaces'
-complete -c jj -n "__fish_use_subcommand" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from abandon" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from abandon" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from abandon" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from abandon" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from abandon" -s s -l summary -d 'Do not print every abandoned commit on a separate line'
-complete -c jj -n "__fish_seen_subcommand_from abandon" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
-complete -c jj -n "__fish_seen_subcommand_from abandon" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from abandon" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from abandon" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from abandon" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from backout" -s r -l revision -d 'The revision to apply the reverse of' -r
-complete -c jj -n "__fish_seen_subcommand_from backout" -s d -l destination -d 'The revision to apply the reverse changes on top of' -r
-complete -c jj -n "__fish_seen_subcommand_from backout" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from backout" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from backout" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from backout" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from backout" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from backout" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from backout" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from backout" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "create" -d 'Create a new branch'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "delete" -d 'Delete an existing branch and propagate the deletion to remotes on the next push'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "forget" -d 'Forget everything about a branch, including its local and remote targets'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List branches and their targets'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "rename" -d 'Rename `old` branch name to `new` branch name'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "set" -d 'Update an existing branch to point to a certain commit'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "track" -d 'Start tracking given remote branches'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "untrack" -d 'Stop tracking given remote branches'
-complete -c jj -n "__fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from create" -s r -l revision -d 'The branch\'s target revision' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from create" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from create" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from create" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from create" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from create" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from create" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from create" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from delete" -l glob -d 'Deprecated. Please prefix the pattern with `glob:` instead' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from delete" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from delete" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from delete" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from delete" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from delete" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from delete" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from delete" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from forget" -l glob -d 'Deprecated. Please prefix the pattern with `glob:` instead' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from forget" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from forget" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from forget" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from forget" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from forget" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from forget" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from forget" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from forget" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -s r -l revisions -d 'Show branches whose local targets are in the given revisions' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -s a -l all -d 'Show all tracking and non-tracking remote branches including the ones whose targets are synchronized with the local branches'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -s t -l tracked -d 'Show remote tracked branches only. Omits local Git-tracking branches by default'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from rename" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from rename" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from rename" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from rename" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from rename" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from rename" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from rename" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from rename" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -s r -l revision -d 'The branch\'s target revision' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -s B -l allow-backwards -d 'Allow moving the branch backwards or sideways'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from track" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from track" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from track" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from track" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from track" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from track" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from track" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from track" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from untrack" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from untrack" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from untrack" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from untrack" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from untrack" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from untrack" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from untrack" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from untrack" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "create" -d 'Create a new branch'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "delete" -d 'Delete an existing branch and propagate the deletion to remotes on the next push'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "forget" -d 'Forget everything about a branch, including its local and remote targets'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List branches and their targets'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "rename" -d 'Rename `old` branch name to `new` branch name'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "set" -d 'Update an existing branch to point to a certain commit'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "track" -d 'Start tracking given remote branches'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "untrack" -d 'Stop tracking given remote branches'
-complete -c jj -n "__fish_seen_subcommand_from branch; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from cat" -s r -l revision -d 'The revision to get the file contents from' -r
-complete -c jj -n "__fish_seen_subcommand_from cat" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from cat" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from cat" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from cat" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from cat" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from cat" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from cat" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from cat" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from checkout" -s m -l message -d 'The change description to use' -r
-complete -c jj -n "__fish_seen_subcommand_from checkout" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from checkout" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from checkout" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from checkout" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from checkout" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
-complete -c jj -n "__fish_seen_subcommand_from checkout" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from checkout" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from checkout" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from checkout" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from chmod" -s r -l revision -d 'The revision to update' -r
-complete -c jj -n "__fish_seen_subcommand_from chmod" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from chmod" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from chmod" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from chmod" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from chmod" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from chmod" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from chmod" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from chmod" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from commit" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
-complete -c jj -n "__fish_seen_subcommand_from commit" -s m -l message -d 'The change description to use (don\'t open editor)' -r
-complete -c jj -n "__fish_seen_subcommand_from commit" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from commit" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from commit" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from commit" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from commit" -s i -l interactive -d 'Interactively choose which changes to include in the first commit'
-complete -c jj -n "__fish_seen_subcommand_from commit" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from commit" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from commit" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from commit" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List variables set in config file, along with their values'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "get" -d 'Get the value of a given config option.'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "set" -d 'Update config file to set the given option to a given value'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "edit" -d 'Start an editor on a jj config file'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "path" -d 'Print the path to the config file'
-complete -c jj -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -s T -l template -d 'Render each variable using the given template' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l include-defaults -d 'Whether to explicitly include built-in default values in the list'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l include-overridden -d 'Allow printing overridden values'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l user -d 'Target the user-level config'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l repo -d 'Target the repo-level config'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from get" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from get" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from get" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from get" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from get" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from get" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from get" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -l user -d 'Target the user-level config'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -l repo -d 'Target the repo-level config'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -l user -d 'Target the user-level config'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -l repo -d 'Target the repo-level config'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from edit" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -l user -d 'Target the user-level config'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -l repo -d 'Target the repo-level config'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from path" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List variables set in config file, along with their values'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "get" -d 'Get the value of a given config option.'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "set" -d 'Update config file to set the given option to a given value'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "edit" -d 'Start an editor on a jj config file'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "path" -d 'Print the path to the config file'
-complete -c jj -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "revset" -d 'Evaluate revset to full commit IDs'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "workingcopy" -d 'Show information about the working copy state'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "template" -d 'Parse a template'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "index" -d 'Show commit index stats'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "reindex" -d 'Rebuild commit index'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "operation" -d 'Show information about an operation and its view'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "tree" -d 'List the recursive entries of a tree'
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "watchman"
-complete -c jj -n "__fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from revset" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from revset" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from revset" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from revset" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from revset" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from revset" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from revset" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from revset" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from workingcopy" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from workingcopy" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from workingcopy" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from workingcopy" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from workingcopy" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from workingcopy" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from workingcopy" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from workingcopy" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from template" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from template" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from template" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from template" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from template" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from template" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from template" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from template" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from index" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from index" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from index" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from index" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from index" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from index" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from index" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from index" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from reindex" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from reindex" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from reindex" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from reindex" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from reindex" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from reindex" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from reindex" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from reindex" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from operation" -l display -r -f -a "{operation	'Show only the operation details',id	'Show the operation id only',view	'Show only the view details',all	'Show both the view and the operation'}"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from operation" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from operation" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from operation" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from operation" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from operation" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from operation" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from operation" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from operation" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from tree" -s r -l revision -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from tree" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from tree" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from tree" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from tree" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from tree" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from tree" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from tree" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from tree" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -f -a "query-clock"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -f -a "query-changed-files"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -f -a "reset-clock"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-clock" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-clock" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-clock" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-clock" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-clock" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-clock" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-clock" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-clock" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-changed-files" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-changed-files" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-changed-files" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-changed-files" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-changed-files" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-changed-files" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-changed-files" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from query-changed-files" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from reset-clock" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from reset-clock" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from reset-clock" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from reset-clock" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from reset-clock" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from reset-clock" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from reset-clock" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from reset-clock" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -f -a "query-clock"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -f -a "query-changed-files"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -f -a "reset-clock"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "revset" -d 'Evaluate revset to full commit IDs'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "workingcopy" -d 'Show information about the working copy state'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "template" -d 'Parse a template'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "index" -d 'Show commit index stats'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "reindex" -d 'Rebuild commit index'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "operation" -d 'Show information about an operation and its view'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "tree" -d 'List the recursive entries of a tree'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "watchman"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock" -f -a "query-clock"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock" -f -a "query-changed-files"
-complete -c jj -n "__fish_seen_subcommand_from debug; and __fish_seen_subcommand_from help; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock" -f -a "reset-clock"
-complete -c jj -n "__fish_seen_subcommand_from describe" -s m -l message -d 'The change description to use (don\'t open editor)' -r
-complete -c jj -n "__fish_seen_subcommand_from describe" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from describe" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from describe" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from describe" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from describe" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
-complete -c jj -n "__fish_seen_subcommand_from describe" -l stdin -d 'Read the change description from stdin'
-complete -c jj -n "__fish_seen_subcommand_from describe" -l no-edit -d 'Don\'t open an editor'
-complete -c jj -n "__fish_seen_subcommand_from describe" -l reset-author -d 'Reset the author to the configured user'
-complete -c jj -n "__fish_seen_subcommand_from describe" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from describe" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from describe" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from describe" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from diff" -s r -l revision -d 'Show changes in this revision, compared to its parent(s)' -r
-complete -c jj -n "__fish_seen_subcommand_from diff" -l from -d 'Show changes from this revision' -r
-complete -c jj -n "__fish_seen_subcommand_from diff" -l to -d 'Show changes to this revision' -r
-complete -c jj -n "__fish_seen_subcommand_from diff" -l tool -d 'Generate diff by external command' -r
-complete -c jj -n "__fish_seen_subcommand_from diff" -l context -d 'Number of lines of context to show' -r
-complete -c jj -n "__fish_seen_subcommand_from diff" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from diff" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from diff" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from diff" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from diff" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
-complete -c jj -n "__fish_seen_subcommand_from diff" -l stat -d 'Show a histogram of the changes'
-complete -c jj -n "__fish_seen_subcommand_from diff" -l types -d 'For each path, show only its type before and after'
-complete -c jj -n "__fish_seen_subcommand_from diff" -l git -d 'Show a Git-format diff'
-complete -c jj -n "__fish_seen_subcommand_from diff" -l color-words -d 'Show a word-level diff with changes indicated only by color'
-complete -c jj -n "__fish_seen_subcommand_from diff" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from diff" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from diff" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from diff" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -s r -l revision -d 'The revision to touch up. Defaults to @ if neither --to nor --from are specified' -r
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -l from -d 'Show changes from this revision. Defaults to @ if --to is specified' -r
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -l to -d 'Edit changes in this revision. Defaults to @ if --from is specified' -r
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -l tool -d 'Specify diff editor to be used' -r
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from diffedit" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from duplicate" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from duplicate" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from duplicate" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from duplicate" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from duplicate" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
-complete -c jj -n "__fish_seen_subcommand_from duplicate" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from duplicate" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from duplicate" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from duplicate" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from edit" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from edit" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from edit" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from edit" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from edit" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
-complete -c jj -n "__fish_seen_subcommand_from edit" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from edit" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from edit" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from edit" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from files" -s r -l revision -d 'The revision to list files in' -r
-complete -c jj -n "__fish_seen_subcommand_from files" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from files" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from files" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from files" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from files" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from files" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from files" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from files" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "remote" -d 'Manage Git remotes'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "init" -d 'Create a new Git backed repo'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "fetch" -d 'Fetch from a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "clone" -d 'Create a new repo backed by a clone of a Git repo'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "push" -d 'Push to a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "import" -d 'Update repo with changes made in the underlying Git repo'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "export" -d 'Update the underlying Git repo with changes made in the repo'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "submodule" -d 'FOR INTERNAL USE ONLY Interact with git submodules'
-complete -c jj -n "__fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "add" -d 'Add a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "remove" -d 'Remove a Git remote and forget its branches'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "rename" -d 'Rename a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List Git remotes'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from add" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from add" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from add" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from add" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from add" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from add" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from add" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from add" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from remove" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from remove" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from remove" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from remove" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from remove" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from remove" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from remove" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from remove" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from rename" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from rename" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from rename" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from rename" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from rename" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from rename" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from rename" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from rename" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "add" -d 'Add a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "remove" -d 'Remove a Git remote and forget its branches'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "rename" -d 'Rename a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List Git remotes'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -l git-repo -d 'Specifies a path to an **existing** git repository to be used as the backing git repo for the newly created `jj` repo' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -l colocate -d 'Specifies that the `jj` repo should also be a valid `git` repo, allowing the use of both `jj` and `git` commands in the same directory'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from init" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -s b -l branch -d 'Fetch only some of the branches' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -l remote -d 'The remote to fetch from (only named remotes are supported, can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -l all-remotes -d 'Fetch from all remotes'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from fetch" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from clone" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from clone" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from clone" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from clone" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from clone" -l colocate -d 'Whether or not to colocate the Jujutsu repo with the git repo'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from clone" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from clone" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from clone" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from clone" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l remote -d 'The remote to push to (only named remotes are supported)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -s b -l branch -d 'Push only this branch, or branches matching a pattern (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -s r -l revisions -d 'Push branches pointing to these commits (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -s c -l change -d 'Push this commit by creating a branch based on its change ID (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l all -d 'Push all branches (including deleted branches)'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l tracked -d 'Push all tracked branches (including deleted branches)'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l deleted -d 'Push all deleted branches'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l dry-run -d 'Only display what will change on the remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from push" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from import" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from import" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from import" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from import" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from import" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from import" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from import" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from import" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from export" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from export" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from export" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from export" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from export" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from export" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from export" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from export" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -f -a "print-gitmodules" -d 'Print the relevant contents from .gitmodules. For debugging purposes only'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from print-gitmodules" -s r -l revisions -d 'Read .gitmodules from the given revision' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from print-gitmodules" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from print-gitmodules" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from print-gitmodules" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from print-gitmodules" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from print-gitmodules" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from print-gitmodules" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from print-gitmodules" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from print-gitmodules" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -f -a "print-gitmodules" -d 'Print the relevant contents from .gitmodules. For debugging purposes only'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from print-gitmodules; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "remote" -d 'Manage Git remotes'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "init" -d 'Create a new Git backed repo'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "fetch" -d 'Fetch from a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "clone" -d 'Create a new repo backed by a clone of a Git repo'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "push" -d 'Push to a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "import" -d 'Update repo with changes made in the underlying Git repo'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "export" -d 'Update the underlying Git repo with changes made in the repo'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "submodule" -d 'FOR INTERNAL USE ONLY Interact with git submodules'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list" -f -a "add" -d 'Add a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list" -f -a "remove" -d 'Remove a Git remote and forget its branches'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list" -f -a "rename" -d 'Rename a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list" -f -a "list" -d 'List Git remotes'
-complete -c jj -n "__fish_seen_subcommand_from git; and __fish_seen_subcommand_from help; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules" -f -a "print-gitmodules" -d 'Print the relevant contents from .gitmodules. For debugging purposes only'
-complete -c jj -n "__fish_seen_subcommand_from init" -l git-repo -d 'DEPRECATED: Use `jj git init` Path to a git repo the jj repo will be backed by' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from init" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from init" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from init" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from init" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from init" -l git -d 'DEPRECATED: Use `jj git init` Use the Git backend, creating a jj repo backed by a Git repo'
-complete -c jj -n "__fish_seen_subcommand_from init" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from init" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from init" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from init" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l from -d 'Show changes from this revision' -r
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l to -d 'Show changes to this revision' -r
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l tool -d 'Generate diff by external command' -r
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l context -d 'Number of lines of context to show' -r
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l stat -d 'Show a histogram of the changes'
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l types -d 'For each path, show only its type before and after'
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l git -d 'Show a Git-format diff'
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l color-words -d 'Show a word-level diff with changes indicated only by color'
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from interdiff" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from log" -s r -l revisions -d 'Which revisions to show. Defaults to the `revsets.log` setting, or `@ | ancestors(immutable_heads().., 2) | trunk()` if it is not set' -r
-complete -c jj -n "__fish_seen_subcommand_from log" -s l -l limit -d 'Limit number of revisions to show' -r
-complete -c jj -n "__fish_seen_subcommand_from log" -s T -l template -d 'Render each revision using the given template' -r
-complete -c jj -n "__fish_seen_subcommand_from log" -l tool -d 'Generate diff by external command' -r
-complete -c jj -n "__fish_seen_subcommand_from log" -l context -d 'Number of lines of context to show' -r
-complete -c jj -n "__fish_seen_subcommand_from log" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from log" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from log" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from log" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from log" -l reversed -d 'Show revisions in the opposite order (older revisions first)'
-complete -c jj -n "__fish_seen_subcommand_from log" -l no-graph -d 'Don\'t show the graph, show a flat list of revisions'
-complete -c jj -n "__fish_seen_subcommand_from log" -s p -l patch -d 'Show patch'
-complete -c jj -n "__fish_seen_subcommand_from log" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
-complete -c jj -n "__fish_seen_subcommand_from log" -l stat -d 'Show a histogram of the changes'
-complete -c jj -n "__fish_seen_subcommand_from log" -l types -d 'For each path, show only its type before and after'
-complete -c jj -n "__fish_seen_subcommand_from log" -l git -d 'Show a Git-format diff'
-complete -c jj -n "__fish_seen_subcommand_from log" -l color-words -d 'Show a word-level diff with changes indicated only by color'
-complete -c jj -n "__fish_seen_subcommand_from log" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from log" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from log" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from log" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from merge" -s m -l message -d 'The change description to use' -r
-complete -c jj -n "__fish_seen_subcommand_from merge" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from merge" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from merge" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from merge" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from merge" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
-complete -c jj -n "__fish_seen_subcommand_from merge" -s L -l allow-large-revsets -d 'Deprecated. Please prefix the revset with `all:` instead'
-complete -c jj -n "__fish_seen_subcommand_from merge" -l no-edit -d 'Do not edit the newly created change'
-complete -c jj -n "__fish_seen_subcommand_from merge" -l edit -d 'No-op flag to pair with --no-edit'
-complete -c jj -n "__fish_seen_subcommand_from merge" -s A -l insert-after -l after -d 'Insert the new change between the target commit(s) and their children'
-complete -c jj -n "__fish_seen_subcommand_from merge" -s B -l insert-before -l before -d 'Insert the new change between the target commit(s) and their parents'
-complete -c jj -n "__fish_seen_subcommand_from merge" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from merge" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from merge" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from merge" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from move" -s f -l from -d 'Move part of this change into the destination' -r
-complete -c jj -n "__fish_seen_subcommand_from move" -s t -l to -d 'Move part of the source into this change' -r
-complete -c jj -n "__fish_seen_subcommand_from move" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
-complete -c jj -n "__fish_seen_subcommand_from move" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from move" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from move" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from move" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from move" -s i -l interactive -d 'Interactively choose which parts to move'
-complete -c jj -n "__fish_seen_subcommand_from move" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from move" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from move" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from move" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from new" -s m -l message -d 'The change description to use' -r
-complete -c jj -n "__fish_seen_subcommand_from new" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from new" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from new" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from new" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from new" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
-complete -c jj -n "__fish_seen_subcommand_from new" -s L -l allow-large-revsets -d 'Deprecated. Please prefix the revset with `all:` instead'
-complete -c jj -n "__fish_seen_subcommand_from new" -l no-edit -d 'Do not edit the newly created change'
-complete -c jj -n "__fish_seen_subcommand_from new" -l edit -d 'No-op flag to pair with --no-edit'
-complete -c jj -n "__fish_seen_subcommand_from new" -s A -l insert-after -l after -d 'Insert the new change between the target commit(s) and their children'
-complete -c jj -n "__fish_seen_subcommand_from new" -s B -l insert-before -l before -d 'Insert the new change between the target commit(s) and their parents'
-complete -c jj -n "__fish_seen_subcommand_from new" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from new" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from new" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from new" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from next" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from next" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from next" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from next" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from next" -l edit -d 'Instead of creating a new working-copy commit on top of the target commit (like `jj new`), edit the target commit directly (like `jj edit`)'
-complete -c jj -n "__fish_seen_subcommand_from next" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from next" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from next" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from next" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -s r -l revision -r
-complete -c jj -n "__fish_seen_subcommand_from obslog" -s l -l limit -d 'Limit number of revisions to show' -r
-complete -c jj -n "__fish_seen_subcommand_from obslog" -s T -l template -d 'Render each revision using the given template' -r
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l tool -d 'Generate diff by external command' -r
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l context -d 'Number of lines of context to show' -r
-complete -c jj -n "__fish_seen_subcommand_from obslog" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l no-graph -d 'Don\'t show the graph, show a flat list of revisions'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -s p -l patch -d 'Show patch compared to the previous version of this change'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l stat -d 'Show a histogram of the changes'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l types -d 'For each path, show only its type before and after'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l git -d 'Show a Git-format diff'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l color-words -d 'Show a word-level diff with changes indicated only by color'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from obslog" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "abandon" -d 'Abandon operation history'
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "log" -d 'Show the operation log'
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "undo" -d 'Create a new operation that undoes an earlier operation'
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "restore" -d 'Create a new operation that restores the repo to an earlier state'
-complete -c jj -n "__fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from abandon" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from abandon" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from abandon" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from abandon" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from abandon" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from abandon" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from abandon" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from abandon" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -s l -l limit -d 'Limit number of operations to show' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -s T -l template -d 'Render each operation using the given template' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -l no-graph -d 'Don\'t show the graph, show a flat list of operations'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from log" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from undo" -l what -d 'What portions of the local state to restore (can be repeated)' -r -f -a "{repo	'The jj repo state and local branches',remote-tracking	'The remote-tracking branches. Do not restore these if you\'d like to push after the undo'}"
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from undo" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from undo" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from undo" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from undo" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from undo" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from undo" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from undo" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from undo" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from restore" -l what -d 'What portions of the local state to restore (can be repeated)' -r -f -a "{repo	'The jj repo state and local branches',remote-tracking	'The remote-tracking branches. Do not restore these if you\'d like to push after the undo'}"
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from restore" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from restore" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from restore" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from restore" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from restore" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from restore" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from restore" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from restore" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "abandon" -d 'Abandon operation history'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "log" -d 'Show the operation log'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "undo" -d 'Create a new operation that undoes an earlier operation'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "restore" -d 'Create a new operation that restores the repo to an earlier state'
-complete -c jj -n "__fish_seen_subcommand_from operation; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from prev" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from prev" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from prev" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from prev" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from prev" -l edit -d 'Edit the parent directly, instead of moving the working-copy commit'
-complete -c jj -n "__fish_seen_subcommand_from prev" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from prev" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from prev" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from prev" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from rebase" -s b -l branch -d 'Rebase the whole branch relative to destination\'s ancestors (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from rebase" -s s -l source -d 'Rebase specified revision(s) together their tree of descendants (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from rebase" -s r -l revision -d 'Rebase only this revision, rebasing descendants onto this revision\'s parent(s)' -r
-complete -c jj -n "__fish_seen_subcommand_from rebase" -s d -l destination -d 'The revision(s) to rebase onto (can be repeated to create a merge commit)' -r
-complete -c jj -n "__fish_seen_subcommand_from rebase" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from rebase" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from rebase" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from rebase" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from rebase" -l skip-empty -d 'If true, when rebasing would produce an empty commit, the commit is abandoned. It will not be abandoned if it was already empty before the rebase. Will never skip merge commits with multiple non-empty parents'
-complete -c jj -n "__fish_seen_subcommand_from rebase" -s L -l allow-large-revsets -d 'Deprecated. Please prefix the revset with `all:` instead'
-complete -c jj -n "__fish_seen_subcommand_from rebase" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from rebase" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from rebase" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from rebase" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from resolve" -s r -l revision -r
-complete -c jj -n "__fish_seen_subcommand_from resolve" -l tool -d 'Specify 3-way merge tool to be used' -r
-complete -c jj -n "__fish_seen_subcommand_from resolve" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from resolve" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from resolve" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from resolve" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from resolve" -s l -l list -d 'Instead of resolving one conflict, list all the conflicts'
-complete -c jj -n "__fish_seen_subcommand_from resolve" -s q -l quiet -d 'Do not print the list of remaining conflicts (if any) after resolving a conflict'
-complete -c jj -n "__fish_seen_subcommand_from resolve" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from resolve" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from resolve" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from resolve" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from restore" -l from -d 'Revision to restore from (source)' -r
-complete -c jj -n "__fish_seen_subcommand_from restore" -l to -d 'Revision to restore into (destination)' -r
-complete -c jj -n "__fish_seen_subcommand_from restore" -s c -l changes-in -d 'Undo the changes in a revision as compared to the merge of its parents' -r
-complete -c jj -n "__fish_seen_subcommand_from restore" -s r -l revision -d 'Prints an error. DO NOT USE' -r
-complete -c jj -n "__fish_seen_subcommand_from restore" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from restore" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from restore" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from restore" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from restore" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from restore" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from restore" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from restore" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from revert" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from revert" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from revert" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from revert" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from revert" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from revert" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from revert" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from revert" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from root" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from root" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from root" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from root" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from root" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from root" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from root" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from root" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from run" -s r -l revisions -d 'The revisions to change' -r
-complete -c jj -n "__fish_seen_subcommand_from run" -s j -l jobs -d 'How many processes should run in parallel, uses by default all cores' -r
-complete -c jj -n "__fish_seen_subcommand_from run" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from run" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from run" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from run" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from run" -s x -d 'A no-op option to match the interface of `git rebase -x`'
-complete -c jj -n "__fish_seen_subcommand_from run" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from run" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from run" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from run" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from show" -s T -l template -d 'Render a revision using the given template' -r
-complete -c jj -n "__fish_seen_subcommand_from show" -l tool -d 'Generate diff by external command' -r
-complete -c jj -n "__fish_seen_subcommand_from show" -l context -d 'Number of lines of context to show' -r
-complete -c jj -n "__fish_seen_subcommand_from show" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from show" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from show" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from show" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from show" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
-complete -c jj -n "__fish_seen_subcommand_from show" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
-complete -c jj -n "__fish_seen_subcommand_from show" -l stat -d 'Show a histogram of the changes'
-complete -c jj -n "__fish_seen_subcommand_from show" -l types -d 'For each path, show only its type before and after'
-complete -c jj -n "__fish_seen_subcommand_from show" -l git -d 'Show a Git-format diff'
-complete -c jj -n "__fish_seen_subcommand_from show" -l color-words -d 'Show a word-level diff with changes indicated only by color'
-complete -c jj -n "__fish_seen_subcommand_from show" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from show" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from show" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from show" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List the patterns that are currently present in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -f -a "set" -d 'Update the patterns that are present in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l add -d 'Patterns to add to the working copy' -r -F
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l remove -d 'Patterns to remove from the working copy' -r -F
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l clear -d 'Include no files in the working copy (combine with --add)'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l edit -d 'Edit patterns with $EDITOR'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l reset -d 'Include all files in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List the patterns that are currently present in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -f -a "set" -d 'Update the patterns that are present in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from sparse; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from split" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
-complete -c jj -n "__fish_seen_subcommand_from split" -s r -l revision -d 'The revision to split' -r
-complete -c jj -n "__fish_seen_subcommand_from split" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from split" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from split" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from split" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from split" -s i -l interactive -d 'Interactively choose which parts to split. This is the default if no paths are provided'
-complete -c jj -n "__fish_seen_subcommand_from split" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from split" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from split" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from split" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from squash" -s r -l revision -r
-complete -c jj -n "__fish_seen_subcommand_from squash" -s m -l message -d 'The description to use for squashed revision (don\'t open editor)' -r
-complete -c jj -n "__fish_seen_subcommand_from squash" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
-complete -c jj -n "__fish_seen_subcommand_from squash" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from squash" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from squash" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from squash" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from squash" -s i -l interactive -d 'Interactively choose which parts to squash'
-complete -c jj -n "__fish_seen_subcommand_from squash" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from squash" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from squash" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from squash" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from status" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from status" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from status" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from status" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from status" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from status" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from status" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from status" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List tags'
-complete -c jj -n "__fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List tags'
-complete -c jj -n "__fish_seen_subcommand_from tag; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "completion" -d 'Print a command-line-completion script'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "gc" -d 'Run backend-dependent garbage collection'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "mangen" -d 'Print a ROFF (manpage)'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "markdown-help" -d 'Print the CLI help for all subcommands in Markdown'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "config-schema" -d 'Print the JSON schema for the jj TOML config format'
-complete -c jj -n "__fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -l bash -d 'Deprecated. Use the SHELL positional argument instead'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -l fish -d 'Deprecated. Use the SHELL positional argument instead'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -l zsh -d 'Deprecated. Use the SHELL positional argument instead'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from completion" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from gc" -l expire -d 'Time threshold' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from gc" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from gc" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from gc" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from gc" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from gc" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from gc" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from gc" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from gc" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from mangen" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from mangen" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from mangen" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from mangen" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from mangen" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from mangen" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from mangen" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from mangen" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from markdown-help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from markdown-help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from markdown-help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from markdown-help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from markdown-help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from markdown-help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from markdown-help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from markdown-help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from config-schema" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from config-schema" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from config-schema" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from config-schema" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from config-schema" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from config-schema" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from config-schema" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from config-schema" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "completion" -d 'Print a command-line-completion script'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "gc" -d 'Run backend-dependent garbage collection'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "mangen" -d 'Print a ROFF (manpage)'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "markdown-help" -d 'Print the CLI help for all subcommands in Markdown'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "config-schema" -d 'Print the JSON schema for the jj TOML config format'
-complete -c jj -n "__fish_seen_subcommand_from util; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from undo" -l what -d 'What portions of the local state to restore (can be repeated)' -r -f -a "{repo	'The jj repo state and local branches',remote-tracking	'The remote-tracking branches. Do not restore these if you\'d like to push after the undo'}"
-complete -c jj -n "__fish_seen_subcommand_from undo" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from undo" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from undo" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from undo" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from undo" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from undo" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from undo" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from undo" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -s r -l revision -r
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -s i -l interactive -d 'Interactively choose which parts to unsquash'
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from unsquash" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from untrack" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from untrack" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from untrack" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from untrack" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from untrack" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from untrack" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from untrack" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from untrack" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from version" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from version" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from version" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from version" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from version" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from version" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from version" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from version" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "add" -d 'Add a workspace'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "forget" -d 'Stop tracking a workspace\'s working-copy commit in the repo'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List workspaces'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "root" -d 'Show the current workspace root directory'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "update-stale" -d 'Update a workspace that has become stale'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -l name -d 'A name for the workspace' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -s r -l revision -d 'A list of parent revisions for the working-copy commit of the newly created workspace. You may specify nothing, or any number of parents' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from add" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from forget" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from forget" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from forget" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from forget" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from forget" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from forget" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from forget" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from forget" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from root" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from root" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from root" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from root" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from root" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from root" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from root" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from root" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from update-stale" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from update-stale" -l at-operation -l at-op -d 'Operation to load the repo at' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from update-stale" -l color -d 'When to colorize output (always, never, auto)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from update-stale" -l config-toml -d 'Additional configuration options (can be repeated)' -r
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from update-stale" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from update-stale" -l debug -d 'Enable debug logging'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from update-stale" -l no-pager -d 'Disable the pager'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from update-stale" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "add" -d 'Add a workspace'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "forget" -d 'Stop tracking a workspace\'s working-copy commit in the repo'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List workspaces'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "root" -d 'Show the current workspace root directory'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "update-stale" -d 'Update a workspace that has become stale'
-complete -c jj -n "__fish_seen_subcommand_from workspace; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "abandon" -d 'Abandon a revision'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "backout" -d 'Apply the reverse of a revision on top of another revision'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "branch" -d 'Manage branches'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "cat" -d 'Print contents of a file in a revision'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "checkout" -d 'Create a new, empty change and edit it in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "chmod" -d 'Sets or removes the executable bit for paths in the repo'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "commit" -d 'Update the description and create a new change on top'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "config" -d 'Manage config options'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "debug" -d 'Low-level commands not intended for users'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "describe" -d 'Update the change description or other metadata'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "diff" -d 'Compare file contents between two revisions'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "diffedit" -d 'Touch up the content changes in a revision with a diff editor'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "duplicate" -d 'Create a new change with the same content as an existing one'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "edit" -d 'Edit a commit in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "files" -d 'List files in a revision'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "git" -d 'Commands for working with the underlying Git repo'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "init" -d 'Create a new repo in the given directory'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "interdiff" -d 'Compare the changes of two commits'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "log" -d 'Show commit history'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "merge" -d 'Merge work from multiple branches'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "move" -d 'Move changes from one revision into another'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "new" -d 'Create a new, empty change and (by default) edit it in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "next" -d 'Move the current working copy commit to the next child revision in the repository.'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "obslog" -d 'Show how a change has evolved'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "operation" -d 'Commands for working with the operation log'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "prev" -d 'Move the working copy commit to the parent of the current revision.'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "rebase" -d 'Move revisions to different parent(s)'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "resolve" -d 'Resolve a conflicted file with an external merge tool'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "restore" -d 'Restore paths from another revision'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "revert" -d 'A dummy command that accepts any arguments'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "root" -d 'Show the current workspace root directory'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "run" -d 'Run a command across a set of revisions.'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "show" -d 'Show commit description and changes in a revision'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "sparse" -d 'Manage which paths from the working-copy commit are present in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "split" -d 'Split a revision in two'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "squash" -d 'Move changes from a revision into its parent'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "status" -d 'Show high-level repo status'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "tag" -d 'Manage tags'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "util" -d 'Infrequently used commands such as for generating shell completions'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "undo" -d 'Undo an operation (shortcut for `jj op undo`)'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "unsquash" -d 'Move changes from a revision\'s parent into the revision'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "untrack" -d 'Stop tracking specified paths in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "version" -d 'Display version information'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "workspace" -d 'Commands for working with workspaces'
-complete -c jj -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from backout; and not __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from cat; and not __fish_seen_subcommand_from checkout; and not __fish_seen_subcommand_from chmod; and not __fish_seen_subcommand_from commit; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from describe; and not __fish_seen_subcommand_from diff; and not __fish_seen_subcommand_from diffedit; and not __fish_seen_subcommand_from duplicate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from files; and not __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from interdiff; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from merge; and not __fish_seen_subcommand_from move; and not __fish_seen_subcommand_from new; and not __fish_seen_subcommand_from next; and not __fish_seen_subcommand_from obslog; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from prev; and not __fish_seen_subcommand_from rebase; and not __fish_seen_subcommand_from resolve; and not __fish_seen_subcommand_from restore; and not __fish_seen_subcommand_from revert; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from split; and not __fish_seen_subcommand_from squash; and not __fish_seen_subcommand_from status; and not __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from unsquash; and not __fish_seen_subcommand_from untrack; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack" -f -a "create" -d 'Create a new branch'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack" -f -a "delete" -d 'Delete an existing branch and propagate the deletion to remotes on the next push'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack" -f -a "forget" -d 'Forget everything about a branch, including its local and remote targets'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack" -f -a "list" -d 'List branches and their targets'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack" -f -a "rename" -d 'Rename `old` branch name to `new` branch name'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack" -f -a "set" -d 'Update an existing branch to point to a certain commit'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack" -f -a "track" -d 'Start tracking given remote branches'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from branch; and not __fish_seen_subcommand_from create; and not __fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from track; and not __fish_seen_subcommand_from untrack" -f -a "untrack" -d 'Stop tracking given remote branches'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path" -f -a "list" -d 'List variables set in config file, along with their values'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path" -f -a "get" -d 'Get the value of a given config option.'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path" -f -a "set" -d 'Update config file to set the given option to a given value'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path" -f -a "edit" -d 'Start an editor on a jj config file'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from path" -f -a "path" -d 'Print the path to the config file'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman" -f -a "revset" -d 'Evaluate revset to full commit IDs'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman" -f -a "workingcopy" -d 'Show information about the working copy state'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman" -f -a "template" -d 'Parse a template'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman" -f -a "index" -d 'Show commit index stats'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman" -f -a "reindex" -d 'Rebuild commit index'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman" -f -a "operation" -d 'Show information about an operation and its view'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman" -f -a "tree" -d 'List the recursive entries of a tree'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and not __fish_seen_subcommand_from revset; and not __fish_seen_subcommand_from workingcopy; and not __fish_seen_subcommand_from template; and not __fish_seen_subcommand_from index; and not __fish_seen_subcommand_from reindex; and not __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from tree; and not __fish_seen_subcommand_from watchman" -f -a "watchman"
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock" -f -a "query-clock"
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock" -f -a "query-changed-files"
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from debug; and __fish_seen_subcommand_from watchman; and not __fish_seen_subcommand_from query-clock; and not __fish_seen_subcommand_from query-changed-files; and not __fish_seen_subcommand_from reset-clock" -f -a "reset-clock"
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule" -f -a "remote" -d 'Manage Git remotes'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule" -f -a "init" -d 'Create a new Git backed repo'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule" -f -a "fetch" -d 'Fetch from a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule" -f -a "clone" -d 'Create a new repo backed by a clone of a Git repo'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule" -f -a "push" -d 'Push to a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule" -f -a "import" -d 'Update repo with changes made in the underlying Git repo'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule" -f -a "export" -d 'Update the underlying Git repo with changes made in the repo'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and not __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from init; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from clone; and not __fish_seen_subcommand_from push; and not __fish_seen_subcommand_from import; and not __fish_seen_subcommand_from export; and not __fish_seen_subcommand_from submodule" -f -a "submodule" -d 'FOR INTERNAL USE ONLY Interact with git submodules'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list" -f -a "add" -d 'Add a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list" -f -a "remove" -d 'Remove a Git remote and forget its branches'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list" -f -a "rename" -d 'Rename a Git remote'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and __fish_seen_subcommand_from remote; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from rename; and not __fish_seen_subcommand_from list" -f -a "list" -d 'List Git remotes'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from git; and __fish_seen_subcommand_from submodule; and not __fish_seen_subcommand_from print-gitmodules" -f -a "print-gitmodules" -d 'Print the relevant contents from .gitmodules. For debugging purposes only'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore" -f -a "abandon" -d 'Abandon operation history'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore" -f -a "log" -d 'Show the operation log'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore" -f -a "undo" -d 'Create a new operation that undoes an earlier operation'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from operation; and not __fish_seen_subcommand_from abandon; and not __fish_seen_subcommand_from log; and not __fish_seen_subcommand_from undo; and not __fish_seen_subcommand_from restore" -f -a "restore" -d 'Create a new operation that restores the repo to an earlier state'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set" -f -a "list" -d 'List the patterns that are currently present in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from sparse; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from set" -f -a "set" -d 'Update the patterns that are present in the working copy'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from tag; and not __fish_seen_subcommand_from list" -f -a "list" -d 'List tags'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema" -f -a "completion" -d 'Print a command-line-completion script'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema" -f -a "gc" -d 'Run backend-dependent garbage collection'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema" -f -a "mangen" -d 'Print a ROFF (manpage)'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema" -f -a "markdown-help" -d 'Print the CLI help for all subcommands in Markdown'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from util; and not __fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from gc; and not __fish_seen_subcommand_from mangen; and not __fish_seen_subcommand_from markdown-help; and not __fish_seen_subcommand_from config-schema" -f -a "config-schema" -d 'Print the JSON schema for the jj TOML config format'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale" -f -a "add" -d 'Add a workspace'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale" -f -a "forget" -d 'Stop tracking a workspace\'s working-copy commit in the repo'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale" -f -a "list" -d 'List workspaces'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale" -f -a "root" -d 'Show the current workspace root directory'
-complete -c jj -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from workspace; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from forget; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from root; and not __fish_seen_subcommand_from update-stale" -f -a "update-stale" -d 'Update a workspace that has become stale'
+# Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
+function __fish_jj_global_optspecs
+	string join \n R/repository= ignore-working-copy ignore-immutable at-operation= debug color= quiet no-pager config-toml= h/help V/version
+end
+
+function __fish_jj_needs_command
+	# Figure out if the current invocation already has a command.
+	set -l cmd (commandline -opc)
+	set -e cmd[1]
+	argparse -s (__fish_jj_global_optspecs) -- $cmd 2>/dev/null
+	or return
+	if set -q argv[1]
+		# Also print the command, so this can be used to figure out what it is.
+		echo $argv[1]
+		return 1
+	end
+	return 0
+end
+
+function __fish_jj_using_subcommand
+	set -l cmd (__fish_jj_needs_command)
+	test -z "$cmd"
+	and return 1
+	contains -- $cmd[1] $argv
+end
+
+complete -c jj -n "__fish_jj_needs_command" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_needs_command" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_needs_command" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_needs_command" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_needs_command" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_needs_command" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_needs_command" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_needs_command" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_needs_command" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_needs_command" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_needs_command" -s V -l version -d 'Print version'
+complete -c jj -n "__fish_jj_needs_command" -f -a "abandon" -d 'Abandon a revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "backout" -d 'Apply the reverse of a revision on top of another revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "bookmark" -d 'Manage bookmarks'
+complete -c jj -n "__fish_jj_needs_command" -f -a "branch" -d 'Manage bookmarks'
+complete -c jj -n "__fish_jj_needs_command" -f -a "cat" -d 'Print contents of files in a revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "checkout" -d 'Create a new, empty change and edit it in the working copy (DEPRECATED, use `jj new`)'
+complete -c jj -n "__fish_jj_needs_command" -f -a "chmod" -d 'Sets or removes the executable bit for paths in the repo'
+complete -c jj -n "__fish_jj_needs_command" -f -a "commit" -d 'Update the description and create a new change on top'
+complete -c jj -n "__fish_jj_needs_command" -f -a "ci" -d 'Update the description and create a new change on top'
+complete -c jj -n "__fish_jj_needs_command" -f -a "config" -d 'Manage config options'
+complete -c jj -n "__fish_jj_needs_command" -f -a "debug" -d 'Low-level commands not intended for users'
+complete -c jj -n "__fish_jj_needs_command" -f -a "describe" -d 'Update the change description or other metadata'
+complete -c jj -n "__fish_jj_needs_command" -f -a "desc" -d 'Update the change description or other metadata'
+complete -c jj -n "__fish_jj_needs_command" -f -a "diff" -d 'Compare file contents between two revisions'
+complete -c jj -n "__fish_jj_needs_command" -f -a "diffedit" -d 'Touch up the content changes in a revision with a diff editor'
+complete -c jj -n "__fish_jj_needs_command" -f -a "duplicate" -d 'Create a new change with the same content as an existing one'
+complete -c jj -n "__fish_jj_needs_command" -f -a "edit" -d 'Sets the specified revision as the working-copy revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "evolog" -d 'Show how a change has evolved over time'
+complete -c jj -n "__fish_jj_needs_command" -f -a "evolution-log" -d 'Show how a change has evolved over time'
+complete -c jj -n "__fish_jj_needs_command" -f -a "file" -d 'File operations'
+complete -c jj -n "__fish_jj_needs_command" -f -a "files" -d 'List files in a revision (DEPRECATED use `jj file list`)'
+complete -c jj -n "__fish_jj_needs_command" -f -a "fix" -d 'Update files with formatting fixes or other changes'
+complete -c jj -n "__fish_jj_needs_command" -f -a "git" -d 'Commands for working with Git remotes and the underlying Git repo'
+complete -c jj -n "__fish_jj_needs_command" -f -a "init" -d 'Create a new repo in the given directory'
+complete -c jj -n "__fish_jj_needs_command" -f -a "interdiff" -d 'Compare the changes of two commits'
+complete -c jj -n "__fish_jj_needs_command" -f -a "log" -d 'Show revision history'
+complete -c jj -n "__fish_jj_needs_command" -f -a "merge" -d 'Merge work from multiple bookmarks (DEPRECATED, use `jj new`)'
+complete -c jj -n "__fish_jj_needs_command" -f -a "move" -d 'Move changes from one revision into another (DEPRECATED, use `jj squash`)'
+complete -c jj -n "__fish_jj_needs_command" -f -a "new" -d 'Create a new, empty change and (by default) edit it in the working copy'
+complete -c jj -n "__fish_jj_needs_command" -f -a "next" -d 'Move the working-copy commit to the child revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "operation" -d 'Commands for working with the operation log'
+complete -c jj -n "__fish_jj_needs_command" -f -a "op" -d 'Commands for working with the operation log'
+complete -c jj -n "__fish_jj_needs_command" -f -a "parallelize" -d 'Parallelize revisions by making them siblings'
+complete -c jj -n "__fish_jj_needs_command" -f -a "prev" -d 'Change the working copy revision relative to the parent revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "rebase" -d 'Move revisions to different parent(s)'
+complete -c jj -n "__fish_jj_needs_command" -f -a "resolve" -d 'Resolve a conflicted file with an external merge tool'
+complete -c jj -n "__fish_jj_needs_command" -f -a "restore" -d 'Restore paths from another revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "revert" -d 'A dummy command that accepts any arguments'
+complete -c jj -n "__fish_jj_needs_command" -f -a "root" -d 'Show the current workspace root directory'
+complete -c jj -n "__fish_jj_needs_command" -f -a "run" -d '(**Stub**, does not work yet) Run a command across a set of revisions.'
+complete -c jj -n "__fish_jj_needs_command" -f -a "show" -d 'Show commit description and changes in a revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "sparse" -d 'Manage which paths from the working-copy commit are present in the working copy'
+complete -c jj -n "__fish_jj_needs_command" -f -a "split" -d 'Split a revision in two'
+complete -c jj -n "__fish_jj_needs_command" -f -a "squash" -d 'Move changes from a revision into another revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "status" -d 'Show high-level repo status'
+complete -c jj -n "__fish_jj_needs_command" -f -a "st" -d 'Show high-level repo status'
+complete -c jj -n "__fish_jj_needs_command" -f -a "tag" -d 'Manage tags'
+complete -c jj -n "__fish_jj_needs_command" -f -a "util" -d 'Infrequently used commands such as for generating shell completions'
+complete -c jj -n "__fish_jj_needs_command" -f -a "undo" -d 'Undo an operation (shortcut for `jj op undo`)'
+complete -c jj -n "__fish_jj_needs_command" -f -a "unsquash" -d 'Move changes from a revision\'s parent into the revision'
+complete -c jj -n "__fish_jj_needs_command" -f -a "untrack" -d 'Stop tracking specified paths in the working copy'
+complete -c jj -n "__fish_jj_needs_command" -f -a "version" -d 'Display version information'
+complete -c jj -n "__fish_jj_needs_command" -f -a "workspace" -d 'Commands for working with workspaces'
+complete -c jj -n "__fish_jj_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand abandon" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand abandon" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand abandon" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand abandon" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand abandon" -s s -l summary -d 'Do not print every abandoned commit on a separate line'
+complete -c jj -n "__fish_jj_using_subcommand abandon" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
+complete -c jj -n "__fish_jj_using_subcommand abandon" -l restore-descendants -d 'Do not modify the content of the children of the abandoned commits'
+complete -c jj -n "__fish_jj_using_subcommand abandon" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand abandon" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand abandon" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand abandon" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand abandon" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand abandon" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand backout" -s r -l revisions -d 'The revision(s) to apply the reverse of' -r
+complete -c jj -n "__fish_jj_using_subcommand backout" -s d -l destination -d 'The revision to apply the reverse changes on top of' -r
+complete -c jj -n "__fish_jj_using_subcommand backout" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand backout" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand backout" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand backout" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand backout" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand backout" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand backout" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand backout" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand backout" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand backout" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "create" -d 'Create a new bookmark'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "c" -d 'Create a new bookmark'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "delete" -d 'Delete an existing bookmark and propagate the deletion to remotes on the next push'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "d" -d 'Delete an existing bookmark and propagate the deletion to remotes on the next push'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "forget" -d 'Forget everything about a bookmark, including its local and remote targets'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "f" -d 'Forget everything about a bookmark, including its local and remote targets'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "list" -d 'List bookmarks and their targets'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "l" -d 'List bookmarks and their targets'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "move" -d 'Move existing bookmarks to target revision'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "m" -d 'Move existing bookmarks to target revision'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "rename" -d 'Rename `old` bookmark name to `new` bookmark name'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "r" -d 'Rename `old` bookmark name to `new` bookmark name'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "set" -d 'Create or update a bookmark to point to a certain commit'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "s" -d 'Create or update a bookmark to point to a certain commit'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "track" -d 'Start tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "t" -d 'Start tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "untrack" -d 'Stop tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -s r -l revision -l to -d 'The bookmark\'s target revision' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -s r -l revision -l to -d 'The bookmark\'s target revision' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from c" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from d" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from forget" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from f" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -s r -l revisions -d 'Show bookmarks whose local targets are in the given revisions' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -s T -l template -d 'Render each bookmark using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -s a -l all-remotes -d 'Show all tracking and non-tracking remote bookmarks including the ones whose targets are synchronized with the local bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -s t -l tracked -d 'Show remote tracked bookmarks only. Omits local Git-tracking bookmarks by default'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -s c -l conflicted -d 'Show conflicted bookmarks only'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -s r -l revisions -d 'Show bookmarks whose local targets are in the given revisions' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -s T -l template -d 'Render each bookmark using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -s a -l all-remotes -d 'Show all tracking and non-tracking remote bookmarks including the ones whose targets are synchronized with the local bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -s t -l tracked -d 'Show remote tracked bookmarks only. Omits local Git-tracking bookmarks by default'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -s c -l conflicted -d 'Show conflicted bookmarks only'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from l" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l from -d 'Move bookmarks from the given revisions' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l to -d 'Move bookmarks to this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -s B -l allow-backwards -d 'Allow moving bookmarks backwards or sideways'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from move" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l from -d 'Move bookmarks from the given revisions' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l to -d 'Move bookmarks to this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -s B -l allow-backwards -d 'Allow moving bookmarks backwards or sideways'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from m" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from rename" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from r" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -s r -l revision -l to -d 'The bookmark\'s target revision' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -s B -l allow-backwards -d 'Allow moving the bookmark backwards or sideways'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -s r -l revision -l to -d 'The bookmark\'s target revision' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -s B -l allow-backwards -d 'Allow moving the bookmark backwards or sideways'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from s" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from track" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from t" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from untrack" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "create" -d 'Create a new bookmark'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "delete" -d 'Delete an existing bookmark and propagate the deletion to remotes on the next push'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "forget" -d 'Forget everything about a bookmark, including its local and remote targets'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "list" -d 'List bookmarks and their targets'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "move" -d 'Move existing bookmarks to target revision'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "rename" -d 'Rename `old` bookmark name to `new` bookmark name'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "set" -d 'Create or update a bookmark to point to a certain commit'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "track" -d 'Start tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "untrack" -d 'Stop tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand bookmark; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "create" -d 'Create a new bookmark'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "c" -d 'Create a new bookmark'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "delete" -d 'Delete an existing bookmark and propagate the deletion to remotes on the next push'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "d" -d 'Delete an existing bookmark and propagate the deletion to remotes on the next push'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "forget" -d 'Forget everything about a bookmark, including its local and remote targets'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "f" -d 'Forget everything about a bookmark, including its local and remote targets'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "list" -d 'List bookmarks and their targets'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "l" -d 'List bookmarks and their targets'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "move" -d 'Move existing bookmarks to target revision'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "m" -d 'Move existing bookmarks to target revision'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "rename" -d 'Rename `old` bookmark name to `new` bookmark name'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "r" -d 'Rename `old` bookmark name to `new` bookmark name'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "set" -d 'Create or update a bookmark to point to a certain commit'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "s" -d 'Create or update a bookmark to point to a certain commit'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "track" -d 'Start tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "t" -d 'Start tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "untrack" -d 'Stop tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand branch; and not __fish_seen_subcommand_from create c delete d forget f list l move m rename r set s track t untrack help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -s r -l revision -l to -d 'The bookmark\'s target revision' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -s r -l revision -l to -d 'The bookmark\'s target revision' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from c" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from d" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from forget" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from f" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -s r -l revisions -d 'Show bookmarks whose local targets are in the given revisions' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -s T -l template -d 'Render each bookmark using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -s a -l all-remotes -d 'Show all tracking and non-tracking remote bookmarks including the ones whose targets are synchronized with the local bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -s t -l tracked -d 'Show remote tracked bookmarks only. Omits local Git-tracking bookmarks by default'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -s c -l conflicted -d 'Show conflicted bookmarks only'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -s r -l revisions -d 'Show bookmarks whose local targets are in the given revisions' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -s T -l template -d 'Render each bookmark using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -s a -l all-remotes -d 'Show all tracking and non-tracking remote bookmarks including the ones whose targets are synchronized with the local bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -s t -l tracked -d 'Show remote tracked bookmarks only. Omits local Git-tracking bookmarks by default'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -s c -l conflicted -d 'Show conflicted bookmarks only'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from l" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l from -d 'Move bookmarks from the given revisions' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l to -d 'Move bookmarks to this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -s B -l allow-backwards -d 'Allow moving bookmarks backwards or sideways'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from move" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l from -d 'Move bookmarks from the given revisions' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l to -d 'Move bookmarks to this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -s B -l allow-backwards -d 'Allow moving bookmarks backwards or sideways'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from m" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from rename" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from r" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -s r -l revision -l to -d 'The bookmark\'s target revision' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -s B -l allow-backwards -d 'Allow moving the bookmark backwards or sideways'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -s r -l revision -l to -d 'The bookmark\'s target revision' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -s B -l allow-backwards -d 'Allow moving the bookmark backwards or sideways'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from s" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from track" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from t" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from untrack" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "create" -d 'Create a new bookmark'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "delete" -d 'Delete an existing bookmark and propagate the deletion to remotes on the next push'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "forget" -d 'Forget everything about a bookmark, including its local and remote targets'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "list" -d 'List bookmarks and their targets'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "move" -d 'Move existing bookmarks to target revision'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "rename" -d 'Rename `old` bookmark name to `new` bookmark name'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "set" -d 'Create or update a bookmark to point to a certain commit'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "track" -d 'Start tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "untrack" -d 'Stop tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand branch; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand cat" -s r -l revision -d 'The revision to get the file contents from' -r
+complete -c jj -n "__fish_jj_using_subcommand cat" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand cat" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand cat" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand cat" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand cat" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand cat" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand cat" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand cat" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand cat" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand cat" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand checkout" -s m -l message -d 'The change description to use' -r
+complete -c jj -n "__fish_jj_using_subcommand checkout" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand checkout" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand checkout" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand checkout" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand checkout" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
+complete -c jj -n "__fish_jj_using_subcommand checkout" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand checkout" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand checkout" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand checkout" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand checkout" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand checkout" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand chmod" -s r -l revision -d 'The revision to update' -r
+complete -c jj -n "__fish_jj_using_subcommand chmod" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand chmod" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand chmod" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand chmod" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand chmod" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand chmod" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand chmod" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand chmod" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand chmod" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand chmod" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand commit" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
+complete -c jj -n "__fish_jj_using_subcommand commit" -s m -l message -d 'The change description to use (don\'t open editor)' -r
+complete -c jj -n "__fish_jj_using_subcommand commit" -l author -d 'Set author to the provided string' -r
+complete -c jj -n "__fish_jj_using_subcommand commit" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand commit" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand commit" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand commit" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand commit" -s i -l interactive -d 'Interactively choose which changes to include in the first commit'
+complete -c jj -n "__fish_jj_using_subcommand commit" -l reset-author -d 'Reset the author to the configured user'
+complete -c jj -n "__fish_jj_using_subcommand commit" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand commit" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand commit" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand commit" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand commit" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand commit" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand ci" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
+complete -c jj -n "__fish_jj_using_subcommand ci" -s m -l message -d 'The change description to use (don\'t open editor)' -r
+complete -c jj -n "__fish_jj_using_subcommand ci" -l author -d 'Set author to the provided string' -r
+complete -c jj -n "__fish_jj_using_subcommand ci" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand ci" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand ci" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand ci" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand ci" -s i -l interactive -d 'Interactively choose which changes to include in the first commit'
+complete -c jj -n "__fish_jj_using_subcommand ci" -l reset-author -d 'Reset the author to the configured user'
+complete -c jj -n "__fish_jj_using_subcommand ci" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand ci" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand ci" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand ci" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand ci" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand ci" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "edit" -d 'Start an editor on a jj config file'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "e" -d 'Start an editor on a jj config file'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "get" -d 'Get the value of a given config option.'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "g" -d 'Get the value of a given config option.'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "list" -d 'List variables set in config file, along with their values'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "l" -d 'List variables set in config file, along with their values'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "path" -d 'Print the path to the config file'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "p" -d 'Print the path to the config file'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "set" -d 'Update config file to set the given option to a given value'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "s" -d 'Update config file to set the given option to a given value'
+complete -c jj -n "__fish_jj_using_subcommand config; and not __fish_seen_subcommand_from edit e get g list l path p set s help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l user -d 'Target the user-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l repo -d 'Target the repo-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from edit" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l user -d 'Target the user-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l repo -d 'Target the repo-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from e" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from g" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -s T -l template -d 'Render each variable using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l include-defaults -d 'Whether to explicitly include built-in default values in the list'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l include-overridden -d 'Allow printing overridden values'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l user -d 'Target the user-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l repo -d 'Target the repo-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -s T -l template -d 'Render each variable using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l include-defaults -d 'Whether to explicitly include built-in default values in the list'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l include-overridden -d 'Allow printing overridden values'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l user -d 'Target the user-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l repo -d 'Target the repo-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from l" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l user -d 'Target the user-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l repo -d 'Target the repo-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from path" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l user -d 'Target the user-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l repo -d 'Target the repo-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from p" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l user -d 'Target the user-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l repo -d 'Target the repo-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l user -d 'Target the user-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l repo -d 'Target the repo-level config'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from s" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "edit" -d 'Start an editor on a jj config file'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "get" -d 'Get the value of a given config option.'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "list" -d 'List variables set in config file, along with their values'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "path" -d 'Print the path to the config file'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "set" -d 'Update config file to set the given option to a given value'
+complete -c jj -n "__fish_jj_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "copy-detection" -d 'Rebuild commit index'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "fileset" -d 'Parse fileset expression'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "index" -d 'Show commit index stats'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "local-working-copy" -d 'Show information about the local working copy state'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "operation" -d 'Show information about an operation and its view'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "view" -d 'Show information about an operation and its view'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "reindex" -d 'Rebuild commit index'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "revset" -d 'Evaluate revset to full commit IDs'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "snapshot" -d 'Trigger a snapshot in the op log'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "template" -d 'Parse a template'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "tree" -d 'List the recursive entries of a tree'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "watchman"
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "working-copy" -d 'Show information about the working copy state'
+complete -c jj -n "__fish_jj_using_subcommand debug; and not __fish_seen_subcommand_from copy-detection fileset index local-working-copy operation view reindex revset snapshot template tree watchman working-copy help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from copy-detection" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from fileset" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from index" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from local-working-copy" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -l display -r -f -a "{operation\t'Show only the operation details',id\t'Show the operation id only',view\t'Show only the view details',all\t'Show both the view and the operation'}"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from operation" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -l display -r -f -a "{operation\t'Show only the operation details',id\t'Show the operation id only',view\t'Show only the view details',all\t'Show both the view and the operation'}"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from view" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from reindex" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from revset" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from snapshot" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from template" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -s r -l revision -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l id -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l dir -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from tree" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -f -a "status" -d 'Check whether `watchman` is enabled and whether it\'s correctly installed'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -f -a "query-clock"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -f -a "query-changed-files"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -f -a "reset-clock"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from watchman" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from working-copy" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "copy-detection" -d 'Rebuild commit index'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "fileset" -d 'Parse fileset expression'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "index" -d 'Show commit index stats'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "local-working-copy" -d 'Show information about the local working copy state'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "operation" -d 'Show information about an operation and its view'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "reindex" -d 'Rebuild commit index'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "revset" -d 'Evaluate revset to full commit IDs'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "snapshot" -d 'Trigger a snapshot in the op log'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "template" -d 'Parse a template'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "tree" -d 'List the recursive entries of a tree'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "watchman"
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "working-copy" -d 'Show information about the working copy state'
+complete -c jj -n "__fish_jj_using_subcommand debug; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand describe" -s m -l message -d 'The change description to use (don\'t open editor)' -r
+complete -c jj -n "__fish_jj_using_subcommand describe" -l author -d 'Set author to the provided string' -r
+complete -c jj -n "__fish_jj_using_subcommand describe" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand describe" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand describe" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand describe" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand describe" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
+complete -c jj -n "__fish_jj_using_subcommand describe" -l stdin -d 'Read the change description from stdin'
+complete -c jj -n "__fish_jj_using_subcommand describe" -l no-edit -d 'Don\'t open an editor'
+complete -c jj -n "__fish_jj_using_subcommand describe" -l reset-author -d 'Reset the author to the configured user'
+complete -c jj -n "__fish_jj_using_subcommand describe" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand describe" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand describe" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand describe" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand describe" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand describe" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand desc" -s m -l message -d 'The change description to use (don\'t open editor)' -r
+complete -c jj -n "__fish_jj_using_subcommand desc" -l author -d 'Set author to the provided string' -r
+complete -c jj -n "__fish_jj_using_subcommand desc" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand desc" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand desc" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand desc" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand desc" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
+complete -c jj -n "__fish_jj_using_subcommand desc" -l stdin -d 'Read the change description from stdin'
+complete -c jj -n "__fish_jj_using_subcommand desc" -l no-edit -d 'Don\'t open an editor'
+complete -c jj -n "__fish_jj_using_subcommand desc" -l reset-author -d 'Reset the author to the configured user'
+complete -c jj -n "__fish_jj_using_subcommand desc" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand desc" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand desc" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand desc" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand desc" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand desc" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand diff" -s r -l revision -d 'Show changes in this revision, compared to its parent(s)' -r
+complete -c jj -n "__fish_jj_using_subcommand diff" -l from -d 'Show changes from this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand diff" -l to -d 'Show changes to this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand diff" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand diff" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand diff" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand diff" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand diff" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand diff" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand diff" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand diff" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand diff" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -s r -l revision -d 'The revision to touch up' -r
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l from -d 'Show changes from this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l to -d 'Edit changes in this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l tool -d 'Specify diff editor to be used' -r
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l restore-descendants -d 'Preserve the content (not the diff) when rebasing descendants'
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand diffedit" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand duplicate" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand edit" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand edit" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand edit" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand edit" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand edit" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
+complete -c jj -n "__fish_jj_using_subcommand edit" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand edit" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand edit" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand edit" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand edit" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand edit" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -s r -l revision -r
+complete -c jj -n "__fish_jj_using_subcommand evolog" -s n -l limit -d 'Limit number of revisions to show' -r
+complete -c jj -n "__fish_jj_using_subcommand evolog" -s l -r
+complete -c jj -n "__fish_jj_using_subcommand evolog" -s T -l template -d 'Render each revision using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand evolog" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l no-graph -d 'Don\'t show the graph, show a flat list of revisions'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -s p -l patch -d 'Show patch compared to the previous version of this change'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand evolog" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -s r -l revision -r
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -s n -l limit -d 'Limit number of revisions to show' -r
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -s l -r
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -s T -l template -d 'Render each revision using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l no-graph -d 'Don\'t show the graph, show a flat list of revisions'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -s p -l patch -d 'Show patch compared to the previous version of this change'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand evolution-log" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -f -a "chmod" -d 'Sets or removes the executable bit for paths in the repo'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -f -a "list" -d 'List files in a revision'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -f -a "show" -d 'Print contents of files in a revision'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -f -a "track" -d 'Start tracking specified paths in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -f -a "untrack" -d 'Stop tracking specified paths in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand file; and not __fish_seen_subcommand_from chmod list show track untrack help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -s r -l revision -d 'The revision to update' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from chmod" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -s r -l revision -d 'The revision to list files in' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -s r -l revision -d 'The revision to get the file contents from' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from show" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from track" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from untrack" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from help" -f -a "chmod" -d 'Sets or removes the executable bit for paths in the repo'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from help" -f -a "list" -d 'List files in a revision'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from help" -f -a "show" -d 'Print contents of files in a revision'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from help" -f -a "track" -d 'Start tracking specified paths in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from help" -f -a "untrack" -d 'Stop tracking specified paths in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand file; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand files" -s r -l revision -d 'The revision to list files in' -r
+complete -c jj -n "__fish_jj_using_subcommand files" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand files" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand files" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand files" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand files" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand files" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand files" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand files" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand files" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand files" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand fix" -s s -l source -d 'Fix files in the specified revision(s) and their descendants. If no revisions are specified, this defaults to the `revsets.fix` setting, or `reachable(@, mutable())` if it is not set' -r
+complete -c jj -n "__fish_jj_using_subcommand fix" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand fix" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand fix" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand fix" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand fix" -l include-unchanged-files -d 'Fix unchanged files in addition to changed ones. If no paths are specified, all files in the repo will be fixed'
+complete -c jj -n "__fish_jj_using_subcommand fix" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand fix" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand fix" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand fix" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand fix" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand fix" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -f -a "clone" -d 'Create a new repo backed by a clone of a Git repo'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -f -a "export" -d 'Update the underlying Git repo with changes made in the repo'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -f -a "fetch" -d 'Fetch from a Git remote'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -f -a "import" -d 'Update repo with changes made in the underlying Git repo'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -f -a "init" -d 'Create a new Git backed repo'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -f -a "push" -d 'Push to a Git remote'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -f -a "remote" -d 'Manage Git remotes'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -f -a "submodule" -d 'FOR INTERNAL USE ONLY Interact with git submodules'
+complete -c jj -n "__fish_jj_using_subcommand git; and not __fish_seen_subcommand_from clone export fetch import init push remote submodule help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l remote -d 'Name of the newly created remote' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l colocate -d 'Whether or not to colocate the Jujutsu repo with the git repo'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from clone" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from export" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -s b -l branch -d 'Fetch only some of the branches' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l remote -d 'The remote to fetch from (only named remotes are supported, can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l all-remotes -d 'Fetch from all remotes'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from fetch" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from import" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l git-repo -d 'Specifies a path to an **existing** git repository to be used as the backing git repo for the newly created `jj` repo' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l colocate -d 'Specifies that the `jj` repo should also be a valid `git` repo, allowing the use of both `jj` and `git` commands in the same directory'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from init" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l remote -d 'The remote to push to (only named remotes are supported)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -s b -l bookmark -d 'Push only this bookmark, or bookmarks matching a pattern (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -s r -l revisions -d 'Push bookmarks pointing to these commits (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -s c -l change -d 'Push this commit by creating a bookmark based on its change ID (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l all -d 'Push all bookmarks (including deleted bookmarks)'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l tracked -d 'Push all tracked bookmarks (including deleted bookmarks)'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l deleted -d 'Push all deleted bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l allow-empty-description -d 'Allow pushing commits with empty descriptions'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l allow-private -d 'Allow pushing commits that are private'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l dry-run -d 'Only display what will change on the remote'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from push" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -f -a "add" -d 'Add a Git remote'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -f -a "list" -d 'List Git remotes'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -f -a "remove" -d 'Remove a Git remote and forget its bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -f -a "rename" -d 'Rename a Git remote'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -f -a "set-url" -d 'Set the URL of a Git remote'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from remote" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -f -a "print-gitmodules" -d 'Print the relevant contents from .gitmodules. For debugging purposes only'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from submodule" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from help" -f -a "clone" -d 'Create a new repo backed by a clone of a Git repo'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from help" -f -a "export" -d 'Update the underlying Git repo with changes made in the repo'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from help" -f -a "fetch" -d 'Fetch from a Git remote'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from help" -f -a "import" -d 'Update repo with changes made in the underlying Git repo'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from help" -f -a "init" -d 'Create a new Git backed repo'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from help" -f -a "push" -d 'Push to a Git remote'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from help" -f -a "remote" -d 'Manage Git remotes'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from help" -f -a "submodule" -d 'FOR INTERNAL USE ONLY Interact with git submodules'
+complete -c jj -n "__fish_jj_using_subcommand git; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand init" -l git-repo -d 'DEPRECATED: Use `jj git init` Path to a git repo the jj repo will be backed by' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand init" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand init" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand init" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand init" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand init" -l git -d 'DEPRECATED: Use `jj git init` Use the Git backend, creating a jj repo backed by a Git repo'
+complete -c jj -n "__fish_jj_using_subcommand init" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand init" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand init" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand init" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand init" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand init" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l from -d 'Show changes from this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l to -d 'Show changes to this revision' -r
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand interdiff" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand log" -s r -l revisions -d 'Which revisions to show' -r
+complete -c jj -n "__fish_jj_using_subcommand log" -s n -l limit -d 'Limit number of revisions to show' -r
+complete -c jj -n "__fish_jj_using_subcommand log" -s l -r
+complete -c jj -n "__fish_jj_using_subcommand log" -s T -l template -d 'Render each revision using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand log" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand log" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand log" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand log" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand log" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand log" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand log" -l reversed -d 'Show revisions in the opposite order (older revisions first)'
+complete -c jj -n "__fish_jj_using_subcommand log" -l no-graph -d 'Don\'t show the graph, show a flat list of revisions'
+complete -c jj -n "__fish_jj_using_subcommand log" -s p -l patch -d 'Show patch'
+complete -c jj -n "__fish_jj_using_subcommand log" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand log" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand log" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand log" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand log" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand log" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand log" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand log" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand log" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand log" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand log" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand log" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand merge" -s m -l message -d 'The change description to use' -r
+complete -c jj -n "__fish_jj_using_subcommand merge" -s A -l insert-after -l after -d 'Insert the new change after the given commit(s)' -r
+complete -c jj -n "__fish_jj_using_subcommand merge" -s B -l insert-before -l before -d 'Insert the new change before the given commit(s)' -r
+complete -c jj -n "__fish_jj_using_subcommand merge" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand merge" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand merge" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand merge" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand merge" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
+complete -c jj -n "__fish_jj_using_subcommand merge" -l no-edit -d 'Do not edit the newly created change'
+complete -c jj -n "__fish_jj_using_subcommand merge" -l edit -d 'No-op flag to pair with --no-edit'
+complete -c jj -n "__fish_jj_using_subcommand merge" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand merge" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand merge" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand merge" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand merge" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand merge" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand move" -s f -l from -d 'Move part of this change into the destination' -r
+complete -c jj -n "__fish_jj_using_subcommand move" -s t -l to -d 'Move part of the source into this change' -r
+complete -c jj -n "__fish_jj_using_subcommand move" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
+complete -c jj -n "__fish_jj_using_subcommand move" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand move" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand move" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand move" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand move" -s i -l interactive -d 'Interactively choose which parts to move'
+complete -c jj -n "__fish_jj_using_subcommand move" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand move" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand move" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand move" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand move" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand move" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand new" -s m -l message -d 'The change description to use' -r
+complete -c jj -n "__fish_jj_using_subcommand new" -s A -l insert-after -l after -d 'Insert the new change after the given commit(s)' -r
+complete -c jj -n "__fish_jj_using_subcommand new" -s B -l insert-before -l before -d 'Insert the new change before the given commit(s)' -r
+complete -c jj -n "__fish_jj_using_subcommand new" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand new" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand new" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand new" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand new" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
+complete -c jj -n "__fish_jj_using_subcommand new" -l no-edit -d 'Do not edit the newly created change'
+complete -c jj -n "__fish_jj_using_subcommand new" -l edit -d 'No-op flag to pair with --no-edit'
+complete -c jj -n "__fish_jj_using_subcommand new" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand new" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand new" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand new" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand new" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand new" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand next" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand next" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand next" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand next" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand next" -s e -l edit -d 'Instead of creating a new working-copy commit on top of the target commit (like `jj new`), edit the target commit directly (like `jj edit`)'
+complete -c jj -n "__fish_jj_using_subcommand next" -s n -l no-edit -d 'The inverse of `--edit`'
+complete -c jj -n "__fish_jj_using_subcommand next" -l conflict -d 'Jump to the next conflicted descendant'
+complete -c jj -n "__fish_jj_using_subcommand next" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand next" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand next" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand next" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand next" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand next" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "abandon" -d 'Abandon operation history'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "diff" -d 'Compare changes to the repository between two operations'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "log" -d 'Show the operation log'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "restore" -d 'Create a new operation that restores the repo to an earlier state'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "show" -d 'Show changes to the repository in an operation'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "undo" -d 'Create a new operation that undoes an earlier operation'
+complete -c jj -n "__fish_jj_using_subcommand operation; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from abandon" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l operation -l op -d 'Show repository changes in this operation, compared to its parent' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l from -d 'Show repository changes from this operation' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l to -d 'Show repository changes to this operation' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l no-graph -d 'Don\'t show the graph, show a flat list of modified changes'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -s p -l patch -d 'Show patch of modifications to changes'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from diff" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -s n -l limit -d 'Limit number of operations to show' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -s l -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -s T -l template -d 'Render each operation using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l no-graph -d 'Don\'t show the graph, show a flat list of operations'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l op-diff -d 'Show changes to the repository at each operation'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -s p -l patch -d 'Show patch of modifications to changes (implies --op-diff)'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from log" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -l what -d 'What portions of the local state to restore (can be repeated)' -r -f -a "{repo\t'The jj repo state and local bookmarks',remote-tracking\t'The remote-tracking bookmarks. Do not restore these if you\'d like to push after the undo'}"
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from restore" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l no-graph -d 'Don\'t show the graph, show a flat list of modified changes'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -s p -l patch -d 'Show patch of modifications to changes'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from show" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -l what -d 'What portions of the local state to restore (can be repeated)' -r -f -a "{repo\t'The jj repo state and local bookmarks',remote-tracking\t'The remote-tracking bookmarks. Do not restore these if you\'d like to push after the undo'}"
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from undo" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from help" -f -a "abandon" -d 'Abandon operation history'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from help" -f -a "diff" -d 'Compare changes to the repository between two operations'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from help" -f -a "log" -d 'Show the operation log'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from help" -f -a "restore" -d 'Create a new operation that restores the repo to an earlier state'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from help" -f -a "show" -d 'Show changes to the repository in an operation'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from help" -f -a "undo" -d 'Create a new operation that undoes an earlier operation'
+complete -c jj -n "__fish_jj_using_subcommand operation; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "abandon" -d 'Abandon operation history'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "diff" -d 'Compare changes to the repository between two operations'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "log" -d 'Show the operation log'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "restore" -d 'Create a new operation that restores the repo to an earlier state'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "show" -d 'Show changes to the repository in an operation'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "undo" -d 'Create a new operation that undoes an earlier operation'
+complete -c jj -n "__fish_jj_using_subcommand op; and not __fish_seen_subcommand_from abandon diff log restore show undo help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from abandon" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l operation -l op -d 'Show repository changes in this operation, compared to its parent' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l from -d 'Show repository changes from this operation' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l to -d 'Show repository changes to this operation' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l no-graph -d 'Don\'t show the graph, show a flat list of modified changes'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -s p -l patch -d 'Show patch of modifications to changes'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from diff" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -s n -l limit -d 'Limit number of operations to show' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -s l -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -s T -l template -d 'Render each operation using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l no-graph -d 'Don\'t show the graph, show a flat list of operations'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l op-diff -d 'Show changes to the repository at each operation'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -s p -l patch -d 'Show patch of modifications to changes (implies --op-diff)'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from log" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -l what -d 'What portions of the local state to restore (can be repeated)' -r -f -a "{repo\t'The jj repo state and local bookmarks',remote-tracking\t'The remote-tracking bookmarks. Do not restore these if you\'d like to push after the undo'}"
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from restore" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l no-graph -d 'Don\'t show the graph, show a flat list of modified changes'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -s p -l patch -d 'Show patch of modifications to changes'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from show" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -l what -d 'What portions of the local state to restore (can be repeated)' -r -f -a "{repo\t'The jj repo state and local bookmarks',remote-tracking\t'The remote-tracking bookmarks. Do not restore these if you\'d like to push after the undo'}"
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from undo" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from help" -f -a "abandon" -d 'Abandon operation history'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from help" -f -a "diff" -d 'Compare changes to the repository between two operations'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from help" -f -a "log" -d 'Show the operation log'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from help" -f -a "restore" -d 'Create a new operation that restores the repo to an earlier state'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from help" -f -a "show" -d 'Show changes to the repository in an operation'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from help" -f -a "undo" -d 'Create a new operation that undoes an earlier operation'
+complete -c jj -n "__fish_jj_using_subcommand op; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand parallelize" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand prev" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand prev" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand prev" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand prev" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand prev" -s e -l edit -d 'Edit the parent directly, instead of moving the working-copy commit'
+complete -c jj -n "__fish_jj_using_subcommand prev" -s n -l no-edit -d 'The inverse of `--edit`'
+complete -c jj -n "__fish_jj_using_subcommand prev" -l conflict -d 'Jump to the previous conflicted ancestor'
+complete -c jj -n "__fish_jj_using_subcommand prev" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand prev" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand prev" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand prev" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand prev" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand prev" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand rebase" -s b -l branch -d 'Rebase the whole branch relative to destination\'s ancestors (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand rebase" -s s -l source -d 'Rebase specified revision(s) together with their trees of descendants (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand rebase" -s r -l revisions -d 'Rebase the given revisions, rebasing descendants onto this revision\'s parent(s)' -r
+complete -c jj -n "__fish_jj_using_subcommand rebase" -s d -l destination -d 'The revision(s) to rebase onto (can be repeated to create a merge commit)' -r
+complete -c jj -n "__fish_jj_using_subcommand rebase" -s A -l insert-after -l after -d 'The revision(s) to insert after (can be repeated to create a merge commit)' -r
+complete -c jj -n "__fish_jj_using_subcommand rebase" -s B -l insert-before -l before -d 'The revision(s) to insert before (can be repeated to create a merge commit)' -r
+complete -c jj -n "__fish_jj_using_subcommand rebase" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l skip-empty -d 'Deprecated. Use --skip-emptied instead'
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l skip-emptied -d 'If true, when rebasing would produce an empty commit, the commit is abandoned. It will not be abandoned if it was already empty before the rebase. Will never skip merge commits with multiple non-empty parents'
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand rebase" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand rebase" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand resolve" -s r -l revision -r
+complete -c jj -n "__fish_jj_using_subcommand resolve" -l tool -d 'Specify 3-way merge tool to be used' -r
+complete -c jj -n "__fish_jj_using_subcommand resolve" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand resolve" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand resolve" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand resolve" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand resolve" -s l -l list -d 'Instead of resolving one conflict, list all the conflicts'
+complete -c jj -n "__fish_jj_using_subcommand resolve" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand resolve" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand resolve" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand resolve" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand resolve" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand resolve" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand restore" -l from -d 'Revision to restore from (source)' -r
+complete -c jj -n "__fish_jj_using_subcommand restore" -l to -d 'Revision to restore into (destination)' -r
+complete -c jj -n "__fish_jj_using_subcommand restore" -s c -l changes-in -d 'Undo the changes in a revision as compared to the merge of its parents' -r
+complete -c jj -n "__fish_jj_using_subcommand restore" -s r -l revision -d 'Prints an error. DO NOT USE' -r
+complete -c jj -n "__fish_jj_using_subcommand restore" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand restore" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand restore" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand restore" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand restore" -l restore-descendants -d 'Preserve the content (not the diff) when rebasing descendants'
+complete -c jj -n "__fish_jj_using_subcommand restore" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand restore" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand restore" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand restore" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand restore" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand restore" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand revert" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand revert" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand revert" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand revert" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand revert" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand revert" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand revert" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand revert" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand revert" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand revert" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand root" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand root" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand root" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand root" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand root" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand root" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand root" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand root" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand root" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand root" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand run" -s r -l revisions -d 'The revisions to change' -r
+complete -c jj -n "__fish_jj_using_subcommand run" -s j -l jobs -d 'How many processes should run in parallel, uses by default all cores' -r
+complete -c jj -n "__fish_jj_using_subcommand run" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand run" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand run" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand run" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand run" -s x -d 'A no-op option to match the interface of `git rebase -x`'
+complete -c jj -n "__fish_jj_using_subcommand run" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand run" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand run" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand run" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand run" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand run" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand show" -s T -l template -d 'Render a revision using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand show" -l tool -d 'Generate diff by external command' -r
+complete -c jj -n "__fish_jj_using_subcommand show" -l context -d 'Number of lines of context to show' -r
+complete -c jj -n "__fish_jj_using_subcommand show" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand show" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand show" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand show" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand show" -s r -d 'Ignored (but lets you pass `-r` for consistency with other commands)'
+complete -c jj -n "__fish_jj_using_subcommand show" -s s -l summary -d 'For each path, show only whether it was modified, added, or deleted'
+complete -c jj -n "__fish_jj_using_subcommand show" -l stat -d 'Show a histogram of the changes'
+complete -c jj -n "__fish_jj_using_subcommand show" -l types -d 'For each path, show only its type before and after'
+complete -c jj -n "__fish_jj_using_subcommand show" -l name-only -d 'For each path, show only its path'
+complete -c jj -n "__fish_jj_using_subcommand show" -l git -d 'Show a Git-format diff'
+complete -c jj -n "__fish_jj_using_subcommand show" -l color-words -d 'Show a word-level diff with changes indicated only by color'
+complete -c jj -n "__fish_jj_using_subcommand show" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand show" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand show" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand show" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand show" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand show" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -f -a "edit" -d 'Start an editor to update the patterns that are present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -f -a "list" -d 'List the patterns that are currently present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -f -a "reset" -d 'Reset the patterns to include all files in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -f -a "set" -d 'Update the patterns that are present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and not __fish_seen_subcommand_from edit list reset set help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from edit" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from reset" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l add -d 'Patterns to add to the working copy' -r -F
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l remove -d 'Patterns to remove from the working copy' -r -F
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l clear -d 'Include no files in the working copy (combine with --add)'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from help" -f -a "edit" -d 'Start an editor to update the patterns that are present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from help" -f -a "list" -d 'List the patterns that are currently present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from help" -f -a "reset" -d 'Reset the patterns to include all files in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from help" -f -a "set" -d 'Update the patterns that are present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand sparse; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand split" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
+complete -c jj -n "__fish_jj_using_subcommand split" -s r -l revision -d 'The revision to split' -r
+complete -c jj -n "__fish_jj_using_subcommand split" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand split" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand split" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand split" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand split" -s i -l interactive -d 'Interactively choose which parts to split. This is the default if no paths are provided'
+complete -c jj -n "__fish_jj_using_subcommand split" -s p -l parallel -d 'Split the revision into two parallel revisions instead of a parent and child'
+complete -c jj -n "__fish_jj_using_subcommand split" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand split" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand split" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand split" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand split" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand split" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand squash" -s r -l revision -d 'Revision to squash into its parent (default: @)' -r
+complete -c jj -n "__fish_jj_using_subcommand squash" -l from -d 'Revision(s) to squash from (default: @)' -r
+complete -c jj -n "__fish_jj_using_subcommand squash" -l into -l to -d 'Revision to squash into (default: @)' -r
+complete -c jj -n "__fish_jj_using_subcommand squash" -s m -l message -d 'The description to use for squashed revision (don\'t open editor)' -r
+complete -c jj -n "__fish_jj_using_subcommand squash" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
+complete -c jj -n "__fish_jj_using_subcommand squash" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand squash" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand squash" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand squash" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand squash" -s u -l use-destination-message -d 'Use the description of the destination revision and discard the description(s) of the source revision(s)'
+complete -c jj -n "__fish_jj_using_subcommand squash" -s i -l interactive -d 'Interactively choose which parts to squash'
+complete -c jj -n "__fish_jj_using_subcommand squash" -s k -l keep-emptied -d 'The source revision will not be abandoned'
+complete -c jj -n "__fish_jj_using_subcommand squash" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand squash" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand squash" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand squash" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand squash" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand squash" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand status" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand status" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand status" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand status" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand status" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand status" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand status" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand status" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand status" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand status" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand st" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand st" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand st" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand st" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand st" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand st" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand st" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand st" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand st" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand st" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -f -a "list" -d 'List tags'
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -f -a "l" -d 'List tags'
+complete -c jj -n "__fish_jj_using_subcommand tag; and not __fish_seen_subcommand_from list l help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -s T -l template -d 'Render each tag using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -s T -l template -d 'Render each tag using the given template' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from l" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from help" -f -a "list" -d 'List tags'
+complete -c jj -n "__fish_jj_using_subcommand tag; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -f -a "completion" -d 'Print a command-line-completion script'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -f -a "gc" -d 'Run backend-dependent garbage collection'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -f -a "mangen" -d 'Print a ROFF (manpage)'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -f -a "markdown-help" -d 'Print the CLI help for all subcommands in Markdown'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -f -a "config-schema" -d 'Print the JSON schema for the jj TOML config format'
+complete -c jj -n "__fish_jj_using_subcommand util; and not __fish_seen_subcommand_from completion gc mangen markdown-help config-schema help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l bash -d 'Deprecated. Use the SHELL positional argument instead'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l fish -d 'Deprecated. Use the SHELL positional argument instead'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l zsh -d 'Deprecated. Use the SHELL positional argument instead'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from completion" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -l expire -d 'Time threshold' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from gc" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from mangen" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from markdown-help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from config-schema" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from help" -f -a "completion" -d 'Print a command-line-completion script'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from help" -f -a "gc" -d 'Run backend-dependent garbage collection'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from help" -f -a "mangen" -d 'Print a ROFF (manpage)'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from help" -f -a "markdown-help" -d 'Print the CLI help for all subcommands in Markdown'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from help" -f -a "config-schema" -d 'Print the JSON schema for the jj TOML config format'
+complete -c jj -n "__fish_jj_using_subcommand util; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand undo" -l what -d 'What portions of the local state to restore (can be repeated)' -r -f -a "{repo\t'The jj repo state and local bookmarks',remote-tracking\t'The remote-tracking bookmarks. Do not restore these if you\'d like to push after the undo'}"
+complete -c jj -n "__fish_jj_using_subcommand undo" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand undo" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand undo" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand undo" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand undo" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand undo" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand undo" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand undo" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand undo" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand undo" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -s r -l revision -r
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -l tool -d 'Specify diff editor to be used (implies --interactive)' -r
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -s i -l interactive -d 'Interactively choose which parts to unsquash'
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand unsquash" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand untrack" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand untrack" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand untrack" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand untrack" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand untrack" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand untrack" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand untrack" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand untrack" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand untrack" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand untrack" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand version" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand version" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand version" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand version" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand version" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand version" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand version" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand version" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand version" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand version" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -f -a "add" -d 'Add a workspace'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -f -a "forget" -d 'Stop tracking a workspace\'s working-copy commit in the repo'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -f -a "list" -d 'List workspaces'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -f -a "rename" -d 'Renames the current workspace'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -f -a "root" -d 'Show the current workspace root directory'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -f -a "update-stale" -d 'Update a workspace that has become stale'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and not __fish_seen_subcommand_from add forget list rename root update-stale help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l name -d 'A name for the workspace' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -s r -l revision -d 'A list of parent revisions for the working-copy commit of the newly created workspace. You may specify nothing, or any number of parents' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l sparse-patterns -d 'How to handle sparse patterns when creating a new workspace' -r -f -a "{copy\t'Copy all sparse patterns from the current workspace',full\t'Include all files in the new workspace',empty\t'Clear all files from the workspace (it will be empty)'}"
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from add" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from forget" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from rename" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from root" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -s R -l repository -d 'Path to repository to operate on' -r -f -a "(__fish_complete_directories)"
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -l at-operation -l at-op -d 'Operation to load the repo at' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -l color -d 'When to colorize output (always, never, debug, auto)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -l config-toml -d 'Additional configuration options (can be repeated)' -r
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -l ignore-working-copy -d 'Don\'t snapshot the working copy, and don\'t update it'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -l ignore-immutable -d 'Allow rewriting immutable commits'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -l debug -d 'Enable debug logging'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -l quiet -d 'Silence non-primary command output'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -l no-pager -d 'Disable the pager'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from update-stale" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "add" -d 'Add a workspace'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "forget" -d 'Stop tracking a workspace\'s working-copy commit in the repo'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "list" -d 'List workspaces'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "rename" -d 'Renames the current workspace'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "root" -d 'Show the current workspace root directory'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "update-stale" -d 'Update a workspace that has become stale'
+complete -c jj -n "__fish_jj_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "abandon" -d 'Abandon a revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "backout" -d 'Apply the reverse of a revision on top of another revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "bookmark" -d 'Manage bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "branch" -d 'Manage bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "cat" -d 'Print contents of files in a revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "checkout" -d 'Create a new, empty change and edit it in the working copy (DEPRECATED, use `jj new`)'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "chmod" -d 'Sets or removes the executable bit for paths in the repo'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "commit" -d 'Update the description and create a new change on top'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "config" -d 'Manage config options'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "debug" -d 'Low-level commands not intended for users'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "describe" -d 'Update the change description or other metadata'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "diff" -d 'Compare file contents between two revisions'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "diffedit" -d 'Touch up the content changes in a revision with a diff editor'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "duplicate" -d 'Create a new change with the same content as an existing one'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "edit" -d 'Sets the specified revision as the working-copy revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "evolog" -d 'Show how a change has evolved over time'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "file" -d 'File operations'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "files" -d 'List files in a revision (DEPRECATED use `jj file list`)'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "fix" -d 'Update files with formatting fixes or other changes'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "git" -d 'Commands for working with Git remotes and the underlying Git repo'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "init" -d 'Create a new repo in the given directory'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "interdiff" -d 'Compare the changes of two commits'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "log" -d 'Show revision history'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "merge" -d 'Merge work from multiple bookmarks (DEPRECATED, use `jj new`)'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "move" -d 'Move changes from one revision into another (DEPRECATED, use `jj squash`)'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "new" -d 'Create a new, empty change and (by default) edit it in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "next" -d 'Move the working-copy commit to the child revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "operation" -d 'Commands for working with the operation log'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "parallelize" -d 'Parallelize revisions by making them siblings'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "prev" -d 'Change the working copy revision relative to the parent revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "rebase" -d 'Move revisions to different parent(s)'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "resolve" -d 'Resolve a conflicted file with an external merge tool'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "restore" -d 'Restore paths from another revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "revert" -d 'A dummy command that accepts any arguments'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "root" -d 'Show the current workspace root directory'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "run" -d '(**Stub**, does not work yet) Run a command across a set of revisions.'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "show" -d 'Show commit description and changes in a revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "sparse" -d 'Manage which paths from the working-copy commit are present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "split" -d 'Split a revision in two'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "squash" -d 'Move changes from a revision into another revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "status" -d 'Show high-level repo status'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "tag" -d 'Manage tags'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "util" -d 'Infrequently used commands such as for generating shell completions'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "undo" -d 'Undo an operation (shortcut for `jj op undo`)'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "unsquash" -d 'Move changes from a revision\'s parent into the revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "untrack" -d 'Stop tracking specified paths in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "version" -d 'Display version information'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "workspace" -d 'Commands for working with workspaces'
+complete -c jj -n "__fish_jj_using_subcommand help; and not __fish_seen_subcommand_from abandon backout bookmark branch cat checkout chmod commit config debug describe diff diffedit duplicate edit evolog file files fix git init interdiff log merge move new next operation parallelize prev rebase resolve restore revert root run show sparse split squash status tag util undo unsquash untrack version workspace help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from bookmark" -f -a "create" -d 'Create a new bookmark'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from bookmark" -f -a "delete" -d 'Delete an existing bookmark and propagate the deletion to remotes on the next push'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from bookmark" -f -a "forget" -d 'Forget everything about a bookmark, including its local and remote targets'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from bookmark" -f -a "list" -d 'List bookmarks and their targets'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from bookmark" -f -a "move" -d 'Move existing bookmarks to target revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from bookmark" -f -a "rename" -d 'Rename `old` bookmark name to `new` bookmark name'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from bookmark" -f -a "set" -d 'Create or update a bookmark to point to a certain commit'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from bookmark" -f -a "track" -d 'Start tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from bookmark" -f -a "untrack" -d 'Stop tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from branch" -f -a "create" -d 'Create a new bookmark'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from branch" -f -a "delete" -d 'Delete an existing bookmark and propagate the deletion to remotes on the next push'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from branch" -f -a "forget" -d 'Forget everything about a bookmark, including its local and remote targets'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from branch" -f -a "list" -d 'List bookmarks and their targets'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from branch" -f -a "move" -d 'Move existing bookmarks to target revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from branch" -f -a "rename" -d 'Rename `old` bookmark name to `new` bookmark name'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from branch" -f -a "set" -d 'Create or update a bookmark to point to a certain commit'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from branch" -f -a "track" -d 'Start tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from branch" -f -a "untrack" -d 'Stop tracking given remote bookmarks'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "edit" -d 'Start an editor on a jj config file'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "get" -d 'Get the value of a given config option.'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "list" -d 'List variables set in config file, along with their values'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "path" -d 'Print the path to the config file'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "set" -d 'Update config file to set the given option to a given value'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "copy-detection" -d 'Rebuild commit index'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "fileset" -d 'Parse fileset expression'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "index" -d 'Show commit index stats'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "local-working-copy" -d 'Show information about the local working copy state'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "operation" -d 'Show information about an operation and its view'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "reindex" -d 'Rebuild commit index'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "revset" -d 'Evaluate revset to full commit IDs'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "snapshot" -d 'Trigger a snapshot in the op log'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "template" -d 'Parse a template'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "tree" -d 'List the recursive entries of a tree'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "watchman"
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from debug" -f -a "working-copy" -d 'Show information about the working copy state'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from file" -f -a "chmod" -d 'Sets or removes the executable bit for paths in the repo'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from file" -f -a "list" -d 'List files in a revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from file" -f -a "show" -d 'Print contents of files in a revision'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from file" -f -a "track" -d 'Start tracking specified paths in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from file" -f -a "untrack" -d 'Stop tracking specified paths in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from git" -f -a "clone" -d 'Create a new repo backed by a clone of a Git repo'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from git" -f -a "export" -d 'Update the underlying Git repo with changes made in the repo'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from git" -f -a "fetch" -d 'Fetch from a Git remote'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from git" -f -a "import" -d 'Update repo with changes made in the underlying Git repo'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from git" -f -a "init" -d 'Create a new Git backed repo'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from git" -f -a "push" -d 'Push to a Git remote'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from git" -f -a "remote" -d 'Manage Git remotes'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from git" -f -a "submodule" -d 'FOR INTERNAL USE ONLY Interact with git submodules'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from operation" -f -a "abandon" -d 'Abandon operation history'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from operation" -f -a "diff" -d 'Compare changes to the repository between two operations'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from operation" -f -a "log" -d 'Show the operation log'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from operation" -f -a "restore" -d 'Create a new operation that restores the repo to an earlier state'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from operation" -f -a "show" -d 'Show changes to the repository in an operation'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from operation" -f -a "undo" -d 'Create a new operation that undoes an earlier operation'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from sparse" -f -a "edit" -d 'Start an editor to update the patterns that are present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from sparse" -f -a "list" -d 'List the patterns that are currently present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from sparse" -f -a "reset" -d 'Reset the patterns to include all files in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from sparse" -f -a "set" -d 'Update the patterns that are present in the working copy'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from tag" -f -a "list" -d 'List tags'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from util" -f -a "completion" -d 'Print a command-line-completion script'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from util" -f -a "gc" -d 'Run backend-dependent garbage collection'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from util" -f -a "mangen" -d 'Print a ROFF (manpage)'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from util" -f -a "markdown-help" -d 'Print the CLI help for all subcommands in Markdown'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from util" -f -a "config-schema" -d 'Print the JSON schema for the jj TOML config format'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "add" -d 'Add a workspace'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "forget" -d 'Stop tracking a workspace\'s working-copy commit in the repo'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "list" -d 'List workspaces'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "rename" -d 'Renames the current workspace'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "root" -d 'Show the current workspace root directory'
+complete -c jj -n "__fish_jj_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "update-stale" -d 'Update a workspace that has become stale'
