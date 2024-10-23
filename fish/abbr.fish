@@ -54,6 +54,17 @@ abbr -a -g pipi "pip install"
 abbr -a -g python python3
 abbr -a -g pp pythonplay
 
+abbr -a q llm
+abbr -a qs 'llm -s' # system prompt for piping from stdin
+abbr -a qm 'llm -m' # choose model
+abbr -a q4 'llm -m 4o' # Specifically for chat 4o 
+abbr -a qk 'llm -c' # k for kontinue
+abbr -a qc 'llm chat'
+abbr -a qco 'llm chat -m 4o'
+abbr -a qcg 'llm chat -m chatgpt'
+abbr -a qt 'llm -t' # Use a template
+abbr -a qq 'llm cmd' # suggest a command
+
 abbr -a -g rmf "rm -rf"
 abbr -a -g rmr "rm -rf"
 abbr -a -g rr "rusty-rain -c bin"

@@ -1,6 +1,39 @@
+# docs: https://martinvonz.github.io/jj/latest/config/
+
 [user]
 name = "Thor Kamphefner"
 email = "thorck@pm.me"
 
+[signing]
+sign-all = true
+backend = "gpg"
+key = "F787E9AC0EABDBC6C04E989D886BC8B98E6DC66D"
+
 [ui]
+# Make `jj` without arguments show log, like `git log`
 default-command = "log"
+# Use Difftastic by default
+diff.tool = ["difft", "--color=always", "$left", "$right"]
+
+[push]
+# Auto-push branches that track remotes, mimicking git's behavior
+default = "branches"
+
+#
+# TFA experimental
+#
+# [core]
+editor = "hx"  # Use vim as default editor
+# signing-tool = "gpg"  # Use gpg for signing
+
+[git]
+# generated prefix for pushes. "push-" by default.
+push-bookmark-prefix = "tk-"
+push-branch = "main"
+# auto-local-branch = true  # Similar to git's prune = true, cleanup local branches
+# default-branch = "main"  # Set default branch name for new repos
+
+# todo
+# [merge-tools.<name>]
+# # program = "<name>"  # Defaults to the name of the tool if not specified
+# diff-args = ["--color=always", "$left", "$right"]
