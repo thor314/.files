@@ -1,5 +1,6 @@
 # Repository setup
 abbr -a ji 'jj git init --colocate' # Initialize jj in existing git repo, colocating the stores
+abbr -a jbtm 'jj bookmark track main@origin' # track main branch
 
 # Navigation and viewing
 abbr -a jdi 'jj diff'
@@ -15,8 +16,7 @@ abbr -a jnB 'jj new -B'
 abbr -a jnBm 'jj new -B -m'
 
 # Description management
-abbr -a jd 'jj describe'
-abbr -a jdm 'jj describe -m'
+abbr -a jd 'jj describe -m'
 
 # Navigation and editing
 abbr -a jxe 'jj next --edit'
