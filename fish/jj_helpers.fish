@@ -7,7 +7,8 @@ abbr -a jdi 'jj diff'
 abbr -a js 'jj status'
 abbr -a jl 'jj log'
 abbr -a jsh 'jj show'
-abbr -a jf 'jj git fetch'
+abbr -a jf 'jj git fetch ; jj new main' # jj does not switch to latest automatically
+abbr -a jff 'jj git fetch'
 
 # New commits and named bookmarks
 abbr -a jn 'jj new'
