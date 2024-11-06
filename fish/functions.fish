@@ -2,6 +2,24 @@
 
 # Thor's lil functions
 
+# 2024-11-05 experiment: combine all code in repo into a file
+function combine_code
+    # Example: combine_code .rs -> creates combined_code.rs from all children
+    set file_extension $argv[1]
+    set output_file "combined_code$file_extension"
+    echo -n "" >$output_file
+
+    # Find and concatenate files
+    for filename in (fdfind --type file --extension (string trim --chars='.' $file_extension))
+        echo -e "\n# ==== Begin $filename ====\n" >>$output_file
+        cat $filename >>$output_file
+        echo -e "\n# ==== End $filename ====\n" >>$output_file
+    end
+
+    echo "All files have been combined into $output_file"
+end
+
+
 function tk-copyline -d "copy line to clipboard"
     argparse q/quiet -- $argv
     argparse --min-args=1 -- $argv || return 1
