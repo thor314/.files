@@ -16,25 +16,30 @@
 " Undo, Redo, and Navigate inside page:
 " Don't overwrite <C-u> or <C-d> for file movement, or <C-o>,<C-i> for back/forward movement within document. 
 " <C-r> is for search-replace. u/U for undo/redo. Also Ctrl-z/Z native app.
-" nmap U :redo
-vmap <C-r> :s/
-nmap <C-r> <C-a>:s/
+nmap U :redo<CR>
+
+" forgot what these were for 2024-11-10 
+" vmap <C-r> :s/
+" nmap <C-r> <C-a>:s/
 
 " for replacing OpenAI style \( \) with latex $ ; last updated 2024-06-06 
 " replace either \( or \) with maybe a trailing/leading space with '$'
-nmap <leader>r :%s/(\\\(\s?|\s?\\\))/$/g
+nmap <leader>r :%s/(\\\(\s?|\s?\\\))/$/g<CR>
+
 " replace either \[ or \] with double dollar sign--triple dollar sign not a typo
-nmap <leader>R :%s/(\\\[\s|\s\\\])/$$$/g
+nmap <leader>R :%s/(\\\[\s|\s\\\])/$$$/g<CR>
+
 " i forget why i wrote these
 " nmap <leader>l :%s/(\\\(|\\\))/$$$/g 
 " nmap <leader>L :%s/(\\\[|\\\])/$$$/g
 
-" Navigate Forward and Back between pages:
 " This mapping repeats a mapping in the in-app hotkeys menu for demonstration; the in-app menu overwrites mappings here.
-exmap back obcommand app:go-back
-nmap <A-,> :back
-exmap forward obcommand app:go-forward
-nmap <A-.> :forward
+" note: this is how to do this if I want to do it from vim, but i have it set in obsidian now so no need to uncomment
+"
+" exmap back obcommand app:go-back
+" nmap <A-,> :back<CR>
+" exmap forward obcommand app:go-forward
+" nmap <A-.> :forward<CR>
 
 " enable select all with C-a
 unmap <C-a>
@@ -45,9 +50,6 @@ map L $
 
 " transpose, shift case
 nmap <C-t> hxp 
-" nmap T ~ 
-
-" nope:
 
 " Example leader mapping, set 'Space' as leader
 " may migrate to this if the Leader-Hotkeys normal-mode bug isn't fixed
@@ -56,8 +58,8 @@ nmap <leader>j 4j
 nmap <leader>k 4k
 nmap <leader>i <C-i>
 nmap <leader>o <C-o>
-nmap <leader>. :forward
-nmap <leader>, :back
+nmap <leader>. :forward<CR>
+nmap <leader>, :back<CR>
 
 """ Settings
 " Yank to system clipboard https://forum.obsidian.md/t/how-to-copy-with-vim-mode/3881
