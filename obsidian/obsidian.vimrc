@@ -30,8 +30,8 @@ nmap <leader>r :%s/(\\\(\s?|\s?\\\))/$/g<CR>
 nmap <leader>R :%s/(\\\[\s|\s\\\])/$$$/g<CR>
 
 " remove all struck through text or a selection of text
-nmap <leader>~ :%s/~~.*~~//g<CR>
-vmap <leader>~ :s/~~.*~~//g<CR>
+" nmap <leader>s :%s/~~.*?~~//g<CR>
+" vmap <leader>s :s/\~\~.*?\~\~//g<CR>
 
 " i forget why i wrote these
 " nmap <leader>l :%s/(\\\(|\\\))/$$$/g 
