@@ -29,6 +29,10 @@ nmap <leader>r :%s/(\\\(\s?|\s?\\\))/$/g<CR>
 " replace either \[ or \] with double dollar sign--triple dollar sign not a typo
 nmap <leader>R :%s/(\\\[\s|\s\\\])/$$$/g<CR>
 
+" remove all struck through text or a selection of text
+nmap <leader>~ :%s/~~.*~~//g<CR>
+vmap <leader>~ :s/~~.*~~//g<CR>
+
 " i forget why i wrote these
 " nmap <leader>l :%s/(\\\(|\\\))/$$$/g 
 " nmap <leader>L :%s/(\\\[|\\\])/$$$/g
