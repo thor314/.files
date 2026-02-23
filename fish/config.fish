@@ -86,3 +86,6 @@ set --export PATH $PATH $BUN_INSTALL/bin
 
 # zoxide
 zoxide init fish | source
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/thor/Documents/google-cloud-sdk/path.fish.inc' ]; . '/home/thor/Documents/google-cloud-sdk/path.fish.inc'; end
