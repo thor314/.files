@@ -1,0 +1,13 @@
+# controls app usage
+# ~/.config/systemd/user/focus-guard.service
+[Unit]
+Description=Focus Guard app blocker
+
+[Service]
+ExecStart=/home/thor/.cron/focus-guard.fish
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+
