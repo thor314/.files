@@ -79,6 +79,8 @@ abbr -a -g sf 'surfraw -browser=firefox' # cli for internet search
 abbr -a -g ssh-home 'ssh thor@73.15.100.105'
 abbr -a -g ssh-pi 'ssh thor@192.168.1.191'
 # abbr -a -g sc "maim -s | xclip -selection clipboard -target image/png"
+abbr -a -g suf "systemctl start --user focus-guard"
+abbr -a -g sdf "systemctl stop --user focus-guard"
 
 abbr -a -g top btm # kinky
 abbr -a -g thes moby # thesaurus
